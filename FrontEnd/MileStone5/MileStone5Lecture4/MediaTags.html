@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn about Media Tags</title>
+  </head>
+
+  <body>
+    <div>
+      <!-- if we want to add the audio file on the webpage
+    1 = for that we can use the (audio) tag -->
+      <!-- if we only want to add single  audio file on the webpage -->
+      <!-- we also have to use the (cantrol) attribute for define the audio-files control on the webpage -->
+      <!-- 2 = we also have to define the files type using (type) attribute -->
+      <audio src="Media\file_example_MP3_5MG.mp3" type="audio/mp3" cantrols>
+        play-audio
+      </audio>
+
+      <!-- if we want to add more then one audio on the webpage
+    1 = for that we can use the (source)tag under the (audio)tag for adding the more audio files on the webpage
+    2 = we also have to define the files type using (type) attribute -->
+      <audio cantrols>
+        <source src="pyar.mp3" type="audio/mp3" />
+        <source src="Media\file_example_MP3_5MG.ogg" type="audio/ogg" />
+
+      </audio>
+    </div>
+
+    <!-- here we are adding the videos on the webpage  -->
+    <div>
+      <!-- for adding video on the webpage we use the(video)tag -->
+      <!-- if we only want to add the single video on the webpage -->
+      <!-- we also have to use the (cantrol) attribute for define the video-files control on the webpage -->
+      <!-- 2 = we also have to define the files type using (type) attribute -->
+      <video src="Downloads/Rallye - 1295" type="video/mp3" cantrols></video>
+
+      <!-- if we want to add the more than one video on the webpage -->
+      <!-- for that we have to use the (source) tag under the (video)tag -->
+      <!-- we can also cantrol the (height) and (width) of the videos: using(height) and (width) attributes -->
+      <video height="" width="" cantrols>
+        <source src="Downloads/Rallye - 1295" type="video/mp3" />
+        <source src="Downloads/Rallye - 1295" type="video/mp3" />
+        <!-- we can aslo gave the message: if the video is not workable: 
+          this text will only displayed when video is not working  -->
+        browser does not support video format.
+      </video>
+    </div>
+
+    <!-- here we use (figure) tag for adding (images) or (figures) on the webpage -->
+    <div>
+      <figure>
+        <img
+          src="https://ninjasfiles.s3.amazonaws.com/0000000000001393.jpg"
+          height="100"
+          width="200"
+        />
+        <!-- we can also add the caption to the figure using (figure caption) tag -->
+        <figcaption>logo image</figcaption>
+      </figure>
+    </div>
+
+    <!-- if we want to add any social site video or any other's webpage video  on your own webpage
+    1 = for example like: any youtube video -->
+    <!-- we can do that using (iframe) tag -->
+    <div>
+      <iframe width="250" height="200" src="https://www.youtube.com/embed/Kufu1Ur7kbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </body>
+</html>

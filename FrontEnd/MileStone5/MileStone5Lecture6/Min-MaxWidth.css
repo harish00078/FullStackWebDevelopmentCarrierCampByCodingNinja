@@ -1,0 +1,24 @@
+/* here we learn about (min/max width) property of Css 
+1 = using this property we can set the minimum and maximum width of our content for the webpage 
+2 = like when we are minimizing or maximizing our webpage: we can decide that how much (mini/max) width our content should have */
+
+
+#div1{
+    height:100px;
+    width: 100px;
+    min-width:150px;
+    max-width: 250px;
+    background-color:cyan;
+    border: 3px solid blue;
+    /* if we are fixing the width of the box through(Min/max) property of Css: 
+    1 = then we also have to take care of the content that we are writing under that box
+    2 = because if the content have a bigger pixel density then the box pixel density: then the content get (over-flow) from the box: 
+    3 = for handling these kind of exceptions we are using the (overflow) property of the css   */
+    /* under the (overlflow) property we have different values:
+    1 = like we can handle the overflow through:
+    a => scroll
+    b => hidden 
+    c => auto*/
+    overflow: scroll;
+
+}

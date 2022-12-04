@@ -1,0 +1,7 @@
+#container{
+    width: 50px;
+    height: auto;
+    border: 2px solid black;
+    /* here we are using the (overflow-wrap) property of css.if our content getting out of the container that we have created. */
+    overflow-wrap: break-word ;
+}

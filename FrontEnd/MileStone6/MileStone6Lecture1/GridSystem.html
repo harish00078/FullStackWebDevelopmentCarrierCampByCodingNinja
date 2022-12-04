@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Learn About BootStrap Grid System</title>
+
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!-- here we are creating a (grid) under the bootstrap.because under bootstrap we use (flexBox - grid) system to create elements on the webpage:
+    1 = under the grid system we have three things:
+    a => first we have container.
+    b => then we have rows.
+    c => under the rows we have columns with in it. we can say that (elements) with in it.-->
+
+  <!-- here we have cantianer. -->
+  <!-- 1 => so by default bootstrap container is build for the mobilefirst method. that's why its element or column did not contains the full width of the bigger display and that's  the one off the breakpoint of the bootstrap.
+    
+    2 => so if we want that container should use its full width.for that we can use the bootstrap's inbuild class named as ( fluid)-->
+  <div class="container-fluid">
+
+    <!--  under container here we have  rows-->
+    <!-- here we also gave the color to the (row).so we can see the  (columns) when we use the particular number of columns   -->
+
+    <div class="row" style="background-color: purple;">
+
+
+
+      <!-- so by default.here In Bootstrap we  write a code for (xs = Extra small) breakpoint.and this the code that will also work for all the other (five) left breakpoints also.
+      1 => we only have to do some few (syntax) changes in the code.or we can say apply some changes in the code.
+      2 = like if we want to use this container in the (sm -  small) breakpoint. for that we only have to write this (col-sm-4). so this will only use the (4-columns) when we have (small) breakpoint.or we can say greater than  (576px) dimensions of the display.-->
+
+
+      <!-- under rows we have (columns) with in it. or we can say (elements) with in it. -->
+      <!-- IMP = In BootStrap by default container have (12-columns) in it. and aslo have inbuld codes in it. that why it is known as framework.-->
+      <!-- if we want to use the particular number of (columns).for that we to write the class Syntax like this (col-4) -->
+
+      <div class="col-6 col-sm-4" style="background-color:darkblue; height:60px;"></div>
+
+      <!-- under the one (row)  we can also add the multiple (elements).  -->
+
+      <div class="col-6 col-sm-4" style="background-color:cyan; height:60px;"></div>
+
+    </div>
+
+    <!-- we can also add the (multiple) rows under the one container. -->
+    <!-- <div class="row" style="background-color: purple;">
+
+
+      <div class="col-4" style="background-color:darkblue; height:60px;"></div>
+
+      <div class="col-4" style="background-color:cyan; height:60px;"></div>
+    
+    </div> -->
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+html{
+    font-size: 30px;
+}
+
+#outer-div{
+    border: 2px solid black;
+    /* here we set the outer (div) as parent element: 
+    and its position value is (relative): we do it because of the(absolute) or (sticky)  position value: */
+    position: relative;
+}
+
+#div1{
+    height: 200px;
+    width: 200px;
+    background-color: #393a7b;
+}
+#div2{
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+
+    /* 1:  */
+    /* (static position) property of css: its is used as default position property in Css   */
+
+    /* 2:  */
+    /* here we are using the (relative position) property of the Css */
+    /* position: relative; */
+
+    /* 3:  */
+    /* here we are using the (absolute position) property of Css:
+    1 = here we can  cleary see in the webpage that absolute position property is work acc to its parent element's (relative property)
+    2 = that why it is know as absolute property: because it works absolutly same as its parent element's relative position  */
+    /* position: absolute; */
+
+    /* 4:  */
+    /* here we are using the (fixed position) property of Css:display: 
+    1 = if we use the fixed position on any element it will fixed that element on window at its current its position: like it will not move with other elements if we scroll down on the webpage window  */
+    /* position: fixed; */
+
+    /* 5:  */
+    /* here we  are using the (sticky position) property of css 
+    1 = sticky position is toggles between relative and fixed position: depending on the scroll position*/
+    position: sticky;
+
+
+    /* and here we gave him a position value */
+    top: 20px;
+    left: 20px;
+} 
+
+
+#div3{
+    height: 200px;
+    width: 200px;
+    background-color: maroon;
+}

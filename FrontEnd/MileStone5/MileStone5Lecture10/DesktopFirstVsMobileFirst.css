@@ -1,0 +1,60 @@
+/* #div1 {
+    width: 60%;
+    border: 2px dotted cyan;
+} */
+
+
+
+/* here we are using the (media-query) method for adjusting the view of the webpage. */
+
+/* 1 => here we are creating a  media Queries related or under  the (Desktop-First) method or view. 
+   IMP => when we are creating a  webpage  with (desktop-first) view in the  mind.then for all the other devices we have to adjust our webpage view in the decrement method.*/
+
+/* 
+     [IMP] => we also have to write the media queries in the sequnces form. 
+     => like. bigger values should be came before the smaller values.that's why we put (900px) media query valuue before the (600px).
+     => we can also set the multiple media queries for the particular (media-type) */
+/* @media screen and (max-width: 900px) {
+    #div1 {
+        width: 90%;
+    }
+} */
+
+/* [1]
+     =>  we gave the maximum width to the (screen) is (600px).
+     => when our screen reach the (600px) density.then we have to use the (100%) width of the screen .
+     => And if  we try to go lessthen (600px) width of the screen  it will try to break our content. */
+
+/* @media screen and (max-width: 600px) {
+    #div1 {
+        width: 100%;
+    }
+} */
+
+
+/* 2 => here we are creating a  media Queries related or under  the (Mobile-First) method or view. 
+  IMP => but when we are creating a  webpage with (mobile-first) view.then for all the other devices we have to decrement our webpage view.*/
+#div1 {
+    /* here we use the 100% width.because we are building our webpage acc to the (mobile-first) view. */
+    width: 100%;
+    border: 2px dotted cyan;
+   
+}
+
+/* for all the other devices. we decrement the width of the (view).
+acc to or using the pixel density. because we did not directly use the (100%) width on the bigger screens. */
+@media screen and (min-width: 600px) {
+    #div1{
+        width: 80%;
+
+    }
+    
+}
+
+@media screen and (min-width: 900px) {
+    #div1{
+        width: 60%;
+
+    }
+    
+}

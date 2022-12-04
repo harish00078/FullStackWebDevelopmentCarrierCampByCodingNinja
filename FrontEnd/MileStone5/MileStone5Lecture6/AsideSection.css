@@ -1,0 +1,49 @@
+/* here we appply some Css properties on the (aside) seciton of the blog page: acc to our blog page */
+/* 1 = here we gave border to  the aside section of the blog page */
+.widget{
+    border-top: 4px solid black;
+}
+
+/* 2 = here we gave some style to our forms input section: acc to our blog page */
+.widget input{
+
+    display: block;
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+    padding: 4px;
+    color: black;
+    font-size: 1.2rem;
+}
+
+/* 3 = here we gave some design to the (aside) section's form (button) */
+/* using (type) property we can target the one particular type of buttons */
+button[type="submit"]{
+
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+/* 5 = here we are working on the Title of the Aside section of the blog page */
+.widget-title{
+    font-size: 1.5rem;
+}
+
+/* after styling (aside)section; we have to put it in the side of the (main) blog content  */
+/* 1 = for that first we have to set the width of the (main) content of the blog page: so we can put the (aside) section infront of it */
+main{
+    width: 70%;
+    /* after that we have set to the main content in the form of (inline-block) element: so we can add another content infornt of it */
+    display: inline-block;
+}
+
+/* after doing that know we also have to set the (display) criteria to the (aside) section of the webpage */
+aside{
+    display: inline-block;
+    width: 21%;
+    /* after that we also have to define its alignment on the page: for that we can use the (vertical-align) property because we wan to set it on the top of the webpage */
+    vertical-align: top;
+    margin-left: 4%;
+    margin-top: 3%;
+}

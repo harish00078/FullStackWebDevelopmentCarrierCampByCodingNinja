@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- here we gave title for our web page on the browser-->
+  <title>Five Tips For Front-End Development</title>
+  <!-- for commenting thing on the html:
+    -> we have to use the (ctrl + /): 
+    -> here we did not direclty do the double forword slash (//) that we do on the programming languages like(java) -->
+</head>
+
+<body>
+
+  <!-- here i also want to create a one more interLink that will connect:
+  top section of the webpage to the last any of the section
+  this will help user to easily navigate on the webpage
+  we can create multiple interlinks that will help user to easily go on the any section of the webpage  -->
+  <!-- for create this type  interlink we should have a url refrence of the comment section:
+  1 = for getting that url refrence  ID we can use the (ID) attribute of the section tag  -->
+  <!-- 2 = while writing the refrence Id at url we also have to use the(#) for defining it at internal link -->
+  <h2>
+  <a href="#Comment-section">Go TO comment</a>
+  </h2>
+  <!-- here we can also use the semantic tags for better understanding of webpage content-->
+  <!-- here we can use the (Nav) semantic tag:
+    because here we are using the webpage navigations related things -->
+  <nav>
+    <!-- under Blog content -->
+    <!-- webpage logo Image -->
+    <!-- here we comvert this image into the hyperlink using (Anchor)tag -->
+    <a href="https://www.codingninjas.com/" target="_blank">
+      <img src="https://ninjasfiles.s3.amazonaws.com/0000000000001394.png">
+    </a>
+
+
+    <!-- 1= Blog heading -->
+    <h3>
+      <a href="https://blog.codingninjas.in" target="_blank">Blog.CodingNinjas.in</a>
+    </h3>
+    <!--  2= Blog image -->
+    <img src="https://ninjasfiles.s3.amazonaws.com/0000000000001395.png">
+  </nav>
+
+  <!-- here we can use the (header) semantic tag -->
+  <header>
+    <h1>Five tips for Front-End Development</h1>
+    <!-- here we are adding the content image -->
+    <!-- use image tag: with source attribute we can use the image at the our webpage -->
+    <!-- other attributes that we are use in the image tag:
+    1 = alt (alternative text) 
+    2 = height (In height we can gave the hieght  pixel criteria to the image)
+    3 = width (In width we can gave the width pixel criteria to the image) -->
+    <!-- we can also set the height and width criteria in form of (%) -->
+    <img src="D:\static" height="200" width="200" alt="five tips" />
+    <img src="https://ninjasfiles.s3.amazonaws.com/0000000000001393.jpg" height="100%" width="50%" alt="five tips" />
+  </header>
+
+  <!-- here we can use the (main) semantic tag -->
+  <main>
+    <!-- 3 = content -->
+    <!-- under-content = paragraph1 -->
+    <p>
+      <!-- for giving space between the two words we have to use the (&nbsp = no break space) -->
+      Don’t &nbsp you just love exploring beautiful and neat sites with a clean
+      user interface? While most of us would reply with an assertive ‘YES,’
+      little, do we know the kind of effort and skill that goes into making a
+      website attractive and user-friendly. The secret to creating an impressive
+      site is to master the art of front-end development, and no, it is not as
+      easy as it seems!
+    </p>
+    <p>
+      However, it is not impossible either. Here are five tips that’ll help you
+      get better in front-end design and web development.
+    </p>
+
+    <!-- after leaning about (lists) we have to use that lists tag for creating our html page -->
+    <!-- acc to our web page we have orderedlist 
+    1= under that ordered list we have heading for our particular paragraph
+    2 = and after that we have paragraph related our heading -->
+    <ol>
+      <li>
+        <!-- here we create heading for the particular parargraph -->
+        <h3>commenting</h3>
+        <!-- and here we write that paragraph -->
+        <p>
+          Commenting is one such practice that is often ignored by programmers,
+          especially for codes that are written by multiple programmers.
+          However, comments reduce the cost of knowledge transfer. Name of the
+          module, purpose of the module, description of the module, original
+          author, modifications and authors who modified code with a description
+          on why it was modified were components of an early commenting
+          practice.
+        </p>
+      </li>
+
+      <li>
+        <h4>GOOD NAMING CONVENTIONS</h4>
+        <p>
+          Using good naming conventions is the next step to good coding. Often
+          developers use Y1 or X1 as variables, and then do not replace them
+          with meaningful names. To prevent this confusion and utter waste of
+          time, descriptive names should be used.
+        </p>
+      </li>
+
+      <li>
+        <h4>SIMPLICITY AND COMPACTNESS</h4>
+        <p>
+          The key to a good code is also simplicity. To achieve a certain
+          result, developers may use complex logic but this should be minimised
+          while writing a good code. The next developer who uses the code may
+          use it for a different purpose and may not even completely understand
+          or utilise the complex logic. Simple code does not always depend on
+          the length of the code. The code must also be conceptually simple. An
+          added advantage is if the code is also suitably compact. More code can
+          be viewed on a page and programmer keystrokes can be reduced.
+        </p>
+      </li>
+
+      <li>
+        <h4>PORTABILITY</h4>
+        <p>
+          Another feature of a good code is portability. If the code contains
+          values referring to âabsolute parametersâ such as file names, URLs or
+          IP addresses, it will not run on a host that is of a different design.
+          A good programmer will parametrize these variables and configure them
+          so the application can also be run and maintained in a different
+          environment.
+        </p>
+      </li>
+
+      <li>
+        <h4>TESTING</h4>
+        <p>
+          Testing is also a necessary part in the process of coding. Test cases
+          must be planned while the code is being written, and they are
+          developed while an application is coded.
+        </p>
+      </li>
+
+      <li>
+        <h4>DEBUGGING THE CODE</h4>
+        <p>
+          While writing a code, it is necessary to check for errors throughout.
+          Though it is fine for smaller programs to be debugged after they have
+          been written, this becomes a bottleneck for longer programmes. The
+          best practice, therefore, is to debug each module as soon as it has
+          been created.
+        </p>
+      </li>
+
+      <!-- here we are using the nestedList = means A list under the another list -->
+      <li>
+        <h3>always Be Curious</h3>
+        <p>
+          A Front-End developer has to keep himself updated continously with the
+          latest news and innovatations in the field.
+        </p>
+        <!-- here create Nestedlist;
+      1 = Means under the orderedlist we created the unordered List-->
+        <ul>
+          <li>
+            <a href="https://frontendfoc.us/" target="_blank">FrontEnd Focus</a>
+          </li>
+          <li>
+            <a href="https://css-weekly.com/" target="_blank">CSS weekly</a>
+          </li>
+          <li>
+            <a href="https://www.javascript.com/" target="_blank">JavaScript</a>
+          </li>
+          <li>
+            <a href="https://web-design-weekly.com/" target="_blank">web Design weekly</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <h4>DEPLOYMENT</h4>
+        <p>
+          Once the code has been written, it has to be deployed. The
+          installation files should be kept to a minimum and updated regularly.
+          Unused code or anything that is not necessary should not be installed.
+        </p>
+      </li>
+
+      <p>
+        The best practices for coding are, most of all, designed to reduce risk
+        whenever there are chances of it. For a beginner, a few of these will
+        not be completely applicable. But as a hard-boiled programmer writing
+        numerous codes, all these guidelines will come in handy. Since codes can
+        run up to millions of lines at times, outdated advice like âkeep it
+        simpleâ or âless is moreâ is priceless and should always be remembered.
+      </p>
+    </ol>
+
+    <!-- here we use section tag:
+    1 = under the section tag we are writing our content:
+    2 = for example here we create last content of our page
+    3 = named it as comment were user put there comments related this webpage-->
+    <!-- In section tags we can also generate the specail (Id)
+    1= that will connect this section with other section of the webpage
+    2= we can also use that (Id) as the Interlink Link reference -->
+    <section id="Comment-section">
+      <h3>Comments</h3>
+
+      <div>
+        <h4>name</h4>
+        <p>comments</p>
+      </div>
+      <div>
+        <h4>name</h4>
+        <p>comments</p>
+      </div>
+      <div>
+        <h4>name</h4>
+        <p>comments</p>
+      </div>
+    </section>
+    <!-- internal links
+    Internal links are hyperlinks that direct the readers to a target page on your website. Internal link is a link
+    from one page to another page on the same domain.
+    Example are website navigation. -->
+    <!-- after that i want to create here a (internal) link for the users convenience
+    1 = that will help user to easily traverse through the webpage:
+    2 = here i create the interlink for (go to the top of the web page)  -->
+    <h3>
+    <a href="#">Back to top</a> 
+    </h3>
+    <!-- here (#) is a refrence value for traversing from end to top of the webpage -->
+  </main>
+</body>
+
+</html>

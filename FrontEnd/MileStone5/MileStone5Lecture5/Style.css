@@ -1,0 +1,73 @@
+/* here we are creating the external (Css) style file for a particular webpage */
+/* while creating External Css style file: we also have to connect this file with the Html file */
+
+p {
+  color: green;
+  font-size: 20px;
+  font-family: cursive;
+}
+ 
+h1 {
+  font-size: 40px;
+} 
+
+/* if want to convert the text into upper case through the Css:
+1 = for that we have to use the Css property named as (text-transform) */
+/* here we are try to convert the headings of our  first content */
+
+/* if we try to convert headings of the first content through the (any) tag then it will not only change the first content headind:it will change the heading all over the webpage content were we use that kind of tag  */
+/* h4 {
+  text-transform: uppercase;
+} */
+
+/* that why: if we want to transform any thing on the webpage through the Css: 
+1 = so we have to use the Css (class) property:
+2 = because it will only transform the content of webpage were we use this class on the html file*/
+/* using (.) and after that (.) giving him a (name) we can simply create the class in the Css   */
+/* .case {
+  text-transform: uppercase;
+} */
+
+/* create another class in the Css: for if we want to gave style to any off the letters or text of the webpage*/
+/* .styleText {
+  font-family: cursive;
+} */
+
+/* here we are styling the particular content of the html file using its unique (id) in the Css file */
+/* for styling a unique Id in the Css file we have to use the (#) with unique Id */
+/* #blog-discription {
+  color: #314831;
+} */
+
+/* IF WE want to gave a comman rule to the different content element of the webpage:
+1 = for that we can use the grouping method:like we can group the content elements that we want to modify through Css and then we gave them a Css rule
+2 = we can als grouping the classes and ID's aslo:
+ */
+h1,p{
+  font-family: sans-serif;
+}
+
+/* we can also appply the stytle of Css on the list under the list:means nested list
+1 = like under the list we have so much heading tags and we want to style them through the Css: for that we can use the nested list system:
+2 = we can simply gave the tittle list and aslo gave the list  tag that we want to modify 
+=> drawback = but this method have one drawback:like it can change all the list element's h4 heading.either it present on the first list or on the second list
+=> we can also nested the ID's and classes*/
+
+li h4{
+  font-family: cursive;
+  text-transform: uppercase;
+}
+
+/* here we use the nested method through the ID's:we also have to define the element that we want to style*/
+#site-desc  p{
+  color:orange;
+}
+
+
+/* here we create the hover function for some element of the content:
+using the ID attribute */
+#use-hover:hover{
+  color: palegreen;
+}
+
+

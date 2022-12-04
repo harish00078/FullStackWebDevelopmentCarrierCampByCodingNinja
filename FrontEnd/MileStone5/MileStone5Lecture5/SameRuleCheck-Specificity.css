@@ -1,0 +1,18 @@
+/* this is (type) selector */
+p{
+    color:blue;
+}
+/* this is (class) selector */
+.color-red{
+    color:red;
+}
+
+/* this is (ID) selctor */
+#para-id{
+    color: purple;
+}
+/* here we can clearly see that:if we have two classes with same name or same  rule but with different value::
+(Imp) = then the last value will get the prefrence */
+.color-red{
+    color:greenyellow;
+}

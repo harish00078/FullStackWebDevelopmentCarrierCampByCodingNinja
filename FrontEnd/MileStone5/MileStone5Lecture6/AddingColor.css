@@ -1,0 +1,79 @@
+/* In these Html or Css files we learn about three topics:
+1 = Adding colors
+2 = Css Units
+3 = Add borders8 */
+
+
+
+
+/* this is our parent element */
+
+#Div1{
+    height:4rem;
+    /* 2 = Write In the way of (viewPort Height) */
+    /* 75vh; */
+
+    /* 1 = write in the way of the pixels */
+     /* 200px; */
+
+    width:6rem;
+    /* 2 = write in the way of (viewPort width) */
+    /* width:300vw; */
+
+    /* 1 = write in the way of pixels */
+    /* 300px; */
+    /* we can direclty define the colors with:
+    1 = there names:
+    2 = there hexadecimal-code:
+    3 = there RGB configrations: */
+    background-color:darkblue;
+
+
+    /* here we learn that how we can add (borders) to the elements  */
+    /* 1 = first we have to define its (width) 
+    A = we can also define the width of the border in (2px 4px) way
+    meaning of (2px = (top,bottam)) and (4px = (left,right))
+    B = if we define the width with three values then (first value represent top border) and (second value represent (left,right) border) or (third value represent bottom border)
+    
+    c = if we define the width of the border with four values then:
+    => first value represents (top) border
+    => second value represents (right) border
+    => third value represent (bottom) border
+    => fourth value represent (left) border*/
+    
+    /* border-width: 2px 4px 6px 8px;*/
+    /* 2 = second we have to define the (style) of the border  */
+    /* border-style: solid; */
+    /* 3 = third we have to define the (color) of the border */
+    /* border-color: red; */
+
+    /* we can also define the border for an element in the one line */
+    border: 4px solid red;
+    /* we can also shape the (edges) of the border 
+    like we can convert them into the (circle) form:for that we have to use the (border-radius) property */
+    border-radius: 6 px;
+
+
+}
+/* and this is child element of our parent element */
+/* we can adjust its Css properties acc to the properties of our parent element  
+1 = we can adjust its properties in the percentage way acc to our parent class */
+#Div2{
+    height:50%;
+    width: 50%;
+    background-color: cyan;
+}
+
+/* here we set the borders for the (paragraph) */
+#sample{
+    /* border: 2px solid darkblue; */
+    /* we can also border the particular area of the paragraph or text through various ways:
+    => we can also use the (border_width) property
+    => like we only  want to border the left area of the Text 
+    => for that we can use the (border-left) property dirstly*/
+    border-left: 4px solid darkblue;
+    border-top: 4px solid rgb(127, 94, 211);
+
+
+
+}

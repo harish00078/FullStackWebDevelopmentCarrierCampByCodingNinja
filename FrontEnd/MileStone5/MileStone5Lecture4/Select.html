@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select TextArea Buttons</title>
+</head>
+<body>
+    <!-- here we are try to create drop-down list -->
+    <form>
+
+        <p> Months </p>
+        <!-- for creating a drop-down list we are using a (select)tag -->
+        <!-- if we want to select the multiple options for that we can use the (multiple) attributes:
+        1 = use (ctrl) for selecting multiple values on the browser-->
+        <select name="month-selection" multiple>
+            <!-- under the selection tag we are using the (option)tag for creating a options for the drop-down list -->
+            <option> jan </option>
+            <!-- if we want that one of the option should we selected by default: for that we can use the(selected) attribute -->
+            <option selected> feb </option>
+            <option> mar </option>
+            <option> Apr </option>
+        </select>
+
+        
+            <!-- if we want to get the  multiple lines input from the user : for that we can use the (textarea)tag
+            1 = like we want to get the (experience) of the user related to our webpage -->
+            <!-- we can also define the structure of this textarea acc to our prefrences
+            1 = we can define its (rows)
+            2 = we can define its (columns) -->
+            <p> share you experience of webpage</p>
+            <textarea name="experience" rows="10" cols="30"></textarea><br>
+
+            <!-- here we are try to create different buttons -->
+            <input type="button" value="button-1">
+            <!-- there are also have a other way of creating a buttons using(button)tag -->
+            <button type="button">Button-2</button>
+            <!-- the other use of the (button) tag is that we can use (img) as a button  -->
+            <button type="button"><img src="https://ninjasfiles.s3.amazonaws.com/0000000000001393.jpg" height="50" width="80"></button>
+    </form>
+</body>
+</html>

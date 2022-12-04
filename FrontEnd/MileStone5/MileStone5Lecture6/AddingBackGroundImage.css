@@ -1,0 +1,33 @@
+#logo-img-container{
+    /* use vh or vw: we connect with the full webpage */
+    height: 100vh;
+    width: 100vw;
+
+    /* after that we can add background image to the webpage: 
+    using (background-image) property of css */
+    /* background-image: url("https://ninjasfiles.s3.amazonaws.com/0000000000001394.png"); */
+    background-image: url("https://images.unsplash.com/photo-1668283764349-86c3f955d40a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60");
+
+    /* we can also stop particular image to repeat itself for covering  the full  background of the webpage: 
+    => for that we can use  (background-repeat) property of css: 
+    => we can also set it to repeat
+    => we can also set it to repeat only on the (x-axis) or (y-axis) way */
+    background-repeat: no-repeat;
+
+    /* we can also set the position of the background: through 
+    (background-position) property of the Css */
+    /* background-position: center; */
+
+    /*we can also set the size of the background:through (background-size) property of the Css  */
+    background-size: contain;
+    /* background-size: cover; */
+    /* background-size:auto; */
+    /* background-size: 200px, 300px; */
+
+    /* we can also gave attachment to the background:like (Scroll) through (backgound-attachment) property of Css */
+    background-attachment: scroll;
+    /* background-attachment:fixed; */
+
+
+
+}

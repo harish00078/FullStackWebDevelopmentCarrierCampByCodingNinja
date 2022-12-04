@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<body>
+    <!-- for creating a form we have to use the (form)tag or element -->
+    <form>
+        <!-- for create a form we have to get the input from the user:
+        for getting the input from the user we are using the (input)tag-->
+
+        <!-- and input tag does not have a closing tag in it -->
+        <!-- here we use  first input tag for getting (Username)
+        1= and we also have to define the type of the input tag
+        2= for username its type should we ("text")-->
+        <!-- input tag are the inline tag so we have to convert them into the block elements using the (div) tag  -->
+        <div>
+            <!-- we also have to gave the tittles to these input section
+            1 = for that we can use the (label)tag
+            2 = and we also have to specify that which label is for which input:
+            3 = for that we can  use the label tag's (for)attribute 
+            4 = for creating a connection between the label and input we have to generate the (id) in the input tag that we can use in the (for)attribute
+            5 = for generating id in the input tag we can use the (id) attribute -->
+
+            <!-- if we want that our input values should go to the server for that we also have to define our each input element with name using a (name) attribute -->
+            <!-- if we want that fill up on these two values are compulsary for before clicking on the submit button:
+            1 = we can use the (required) attribute -->
+            <label for="user-name"> Email </label><br>
+            <!-- if we want to gave a idea to the user that which kind of value you have to put: 
+            1 = for that we can gave him a some example of input
+            so that he can understand that which kind of value had to enter in the particular input section
+            2 = for that we can use the (placeholder) attribute-->
+            <input type="email" name="email" id="user-name" required placeholder="abc@example.com">
+
+            <!-- we can also use the (simple-Text)type in the input -->
+            <!-- <input type="text" id="user-name" required> -->
+
+            <!-- we can also use the (number)type in the input -->
+            <!-- <input type="number" id="user-name" required> -->
+
+            <!-- we can also use the (time)type in the input -->
+            <!-- <input type="time" id="user-name" required> -->
+
+            <!-- we can also use the (Email)type in the input -->
+            <!-- <input type="email" id="user-name" required> -->
+
+            <!-- we can also use the (Url)type in the input -->
+            <!-- <input type="url" id="user-name" required> -->
+
+            <!-- we can also use the (range)type in the input
+            1 = we can also gave the (min) to (max) criteria using(range) input type: 
+            2 = we can also gave the (step) jump criteria while we are  ranging a input using a (range) input type:   -->
+
+            <!-- <input type="range" id="user-name" required min="10" max="50" step="10"> -->
+
+
+            <!-- for country type input its type should also be in the form of(country)-->
+
+            <!-- we can aslo gave the default value to the user as a input so he can understand that what kind of value he had to put in that particular input section
+            1 = for that we can use the (value) attribute -->
+
+            <!-- if we want that any of the value in the particular input section remain same:means that value is not changable by user:
+            for we can use the (disabled) attribute -->
+            <div>
+                <label for="country"> country </label><br>
+                <input type="country" name="country" disabled value="india" id="country" required >
+            </div>
+
+
+        </div>
+        <!-- for password its type should also in the form of (password) because we want that insead of user no one will able to see the password of the user-->
+        <div>
+            <label for="pass-word"> password </label><br>
+            <input type="password" name="password" id="pass-word " required>
+        </div>
+        <!-- and for submit it has type of (submit) -->
+        <div>
+            <input type="submit">
+        </div>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+#Sample{
+    /* here we gave font-size to our text */
+    font-size: 30px;
+
+    /* here we gave color to our text */
+    color:blue;
+
+    /* here are defining the look or weight of our text:
+    => we can also define the look or weight of our text through (numbers): 
+    => the number lies between the (100 to 900) */
+    /* font-weight: bold ; */
+    font-weight:500;
+
+    /* we can also (align) our text: using (text-align) property of Css */
+    text-align:justify ;
+
+    /* we can also define the height or space between the two lines: through (line-height) property of Css */
+    line-height: 40px;
+
+    /* we can also transform our text: through (text-transform) property of Css */
+    text-transform: uppercase ;
+
+    /* we can also decorate our text: through(text-decoration) property of Css */
+    text-decoration:underline;
+    
+
+
+}

@@ -1,0 +1,17 @@
+/* here we can see that we are changing the bootstrap class value.Under the css file. */
+.border {
+
+    margin: 4px;
+
+}
+
+/* here we are changing  the value of other bootstrap border class.
+ 1 =>  but here we have to write (important) in it.for override the default of bootstrap.because in each classes bootstrap mostly  use a (important) property.
+ 
+ 2 => so if any class of bootstrap did not change its value by default. for that we also have to write the (important) property  in our value.for override the default value of the bootstrap classes.*/
+
+
+.border-primary {
+    border-width: 4px !important;
+
+}

@@ -1,0 +1,10 @@
+#div1{
+    margin: 4px;
+    height: 200px;
+    width: 200px;
+    background-color: cyan;
+    border: 2px solid blue;
+    padding: 2px;
+    /* here we using the (border) box modelor converting the (Content) box model into the (border) box model  */
+    box-sizing: border-box;
+}

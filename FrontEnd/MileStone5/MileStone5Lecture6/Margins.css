@@ -1,0 +1,32 @@
+#outer-div1{
+    height: 200px;
+    width: 200px;
+    background-color: darkblue;
+    /*here we use (margin) property of Css: for creating a space between the two elements:  
+    1 = we can also define the different values to each side: same as that we study in the adding color lecture*/
+    margin: 4px 10px 20px 6px;
+
+    /* we can also define the single side margin  of element  through: Css property  */
+    /* margin-top: 20px; */
+
+    /* we can also use  the (auto) property of Css (margin): through this property we can set any element in the middle of the webpage */
+    /* margin: auto; */
+
+    /* here we are using the (padding) property of the Css: for create a spaces between Inner element to its Outer element:  */
+    padding: 20px 10px 5px 25px;
+
+    
+}
+
+#inner-div1{
+    height: 50%;
+    width: 50%;
+    background-color: aqua;
+
+}
+
+#outer-div2{
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+}

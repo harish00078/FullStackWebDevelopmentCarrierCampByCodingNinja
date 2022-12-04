@@ -1,0 +1,28 @@
+#Div1{
+    background-color: red;
+    height: 200px;
+    width: 200px;
+
+}
+#Div2{
+    background-color: cyan;
+    height: 200px;
+    width: 200px;
+}
+
+/* here we are try  to convert (Inline) element into the (block-level) element or we can convert (block-level) element into the (Inline) element: through the (Display) property of Css*/
+/* here we convert(span) inline element into the (block-level) element */
+span{
+    display: block;
+
+}
+/* here we convert(div) block-level element into the Inline element */
+/* div{
+    display: inline;
+} */
+
+/* here we also have another display property in the Css: that will allow us to use the particular element in the both (Inline or block-level) way: 
+1 = its very usefull: using this property we can provide the height,width and other vertical properties to the element: that we  are not able to do when we are using simple (inline) function for the conversion of (block-level) elements */
+div{
+    display:inline-block;
+}

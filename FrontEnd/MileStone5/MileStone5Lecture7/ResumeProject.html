@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="ResumeProject.css" type="text/css" />
+  <script src="https://kit.fontawesome.com/7ec0ac3499.js" crossorigin="anonymous"></script>
+  <title>Resume</title>
+</head>
+
+<body>
+  <!-- Under the (header) tag we create header for our resume: -->
+  <header id="body-header">
+    <!-- here in under header tag we are creating the navigation section of the resume page  using (navigation) tag or (ul) tag:-->
+    <nav>
+      <ul class="horizontal-list text-center nav-menu">
+        <li>
+          <a href="#"> Home</a>
+        </li>
+        <li>
+          <a href="#about"> About</a>
+        </li>
+        <li>
+          <a href="#skills"> Skills</a>
+        </li>
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
+        <li>
+          <a href="education">Education</a>
+        </li>
+        <li>
+          <a href="portfolio">Portfolio</a>
+        </li>
+        <li>
+          <a href="Contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- here we gave (name) or (socail-icons) to the webpage: -->
+    <!-- here we use three (div) methods:
+        1 = outer one caintains the (name) and (socail-icon) values both:
+        2 =  the one is for the (social-icons) container:
+        3 = and the second one is for the (name) -->
+    <div id="name-socail-contianer">
+      <!-- here we create name -->
+      <div class="text-center">
+        <h1 id="my-name">Harish Kumar</h1>
+      </div>
+
+      <!-- here we work on the (social-icons) -->
+      <div>
+        <ul class="horizontal-list text-center socail-icons">
+          <li>
+            <a href="#">
+              <!-- here we are using the (font-awesome) website:for icons 
+                1 = using this website we can directly copy the html code of the icon: and paste it in our html code
+                2 =if  we want to use this (font-awesome) website we have to paste its (link) in the head section of our webpage-->
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-stack-overflow"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <!-- under the (main) tag we create different-2  sections of our resume -->
+  <main>
+    <!-- here we create (about) section.
+      1 = were we add (my-image)
+      2 = and write something about yourself  -->
+    <section id="about">
+      <!-- here we add our image -->
+      <div id="my-image">
+        <img
+          src="https://thumbs.dreamstime.com/b/pog-lamborghini-aventador-hypercar-autosalon-motor-show-brussels-belgium-january-201580221.jpg">
+      </div>
+      <!-- here we have to write something about your self. -->
+      <p id="about-para">
+        Passionate and hardworking. I try to do a good job in all roles I have
+        in life, and I enjoy the process immensely. I dream of working at
+        Google, working on applications billions of people use, having an
+        impact on the world with my work. i am having a Aim in life that i
+        want become a world's best(
+        <span id="highlight">
+          machine learning or artificial intelligence
+        </span>
+        ) engineer.
+      </p>
+    </section>
+
+
+
+
+    <!-- for creating sections  under the (main) tag we use the (section) tag -->
+    <section id="skills">
+      <!-- here (mb) repersents the margin-bottom value -->
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-chalkboard-teacher"> </i>
+        </span>
+        <span>SKILLS</span>
+      </h1>
+
+      <div class="skills-display1">
+
+        <div class="progress-java">
+          <div class="percent-java  mb-blue">
+            <div class="skill-name">
+              <span>JAVA</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="progress-dsa">
+          <div class="percent-dsa mb-orange">
+            <div class="skill-name">
+              <span>DSA</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="progress-html">
+          <div class="percent-html mb-darkblue">
+            <div class="skill-name">
+              <span>HTML</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-css">
+          <div class="percent-css mb-purple">
+            <div class="skill-name">
+              <span>CSS</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="progress-jscript">
+          <div class="percent-javascript mb-cyan">
+            <div class="skill-name">
+              <span>J-SCRIPT</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="progress-mongoDb">
+
+          <div class="percent-mongodb mb-sky">
+            <div class="skill-name">
+              <span>Mongo-Db</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- HERE WE WORK ON THE (Work-Experience) SECTION -->
+    <section id="experience">
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-briefcase"></i>
+        </span>
+        <span> Work Experience</span>
+      </h1>
+
+      <!-- here under experience section we are using a (time-line) web design to build it. -->
+      <!-- first we have bigger box of timeline design. -->
+      <div class="timeline">
+        <!-- under this bigger-box.we have smaller time-line boxes. were we write our content. -->
+
+        <div class="timeline-box">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000030_1550710829_ninjasicon.png">
+            </div>
+            <h3 class="experience-designation m0 m-blue">Designation</h3>
+            <h4 class="experience-company-name">Company Name</h4>
+            <h5 class="experience-duration m0">Month yyyy - Month yyyy</h5>
+            <p class="experience-discription text-align-justify"> Paragraphs are the group of sentences
+              combined together, about a certain topic. It is a very important form of writing as we write almost
+              everything in paragraphs, be it an answer, essay, story, emails, etc. We can say that a well-structured
+              paragraph is the essence of good writing. The purposes of the paragraph are to give information, to
+              explain something, to tell a story, and to convince someone that our idea is right.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-box right">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000030_1550710829_ninjasicon.png">
+            </div>
+            <h3 class="experience-designation m0 m-blue">Designation</h3>
+            <h4 class="experience-company-name">Company Name</h4>
+            <h5 class="experience-duration m0">Month yyyy - Month yyyy</h5>
+            <p class="experience-discription text-align-justify"> Paragraphs are the group of sentences
+              combined together, about a certain topic. It is a very important form of writing as we write almost
+              everything in paragraphs, be it an answer, essay, story, emails, etc. We can say that a well-structured
+              paragraph is the essence of good writing. The purposes of the paragraph are to give information, to
+              explain something, to tell a story, and to convince someone that our idea is right.</p>
+          </div>
+        </div>
+
+
+        <div class="timeline-box left">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000030_1550710829_ninjasicon.png">
+            </div>
+            <h3 class="experience-designation m0 m-blue">Designation</h3>
+            <h4 class="experience-company-name">Company Name</h4>
+            <h5 class="experience-duration m0">Month yyyy - Month yyyy</h5>
+            <p class="experience-discription text-align-justify"> ParagraphParagraphs are the group of sentences
+              combined together, about a certain topic. It is a very important form of writing as we write almost
+              everything in paragraphs, be it an answer, essay, story, emails, etc. We can say that a well-structured
+              paragraph is the essence of good writing. The purposes of the paragraph are to give information, to
+              explain something, to tell a story, and to convince someone that our idea is right.</p>
+          </div>
+        </div>
+
+
+
+        <div id="timeline-divider">
+          <div class="timeline-traveller">
+            <div>
+              <i class="fas fa-plane"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- here we work on the (education) section
+    => Education section is similar with the (Experience) section that's why we create them with  same html code.And same thing we do with the css rules also.
+    => they both shares the same css rules also.
+    => only the differnce is that.different images or different icons -->
+
+    <section id="education">
+      <h1 class="section-heading mb75px">
+        <span>
+            <i class="fas fa-graduation-cap"></i>
+        </span>
+        <span> Education </span>
+    </h1>
+
+    <div class="timeline">
+
+        <div class="timeline-box left ">
+            <div class="timeline-container">
+                <div class="timeline-logo">
+                    <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000032_1550746413_iiitd_logo.png">
+                </div>
+                <h3 class="experience-designation  m0 m-blue"> Degree </h3>
+                <h4 class="experience-company-name "> Institute Name </h4>
+                <h5 class="experience-duration m0"> Month YYYY - Month YYYY </h5>
+
+                <p class="experience-description text-align-justify"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            </div>
+        </div>
+        
+        <div class="timeline-box right ">
+            <div class="timeline-container">
+                <div class="timeline-logo">
+                    <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000032_1550746413_iiitd_logo.png">
+                </div>
+                <h3 class="experience-designation  m0 m-blue"> Degree </h3>
+                <h4 class="experience-company-name "> Institute Name </h4>
+                <h5 class="experience-duration m0"> Month YYYY - Month YYYY </h5>
+                <p class="experience-description text-align-justify"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            </div>
+        </div>
+
+        <div class="timeline-box left ">
+            <div class="timeline-container">
+                <div class="timeline-logo">
+                    <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000032_1550746413_iiitd_logo.png">
+                </div>
+                <h3 class="experience-designation  m0 m-blue"> Degree </h3>
+                <h4 class="experience-company-name "> Institute Name </h4>
+                <h5 class="experience-duration m0"> Month YYYY - Month YYYY </h5>
+
+                <p class="experience-description text-align-justify"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            </div>
+        </div>
+        
+        <div id="timeline-divider">
+            <div class="timeline-traveller">
+                <div>
+                    <i class="fas fa-car-side"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </section>
+
+
+
+
+    <!-- HERE WE WORK ON THE (PORTFOLIO) SECTION -->
+    <section id="portfolio">
+
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-th-list"> </i>
+        </span>
+        <span>portfolio</span>
+      </h1>
+
+      <div class="portfolio-container">
+
+
+        <div class="portfolio-image-container ">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+
+        </div>
+
+        <div class="portfolio-image-container ">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+
+        </div>
+        <div class="portfolio-image-container ">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+
+        </div>
+
+        <div class="portfolio-image-container ">
+          <img src="https://interfacesoft.co.in/images/Small-Class-Sizes.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+        </div>
+
+        <div class="portfolio-image-container ">
+          <img src="https://interfacesoft.co.in/images/Small-Class-Sizes.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+        </div>
+
+        <div class="portfolio-image-container ">
+          <img src="https://interfacesoft.co.in/images/Small-Class-Sizes.png">
+          <div class="portfolio-details">
+            <p>Write here basic details about the project</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    
+    <!-- HERE WE  WORK ON THE (CONTACT) SECTION -->
+
+    <section id="contact">
+      <h1 class="section-heading mb50px">
+        <span>
+          <i class="far fa-address-card"></i>
+        </span>
+        <span> Contact </span>
+      </h1>
+      <div id="contact-container">
+
+        <div id="contact-form-container">
+          <form id="contact-form">
+
+            <input id="input-name" name="name" type="text" placeholder="Your Name">
+
+            <input id="input-email" name="input-email" type="text" required placeholder="Your Email">
+
+            <textarea id="input-message" name="input-message" rows="2" cols=40 placeholder="Message"></textarea>
+
+            <button class="sub-btn" type="submit">SEND MESSAGE</button>
+
+          </form>
+        </div>
+        <div id="my-details-container">
+
+          <h3> Get In touch </h3>
+          <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+            a galley of type and scrambled it to make a type specimen book. </p>
+
+          <h3> My Address </h3>
+          <div class="my-details-info-container">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Delhi, India</span>
+          </div>
+          <div class="my-details-info-container">
+            <i class="fas fa-mobile-alt"></i>
+            <span>9999999999</span>
+          </div>
+          <div class="my-details-info-container">
+            <i class="far fa-envelope"></i>
+            <span>myemail@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center social-icons">
+
+        <ul class="horizontal-list">
+
+          <li>
+            <a href="https://www.linkedin.com/in/manisha-khattar-b5663641/">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://stackoverflow.com/users/5608414/manisha?tab=profile" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://plus.google.com/u/0/103030702784925512939" target="_blank">
+              <i class="fab fa-google-plus-g"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/manishakhattar54">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.quora.com/profile/Manisha-Khattar" target="_blank">
+              <i class="fab fa-quora"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>

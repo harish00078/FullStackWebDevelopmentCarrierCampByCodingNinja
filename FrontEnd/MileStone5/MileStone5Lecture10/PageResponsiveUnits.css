@@ -1,0 +1,13 @@
+html{
+    font-size: 30px;
+}
+
+#div1{
+    /* here we have to use the (%) value for specify or defining the width of the content.
+    => (%) value is a  relative unit type.so instead of (%) we can also use the other types like:- (VH),(VW) etc.
+    
+    => if we use the (%) value for definig the width of the content.then it will adjust its content acc to the webpage display.  */
+    width: 60%;
+    padding: 5px;
+    border: 2px solid cyan;
+}

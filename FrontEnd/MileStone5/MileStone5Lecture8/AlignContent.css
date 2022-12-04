@@ -1,0 +1,48 @@
+#container {
+    height: 600px;
+    width: 600px;
+
+    background-color: cyan;
+    display: flex;
+    flex-direction:column;
+    /* flex-direction:row; */
+    /* here we work on the (align-iteam) property of the css. align-iteam property set the distribution of the space between the around content iteam along a flex-box's (cross-axis).
+    1 = basic meaning of the (cross-axis) is (opposite) or (perpendicular).
+    2 = it aslo have a  five values.
+    a =flex-start
+    b = flex-end
+    c = center
+    d = baseline
+    e = stretch*/
+    /* align-items:flex-start ; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+    /* align-items: stretch; */
+    /* align-items: baseline; */
+      
+
+    /* justify-content: center; */
+    
+
+
+  }
+  
+  #container div {
+    height: 100px;
+    /* max-height: 400px; */
+    width: 100px;
+
+  }
+  #div1 {
+    background-color: brown;
+    /* margin: 10px; */
+  }
+  #div2 {
+    background-color: orange;
+    /* margin: 30px; */
+  }
+  #div3 {
+    background-color: purple;
+    /* margin: 50px; */
+  }
+  

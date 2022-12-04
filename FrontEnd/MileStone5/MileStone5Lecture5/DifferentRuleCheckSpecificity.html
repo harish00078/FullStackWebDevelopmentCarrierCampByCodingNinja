@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>if the  selectors work on the Different Rules</title>
+    <style>
+        .p-class-style {
+            font-size: 14px;
+            background-color: red;
+        }
+        #p-id-style{
+            background-color: green;
+            text-transform: uppercase;
+        }
+        .p-class-style {
+            font-size: 10px;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- here we can clearly see that if that selectors work on the different rules:
+    1 = then output will depend upon the writing sequence of the selectors: under the content tags
+    2 = also depend on the selectors rules:because some selectors may have the same rules:then it will follow the same rule selector system only for the rules those are same : if we have some selectors with the same rules -->
+    <p class="p-class-style" id="p-id-style" class="p-class-style">This is a paragraph</p>
+</body>
+</html>

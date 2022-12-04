@@ -1,0 +1,37 @@
+#container{
+    height: 150px;
+    width: 300px;
+    /* margin: 40px;
+    border: 2px solid black; */
+    /* here we are creating a background-image in webpage.using a (gradient) property of css.
+
+    ==> types of gradient.
+    a = linear-gradient.
+    b = radial-gradient.
+
+
+    ==> here we use the linear radient.
+    1 => using (gradient) property we can create a background image in webpage.with the help of multiple colors 
+    2 => we can also gave the percentage criteria to the particular color.
+    3 => we can also define the particular color in the (pixels) also instead of percentage.
+    4 => every color have a percentage criteria from 1 to 100%. from its starting to end.
+    5 => we can also define the direction of the colors.
+    6 => we can also gave the combination direction to the colors.like(top+right)
+    7 => we can also define the direction of the color in the form of(degree)*/
+/*     
+    background-image: linear-gradient(to top right ,cyan,rgb(79, 0, 128), darkblue ); */
+
+    /* we can also use the (repeating) property of gradient.so we can create the repeating color gradient on the webpage. */
+    /* background:repeating-linear-gradient(to top right, cyan, darkblue); */
+
+    background-image: repeating-linear-gradient(45deg, #9e6df9, #f77656 25%, #5ffc87 50%);
+
+
+
+    
+    /* here we use the radial-gradient. */
+    /* background: radial-gradient(cyan, purple);*/
+
+
+    
+}

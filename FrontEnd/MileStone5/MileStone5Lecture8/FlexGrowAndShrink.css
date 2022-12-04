@@ -1,0 +1,80 @@
+#container {
+  /* height: auto; */
+  height: 500px;
+
+  width:100px;
+  background-color: cyan;
+
+  /* here we are using the (flex) property. */
+  display: flex;
+  /* using flex property values we can simply change 
+    the  directions of our iteams. 
+    1 = for changing direction of the iteams we can use the flex property (flex-direction) with its direction value. */
+
+  /* flex-direction: column; */
+
+  /* 2 = we can also reverse iteams using (row-reverse) value of (flex-direction) property */
+
+  /* flex-direction: row-reverse; */
+
+  /* here we are using (flex-wrap) property. we use wrap property for.if we want to set the flex-iteam into the one line or in the multiple lines 
+    1 = by default (flex-wrap ) property does not have a (nowrap)value.
+    that's why all the flex-iteams show in the one line.
+    2 = in the flex-wrap property we have different values.
+    a = (wrap)
+    b = (wrap-reverse)*/
+
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap-reverse; */
+}
+
+#container div {
+  height: 200px;
+  width: 200px;
+}
+
+#div1 {
+  background-color: darkblue;
+  /* we can also provide  the (order) to the particular iteam using (order) property of css. 
+    1 = so by default all the iteams have a order of (zero)
+  
+    2 = if we want to move this iteam at the end of the other iteams.we can gave him  arder of (1). because (1) comes after the (0)
+  
+    3 = (note)-> if we have four order values each value for the particular iteam. instead of zero value. then which iteam have the maximum number of order values.then that iteam will come first.and the second iteam will comes which have a less order value  then the first iteam's order value.and soon
+      
+    4 = we study this sequene on the (balls-1) assignment*/
+  /* order: 1; */
+
+
+  /* here we are using the (flex-grow) property of css. we use this proeprty for.if we want that our iteams should cover the left hieght  and width space of the container.
+  1 = meaning of (1) value in the (flex-grow) is (1/total number of iteams).means this much value should we given to the first iteam from the leftspace in the container  */
+  /* flex-grow: 4; */
+
+  /* similar like grow. we also have (flex-shrinK).it use when iteam have a greater value then the container .and we want to adjust the iteam acc to the container value then we can simply shrink the value of the iteams. 
+  1 = its values also works same as the (wrap)method.but its value  will not expand the iteam.it will shrink that iteam acc to that value.*/
+  flex-shrink:1;
+
+}
+
+#div2 {
+    background-color:orangered;
+    /* flex-grow: 1; */
+    flex-shrink: 4;
+
+    
+  }
+
+/*   
+   #div3 {
+    background-color: purple;
+  
+  } */
+
+  /* #div4{
+    background-color: purple;
+    order: -1;
+  } */
+
+/* #div5 {
+  background-color: maroon;
+} */

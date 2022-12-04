@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radioButton and CheckBoxes</title>
+    <!-- radioButtons = are used for selecting one options from the multiple options-->
+</head>
+
+<body>
+    <!-- we have or use the (form) tag -->
+    <form>
+        <!-- under form tag we have to gave the heading to this form using (p) or (h1) tags -->
+        <P>Gender</P>
+        <!-- after that we have to use the (input) tag for define  that but kind of value we want from the user -->
+
+        <!-- after that we also have to define these input elements
+        so our system can understand that but kind of input we are getting here
+        1 = for that we can use the (name) and (value) attribute:so we can define to the system that but kind of value we are getting from  the user
+        2 = or what kind of (form) we are try to creating here:
+        because the combination of the (name) or (value) is known as (form)  -->
+
+        <!-- if we want that any off the radio button should be selected by default:
+        1 = for that we can use the (checked) attribute   -->
+        <input type="radio" name="gender" value="female" checked> female <br>
+        <input type="radio" name="gender" value="male"> male<br>
+        <input type="radio" name="gender" value="other"> other<br>
+        <input type="submit">
+
+
+        <!-- here we are working on the (check-boxes)
+        =>  checkboxes are basically used for when we want user should select the more than one options from the given options-->
+        <p> Course Done</p>
+        <!-- we also use the (checked) attribute here if we want that any of the options should we selected by defauld -->
+        <input type="checkbox" name="course" value="c++" checked>C++<br>
+        <input type="checkbox" name="course" value="java">Java<br>
+        <input type="checkbox" name="course" value="webdevelopment">web development<br>
+    </form>
+
+</body>
+
+</html>

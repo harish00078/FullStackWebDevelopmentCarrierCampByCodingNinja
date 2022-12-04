@@ -1,0 +1,776 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+
+/* here we are creating a variable for the particular work. and we can use that variable in any  element of the webpage.
+1 => for examnple if we are using particular color on the webpage again and again with its  value (hexa-code). 
+2 => so instead of writing a hexa-codee of that color again and again.we can simply create variable for that. and we use that variable any where in the webpage element.were we need that color.
+3 => after creating a varaible we also have to define it with (pseudo-classes).to represent that were we are using this  varaibale in entire webpage. 
+4 => if we want to use this variable entirely on the webpage for that we have to use the (roo) pseudo-class
+
+5 => the most important use of  creating variables is were ever in webpage.we use the variable.we can change there values only by changing the value of our (variable) that we have created.
+
+6 => The (internet-explorer) browser does not support the css variables/ */
+:root {
+  /* for creating a variable we have to use the double dash(--). */
+  /* for example here we are converting the gery color into the (hexa-code) */
+  --section-color-grey: #8b8b8b;
+}
+
+/* here we set header background for our resume */
+#body-header {
+  height: 65vh;
+  background-image: url(https://media.istockphoto.com/photos/white-desk-office-with-laptop-smartphone-and-other-work-supplies-with-picture-id1283506462?b=1&k=20&m=1283506462&s=170667a&w=0&h=CNZMLfz9nQ398KYp8ORE8Q2uYxacGCQEpLznSbLuJgw=);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 1.2rem;
+}
+
+/* here we create navigation list at our resume header */
+.horizontal-list {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+
+.horizontal-list li {
+  display: inline-block;
+  margin: 0px 8px 8px 0px;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.horizontal-list li a {
+  color: darkblue;
+  text-decoration: none;
+  /* we can also add the transitions in the list: using (transition) property of the Css*/
+  /* transition: color 0.5s border-bottom 4s; */
+}
+
+.nav-menu li a {
+  transition: color 0.5s border-bottom 4s;
+}
+
+.nav-menu li a:hover {
+  color: black;
+  border-bottom: 3px dotted rgb(2, 2, 239);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* here we work on the (Name)  */
+#name-socail-container {
+  margin-top: 20vh;
+}
+
+#my-name {
+  color: black;
+  /* text-align: center; */
+  /* margin-top:100px; */
+  letter-spacing: 0.1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#my-name:hover {
+  color: deepskyblue;
+}
+
+/* here we work on the socail-icons */
+.socail-icons li a i {
+  padding: 10px;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.socail-icons li a i:hover {
+  /* we can use the (box-shadow) value of the (hover): for giving a better effect to our content:
+  1 = using the (box-shadow) effect we have to define two values.
+  a = its (horizontal effect value) or its(vertical effect value).
+  b = for defining a  horizontal or vertical values. we also have two way (-) or (+). 
+  c = if we gave value in the form of (-) then shadow goes for the left side or if it is (+) then shadow goes right side:in the horizontal value.
+  d = same thing will hapoen to the vertical also. but here shadow effect work on the top or bottom.
+  e = we also have to gave other values or define other values.if we want to use the (box-shadow) function;like we have gave how much  of( blur) or (spread) and also in (color) etc.we want in our shadow effect.
+   */
+  box-shadow: 0px 0px 6px 4px cyan;
+}
+
+
+
+
+
+
+
+/* here we wook on the (about) section. */
+#about {
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+
+#my-image {
+  height: 12rem;
+  width: 12rem;
+  margin: auto;
+  margin-top: -17vh;
+}
+
+#my-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0px 0px 6px 4px darkblue;
+}
+
+/* here we work on the paragraph of about section. */
+#about-para {
+
+  /* here we are using our (variable). */
+  /* for using your own variable we have to use the (var) property of css. */
+  color: var(--section-color-grey);
+
+  font-size: 1.1rem;
+  text-align: justify;
+  line-height: 28px;
+  font-weight: 100;
+
+  margin: auto;
+  padding: 10px;
+  height: 100%;
+  width: 70%;
+}
+
+#highlight {
+  color: darkblue;
+}
+
+
+
+
+
+/* HERE WE WRITE CODE FOR ALL THE (SECTIONS) OF THE WEBPAGE. */
+
+/* here we gave rules to all the section tags.because all the section tags are working in the same way */
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* after that we can also gave the background colors to the webpage.acc to the partion of  even or odd sections.
+=> for that we can use the (nth-child) pseudo-class.using this class we can define the background different colors to the even or odd sections.  */
+/* 1 = first we define the color for the even section. */
+section:nth-child(2n) {
+  background-color: #9e9b9b29;
+}
+
+/* 2 = here we define the color for the odd section.  */
+section:nth-child(2n + 1) {
+  background-color: white;
+}
+
+
+/* here we work on the headings of all the sections. because all the sections heading  shown same on the webpage*/
+.section-heading {
+  width: auto;
+  padding: 20px 10px 10px;
+  font-weight: 400;
+}
+
+/* here we work on the headings (NAMEs) of all the sections. because all the sections heading shown same on the webpage*/
+
+.section-heading span {
+  font-size: 40px;
+  color: #2857a4;
+  display: inline-block;
+  padding-top: 10px;
+  margin-right: 0.5rem;
+}
+
+/* here we  are using the (target) pseudo class.
+=> (target) pseudo class is used for when we want to style a link's target element.
+=> like here we are targeting all the section's with background-color.when ever we click on the any section that section's background color will we chnage. */
+section:target {
+  background-color: lightblue;
+}
+
+
+/* Common Margin Classes */
+
+.mb75px {
+  margin-bottom: 75px;
+}
+
+.mb50px {
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+/* WORK ON THE (SKILLS) SECTION:  */
+/* [1] = here we are creating the display section for  the (skills).
+=> under it we are creating our different-2 skills */
+.skills-display1 {
+  width: 75%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: space-evenly;
+}
+
+
+/* [2] = here we are creating the background structure for skills  */
+.progress-java {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+.progress-dsa {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+.progress-html {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+.progress-css {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+.progress-jscript {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+}
+
+.progress-mongoDb {
+  width: 11rem;
+  height: 2.2rem;
+  margin: 25px;
+  box-shadow: 1px 1px 2px 1px #b9b9b9 inset;
+
+  background-color: lightgray;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+/* [3] = here we gave the (border) to our skills.
+
+1 = if we write the Css class in this way.like(skill-progress>div).meaning of this class is .this parent class rule will only apply on its direct child only.not on the other childrens that its child class have. */
+.progress-java>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+}
+
+.progress-dsa>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+
+}
+
+.progress-html>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+
+
+}
+
+.progress-css>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+
+
+}
+
+.progress-jscript>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+
+
+}
+
+.progress-mongoDb>div {
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+
+}
+
+
+
+
+/* [4] = here we are entering the skills (name) on the background.that we have created  */
+.skill-name span {
+  color: white;
+  font-size: 1rem;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+
+/* [5] =  here we are using the percentage class to create percentage iteam on the webpage.
+we create it differently. so we can use it for any other iteams also. */
+.percent-java {
+  width: 85%;
+  height: inherit;
+}
+
+.percent-dsa {
+  width: 85%;
+  height: inherit;
+}
+
+.percent-html {
+  width: 90%;
+  height: inherit;
+}
+
+.percent-css {
+  width: 90%;
+  height: inherit;
+}
+
+.percent-javascript {
+  width: 85%;
+  height: inherit;
+}
+
+.percent-mongodb {
+  width: 85%;
+  height: inherit;
+}
+
+
+/* [6] = here we gave the commman margin to the classes */
+.m0 {
+  margin: 0;
+}
+
+.mb75px {
+  margin-bottom: 75px;
+}
+
+/* here we gave the comman color to the classes */
+.text-highlight {
+  color: #2857a4;
+  font-weight: 600;
+}
+
+/* here we provide  colors to the skills. */
+.m-blue {
+  color: #2857a4;
+}
+
+.mb-blue {
+  background-color: #2857a4;
+}
+
+.mb-orange {
+  background-color: orange;
+}
+
+.mb-darkblue {
+  background-color: darkblue;
+}
+
+.mb-purple {
+  background-color: purple;
+}
+
+.mb-cyan {
+  background-color: cyan;
+}
+
+.mb-sky {
+  background-color: skyblue;
+}
+
+
+/* here we work on the (Work-Experience) or (Education) section. 
+  => because these both sections are same.that why we create them on same css rules.*/
+.timeline {
+  position: relative;
+  width: 75%;
+
+}
+
+.timeline-box {
+  position: relative;
+  padding: 5px;
+  text-align: right;
+  width: 40%;
+  left: 5%;
+  min-height: 150px;
+}
+
+#timeline-divider {
+  position: absolute;
+  width: 0;
+  top: 10%;
+  left: 50%;
+  padding: 0px;
+  border: 3px dashed #0096fa6b;
+  height: 75%;
+  color: darkblue;
+}
+
+
+
+/* here we are work on the smartphone devices for the (work-experience) webpage section. */
+@media screen and (max-width: 600px) {
+
+  /* here we are shifting the divivder to the left that we have created.when we have the display pixel density of (600px) */
+  /* .timeline-divider{
+    left: 5%;
+  } */
+  /* here we are shifting the timeline-box to the left side.so we can gave them a bigger width.for the smaller displays.
+  => we can also mark its left as important Using (!important) property of css.*/
+  .timeline-box {
+    left: 12% !important;
+    width: 80%;
+  }
+
+
+  .timeline-box:nth-child(2n+1)::after {
+    left: -12%;
+  }
+
+  .timeline-box:nth-child(2n)::after {
+    left: -12%;
+  }
+
+  /* here we are adjusting the (html-content)'s font-size also for the smaller  screens. */
+  html {
+    font-size: 15px;
+  }
+
+
+}
+
+
+
+
+/* here we are creating that lightgrey color (circular-dots).
+  => for creating them we use (after)pseudo-class.that class will put them after the timeline-box content. */
+.timeline-box::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: lightgray;
+  top: 25%;
+  border-radius: 50%;
+  z-index: 1;
+
+}
+
+.timeline-box:nth-child(2n) {
+  left: 53%;
+}
+
+/* here we are shifting that (circular-dot) to the center from left timeline-box or from the right timeline box. */
+.timeline-box:nth-child(2n+1)::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: -12.4%;
+  border-radius: 50%;
+  background-color: lightgray;
+  width: 0.9rem;
+  height: 0.9rem;
+  z-index: 1;
+}
+
+.timeline-box:nth-child(2n)::after {
+  left: -8.5%;
+  content: '';
+  position: absolute;
+  top: 30%;
+  border-radius: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: lightgray;
+  z-index: 1;
+
+}
+
+.timeline-container {
+  padding: 8px;
+}
+
+.timeline-logo {
+  position: absolute;
+  width: 50px;
+  overflow: hidden;
+}
+
+.timeline-logo>img {
+  width: 100%;
+}
+
+.timeline-traveller {
+  position: sticky;
+  top: 30%;
+  transform: rotate(90deg);
+  z-index: 2;
+  margin-top: -42px;
+}
+
+#timeline-divider i {
+  margin-top: -35px;
+  display: block;
+  color: #2857a4;
+
+}
+
+.experience-designation {
+  font-size: 1.4rem;
+}
+
+.experience-company-name {
+  margin: 5px 0 0;
+  color: #eb822d;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.experience-duration {
+  color: #9e9b9b;
+  font-weight: 100;
+  color: grey;
+  font-size: 1rem;
+}
+
+.experience-description {
+  font-size: 14px;
+  padding: 2px;
+  color: grey;
+  line-height: 20px;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+
+
+
+
+/* HERE WE WORK ON THE (Portfolio) SECTION. */
+
+.portfolio-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 50px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+
+}
+
+.portfolio-image-container {
+  max-width: 300px;
+  overflow: hidden;
+  margin: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+}
+
+.portfolio-image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-details {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  color: transparent;
+  text-align: center;
+  padding: 10px;
+}
+
+.portfolio-image-container:hover {
+  block-size: 0 0 20px #74adc8;
+}
+
+.portfolio-image-container:hover .portfolio-details {
+  background-color: #80808078;
+  color: white;
+}
+
+
+
+
+/* HERE WE WORK ON THE (CONTACT)SECTION:  */
+#contact {
+  background-color: #0abcf9;
+  background-image: linear-gradient(50deg, #2857a4 0%, #403066 74%);
+  color: white;
+  padding-bottom: 40px;
+}
+
+#contact h1,
+#contact h1 span {
+  color: white;
+}
+
+#contact-form {
+  margin-left: 20%;
+}
+
+#contact-container {
+  display: flex;
+}
+
+#my-details-container {
+  width: 35%;
+  margin-left: 6%;
+}
+
+#my-details-container h3 {
+  color: white;
+  font-weight: 550;
+  font-size: 1.2rem;
+}
+
+#contact-form-container {
+  width: 50%;
+}
+
+#my-details-container p {
+  color: #d9dcdd;
+  font-size: 0.9rem;
+}
+
+.my-details-info-container {
+  margin-bottom: 20px;
+  color: #d9dcdd;
+  font-size: 1rem;
+}
+
+.my-details-info-container span {
+  margin-left: 0.4rem;
+}
+
+.my-details-info-container i {
+  color: white;
+}
+
+.my-details-icon {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: bottom;
+  margin-right: 0.5rem;
+}
+
+
+#contact-form input,
+textarea {
+  max-width: 90%;
+  margin: 15px;
+  padding: 4px 10px;
+  border: 0px solid transparent;
+  border-bottom: 2px solid white;
+  color: #d9dcdd;
+  background: transparent;
+  width: 90%;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+#contact-form button[type="submit"] {
+  background: transparent;
+  font-size: 0.95rem;
+  border: 2px solid white;
+  margin-top: 5%;
+  margin-left: 35%;
+  border-radius: 2px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.046875em;
+  line-height: 1;
+  padding: 0.8em 0.8em 0.78em;
+  text-transform: uppercase;
+}
+
+#contact-form button:hover {
+  background: white;
+  color: #13386fe0;
+}
+
+#contact .social-icons li a i {
+  font-size: 1.2rem;
+  margin: 40px 10px 10px;
+  padding: 10px 14px 20px 10px;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}

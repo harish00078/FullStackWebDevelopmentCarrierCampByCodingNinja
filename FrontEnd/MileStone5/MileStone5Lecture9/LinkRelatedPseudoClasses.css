@@ -1,0 +1,19 @@
+/* we can also use the (active) pseudo class on the paragraphs also. */
+p:active{
+    background-color: cyan;
+}
+
+/* here we are using the (active) pseudo class value for the hyperlinks. */
+a:active{
+    color:red;
+}
+
+/* here we are using the (visited) pesudeo class. if we want to represent that this link is already visited. */
+a:visited{
+    color:green;
+}
+
+/* here we are using the (link) pseudo class.if we want to represent that this color is not visited. */
+a:link{
+    color: black;
+}

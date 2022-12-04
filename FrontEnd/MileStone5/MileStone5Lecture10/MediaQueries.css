@@ -1,0 +1,29 @@
+#div1 {
+  width: 60%;
+  border: 2px dotted cyan;
+}
+
+/* here we are using the (media-query) method for adjusting the view of the webpage. */
+
+/* => here we are creating a media Queries. */
+
+/* 
+   [IMP] => we also have to write the media queries in the sequnces form. 
+   => like. bigger values should be came before the smaller values.that's why we put (900px) media query valuue before the (600px).
+   => we can also set the multiple media queries for the particular (media-type) */
+@media screen and (max-width: 900px) {
+  #div1 {
+    width: 90%;
+  }
+}
+
+/* [1]
+   =>  we gave the maximum width to the (screen) is (600px).
+   => when our screen reach the (600px) density.then we have to use the (100%) width of the screen .
+   => And if  we try to go lessthen (600px) width of the screen  it will try to break our content. */
+
+@media screen and (max-width: 600px) {
+  #div1 {
+    width: 100%;
+  }
+}

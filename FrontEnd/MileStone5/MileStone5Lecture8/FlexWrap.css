@@ -1,0 +1,66 @@
+#container {
+    /* height: auto; */
+    height: 400px;
+
+    width: auto;
+    background-color: cyan;
+  
+    /* here we are using the (flex) property. */
+    display: flex;
+    /* using flex property values we can simply change 
+    the  directions of our iteams. 
+    1 = for changing direction of the iteams we can use the flex property (flex-direction) with its direction value. */
+  
+    flex-direction: column;
+  
+    /* 2 = we can also reverse iteams using (row-reverse) value of (flex-direction) property */
+  
+    /* flex-direction: row-reverse; */
+
+    /* here we are using (flex-wrap) property. we use wrap property for.if we want to set the flex-iteam into the one line or in the multiple lines 
+    1 = by default (flex-wrap ) property does not have a (nowrap)value.
+    that's why all the flex-iteams show in the one line.
+    2 = in the flex-wrap property we have different values.
+    a = (wrap)
+    b = (wrap-reverse)*/
+
+    flex-wrap: wrap;  
+    /* flex-wrap: wrap-reverse; */
+  
+  }
+  
+  #container div {
+    height: 200px;
+    width: 200px;
+  }
+  
+  #div1 {
+    background-color: darkblue;
+    /* we can also provide  the (order) to the particular iteam using (order) property of css. 
+    1 = so by default all the iteams have a order of (zero)
+  
+    2 = if we want to move this iteam at the end of the other iteams.we can gave him  arder of (1). because (1) comes after the (0)
+  
+    3 = (note)-> if we have four order values each value for the particular iteam. instead of zero value. then which iteam have the maximum number of order values.then that iteam will come first.and the second iteam will comes which have a less order value  then the first iteam's order value.and soon
+      
+    4 = we study this sequene on the (balls-1) assignment*/
+    /* order: 1; */
+  
+  
+  }
+  #div2 {
+    background-color: aquamarine;
+  }
+  #div3 {
+    background-color: purple;
+  
+  }
+  #div4 {
+    background-color: greenyellow;
+  
+    /* we can also gave the order to a particular (iteam) in the (-negative) values */
+    /* order: -1; */
+  }
+  #div5{
+    background-color: maroon;
+  }
