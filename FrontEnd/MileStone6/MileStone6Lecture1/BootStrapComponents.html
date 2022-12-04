@@ -1,107 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Learn about BootStrap Components</title>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<head>
+  <title>Learn about BootStrap Components</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <body>
-    <!-- 1 => here we are using the bootstrap's one of the component Named as (Button) -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
 
-    <button type="button" class="btn btn-primary m-2">Primary</button>
+<body>
+  <!-- 1 => here we are using the bootstrap's one of the component Named as (Button) -->
 
-    <!-- other way of creating a button on webpage in  bootstrap we can use the Anchor Tag(<a></a>) tag
+  <button type="button" class="btn btn-primary m-2">Primary</button>
+
+  <!-- other way of creating a button on webpage in  bootstrap we can use the Anchor Tag(<a></a>) tag
     1 => but for that we have to define the (role) of the anchor tag -->
-    <a class="btn btn-dark" href="#" role="button"> Way </a>
-    <!-- we can also create outline effect buttons -->
-    <button type="button" class="btn btn-outline-success">Success</button>
+  <a class="btn btn-dark" href="#" role="button"> Way </a>
+  <!-- we can also create outline effect buttons -->
+  <button type="button" class="btn btn-outline-success">Success</button>
 
-    <!-- 2 => here we are using the bootstrap's one of the component Named as (Cards) -->
+  <!-- 2 => here we are using the bootstrap's one of the component Named as (Cards) -->
 
-    <div class="card" style="width: 18rem">
-      <img
-        src="https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=600"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+  <div class="card" style="width: 18rem">
+    <img src="https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=600"
+      class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
+  </div>
 
-    <!-- here we use the (Image-overlay) class. of the (card) component 1 => using this class we can write on the top of the card image-->
-    <div class="card bg-dark text-white">
-      <img
-        src="https://cdn.pixabay.com/photo/2021/01/01/15/31/sushi-balls-5878892_640.jpg"
-        class="card-img"
-        alt="..."
-      />
-      <div class="card-img-overlay">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-        <p class="card-text">Last updated 3 mins ago</p>
-      </div>
+  <!-- here we use the (Image-overlay) class. of the (card) component 1 => using this class we can write on the top of the card image-->
+  <div class="card bg-dark text-white">
+    <img src="https://cdn.pixabay.com/photo/2021/01/01/15/31/sushi-balls-5878892_640.jpg" class="card-img" alt="..." />
+    <div class="card-img-overlay">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
+        This is a wider card with supporting text below as a natural lead-in
+        to additional content. This content is a little bit longer.
+      </p>
+      <p class="card-text">Last updated 3 mins ago</p>
     </div>
+  </div>
 
-    <!-- 3 => here we are using the bootstrap's one of the component named as (Dropdown) -->
-    <div class="dropdown m-5">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown button
-    </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+  <!-- 3 => here we are using the bootstrap's one of the component named as (Dropdown) -->
+  <div class="btn-group dropright mb-3">
+    <button class="btn btn-danger btn-lg" type="button">Details</button>
+
+    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
     </div>
+  </div>
+  </div>
 
-    
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
