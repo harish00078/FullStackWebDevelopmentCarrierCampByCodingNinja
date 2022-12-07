@@ -10,7 +10,3 @@ console.log(typeof(b));
 var c = NaN;
 console.log(typeof(c));
 
-var x = 4;
-var y = x++;
-y += 1;
-console.log(y);
