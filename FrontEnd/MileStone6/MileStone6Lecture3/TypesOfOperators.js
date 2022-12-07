@@ -9,4 +9,3 @@ console.log(typeof(b));
 // And if the check the datatype of the (NaN) value.then that will gave us a output as (number)datatype.
 var c = NaN;
 console.log(typeof(c));
-
