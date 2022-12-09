@@ -10,7 +10,7 @@
 //   console.log(i);
 // }
 
-// In way we can use the do-while loop:
+// In this way we can use the do-while loop:
 // var i = 1;
 
 // do{
