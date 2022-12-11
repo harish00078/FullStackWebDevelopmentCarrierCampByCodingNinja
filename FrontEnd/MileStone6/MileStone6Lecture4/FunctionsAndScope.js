@@ -12,7 +12,7 @@ console.log(Name);
 // this is also known as function-scope or (lexical-scope):
 function scopeDemo(){
   var name = "function";
-  console.log(i);
+  console.log(name);
 }
 
 // here we are using the function:
@@ -21,4 +21,27 @@ scopeDemo();
 // but if we try to access the function variable out off the fucntion: then it will not working: it will gave us a error:
 // console.log(i);
 
+
+// here we are learning about that how the (stack-execution) system works for executing the code in the javascript:
+//IMP = using this way we can also access the other variable's value or we can say other function's values:
+function c(){
+  console.log("Inside c");
+}
+function b(){
+  // here we call (c) function under the (b) function:
+  c();
+  console.log("Inside b");
+}
+
+function a(){
+  // here we call (B) function under the (a) function:
+  b();
+  console.log("Inside a");
+}
+
+// here we are using the (a) function:
+a();
+
+//here we are creating the simple print statement:
+console.log("global context");
 
