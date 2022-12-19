@@ -1,6 +1,6 @@
 function timer(){
   for(let i = 1; i <= 5; i++){
-    // here we are using the setTimeout method for setting the different times to the different values:
+    // here we are using the (setTimeout) method for setting the different times to the different values of the function:
     setTimeout(function(){
       console.log(i);
     }, i*1000);
