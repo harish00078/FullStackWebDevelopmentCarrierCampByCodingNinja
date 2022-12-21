@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn about script tag</title>
+  <!-- we have several ways to write a javascript code for the webpage:
+
+  1 = we can direclty use the (attributes) of the javascript in our html-file webpage elements:that we learn on the (event-handling)lecture:
+
+  2 = we can use the (script-tag) under the (head-tag) of the webpage's html-file:while using the script-tag we also have to define its (type) -->
+
+
+  <!-- <script type="text/javascript"> -->
+    <!-- // now under the script-tag:we can write the code of javascript:
+    console.log("harish");
+    // here we are creating a event-handler for the button:or we can say action for the button:
+    // IMP-1 = but this event-hander will provide us the error:because yet the button was not created:because the code was moving from upside down: and we creating the event-handler before the button:means  the  button is not created yet:
+    var helloButton = document.getElementById('btn');
+    console.log(helloButton);
+    helloButton.addEventListener('click',function(){
+    alert('HII!!');
+    }) 
+
+    // IMP-2: that's why we use the script-tag under the (body-tag) of the html-file:and also in the last of the all elments of the web-page:
+    //  know if we use the script-tag here then it will working fine without any error: -->
+
+  <!-- </script> -->
+
+
+</head>
+<body>
+  <button id="btn">say hello</button>
+<!-- 
+  IMP-2: that's why we use the script-tag under the (body-tag) of the html-file:and also in the last of the all elments of the web-page:
+  know if we use the script-tag here then it will working fine without any error:  -->
+
+    <script type="text/javascript">
+    console.log("harish");
+
+    var helloButton = document.getElementById('btn');
+    console.log(helloButton);
+    helloButton.addEventListener('click',function(){
+    alert('HII!!');
+    }) 
+
+  </script>
+</body>
+</html>

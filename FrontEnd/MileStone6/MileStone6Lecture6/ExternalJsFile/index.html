@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn about External java-script file</title>
+</head>
+<body>
+  <!-- here we are using the function for the handler that we have created in the java-script file:
+  => but the onlything is that through (event_attribute) we are only able to gave the one-handler function to the event: -->
+  <button id="btn1" onclick="sayHello()"> BUTTON-1</button>
+  
+  <button id="btn2"> BUTTON-2</button>
+<!-- 
+  // for connecting the java-script file with the html-file:we  have to use the (script-tag):
+  // And  under that script-tag we have to provide the source of the (java-script)file:In this way we can connect the html-file with the External java-script file:
+
+  // IMP = we have to two ways to  provide the source of the java-script file to the script-tag:
+  // 1 = if we have the java-script file in the same folder were we also have the webpage html-file:then we can provide the (relative)file path to the source of the script-tag:means the name of the java-script file with its extension:like this (Script.js):
+
+  // 2 = but if we have the java-script file in the another folder.then we can provide the (absolute) file path to the source of the script-tag:means we have to provide the full folder-path with its extension:like this(app/documents/java-script/Script.js): -->
+
+  <script src="Script.js"></script>
+</body>
+</html>
