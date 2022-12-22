@@ -1,0 +1,20 @@
+/* here we are creating box of the div-tag */
+#box{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  /* using margin property we centered our box; */
+  margin: 100px auto;
+  /* here we convert our cursor into the pointer.when we are on the top of our box */
+  cursor: pointer;
+}
+
+#box:hover{
+  /* here we gave the shadow effect to the box.when we hover on it. */
+  box-shadow: 0px 0px 30px grey;
+}
+
+/* after that we also have to center the text of webpage */
+h1{
+  text-align: center;
+}

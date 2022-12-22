@@ -1,0 +1,12 @@
+#outer{
+  height:250px;
+  width: 250px;
+  background-color: cyan;
+  margin: 50px;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+#search{
+  border: 2px solid black;
+}
