@@ -1,0 +1,23 @@
+div{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  background-color: cyan;
+  top: 20%;
+  left: 20%;
+  /* we also have a another transition-timing-function happing or working  function  instead of (ease-in-out) etc. the another method is (liner).
+  => linear means equal animation in the equal time.we can also say that the linear - specifies a transition effect with the same speed from start to end */
+
+  /* transition: 1s ease-in-out;   */
+
+  /* for transition we can also use the another (transition-timing-function) named as (steps) using this function the transition is happens in the form of steps.like this */
+  transition: 1s steps(4,end);
+
+}
+
+div:hover{
+  /*  we can also use the (tranform)-property of the css under the transition:
+ 1 => like here we are try to scale-up the element.when the transition is happing.for scaling-up the element we have to use the (transform) property. */
+ /* 2 => there is also a position change happen in the transition.for changing the position of the element while transition is happing we have to use the (translate) property. */
+  transform: scale(1.5) translate(150px);
+}

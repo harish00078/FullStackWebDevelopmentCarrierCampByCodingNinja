@@ -1,10 +1,21 @@
-div{
-  height:100px;
+div {
+  height: 100px;
   width: 100px;
-  position:absolute;
+  position: absolute;
   top: 20%;
   left: 20%;
   background-color: aqua;
+
+  /*  here we have the definations of The transition-timing-function property specifies the speed curve of the transition effect.
+  The transition-timing-function property can have the following values:
+
+  1 = ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+  2 = linear - specifies a transition effect with the same speed from start to end
+  3 = ease-in - specifies a transition effect with a slow start
+  4 = ease-out - specifies a transition effect with a slow end 
+  5 = ease-in-out - specifies a transition effect with a slow start and end
+  6 = cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function
+  7 = we also have a (steps) function.In this function the transition is happing in the form of steps.*/
 
   /* => Transform. */
   /* 1 =  here we are using the css property named as (transform) => It is used to create 3d-shapes and  animation:or we can say transform the simple element into the 3d-structure or shapes.
@@ -12,28 +23,24 @@ div{
   */
   /* we can also define its value in the negative.then it will move to the anti-clock wise.
   => here in  positive value its moves towords the clock-wise. */
-  transform:rotate(100deg);
+  transform: rotate(100deg);
 
   /* we can also rotate the element.acc to the dimensions.like (x-axis),(y-axis) and (z-axis). like this way */
   /* transform: rotateX(100deg); */
 
-
-
   /* => 2 = through transform we can also (scale) our element. like this way.
   => we can also define the different value for the different sides. like different value for (vertical) or different for the (horizontal).*/
-  transform: scale(1.0,1.0);
+  transform: scale(1, 1);
 
   /* => 3 = through transform we can also (translate) our element.
   => translate-means:- Translate property changes the position left/right and up/down of the element on the page based on the given X (horizontal) and Y (vertical) axes parameters. ... (we can use translate.like this way)*/
   /* 1 = here we are giving them a value in the one brackets. */
-  transform: translate(100px,100px);
+  transform: translate(100px, 100px);
   /*  => we can also provide the separate value to the each-side.like this way.  */
   /* transform: translateX(100px); */
 
   /* => we can also gave the values to the properties in the form of (%).like this way. */
   /* transform: translate(10%); */
-
-
 
   /* Transition:- transition is mostly used to (Animate) the elements or 3d-shaped elments.*/
   /* 2 = here we have another property of the css named as (transition).that will help us to convert simple elements into the form of (3d-shapes) or animations.  */
@@ -41,17 +48,16 @@ div{
   /*  we can also use the transition-effect happen only  for the particular property.like (height).we can define that property in the transition effect directly. 
   => by default the transition-effect will happen  for both the properties like for (height and width).
   => WE can also gave the delay value to the transition in the last.like we want that transition should be delay.while I hover on the element.like are we are giving a (0.5s) delay*/
-  transition: height 1s  ease-in-out 0.5s;
+  transition: height 1s ease-in-out 0.5s;
 }
 
 /* so for using the transition effect. we have to define that when we want to use the trasition on the element. 
 so here we can use the (hover) property. when we want that the transition effect happen. */
-div:hover{
+div:hover {
   /*  we also have to gave the some values to the element.
   => for getting some changes in the element. 
   => like we can change its hieght or width.
   => then. when we hover on the element it will change its hieght or width acc to the sequence of the transition.that we gave to this element.*/
-  height:400px;
+  height: 400px;
   width: 400px;
-
 }
