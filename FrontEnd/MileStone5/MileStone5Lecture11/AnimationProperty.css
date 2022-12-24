@@ -1,0 +1,59 @@
+/* Under css we have animation properties. */
+
+/* here we are using the (keyframes) property of the css.
+=> keyframes property is used to create a another shape of our current shape that we want to see after the animation accour on the current shape of the element.  */
+@keyframes changeShape{
+  /* under keyframes we have to define the two states of the element-(shape);
+  1 = first is the initial state of the element through (from) function.
+  2 = second is the after animation (shape) of the element through (to) function. */
+
+  /* => In (from) we have (0%) of animation. */
+  from{
+    border-radius: 0%;
+  }
+
+  /* => we can also gave the value to the animation between these two values:like when  animation hits the (50%) of its transition we can provide him a value of (border-radius = 25%). we can also gave him a another value on the (25%).*/
+
+  25%{
+    border-radius: 12.5%;
+  }
+  50%{
+    border-radius: 25%;
+  }
+  
+  /* In (to) we will achieve the (100%) of the animation. */
+  to{
+    border-radius: 50%;
+  }
+}
+
+
+div{
+  height: 200px;
+  width: 200px;
+  position:absolute;
+  background-color: cyan;
+  top:20%;
+  right:20%;
+  /* here we are using the (Animation-properties) of the css. */
+  /* => for using the animation property we have to define the few things to the animation property: 
+  1 = first is the (name) of the animation.that we want to use.
+  2 = second is the time duration.like(1s).
+  3 = after that we  define the (transition-timing-function) to the time that we have given to the animation.like we can use the (ease-in-out) timing-function. 
+  4 = and In last we have to define that how many times we want that this animation should run.like if  we want to only run this animation for a two times for that we can gave him a value (2).
+  we can also run this animation infinitely by using the (infinite) value.*/
+
+
+  /* => like here we are using the (changeShape) animation-type. */
+  /* IMP = if you want that the animation should work smoothly.for that we have to use the (alternate) value.that will smooth the transition of our animation. 
+  => alternate is basically smooth the transition of  the animation from both the side. like from (froM TO to) or from (to TO from).
+  IMP = other important thing is that if we gave him a run time value is (4).then it will count them as (from TO to) is count as (one) run  and from  (to TO from) it will count as (second) run. */
+  
+  /* => here we are defining the animation  values in the one-line. 
+  => we can also define them separately.like this.
+  -> animation-name;
+  -> animation-delay
+  .... etc. */
+
+  animation: changeShape 1s ease-in-out infinite alternate;
+}
