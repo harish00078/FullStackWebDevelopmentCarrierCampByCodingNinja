@@ -1,0 +1,66 @@
+/* here we are creating a multiple animations for  the one element. because that elemenet uses a more than one element.
+=> we can create a each animation separately.so we can use them for the other elements also. */
+
+/* here we create (change-shape) animation. */
+@keyframes changeShape{
+  0%{
+    border-radius: 0%;
+  }
+  25%{
+    border-radius: 12.5%;
+  }
+  50%{
+    border-radius: 25%;
+  }
+  100%{
+    border-radius: 50%;
+  }
+}
+
+/* here we create (rotateShape) animation. */
+@keyframes rotateShape{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
+/* here we create (reduce-Size) animation. */
+@keyframes reduceSize{
+  from{
+    height:200px;
+    width: 200px;
+  }
+  to{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+
+
+div{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top:40%;
+  left: 40%;
+  background-color: cyan;
+  /* so here we are using the short-hand property of the animation.means were we can gave each value to the animation in the one line. 
+  => but through this property  we are not able to gave a multiple animation to element.*/
+
+  /* animation:changeShape 1s ease-in-out 4 alternate; */
+
+  /* => so for providing a multiple animation to the one element.we have to gave him a animation-values separately.like this */
+  animation-name: changeShape, rotateShape, reduceSize;
+  /* we can also gave the different-2 durations to the elements */
+  animation-duration: 1s, 1s, 1s;
+  /* this property is used for gaving a (run-time) to the animation.means that how much time we want to run the each animation. */
+  animation-iteration-count: infinite,infinite,infinite;
+  animation-direction: alternate,alternate,alternate;
+  
+
+}
