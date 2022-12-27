@@ -66,7 +66,7 @@ for (var i = 0; i < buttons.length; i++) {
 document.addEventListener("keypress", function(event) {
   var key;
   key =  event.keyCode;
-  value = String.fromCharCode(key);
+ var  value = String.fromCharCode(key);
   console.log(key+" "+value);
   var numArray = [1,2,3,4,5,6,7,8,9,0];
 
