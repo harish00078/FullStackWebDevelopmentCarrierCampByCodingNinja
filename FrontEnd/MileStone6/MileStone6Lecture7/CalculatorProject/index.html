@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <title>create calculator project</title>
+</head>
+
+<body>
+  <!-- here we have calculator-div -->
+  <div id="calculator">
+    <!-- here we have display-contianer-div for the calculator -->
+    <div id="display-container">
+      <p id="display"></p>
+    </div>
+
+    <!-- here we create all the buttons:which has numeric-values and operators also -->
+    <!-- here we are using the (data) function to create our own attributes.
+      => for creating our own attributes we can use the (data) function or property:
+
+      => and we also have to define the what kind of attribute that we are trying to create.here we trying to create the (value) attribute:that why we are using (data-value) attribute function:
+      
+      => using this attribute function we are basically defining a values to our buttons or we can say that to our elements: -->
+    <div class="button" data-value="reset">
+      <span> A/C </span>
+    </div>
+
+    <div class="button" data-value="0">
+      <span> 0 </span>
+    </div>
+
+    <div class="button" data-value="1">
+      <span>1</span>
+    </div>
+
+    <div class="button" data-value="2">
+      <span>2</span>
+    </div>
+
+    <div class="button" data-value="3">
+      <span>3</span>
+    </div>
+
+    <div class="button" data-value="4">
+      <span>4</span>
+    </div>
+
+    <div class="button" data-value="5">
+      <span>5</span>
+    </div>
+
+    <div class="button" data-value="6">
+      <span>6</span>
+    </div>
+
+    <div class="button" data-value="7">
+      <span>7</span>
+    </div>
+
+    <div class="button" data-value="8">
+      <span>8</span>
+    </div>
+
+    <div class="button" data-value="9">
+      <span>9</span>
+    </div>
+
+    <div class="button" data-value="+">
+      <span> + </span>
+    </div>
+
+    <div class="button" data-value="-">
+      <span> - </span>
+    </div>
+    <div class="button" data-value="*">
+      <span> * </span>
+    </div>
+    
+    <div class="button" data-value="/">
+      <span> / </span>
+    </div>
+    <div class="button" data-value="%">
+      <span> % </span>
+    </div>
+
+    <div class="button" data-value="=">
+      <span>=</span>
+    </div>
+
+    <div class="button" data-value=".">
+      <span> . </span>
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
