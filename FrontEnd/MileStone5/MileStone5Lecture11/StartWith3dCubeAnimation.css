@@ -1,0 +1,72 @@
+.cube {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  margin: auto;
+
+  align-items: center;
+ 
+  /* here we are transforming the style of the element into the form of (preserve-3d) function:
+  => preserve-3d function is used to:
+  => (a) = Defines how nested elements are rendered in 3D space. 
+
+  => (b) = The preserve-3d setting is important if you want to be able to transform other elements with relation to this one, which we do. Without this the  all child elements are rendered flat in the same plane.
+
+  => (c) = 	Specifies that the child elements will preserve its 3D position*/
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  /* transform: rotateX(25deg) rotateY(-25deg); */
+}
+
+.cube:hover{
+  animation: spinning 1s infinite;
+}
+@keyframes spinning{
+  from{
+    transform:translateX(-0px) translateZ(-0px) rotate(0deg);
+  }
+  to{
+    transform: translateX(-100px) translatez(-100px) rotate(360deg);
+  }
+}
+
+.face {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 140%;
+  left: 20%;
+  transition: all 1s;
+}
+
+
+.one {
+  background-color: deepskyblue;
+  transform: rotateY(0deg);
+}
+
+.two {
+  background-color: orange;
+  transform: rotateY(90deg) translateZ(-100px) translateX(-100px);
+}
+
+.three {
+  background-color: palevioletred;
+  transform: rotateY(-90deg) translateZ(-100px) translateX(100px);
+}
+
+.four {
+  background-color: brown;
+  transform: rotateX(90deg) translateY(100px) translateZ(100px);
+}
+
+.five {
+  background-color: greenyellow;
+  transform: rotateX(90deg) translateZ(-100px) translateY(100px);
+}
+
+.six {
+  background-color: blueviolet;
+  transform: translateZ(200px);
+}
