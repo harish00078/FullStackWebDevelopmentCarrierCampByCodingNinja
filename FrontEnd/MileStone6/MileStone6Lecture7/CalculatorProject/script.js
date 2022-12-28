@@ -31,21 +31,17 @@ for (var i = 0; i < buttons.length; i++) {
     }
     // In (else-if) we work on the (evaluation) of the values:
     else if (value === "=") {
-
       if (operator != null) {
         operand2 = parseFloat(display.textContent);
         // use (eval) function to get result:
         var result = eval(operand1 + " " + operator + " " + operand2);
         // and after getting result.we also have to show that result on the (display);
         display.innerText = result;
-      }
-      else{
+      } else {
         display.innerText = "error";
       }
-    }
-
-    else if(value === '.'){
-      if(display.innerText.length && !display.innerText.includes('.')){
+    } else if (value === ".") {
+      if (display.innerText.length && !display.innerText.includes(".")) {
         display.innerText += value;
       }
     }
@@ -57,56 +53,51 @@ for (var i = 0; i < buttons.length; i++) {
   });
 }
 
-
 // Gave Input through keyboard:
-
 
 // Input with Keys
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function (event) {
   var key;
-  key =  event.keyCode;
- var  value = String.fromCharCode(key);
-  console.log(key+" "+value);
-  var numArray = [1,2,3,4,5,6,7,8,9,0];
+  key = event.keyCode;
+  // here we are giving those (key) values to the (value-variable) in the form of (string):
+  var value = String.fromCharCode(key);
+  console.log(key + " " + value);
+  var numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-
-  if(value == '+' || value == '-' || value == "*" || value == "/" || value == "%"){
-  
-          operator = value;
-          operand1 = parseFloat(display.innerText);
-          display.innerText = null;
-  }
-
-  else if(key == '13'){
-      if(operator != null){
-          operand2 = parseFloat(display.innerText);
-          display.innerText = eval(operand1+" "+operator+" "+operand2);
-      }
-      else{
-          display.innerText = "Error";
-      }
-  }
-
-  else if(value == '.') {
-      if(display.innerText.length && !display.innerText.includes('.') ) {
-          display.innerText += value;
-      }
-  }
-
-  else if(value in numArray){
+  if (
+    value == "+" ||
+    value == "-" ||
+    value == "*" ||
+    value == "/" ||
+    value == "%"
+  ) {
+    operator = value;
+    operand1 = parseFloat(display.innerText);
+    display.innerText = null;
+  } else if (key == "13") {
+    if (operator != null) {
+      operand2 = parseFloat(display.innerText);
+      display.innerText = eval(operand1 + " " + operator + " " + operand2);
+    } else {
+      display.innerText = "Error";
+    }
+  } else if (value == ".") {
+    if (display.innerText.length && !display.innerText.includes(".")) {
       display.innerText += value;
+    }
+  } else if (value in numArray) {
+    display.innerText += value;
   }
-})
+});
 
+// For Clearing display with delete Key
 
-// For Clearing display with delete Key 
-
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
   var key;
-  key =  event.keyCode;
+  key = event.keyCode;
 
-  if(key == '8') {
-      display.innerText = null;
+  if (key == "8") {
+    display.innerText = null;
   }
 });
