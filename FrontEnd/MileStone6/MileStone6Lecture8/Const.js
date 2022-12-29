@@ -5,11 +5,17 @@
 // but it  has some different properties acc to the other types of the variables declaration methods:
 // like:
 // 1 = It cannot be updated or re-declared into the scope:
-const a = 30;
-a = 40; // this will gave us error:
+
+// const a = 30;
+// a = 40; // this will gave us error:
 
 
 // 2 = const can not be accessed without initialisation,as it can not be declared without initialisation:
 
+// => (a) = here we can not declarad it without initialisation:
 // const c; // this will gave us a error:
 // c = 30;
+
+// => (b) = here we are doing that we can not accessed it without initialisation:
+console.log(b);
+const b = 30;
