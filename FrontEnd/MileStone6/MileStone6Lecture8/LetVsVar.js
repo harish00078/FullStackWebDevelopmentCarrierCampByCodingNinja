@@ -1,6 +1,6 @@
 // here we are seeing that were we have to use the (Let) and (Var):
 
-// we are using the (var) function.here for declaring the variable in the for-loop .and we are using the (setTimeOut) property in that for-loop.
+// we are using the (var) function  for declaring the variable in the for-loop .and we are using the (setTimeOut) property in that for-loop.
 for (var i = 0; i <= 5; i++) {
   // but we did not get the correct output here while using a (var) function:
   // => because:
