@@ -15,3 +15,14 @@ for (var i = 0; i <= 5; i++) {
     console.log(i);
   }, 1000);
 }
+
+
+
+// we are using the (Let) function for declaring the variable in the for-loop .and we are using the (setTimeOut) property in that for-loop.
+for (let i = 0; i <= 5; i++) {
+  // Let function will gave us the correct output.because it using a block-scope for creating variable:
+  // that's why  here In this function it will did not jump on the next number or value of the for-loop.until the first value or number will did  not get printed:
+  setTimeout(function () {
+    console.log(i);
+  }, 1000);
+}
