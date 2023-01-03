@@ -65,7 +65,7 @@ function requestHandler(req, res) {
       break; // we also have to use the (break) function.after giving a (file) to the one-case: if we did not do that then system will automatically jump on the other (file) by itself:  
 
     case '/profile':
-      filePath = 'profile.html';
+      filePath = './profile.html';
       break;
 
     // if we have  default (url) request from the user: for that we can use the (default) function:
