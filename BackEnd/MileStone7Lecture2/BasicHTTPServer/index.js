@@ -52,24 +52,63 @@ function requestHandler(req, res) {
   res.writeHead(200, { "content-type": "text/html" });
 
 
+
+  // here we are creating a (filePath) variable because we want to use  a multiple file-paths:
+  let filePath;
+
+  // here we are using a (switch) function on the (url) request that we get from the user:
+  switch(req.url){
+    // and under the (switch) function we are providing a  different-different cases to files.acc to the (url) that is given from the user or requested from the user: iwith the help of (case)function:
+
+    case '/':
+      filePath = './index.html';
+      break; // we also have to use the (break) function.after giving a (file) to the one-case: if we did not do that then system will automatically jump on the other (file) by itself:  
+
+    case '/profile':
+      filePath = 'profile.html';
+      break;
+
+    // if we have  default (url) request from the user: for that we can use the (default) function:
+    default:
+      filePath = './404.html';
+
+  }
+
+  // and after checking a (url) through (case) function.and getting a (file) for that the user is (requested).
+  // know we have to read that file: and gave to the user in the (response):
+  fs.readFile(filePath, function(err,data){
+    if(err){
+      console.log('error',err);
+
+      return res.end('<h1> Error </h1>')
+    }
+
+    return res.end(data);
+  })
+
+  
+
+
+
   // here we are using the (fs-modules).for readind our files.like (html-files) etc:
   // we have to gave him a path of the file that we want to be read:
   // we are aslo creating a (function0 with in the (readfile-module).which as a two arguments:
   // first = one will gave the error.
   // second = will provide the (data).after reading a file:
-  fs.readFile('./index.html', function(err, data){
 
-    // If  there is error in the file:
-    if(err){
-      // here we are printing the error in (terminal):
-      console.log('error',err);
-      // and here we are giving the error in the response also to the user:
-      return res.end('<h1> Error!</h1>')
-    }
+  // fs.readFile('./index.html', function(err, data){
 
-    // If file  does not have the any error:then we gave the data or the file in the response to the browser or the user:
-    return res.end(data);
-  })
+  //   // If  there is error in the file:
+  //   if(err){
+  //     // here we are printing the error in (terminal):
+  //     console.log('error',err);
+  //     // and here we are giving the error in the response also to the user:
+  //     return res.end('<h1> Error!</h1>')
+  //   }
+
+  //   // If file  does not have the any error:then we gave the data or the file in the response to the browser or the user:
+  //   return res.end(data); 
+  // })
 
 
   // and here we are providing some (response) to that (request):
@@ -96,7 +135,7 @@ server.listen(port, function (err) {
     console.log(err);
     return;
   }
-  console.log("server is up and running on port: ", port);
+  console.log("server is running on port: ", port);
 });
 
 // for using our own created server in our (local-machine) browser:
