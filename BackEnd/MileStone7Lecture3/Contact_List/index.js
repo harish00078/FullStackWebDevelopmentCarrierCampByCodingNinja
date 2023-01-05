@@ -39,7 +39,7 @@ app.set("view engine", "ejs");
 // IMP =  here we are basically providing a (views) to the (ejs) view-engine: with the help of (path) module's (path.join) function: 
 // here we are giving a two things in the (path.join) function:
 // first is directory = (__dirname):
-// secont is folder-name ('view') were we create our all views.we can say store our all the (views):
+// second is folder-name ('view') were we create our all views.we can say store our all the (views):
 app.set('views', path.join(__dirname, 'view') );
 
 
@@ -66,14 +66,21 @@ app.set('views', path.join(__dirname, 'view') );
 // fifth = (DELETE): It is used: when we want to delete some particular data from the database: we will use the (delete) request function:
 
 // here (get) is a (request-type) function:
-app.get("/profile", function (req, res) {
+app.get("/profile", function (req, res){
   // (__dirname) is used to check the (directory) of the server.or we can say the (files-path) of the server:
   // console.log(__dirname);
 
-  
-
   // here (send) is a (response-type) function:
-  res.send("<h1>cool,it is running ! or is it</h1>");
+  // res.send("<h1>cool,it is running ! or is it</h1>");
+
+  // here we are using a (EJS) file in the (response):
+  // and we aslo have to use the (render) function here for rendering a file:
+  // Imp = always  remember  of using a (return) function. if we did not do that then the system will keep looking for the file:
+
+  //  here we are giving a tittle to the webpage in the (server-file):
+  // In the dynammic-way: means that here we create some object in the render-file with some value:and we use that (object) in the (title-tag) of the (ejs-file) as a variable and used its value in the title of our webpage: 
+  return res.render('home', {tittle:"i am harish"});
+
 });
 
 app.listen(port, function (err) {
