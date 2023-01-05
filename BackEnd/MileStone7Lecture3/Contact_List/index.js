@@ -1,13 +1,52 @@
 const express = require("express");
+// here we are importing a In-build path module of the (node-js):
+const path = require("path");
 
 const port = 8000;
-
 
 // here we are connecting the (app) variable with the (express) framework: now (app) variable will have all the functionalities of the (express-framework):
 const app = express();
 
-// now after connecting the (app) variable with the (express-framework): 
+// now after connecting the (app) variable with the (express-framework):
 // now for the further work on  the server.we will use the (app) variable directly . because it has all the functinality of the (express-framwork):
+
+
+
+
+
+// ==> if we want to use the (Template-engine) in the (Express). for that we have to tell the express that we are using the (Template-engine):
+// here we are using the (EJS) Template-engine:
+
+// for setting the (template-engine) with the (express).we have to use the (set) property:
+
+// so here in (set) function: the (view engine) is the property and (ejs) is a value to that:
+
+// IMP => so  basically here we are setting a (ejs) as (view engine) for the (express): it means that (template-engine) is also a (view Engine):
+app.set("view engine", "ejs");
+
+
+// ==> after connecting the express  with the (ejs) template/view engine:
+
+// we also have to set the path or gave  (views) to the (ejs) view-engine with in the (server-file) or server: so the views  can easily communicate with the (server-file):
+
+
+// for that we have use the (path.join) function of the (path) module:
+
+// In path we can  simply gave the (directory) to the (views).like in this way (user/carriercamp....):
+
+// or we can use the (__dirname) function: that will dynamically gave the directory to the views: and it very usefull function: if we want to gave my code to  any other person then that will have a different directory for the (views): so this function will automatically (detect) there directory:
+
+// IMP =  here we are basically providing a (views) to the (ejs) view-engine: with the help of (path) module's (path.join) function: 
+// here we are giving a two things in the (path.join) function:
+// first is directory = (__dirname):
+// secont is folder-name ('view') were we create our all views.we can say store our all the (views):
+app.set('views', path.join(__dirname, 'view') );
+
+
+
+
+
+
 
 
 // there are different type of (HTTP-Request) function:
@@ -26,23 +65,21 @@ const app = express();
 
 // fifth = (DELETE): It is used: when we want to delete some particular data from the database: we will use the (delete) request function:
 
-
-
 // here (get) is a (request-type) function:
-app.get('/profile', function(req,res){
-  console.log(req);
+app.get("/profile", function (req, res) {
+  // (__dirname) is used to check the (directory) of the server.or we can say the (files-path) of the server:
+  // console.log(__dirname);
+
+  
 
   // here (send) is a (response-type) function:
-  res.send('<h1>cool,it is running ! or is it</h1>');
+  res.send("<h1>cool,it is running ! or is it</h1>");
 });
 
+app.listen(port, function (err) {
+  if (err) {
+    console.log("error in the running server", err);
+  }
 
-
-
-app.listen(port, function(err){
-  if(err){
-    console.log('error in the running server', err);
-  } 
-
-  console.log('yup! my Express server is running on the port:', port);
-})
+  console.log("yup! my Express server is running on the port:", port);
+});
