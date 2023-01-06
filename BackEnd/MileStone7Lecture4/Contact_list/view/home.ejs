@@ -1,17 +1,41 @@
 <!-- we also have to use the (ejs) extension here if we are creating a (webpage) through the (template-engine) -->
 
 <html>
-  <head>
 
-    <!-- here we are giving a tittle to the (web-page) through (server-file).In the dynamic way:
+<head>
+
+  <!-- here we are giving a tittle to the (web-page) through (server-file).In the dynamic way:
     => dynamic-way = means that here in (ejs) file we are basically using the (variable) of the (server-file) which has some value.and we use that value as tittle for our (webpage)-->
-    
-    <title>
-      <!-- In (ejs) we basically use (=) for  declaring the variables: -->
-      <%= locals.tittle%>
-    </title>
-  </head>
-  <body>
-    <h1> Rendered  from EJS View</h1>
-  </body>
+
+  <title>
+    <!-- In (ejs) we basically use (=) for  declaring the variables: -->
+    <%= locals.tittle%>
+  </title>
+</head>
+
+<body>
+  <h1> contact List</h1>
+
+  <div>
+    <!-- here we create (unorderedlist):for printing our (contact_list) 
+    => or we can say for printing our (objects) as a (List):-->
+    <ul>
+    <!-- here we use for-loop.so we can print all the (object-properties) of our (contact-list): -->
+      <% for(let i of contact_List) { %>
+        <li>
+          <!-- here we are printing  the (names) of our (contact-list) -->
+          <p>
+            <%= i.name %>
+          </p>
+          <!-- here we are printing the (phone-No) of our (contact_list) -->
+          <p>
+            <%= i.phone %>
+          </p>
+        </li>
+        <% } %>
+
+    </ul>
+  </div>
+</body>
+
 </html>
