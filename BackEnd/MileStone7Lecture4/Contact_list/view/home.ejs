@@ -1,0 +1,17 @@
+<!-- we also have to use the (ejs) extension here if we are creating a (webpage) through the (template-engine) -->
+
+<html>
+  <head>
+
+    <!-- here we are giving a tittle to the (web-page) through (server-file).In the dynamic way:
+    => dynamic-way = means that here in (ejs) file we are basically using the (variable) of the (server-file) which has some value.and we use that value as tittle for our (webpage)-->
+    
+    <title>
+      <!-- In (ejs) we basically use (=) for  declaring the variables: -->
+      <%= locals.tittle%>
+    </title>
+  </head>
+  <body>
+    <h1> Rendered  from EJS View</h1>
+  </body>
+</html>
