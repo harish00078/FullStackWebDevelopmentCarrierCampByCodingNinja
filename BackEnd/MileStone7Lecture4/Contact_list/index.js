@@ -17,15 +17,15 @@ var contactList = [
   // under array we create (object-properties): which has the (keys) with there (values):
   {
     name: "harish",
-    phone: "9898989989"
+    phone: "9898989989",
   },
   {
     name: "Tony Stark",
-    phone: "7979797979"
+    phone: "7979797979",
   },
   {
     name: "coding Ninjas",
-    phone: "797786876868"
+    phone: "797786876868",
   },
 ];
 
@@ -36,7 +36,9 @@ app.get("/List", function (req, res) {
     title: "contact List",
 
     // here we create another (Object-property):which has the (key) with it's (value):
-    contact_List: contactList
+    // IMP = we use this (contact_List) key in the (EJS) file so we can connect with the (contactList) Objects .that we have created in the (server-file):
+    contact_List: contactList,
+
   });
 
 });
