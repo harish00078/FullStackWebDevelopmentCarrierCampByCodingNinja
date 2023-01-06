@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+</head>
+
+<body>
+  <h1>Play ground</h1>
+
+  <!-- here we are creating a (unordered-list): -->
+  <ul>
+    <!-- here we are creating a for-loop using (EJS)-->
+
+    <!-- IMP-1 = In (EJS) If we want to print something for that we use the (=) under the (EJS) syntax-tag
+      IMP-2 = other thing is that we have to write everything in (under) syntax-tag of the (EJS)  -->
+    <% for(let i=1; i < 6; i++){ %>
+      <li>
+        <!-- here we are using (EJS) print statement: because we want to print the (unordered-list). or we can say numbers as a (unordered-list) -->
+        <%= i %>
+      </li>
+      <!-- here we can see that we did not put the for-loop closing-tag openly: -->
+      <% }%>
+  </ul>
+
+  <!-- here we are creating a (statements) using (EJS) -->
+  <!-- syntax for the (statements) in the (EJS) is (<% if(true){ %> Hello <% } %>) -->
+
+  <% if(true) { %>
+    <h1>It is true</h1>
+  <% }else{ %>
+    <p>It is false:</p>
+  <% } %>
+</body>
+
+</html>

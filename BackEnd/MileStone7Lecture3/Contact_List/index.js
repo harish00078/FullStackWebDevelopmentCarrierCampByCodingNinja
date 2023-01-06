@@ -8,7 +8,7 @@ const port = 8000;
 const app = express();
 
 // now after connecting the (app) variable with the (express-framework):
-// now for the further work on  the server.we will use the (app) variable directly . because it has all the functinality of the (express-framwork):
+// now for the further work on  the server.we will use the (app) variable directly . because it has all the functionality of the (express-framework):
 
 
 
@@ -66,6 +66,7 @@ app.set('views', path.join(__dirname, 'view') );
 // fifth = (DELETE): It is used: when we want to delete some particular data from the database: we will use the (delete) request function:
 
 // here (get) is a (request-type) function:
+// we can also call it (controller).acc to the (MVC) structure:
 app.get("/profile", function (req, res){
   // (__dirname) is used to check the (directory) of the server.or we can say the (files-path) of the server:
   // console.log(__dirname);
@@ -74,14 +75,30 @@ app.get("/profile", function (req, res){
   // res.send("<h1>cool,it is running ! or is it</h1>");
 
   // here we are using a (EJS) file in the (response):
-  // and we aslo have to use the (render) function here for rendering a file:
+  // and we also have to use the (render) function here for rendering a file:
   // Imp = always  remember  of using a (return) function. if we did not do that then the system will keep looking for the file:
 
   //  here we are giving a tittle to the webpage in the (server-file):
-  // In the dynammic-way: means that here we create some object in the render-file with some value:and we use that (object) in the (title-tag) of the (ejs-file) as a variable and used its value in the title of our webpage: 
+  // In the dynamic-way: means that here we create some object in the render-file with some value:and we use that (object) in the (title-tag) of the (ejs-file) as a variable and used its value in the title of our webpage: 
+
+  // IMP = here (title) obect with its value is know as (locals):
+  // Local => means that this object is (available) global to all of my (view) folder's-files:
+
   return res.render('home', {tittle:"i am harish"});
 
 });
+
+
+// here we create another controller for the another (view) to gave in  another (response):
+app.get("/practice", function(req,res){
+
+  return res.render('practice',{
+    title:"let us play with EJS"
+  });
+});
+
+
+
 
 app.listen(port, function (err) {
   if (err) {
