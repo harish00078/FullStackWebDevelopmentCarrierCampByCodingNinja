@@ -54,7 +54,7 @@ app.set('views', path.join(__dirname, 'view') );
 
 // first = (GET): It is used.when the data is already represent in the database: we only need to (use) that or want that data from the database:
 
-// second = (POST): It is used .when we to change something in the database.and then access that file from the database.
+// second = (POST): It is used .when we want to change something in the database or data.and then access that file from the database or access that data.
 
 // => the other (HTTP-Request) function are:
 // these use with the (AJAX):
