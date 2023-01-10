@@ -10,6 +10,21 @@ app.set("view engine", "ejs");
 
 app.set("views", path.join(__dirname, "view"));
 
+// here we are using the (PARSE) FUNCTION OF THE Express.js:
+// Parse-function => means that analyze and converting a set instructions into a format that the runtime environment can understand and run:
+
+// for using the (parse) function of the  (express.js).we have to use the (property) named as (urlencoded()):
+
+// for using that (parsing) property we have to use the another important property named as (use):
+
+// (use) is basically a (Middleware) property:
+
+app.use(express.urlencoded());
+
+
+
+
+
 // here we are creating a (contact-list). for our (Express) app:
 // we are creating a contact-list using a (array):
 
@@ -29,7 +44,7 @@ var contactList = [
   },
 ];
 
-app.get("/List", function (req, res) {
+app.get("/list", function (req, res) {
 
   return res.render("home", {
     title: "contact List",
@@ -66,7 +81,33 @@ app.post("/create-contact", function (req, res) {
 
   // Redirect =  The Express framework has a res.redirect() method that redirects from an URL to a different URL with the 302 status code by default. It also accepts other status codes if necessary. The browsers will understand the redirect and load from the new URL.
 
-  return res.redirect("/List");
+  // return res.redirect("/list");
+ 
+
+
+  // by printing the (req) function's (body). we can see that our (parse) function is working in the (console-terminal):
+  // we can see that Our (parse) function will have the (form-values) in it:
+
+  // console.log(req.body);
+  // console.log(req.body.name);
+
+
+  // know after getting the values we have to push them in our (contact-list):
+  // contactList.push({
+  //   name:req.body.name,
+  //   phone:req.body.phone
+  // });
+
+  // Instead of pushing a each value separately in the (contact-list): we can simply push the (hole-object) in the (contact-list) :which have all the values in it:
+  // request function's (body).will have all the values in it because of the (parse) function:so we can simple push the (req.body)  in the (contact-list):
+
+  contactList.push(req.body);
+
+  return res.redirect("/list");
+
+ 
+
+
 
 
 
