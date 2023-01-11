@@ -21,9 +21,35 @@ app.set("views", path.join(__dirname, "view"));
 
 app.use(express.urlencoded());
 
+// here we are using or getting our (static-files):like= css-files,js-files,images-files,etc:
+// for using the (static-files): we have to use the (static) function of (express.js):
+// and also have to gave the (folder-name) in that (static-function):through which (folder/file) from we are basically getting our static files:
 
+app.use(express.static("assets"));
 
+// here we are creating a (middle-ware):so we can learn more about the middle-ware:
 
+// first(middle-ware):
+// here we are using a another (argument) named as (next).it use to see  the next middleware:if we have another middleware then it will jump on that middleware.if we did not have another middleware then it. will directly jump on the controller acc to the current middleware's response:
+// app.use(function(req,res,next){
+//   // console.log('middleware 1 called');
+
+//   // here we are giving the (value) of the (req)function's key.and access that value in the different functions.so we can check that sequence of the (code): that how it is working:
+//   req.myname = "arpan";
+
+//   // if we want to use the another Middleware that is ahead of this middleware then we have to use the (next) argument.or we can say the (next) function of the (middleware):
+//   next();
+// });
+
+// // second(middleware):
+// app.use(function(req,res,next){
+
+//   // here we are accesing the (value) that we have given to the (first=middleware's) (req) function:
+//   console.log('my name is from mw2',req.myname);
+
+//   // console.log('middleware 2 called');
+//   next();
+// });
 
 // here we are creating a (contact-list). for our (Express) app:
 // we are creating a contact-list using a (array):
@@ -45,6 +71,8 @@ var contactList = [
 ];
 
 app.get("/list", function (req, res) {
+  // here we are also accesing the value of the (first-middleware's) request function:
+  console.log(req.myname);
 
   return res.render("home", {
     title: "contact List",
@@ -62,9 +90,6 @@ app.get("/list", function (req, res) {
 // here we use (post) request-method.because  It is used .when we want to change something in the database or data.and then access that file from the database or we can say then access that data.
 
 app.post("/create-contact", function (req, res) {
-
-
-
   // c => for that when ever (form) get submited.after getting all the values from the user: then it will trigger (action) on the path.that we have given to him:
 
   // d = and  here we gave him path of the ('/create-contant').(url-request) function:
@@ -75,22 +100,15 @@ app.post("/create-contact", function (req, res) {
 
   // g = that why we are  (redirecting) its response to the ('/list') url-function: for adding a (new_contact)  in the (contact-list): we do that because we are printing the (contact-list) in  the response of the ('/list') url-request:
 
-
-
-
-
   // Redirect =  The Express framework has a res.redirect() method that redirects from an URL to a different URL with the 302 status code by default. It also accepts other status codes if necessary. The browsers will understand the redirect and load from the new URL.
 
   // return res.redirect("/list");
- 
-
 
   // by printing the (req) function's (body). we can see that our (parse) function is working in the (console-terminal):
   // we can see that Our (parse) function will have the (form-values) in it:
 
   // console.log(req.body);
   // console.log(req.body.name);
-
 
   // know after getting the values we have to push them in our (contact-list):
   // contactList.push({
@@ -104,13 +122,6 @@ app.post("/create-contact", function (req, res) {
   contactList.push(req.body);
 
   return res.redirect("/list");
-
- 
-
-
-
-
-
 });
 
 app.listen(port, function (err) {
