@@ -1,3 +1,70 @@
 body{
+ margin: 0px;
+ font-family: sans-serif;
+
+}
+
+#page-heading{
   text-align: center;
+  margin-top: 25px;
+  color: grey;
+}
+
+
+
+ul{
+  align-items: center;
+  width: 280px;
+  border: 2px solid black;
+   margin-left: 300px;
+}
+
+#inline{
+  width: 150px;
+  display: inline;
+  margin-right: 60px;
+  color: white;
+  left: 40px;
+}
+
+#block{
+  width: 150px;
+  display: inline;
+  color: white;
+ 
+
+}
+
+
+p{
+  border: 1px solid lightblue;
+  background-color: black;
+}
+
+p:hover{
+  background-color:cyan;
+  cursor: alias;
+  color:black;
+}
+
+
+form{
+  border: 2px solid black;
+  width: 280px;
+  align-items: center;
+  margin: auto;
+}
+button{
+  display: block;
+  margin-top: 5px;
+}
+
+button:hover{
+  background-color:cyan;
+}
+
+input{
+  margin-top: 5px;
+  background-color: black;
+  color: white;
 }

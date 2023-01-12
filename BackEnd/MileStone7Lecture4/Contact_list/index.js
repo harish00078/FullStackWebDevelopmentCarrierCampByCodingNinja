@@ -18,7 +18,7 @@ app.set("views", path.join(__dirname, "view"));
 // for using that (parsing) property we have to use the another important property named as (use):
 
 // (use) is basically a (Middleware) property:
-
+ 
 app.use(express.urlencoded());
 
 // here we are using or getting our (static-files):like= css-files,js-files,images-files,etc:
@@ -123,6 +123,47 @@ app.post("/create-contact", function (req, res) {
 
   return res.redirect("/list");
 });
+
+
+// here we are creating a controller for the (deleting) a contact from the (contact-list):
+app.get('/delete-contact/',function(req,res){
+
+
+  // IMP = this (parameter) function will also works without the (urlrencoded) middleware funciton:
+
+
+  // here we are using the (phone) number: as a (unique-identifier).or we can say we are using the  (phone-numbers) to delete that particular contact from the (contact-list):because some person may have a the same (name):
+  
+  // => we can get the (phone-number) value with two parameter-methods or we can say in two ways:
+
+  // 1 = first is (string-parameter)method:In this method we can simply write the (parameter) with the (url):whose value we want to use:as a (unique-identifier) to delete the contact from the (contact-list):like = ("/delete-contact/:phone"): when we are using the (string) parameter we also have to write the parameter with in the (get) method 's (url):
+  // and for storing the (string-parameter) value in the varaible: we have to use the (params) funtion:like in this way:
+
+  // console.log(req.params);
+
+  // let phone = req.params.phone;
+  
+
+
+
+  // 2 = second is the (query-parameter)method:  In this method we can write or use the as much as parameters or we can say the unique-identifiers to delete our contact from the contact-list:we can write the (query-parameters) in this way:like = ("/delete-contact/? phone=....... name=...."):but when we are using the (query)parameter we did not have to write the parameter with in  the (get) method's (url):
+  // IMP = when we are using the (query)parameter: it will also shows the (parameter) with its (value) as well. on  our browser's (url):
+  
+
+  // here we are creating the varaible name(phone):were we store our (Phone-parameters) value: 
+  // for using the (query)parameter we have to (declare) the (query) function with the (req) function and (parameter) as well:like in this way:
+
+  console.log(req.query);
+
+  let phone = req.query.phone;
+
+
+});
+
+
+
+
+
 
 app.listen(port, function (err) {
   if (err) {
