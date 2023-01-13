@@ -1,0 +1,115 @@
+<!-- we also have to use the (ejs) extension here if we are creating a (webpage) through the (template-engine) -->
+
+<html>
+
+<head>
+
+  <!-- here we are giving a tittle to the (web-page) through (server-file).In the dynamic way:
+    => dynamic-way = means that here in (ejs) file we are basically using the (variable) of the (server-file) which has some value.and we use that value as tittle for our (webpage)-->
+
+  <title>
+    <!-- In (ejs) we basically use (=) for  declaring the variables: -->
+    <%= locals.tittle%>
+  </title>
+
+  <!-- here we are accessing our Css-file: -->
+  <link rel="stylesheet" href="/css/home.css">
+
+  <!-- here we are using or getting the(fonts) from the (font-awesome) website -->
+
+  <script src="https://kit.fontawesome.com/7ec0ac3499.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  
+  <h1 id="page-heading">
+    <i class="fa-solid fa-address-book"></i>
+    My contact List
+  </h1>
+
+  <div id="contact-list-container">
+    <!-- here we create (unorderedlist):for printing our (contact_list) 
+    => or we can say for printing our (objects) as a (List):-->
+    <ul>
+      <!-- here we use for-loop.so we can print all the (object-properties) of our (contact-list): -->
+      <% for(let i of contact_List) { %>
+        <li class="contact">
+          <!-- here we are printing  the (names) of our (contact-list) -->
+          <div class="details">
+            <p id="inline">
+              <%= i.name %>
+            </p>
+            <!-- here we are printing the (phone-No) of our (contact_list) -->
+            <p id="block">
+              <%= i.phone %>
+            </p>
+          </div>
+
+          <!-- here we are creating a (delete) button: -->
+          <div class="delete-button">
+
+            <!-- here we are using our (object's) values as  a (parameter) in the (url) or we can say in the (req-url): -->
+            <a href="/delete-contact/?phone=<%= i.phone%>">
+              <i class="fas fa-window-close"></i>
+            </a>
+          </div>
+          
+        </li>
+        <% } %>
+
+    </ul>
+  </div>
+
+  <!-- here we are creating a (form): to (collect) or get the (queries) from the user:
+
+    // IMP = structure of how to add (new-contact) in (contact-list):by getting a (New-contacts) value from the user:
+
+    a => here we are basically create a (form).in  the (EJS) response file of the (url-request).that url-request is ('/list'):
+
+    b => when ever this (EJS) file will get rendered in  the web. on the behalf of the user's (request): this will also rendered this (form).that we used for (creating) or (adding) a new-contact on our (contact-list):
+
+    c => for that when ever form get submited.after getting all the values from the user: then it will trigger (action) on the path.that we have given to him: 
+
+    d = and  here we gave him path of the ('/create-contant').(url-request) function:
+
+    e = and In that (url-request) function: we are giving or providing its response to the  '/list' (url-request) function again:through the (redirect) function:
+
+    f = because after getting (new-contact) value from user: we also have to add that value in our (contact-list):
+
+    g = that why we are  (redirecting) its response to the ('/list') url-function: for adding a (new_contact)  in the (contact-list): we do that because we are printing the (contact-list) in  the response of the ('/list') url-request:
+
+
+
+
+  1 => and the form's (action) property is used for where we want print that data:
+
+  2 => and we are also using the (method) property.here we use the (POST) request method:
+  because  It is used .when we want to change something in the database or data.and then access that file from the database or we can say then access that data.
+  
+  3 = here this (POST)-method  Corresponds to the HTTP POST method: here (form) data are included in the body of the (form) and (post) method will sent it to the server. acc to its response that we have given to its (post)-method's (url-request):   :-->
+
+  <form id="new-contact-form" action="/create-contact" method="POST">
+
+    <!-- IMP = In input tag we have a (name) attribute: that is used for naming a (keys) of the data or we can say of object.were we want to send or gave our data or value for the (key):
+    so our data or value can go in  the correct (KEY).where we want to send it or put it:   -->
+
+
+    <!-- here under form-tag we have creating  two objects basically: => through input-tags-->
+    <input type="text" name="name" placeholder="Enter name" required>
+
+    <input type="number" name="phone" placeholder="Enter phone" required>
+
+    <!-- here we create submit buttton: after getting the values for both the objects or we can say for both the (input-tag): we have to submit those values in some-were.acc to our forms (action) property:   -->
+
+    <button type="submit"> Add Contact</button>
+  </form>
+
+
+
+  <!-- here we are accesing our (js-file): -->
+  <script type="text/javascript" src="/js/home.js"></script>
+
+</body>
+
+</html>
