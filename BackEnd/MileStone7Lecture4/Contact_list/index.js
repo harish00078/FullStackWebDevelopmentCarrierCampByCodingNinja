@@ -126,7 +126,7 @@ app.post("/create-contact", function (req, res) {
 
 
 // here we are creating a controller for the (deleting) a contact from the (contact-list):
-app.get('/delete-contact/',function(req,res){
+app.get('/delete-contact',function(req,res){
 
 
   // IMP = this (parameter) function will also works without the (urlrencoded) middleware funciton:
@@ -153,9 +153,36 @@ app.get('/delete-contact/',function(req,res){
   // here we are creating the varaible name(phone):were we store our (Phone-parameters) value: 
   // for using the (query)parameter we have to (declare) the (query) function with the (req) function and (parameter) as well:like in this way:
 
-  console.log(req.query);
+  // console.log(req.query);
 
   let phone = req.query.phone;
+
+
+  // here we create a variable (contactIndex) under this variable:
+
+  // we will use the (findIndex) function on the (contact-list):for checking or traversing on the (phone-numbers) of the (contact-list) until it did not find out the (phone-number) in the (contact-list) that we have in our (query) parameter:
+
+  // or In basic words we can say that we are basically using the (findindex) function on the (contact-list) to check that the our (query) parameter (value) is represent in the (contact-list) or not:
+
+  // FindIndex = find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, findIndex immediately returns that element index. Otherwise, findIndex returns -1.
+  
+  // IMP = here we are using the another method of creating (functions) in the (javascript): and method is this: (=>): this sign is work as a function in the javascript:
+
+  let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+
+  // after checking the (query-parameter) phone-number value in the (contact-list):
+  // if we have that value present in the (contact-list):then we have to remove that value from the contact-list:
+
+  // for that we are using the (splice) function:that will basically delete that particular contact from the (Contact-list): and also (re-arrange) the other contacts as well:
+  if(contactIndex != -1){
+
+    // Splice = Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+    contactList.splice(contactIndex,1);
+  }
+
+  // and after deleting the contact. we also have to go back on the (contact-list): for that we are writing the (return) function here:
+  return res.redirect('/list');
 
 
 });
