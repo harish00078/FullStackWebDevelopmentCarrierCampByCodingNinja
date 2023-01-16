@@ -4,6 +4,17 @@ const path = require("path");
 
 const port = 8000;
 
+
+
+
+// here we are using our  (database) through (mongoose) connection with the (mongodb) database:
+// we have to use our (database) before the (express)app:
+// so express app will get the files from the (database). if it want to use them or if it has a need of any database files before starting up the (server):
+const db = require("./config/mongoose");
+
+
+
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -18,7 +29,7 @@ app.set("views", path.join(__dirname, "view"));
 // for using that (parsing) property we have to use the another important property named as (use):
 
 // (use) is basically a (Middleware) property:
- 
+
 app.use(express.urlencoded());
 
 // here we are using or getting our (static-files):like= css-files,js-files,images-files,etc:
@@ -124,16 +135,12 @@ app.post("/create-contact", function (req, res) {
   return res.redirect("/list");
 });
 
-
 // here we are creating a controller for the (deleting) a contact from the (contact-list):
-app.get('/delete-contact',function(req,res){
-
-
+app.get("/delete-contact", function (req, res) {
   // IMP = this (parameter) function will also works without the (urlrencoded) middleware funciton:
 
-
   // here we are using the (phone) number: as a (unique-identifier).or we can say we are using the  (phone-numbers) to delete that particular contact from the (contact-list):because some person may have a the same (name):
-  
+
   // => we can get the (phone-number) value with two parameter-methods or we can say in two ways:
 
   // 1 = first is (string-parameter)method:In this method we can simply write the (parameter) with the (url):whose value we want to use:as a (unique-identifier) to delete the contact from the (contact-list):like = ("/delete-contact/:phone"): when we are using the (string) parameter we also have to write the parameter with in the (get) method 's (url):
@@ -142,21 +149,16 @@ app.get('/delete-contact',function(req,res){
   // console.log(req.params);
 
   // let phone = req.params.phone;
-  
-
-
 
   // 2 = second is the (query-parameter)method:  In this method we can write or use the as much as parameters or we can say the unique-identifiers to delete our contact from the contact-list:we can write the (query-parameters) in this way:like = ("/delete-contact/? phone=....... name=...."):but when we are using the (query)parameter we did not have to write the parameter with in  the (get) method's (url):
   // IMP = when we are using the (query)parameter: it will also shows the (parameter) with its (value) as well. on  our browser's (url):
-  
 
-  // here we are creating the varaible name(phone):were we store our (Phone-parameters) value: 
+  // here we are creating the varaible name(phone):were we store our (Phone-parameters) value:
   // for using the (query)parameter we have to (declare) the (query) function with the (req) function and (parameter) as well:like in this way:
 
   // console.log(req.query);
 
   let phone = req.query.phone;
-
 
   // here we create a variable (contactIndex) under this variable:
 
@@ -165,32 +167,23 @@ app.get('/delete-contact',function(req,res){
   // or In basic words we can say that we are basically using the (findindex) function on the (contact-list) to check that the our (query) parameter (value) is represent in the (contact-list) or not:
 
   // FindIndex = find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, findIndex immediately returns that element index. Otherwise, findIndex returns -1.
-  
+
   // IMP = here we are using the another method of creating (functions) in the (javascript): and method is this: (=>): this sign is work as a function in the javascript:
 
-  let contactIndex = contactList.findIndex(contact => contact.phone == phone);
-
+  let contactIndex = contactList.findIndex((contact) => contact.phone == phone);
 
   // after checking the (query-parameter) phone-number value in the (contact-list):
   // if we have that value present in the (contact-list):then we have to remove that value from the contact-list:
 
   // for that we are using the (splice) function:that will basically delete that particular contact from the (Contact-list): and also (re-arrange) the other contacts as well:
-  if(contactIndex != -1){
-
+  if (contactIndex != -1) {
     // Splice = Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
-    contactList.splice(contactIndex,1);
+    contactList.splice(contactIndex, 1);
   }
 
   // and after deleting the contact. we also have to go back on the (contact-list): for that we are writing the (return) function here:
-  return res.redirect('/list');
-
-
+  return res.redirect("/list");
 });
-
-
-
-
-
 
 app.listen(port, function (err) {
   if (err) {
