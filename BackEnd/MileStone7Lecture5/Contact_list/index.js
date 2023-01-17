@@ -12,7 +12,8 @@ const port = 8000;
 // so express app will get the files from the (database). if it want to use them or if it has a need of any database files before starting up the (server):
 const db = require("./config/mongoose");
 
-
+// here we are using our (model): that we have created for creating (contacts):
+const Contact = require('./Models/contact');
 
 
 const app = express();
@@ -130,10 +131,72 @@ app.post("/create-contact", function (req, res) {
   // Instead of pushing a each value separately in the (contact-list): we can simply push the (hole-object) in the (contact-list) :which have all the values in it:
   // request function's (body).will have all the values in it because of the (parse) function:so we can simple push the (req.body)  in the (contact-list):
 
-  contactList.push(req.body);
+  // contactList.push(req.body);
 
-  return res.redirect("/list");
+
+
+
+
+
+  // after getting the (new-contact) from the (user). we have to put it into our (database):
+  // here we are are putting our (new-contact) in our (database):
+  // for creating (new-contact) in the database for that we have to use the (model): that we have created:
+  // and also have to use the (create) function:that will define to  the (model) that we are creating something:
+
+  Contact.create({
+
+    name: req.body.name,
+    phone: req.body.phone
+
+
+
+    // here we create the (error) function under this creating (contact) function:so we can check that we have created a contact or not:
+  }, function(err, newContact){
+
+    // if we have error while creating (contact):
+
+    if(err){
+
+      // then we have to print this statement in the (console):
+
+      console.log('error in creating a contact!');
+
+      // and return from the (err) function:
+      return;
+    }
+
+
+    // if we did not get the (error) while creating the (contact) into the (database):
+    // then it means that we have created a (contact) into the (database):
+
+    // here we are printing that (contact): into the console: so we can see that contact:
+    console.log('*******', newContact);
+
+
+    // and after creating or putting the (contact) in the (database):
+    // know we have to redirect to our (contact-list) page or we can say to our (view-page)/(web-page):
+
+    // by using (response) function:with the help of (redirect) function:
+    // instead of writing ('/list')url. here we can also simply use the (back) function:
+
+    return res.redirect('/list');
+    // return res.redirect('back');
+
+
+
+
+
+  });
+
+
+  // here we are direct adding the (new-contact) into the (contact-list):after getting the contact from the user:
+
+  // return res.redirect("/list");
+
+
 });
+
+
 
 // here we are creating a controller for the (deleting) a contact from the (contact-list):
 app.get("/delete-contact", function (req, res) {
