@@ -90,7 +90,8 @@ app.get("/list", function (req, res) {
   // for getting my contacts from the (database): we have fetch them:
   // for fetching the contacts from the database: we have to use the (find) function with  (model):
   // we want to fetch all (contacts) from the database:that's why we simply gave the empty (curely-brackets): like this ({}):
-  // under these (curely-brackets): we basically write our (queries) for the (database):
+
+   // IMP = under these (curely-brackets): we basically write our (queries) for the (database):
 
   // and we also create the (error) function:
   Contact.find({},function(err,contacts){
@@ -266,7 +267,12 @@ app.get("/delete-contact", function (req, res) {
 
   // console.log(req.query);
 
-  let phone = req.query.phone;
+  // let phone = req.query.phone;
+
+
+  // here we are using the (unique) = (ID) of the Objects for deleting them from the (database):
+  let id = req.query.id;
+  
 
   // here we create a variable (contactIndex) under this variable:
 
@@ -278,20 +284,49 @@ app.get("/delete-contact", function (req, res) {
 
   // IMP = here we are using the another method of creating (functions) in the (javascript): and method is this: (=>): this sign is work as a function in the javascript:
 
-  let contactIndex = contactList.findIndex((contact) => contact.phone == phone);
+  // let contactIndex = contactList.findIndex((contact) => contact.phone == phone);
 
   // after checking the (query-parameter) phone-number value in the (contact-list):
   // if we have that value present in the (contact-list):then we have to remove that value from the contact-list:
 
   // for that we are using the (splice) function:that will basically delete that particular contact from the (Contact-list): and also (re-arrange) the other contacts as well:
-  if (contactIndex != -1) {
-    // Splice = Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
-    contactList.splice(contactIndex, 1);
-  }
+
+
+  // if (contactIndex != -1) {
+  //   // Splice = Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+  //   contactList.splice(contactIndex, 1);
+  // }
+
+
+
+  //  here we are deleting the contact from the (database):
+  // for that we have to use the function named as (findByIdAndDelete):
+  // there also other function as well:
+  // here (id) is a varaible that we have created: which has the value of the (Query):
+  // In  that (query) we basically have the value of the (database) objects's (ID)'s:
+  Contact.findByIdAndDelete(id, function(err){
+    if(err){
+      console.log('error in deleting an object from the database');
+      return;
+    }
+    
+    
+    return res.redirect("/list");
+
+  });
+
+
+
+
 
   // and after deleting the contact. we also have to go back on the (contact-list): for that we are writing the (return) function here:
-  return res.redirect("/list");
+  
+  // return res.redirect("/list");
+
+
 });
+
+
 
 app.listen(port, function (err) {
   if (err) {
