@@ -86,13 +86,58 @@ app.get("/list", function (req, res) {
   // here we are also accesing the value of the (first-middleware's) request function:
   console.log(req.myname);
 
-  return res.render("home", {
-    title: "contact List",
 
-    // here we create another (Object-property):which has the (key) with it's (value):
-    // IMP = we use this (contact_List) key in the (EJS) file so we can connect with the (contactList) Objects .that we have created in the (server-file):
-    contact_List: contactList,
+  // for getting my contacts from the (database): we have fetch them:
+  // for fetching the contacts from the database: we have to use the (find) function with  (model):
+  // we want to fetch all (contacts) from the database:that's why we simply gave the empty (curely-brackets): like this ({}):
+  // under these (curely-brackets): we basically write our (queries) for the (database):
+
+  // and we also create the (error) function:
+  Contact.find({},function(err,contacts){
+
+    // if we have a error while fetching contacts from the (database):
+
+    if(err){
+      // then we have to print this statement:
+      console.log('error in fetching contacts from the db');
+      // and return from this function:
+      return;
+    }
+
+    // if we did not have the error while getting or fetching the (contacts) from the database:
+    // then we have to put that (contacts) in our (contact-list):
+
+    // here we putting those (contacts) in our  (contact_list) through (repsonse) function:
+
+    // and we also have to use the (render) function: so that they can convert into the (webpage) language. instead of stay in the (database) language:
+
+    return res.render('home',{
+
+      title:"Contacts List",
+
+      // here we are creating a (key = contact_list) with this (key) we can connect with the (contacts) of the (database):
+      // we use this (contact_List) key in the (EJS) file:
+      // so we can  show our (contacts) of the (database) in our webpage:
+      contact_List:contacts
+
+
+    });
+
+
+
   });
+
+
+
+  // return res.render("home", {
+  //   title: "contact List",
+
+  //   // here we create another (Object-property):which has the (key) with it's (value):
+  //   // IMP = we use this (contact_List) key in the (EJS) file so we can connect with the (contactList) Objects .that we have created in the (server-file):
+  //   contact_List: contactList,
+  // });
+
+
 });
 
 // here we are writing the (response) function for the (POST) request method.that we have used in the (form-tag):
