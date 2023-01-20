@@ -11,6 +11,14 @@ const app = express();
 
 const port = 8000;
 
+// here we are using the (routers) with in our (express-app): that we have created in the (routes) folder separately:
+// In this (app.use) function: we are basically importing or using the (routes) folder:
+// we are basically checking. this('/') url in the (routes-folder).
+// and but kind of (res) is (written) on that (url): we are using it in our (express-app):
+
+app.use('/',require('./routes'))
+
+
 
 // here we create (listen) function:
 // To check our Express (app) is working or not:
