@@ -16,7 +16,7 @@ const port = 8000;
 // we are basically checking. this('/') url in the (routes-folder).
 // and but kind of (res) is (written) on that (url): we are using it in our (express-app):
 
-app.use('/',require('./routes'))
+app.use('/',require('./routes'));
 
 
 
