@@ -18,7 +18,9 @@ const router = express.Router();
 
 // here we Import the (home_controller) file from the (controller-folder):
 // under this (home_controller) file we basically write our (controllers) :
-// IMP = 
+// IMP = use double dots (..): if you are Importing your (upper) folder's  file:
+
+
 const homeController = require("../controllers/home_controller");
 
 // for check that its working or not:
