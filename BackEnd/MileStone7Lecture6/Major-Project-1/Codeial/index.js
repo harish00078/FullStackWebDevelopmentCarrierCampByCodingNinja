@@ -11,12 +11,31 @@ const app = express();
 
 const port = 8000;
 
+
+
+
 // here we are using the (routers) with in our (express-app): that we have created in the (routes) folder separately:
+
 // In this (app.use) function: we are basically importing or using the (routes) folder:
 // we are basically checking. this('/') url in the (routes-folder).
 // and but kind of (res) is (written) on that (url): we are using it in our (express-app):
 
+// home (router) use:
 app.use('/',require('./routes'));
+
+// here we connect or set our (express-app's) view-engine with the (ejs) view-engine:
+
+app.use('view engine', 'ejs');
+
+// after that we have to gave the (ejs-views) to the (express-app):
+// that we have created  in our (Views) folder:
+// here we are giving the (ejs) views to the (express-app):from the (Views-folder).were we have created our  all the (ejs-views):
+
+app.set('views','./Views');
+
+
+
+
 
 
 
@@ -32,6 +51,7 @@ app.listen(port, function(err){
     // console.log('error: ',err);
 
     // we can use the another method: named as (Interpolation):
+    // sign of Interpolation is these tilted commas (` `):
     // using (Interpolation) method we can write the (err) under the (string):
     console.log(`error in running the server: ${err}`);
 
