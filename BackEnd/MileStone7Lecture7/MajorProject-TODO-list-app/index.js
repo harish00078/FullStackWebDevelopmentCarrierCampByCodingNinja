@@ -10,21 +10,18 @@ const port = 8000;
 // with our express-app:
 const db = require("./config/mongoose");
 
+// here we are using the (middleware):
+app.use(express.urlencoded());
 
 
-app.use("/",function(err){
+// here we connect this ('/') url with  our (home_router) file:
+app.use('/',require('./routes/home_router'));
 
-  if(err){
-    console.log('error',app.use);
-    return;
-  }
-  // here we connect with  our router:
-  return require('./routes/home_router');
 
-});
+// here we connect our (express-app) with (assets):
+// In this (assets) folder we basically have our (static-files):
+app.use(express.static('./assets'));
 
-// here we connect (express) with the (app) variable:
-// const app = express();
 
 // here we set the (EJS) view-engine for our (express-app):
 app.set("view engine","ejs");
@@ -36,14 +33,8 @@ app.set('views', "./views");
 
 
 
-
-
-
-
-
-
-
-
+// here we craete a listen function the (server-file):
+// for check our server is working well or not:
 app.listen(port,function(err){
 
   if(err){

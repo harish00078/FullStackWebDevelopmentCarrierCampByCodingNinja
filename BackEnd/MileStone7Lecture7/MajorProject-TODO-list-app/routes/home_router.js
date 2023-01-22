@@ -1,24 +1,30 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
+const homeController = require("../controllers/home_controller");
 
-const homeController = require('../controllers/home_controller');
+// here if our (router) gets this ('/') url then we have to connect it with the (home_controller) file:
+// were we have created a (controller) for our (app's home-page):
+router.get("/", homeController.home);
 
-console.log('router is working');
+// here we connect (home-router) with all the other (routers):
+// so we did not have to create (every) router in the (server-file):
+// we basically use (home_router) file: for handling all the other (routers):
+// and connect those all  other (routers) with there (controllers): that we have created for them:
 
-/// If our Router get this (url = '/'):
-// then In (response) we have to gave this (home_controller) file:
-// were we write our controller for the (home) url's (response):
-router.get('/',function(err){
-  if(err){
-    console.log('have error',router.get);
-    return
-  }
+// => controlle for creating todolist:
+router.post("/create_todo", homeController.createTodo);
 
-  return require(homeController.home);
-});
+// controller for deleting the todolist:
+router.post("/delete_todo", homeController.deleteTodo);
 
+// controller for getting edit page:
+router.get('/editdata',homeController.EditPage);
 
+// controller for editing todoList:
+router.post('/edit-todolist',homeController.editDetails);
+
+console.log('router is working fine');
 
 module.exports = router;
