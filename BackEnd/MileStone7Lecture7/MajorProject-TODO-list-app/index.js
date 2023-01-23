@@ -38,7 +38,7 @@ app.set('views', "./views");
 app.listen(port,function(err){
 
   if(err){
-    console.log("errror while running the server",err);
+    console.log("error while running the server",err);
   }
 
   console.log("server is running fine on port : ", port);

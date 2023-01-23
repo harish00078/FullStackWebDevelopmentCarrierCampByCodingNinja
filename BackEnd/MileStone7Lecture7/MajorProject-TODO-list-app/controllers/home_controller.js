@@ -22,7 +22,7 @@ module.exports.home = function(req,res){
 
 // function for new Date
 function DateValeu(dueDate){
-    let months = ['jan','feb','mar','Apr','May','june','july','aug','sept','oct','nov','dec'] // static value for implementing monthe value
+    let months = ['jan','feb','mar','Apr','May','june','july','aug','sept','oct','nov','dec'] // static value for implementing months value
 
 
     newdate = '';
