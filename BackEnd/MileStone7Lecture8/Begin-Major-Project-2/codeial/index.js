@@ -12,6 +12,26 @@ const app = express();
 
 const port = 8000;
 
+
+// here we are using our (layout-file) from the (view's-folder):
+// under that (layout-file):we basically create a layout for our (web-site):
+// we can create  as much as (layouts) for our (website): acc to the (web-pages) that we have for our (web-site):
+
+// => for using that (layout-file):
+// => first we have to Import the (library) of (layouts);
+const expressLayouts = require('express-ejs-layouts');
+
+// we have to use the (layouts-file):before the (routers):
+app.use(expressLayouts);
+
+
+
+
+
+
+
+
+
 // here we are using the (routers) with in our (express-app): that we have created in the (routes) folder separately:
 
 // In this (app.use) function: we are basically importing or using the (routes) folder:

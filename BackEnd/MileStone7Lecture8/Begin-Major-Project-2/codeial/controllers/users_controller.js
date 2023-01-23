@@ -11,5 +11,12 @@
 // if client  use the (/user/update):then we will gave him a response from the (update) controller: that we have created in this (user-controller) file:
 
 module.exports.profile = function(req, res){
-    res.end('<h1>User Profile</h1>');
-}
+    // res.end('<h1>User Profile</h1>');
+    return res.render('user_profile', {
+
+       
+
+     title: "user profile"
+ });
+
+};

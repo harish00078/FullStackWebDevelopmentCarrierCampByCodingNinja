@@ -43,7 +43,7 @@ router.get('/', homeController.home);
 
 // IMp = here we are doing that:if any client use the (users) url after the (main) router('/') url: then we have to get him to the (users) router-file:
 
-router.use('/users', require('./users'));
+router.use('/user', require('./users'));
 
 // for any further routes, access from here
 // router.use('/routerName', require('./routerfile));
