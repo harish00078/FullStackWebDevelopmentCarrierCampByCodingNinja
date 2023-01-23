@@ -20,7 +20,7 @@ module.exports.home = function(req,res){
 
 
 
-// function for new Data
+// function for new Date
 function DateValeu(dueDate){
     let months = ['jan','feb','mar','Apr','May','june','july','aug','sept','oct','nov','dec'] // static value for implementing monthe value
 
@@ -116,7 +116,7 @@ module.exports.EditPage = function(req,res){ // here we are fetching the data wh
 
 // function for updated todo after the todo is being edited
 module.exports.editDetails = function(req,res){
-    dueDate =req.body.dueDate.split('-'); // splitting date and taking montha value
+    dueDate =req.body.dueDate.split('-'); // splitting date and taking months value
     let newdate='';
     newdate= DateValeu(dueDate);     
      TodoLists.updateOne({_id:req.query.id},{$set:{desc:req.body.desc,category:req.body.category,dueDate:newdate}} ,function(err,todoData){
