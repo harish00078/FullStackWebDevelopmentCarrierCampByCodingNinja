@@ -1,0 +1,6 @@
+body{
+  background-image: linear-gradient(rgb(60, 0, 255), rgba(144, 0, 255, 0.842), blue);
+}
+body:hover{
+  background-image:linear-gradient(cyan,blue,skyblue);
+}

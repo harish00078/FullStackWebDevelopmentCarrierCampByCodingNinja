@@ -1,0 +1,25 @@
+/* here we gave the (style) to the (layout-file) */
+
+body {
+  margin: 0;
+  text-align: center;
+  margin-top: 100px;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    transform: scale(1.0, 1.0);
+  }
+  100% {
+    transform: scale(0.5, 0.5);
+  }
+}
+
+body:hover {
+  background-color:cyan;
+  color: black;
+  animation: zoom-in-zoom-out 1s ease-in-out infinite;
+}

@@ -24,10 +24,39 @@ const port = 8000;
 // => first we have to Import the (library) of (layouts);
 const expressLayouts = require('express-ejs-layouts');
 
+
+
+
+// here we are (Importing) database: In our (server-file):
+const db = require('./config/mongoose');
+
+
+
+
+
+// here we are giving the (static-files) to our (web-site):
+// for giving the (static-files) or connecting the (static-files):with the (server-file): 
+// we have to use the (static) function:and under that function we have to define the (folder-name): were we have our (static-files):
+
+app.use(express.static('./assets'));
+
+
+
+
+
 // we have to use the (layouts-file):before the (routers):
 app.use(expressLayouts);
 
 
+
+// here we are setting two  properties for the web-site's different (web-page's)  (style-files) or for there (script-files):
+// so that there (link-tags): does not show under the (body-tag) of the (layout-ejs) file:
+
+// => first we use (layout extractStyles) property for the (style-files) and set it to the (true):
+app.set('layout extractStyles', true);
+
+// => seccond we use (layout extractScripts) property for the (script-files) and set it to the (true):
+app.set('layout extractScripts', true);
 
 
 
