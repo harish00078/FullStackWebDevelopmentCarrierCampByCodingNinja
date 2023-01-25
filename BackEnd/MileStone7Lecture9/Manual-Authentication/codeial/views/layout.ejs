@@ -1,0 +1,76 @@
+<!-- here we create (layouts) for our (web-site): -->
+
+
+
+<!-- here we create (layout) for our (website's): (home)page -->
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- here we link our css-file -->
+    <link rel="stylesheet" href="/css/layout.css">
+
+    <!-- we also have to give the reference to the (website's) other webpage's (style-files):
+        so that there (link-tags) does not show on the (body-tag) of the (layout-ejs) file
+        => they only show on the (head-tag) of the (layout-ejs) file-->
+    <%- style %>
+</head>
+
+<body>
+
+    <!-- here we are using the (partial) function of the (ejs) -->
+    <!-- partial-function: If we are using some function or peace of code again and agian for all the pages of our web-page:
+
+        => then we can create a separate-file for that peace-code:and use that (file's):In our pages of the web-page were we need them: that is know as (partial)
+
+        => for example: (headers) and (footers).In mostly time they remain same for all the pages of the webpage:-->
+
+
+    <!-- here we Implement our (header) with (partial) function:-->
+    <%- include('_header') ;%>
+
+
+
+
+
+
+
+
+        <!-- here we are getting the (data) for our (web-page) acc to the user's (urL):
+
+        // 1 = means which page of (web-site) he (try) to open :
+
+        // 2 =  we get that data from our (controller's):because the (routers) get (urL) and acc to that they (connect) with (controller):
+
+        // 3 = and then (Controller) will gave its data to the (layout):
+
+        // 4 = gave to that  (layout) that we have created for that particular (web-page):-->
+
+        <!-- for that we have to use  the inbuild (body) function: of the (layout) library -->
+        <!-- this (body) will get the data from the (controller) -->
+
+        <%- body %>
+
+
+
+
+
+
+            <!-- here we create footer through (partial) function -->
+            <%- include('_footer') ;%>
+
+
+
+
+
+        <!-- we also have to give the reference to the (website's) other webpage's (script-files):
+        so that there (script-tags) does not show on the (above) of (layout-file) code:
+        => because the (script-tag) always came in the (end) of the  (code):-->
+        <%- script %>
+
+
+</body>
+
+</html>
