@@ -1,3 +1,34 @@
 <!-- here we create a (sign-up) page for the (user): so that they can create its  (Identity): -->
 
 <h1> Sign Up</h1>
+
+
+
+<!-- here we are creating a (FORM) for the user: so that they can create there (Identity):through the (sign-up) page -->
+
+<!-- here we are using  a (POST) method:In the (form) because we are creating something with the user's input  and then put that into the (database) -->
+<form action="/user/create" method="POST">
+
+  <!-- here we get the (name-input) from the user:
+  => that's why its input type is (text) -->
+  <input type="text" name="name" placeholder="your name" required>
+
+  <!-- here we get the (email-input) from the user 
+  => that's why its input type is (email)-->
+  <input type="email" name="email" placeholder="your email" required>
+
+  <!-- here we get the (password-input) from the user -->
+  <input type="password" name="password" placeholder="password" required>
+
+  <!-- here we get the (password-input) again for (confirm) the password -->
+  <input type="password" name="confirm_password" placeholder="confirm_password" required>
+
+  <!-- here we are creating a (button) for the (user):with the help of (input-tag):
+  1 => we are not using the (button-tag) here:
+  2 => for using the (input-tag) as (button): we have to use its type to the (submit):
+  3 => we also have to gave the value to this (input-tag): so that value will show under the (input-tag):-->
+
+  <input type="submit" value="Sign Up" >
+
+
+</form>

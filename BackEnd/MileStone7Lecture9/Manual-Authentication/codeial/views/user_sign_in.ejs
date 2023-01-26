@@ -1,3 +1,21 @@
 <!-- here we create a (sign-in) page for the (user) Identity-authentication: -->
 
 <h1> Sign In </h1>
+
+
+
+<!-- here we are creating a (FORM) for the user: so that they can (Sign-In) there (Identity):through the (sign-In) page -->
+<!-- here we use (create-session): here (session) basically represents a (connection) between the (browser) and (user): for a  particular-time until they do not (sign-out) from its (identity): -->
+<!-- It also use the (post) method because before getting access of something:we have to gave him a input of our (identity): -->
+
+<form action="/user/create-session" method="post">
+
+  <!-- here we get (email-input) from the user -->
+  <input type="email" name="email" placeholder="EMAIL" required>
+  <!-- here we get (password-input) from the user -->
+  <input type="password" name="password" placeholder="Password" required>
+
+  <!-- here we are creating a (submit) button:with the help of (input-tag) -->
+  <input type="submit" value="Sign In">
+
+</form>

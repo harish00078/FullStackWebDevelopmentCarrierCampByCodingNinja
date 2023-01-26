@@ -2,6 +2,12 @@
 
 const express = require("express");
 
+// after installing (cookie-parser) package:
+// we have to (import) it in our (server-file):
+const cookieParser = require('cookie-parser');
+
+
+
 // after importing (express):connect it with the any (variable):
 // so we can use it easily:here we create (app) variable:
 
@@ -30,6 +36,18 @@ const expressLayouts = require('express-ejs-layouts');
 // here we are (Importing) database: In our (server-file):
 const db = require('./config/mongoose');
 
+
+
+
+// here we are creating a (middleware):
+// between (user) and the (browser):
+app.use(express.urlencoded());
+
+
+
+// after getting (middleware) between (user) and the (browser):
+// know we can use the (cookie-parser) package or function:with our (server-file) or we can say with our (express-app):
+app.use(cookieParser());
 
 
 

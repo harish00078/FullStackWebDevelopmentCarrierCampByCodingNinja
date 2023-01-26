@@ -15,12 +15,20 @@ module.exports.home = function(req, res){
 
   // here we are giving the (home.ejs) file in the (response) of (home) url('/'):
 
+
+  // here we are checking the working of the (cookies):
+  // console.log(req.cookies);
+  // res.cookie('user_id',25);
+
+
     return res.render('home', {
 
            // here we gave (home) value to the (title-key) of the (home.ejs) file:
 
         title: "Home"
     });
+    
+    
 }
 
 // module.exports.actionName = function(req, res){}

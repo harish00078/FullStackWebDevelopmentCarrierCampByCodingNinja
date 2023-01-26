@@ -39,3 +39,21 @@ module.exports.signIn = function(req,res){
         title: "codeial | Sign In"
     });
 };
+
+
+
+
+//  here we are creating a (controller) for the (Sign-Up) form:that we have created under the (user_sign_up) ejs-file:
+// IMP = so that user can create its (Identity):
+module.exports.create = function(req,res){
+
+    
+};
+
+
+//  here we are creating a (controller) for the (Sign-In) form:that we have created under the (user_sign_in) ejs-file:
+// IMP = so that user can (log-In) in its (Identity):
+
+module.exports.createSession = function(req,res){
+    
+}
