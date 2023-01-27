@@ -7,21 +7,21 @@
 <!-- here we are creating a (FORM) for the user: so that they can create there (Identity):through the (sign-up) page -->
 
 <!-- here we are using  a (POST) method:In the (form) because we are creating something with the user's input  and then put that into the (database) -->
-<form action="/user/create" method="POST">
+<form action="/users/create" method="POST">
 
   <!-- here we get the (name-input) from the user:
   => that's why its input type is (text) -->
-  <input type="text" name="name" placeholder="your name" required>
+  <input type="text" name="name" placeholder="Your Name" required>
 
   <!-- here we get the (email-input) from the user 
   => that's why its input type is (email)-->
-  <input type="email" name="email" placeholder="your email" required>
+  <input type="email" name="email" placeholder="Your Email" required>
 
   <!-- here we get the (password-input) from the user -->
-  <input type="password" name="password" placeholder="password" required>
+  <input type="password" name="password" placeholder="Password" required>
 
   <!-- here we get the (password-input) again for (confirm) the password -->
-  <input type="password" name="confirm_password" placeholder="confirm_password" required>
+  <input type="password" name="confirm_password" placeholder="Confirm Password" required>
 
   <!-- here we are creating a (button) for the (user):with the help of (input-tag):
   1 => we are not using the (button-tag) here:

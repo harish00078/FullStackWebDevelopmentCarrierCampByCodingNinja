@@ -15,4 +15,10 @@ router.get('/sign-up',usersConrtoller.signUp);
 // here we connect our (/sign-in) router with the (user_controller)'s (signIn) function:
 router.get('/sign-in',usersConrtoller.signIn);
 
+// here we create (router): for the (create) function:
+// that we created under the (user-controller):
+// that (create) function:will create (new-user):
+// here we use (post) function: because we are (posting) the data towards the (create) function: for creating (new-user):
+router.post('/create', usersConrtoller.create);
+
 module.exports = router;
