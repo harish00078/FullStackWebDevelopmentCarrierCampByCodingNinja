@@ -146,6 +146,6 @@ for (var i = 0; i < navMenuAnchorTags.length; i++) {
       window.scrollBy(0, 50);
 
       // here we are giving the (50 = millisecond) time to our (interval) function:
-    }, 50);
+    }, 30);
   });
 }
