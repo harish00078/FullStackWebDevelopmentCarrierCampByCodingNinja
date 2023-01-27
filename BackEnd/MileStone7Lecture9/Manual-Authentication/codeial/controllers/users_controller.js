@@ -93,16 +93,18 @@ module.exports.create = function (req, res) {
         // if error while creating (user):
 
         if (err) {
-
-          //  if we did not have (error):
-          // then it means that we have created a (user);
-          // know we have to (redirect) the (user) to the (sign-In)page: so he can use its (profile):
-          // for redirecting the (user): we have to use the (routers) of the (pages):not  there (file-names):
+            
+            // then we need to (print): this statement on the (console):
 
           console.log("error in creating user while signing up");
 
           return;
         }
+        
+        //  if we did not have (error):
+        // then it means that we have created a (user);
+        // know we have to (redirect) the (user) to the (sign-In)page: so he can use its (profile):
+        // for redirecting the (user): we have to use the (routers) of the (pages):not  there (file-names):
 
         return res.redirect("/users/sign-in");
       });
