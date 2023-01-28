@@ -65,12 +65,19 @@ module.exports.profile = function (req, res) {
 
         });
 
+        // if we are not able to (find-out) the user: then we have (redirect) the user to the (sign-in) page again:
+
+      }else{
+        
+        return res.redirect('/users/sign-in');
+
+
       }
 
-      return res.redirect('/users/sign-in');
+    
 
 
-    })
+    });
 
 
 
