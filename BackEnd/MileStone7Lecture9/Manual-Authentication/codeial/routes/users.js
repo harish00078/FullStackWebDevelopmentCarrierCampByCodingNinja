@@ -21,4 +21,11 @@ router.get('/sign-in',usersConrtoller.signIn);
 // here we use (post) function: because we are (posting) the data towards the (create) function: for creating (new-user):
 router.post('/create', usersConrtoller.create);
 
+
+// here we create (router):for the (createSession) function:
+// that we have created under the (user_controller) file:
+// this (createSession) function will gave us to the (user) of the (website):
+// which he try to (login) or we can say try to (use):
+router.post('/create-session',usersConrtoller.createSession);
+
 module.exports = router;
