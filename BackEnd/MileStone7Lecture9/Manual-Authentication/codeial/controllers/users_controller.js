@@ -52,9 +52,9 @@ module.exports.create = function (req, res) {
     // In (redirect) function: we can also simply use or write  the ('back') instead of writing (/user/sign-up):
     // here we have to gave the (router) to the (redirect) function:not the (file-name):
 
-    // return res.redirect('/user/sign-up');
+    return res.redirect('/users/sign-up');
 
-    return res.redirect("back");
+    // return res.redirect("back");
   }
 
   // but if both the (password-sections) have the (same) password: then we have to create the (user):if that user is not (already) present:
@@ -111,11 +111,13 @@ module.exports.create = function (req, res) {
 
 
       // else: if user (present):then we have to (redirect) the user to the (sign-up) page again:
+      // here we have to gave the (router) to the (redirect) function:not the (file-name):
+
     } else {
 
-        // return res.redirect('/user/sign-up');
+        return res.redirect('/users/sign-up');
 
-      return res.redirect("back");
+      // return res.redirect("back");
     }
   });
 };
