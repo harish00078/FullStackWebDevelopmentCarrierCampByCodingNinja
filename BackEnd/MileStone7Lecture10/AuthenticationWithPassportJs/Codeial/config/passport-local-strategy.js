@@ -32,7 +32,7 @@ passport.use(
       usernameField: "email",
     },
 
-    // here we try to found (user) in the (database):for completing the (Authentication) of the (user):
+    // we also had to the found (user) in the (database):for completing the (Authentication) of the (user):
     // here we use inbuild-function of (passportjs):that is for the  (LocalStrategies) that we created;
     // we basically use this (function) for (finding-out) the (user) in the (database):
     // or we can say used for (establishing) the (identity) of the (user):
