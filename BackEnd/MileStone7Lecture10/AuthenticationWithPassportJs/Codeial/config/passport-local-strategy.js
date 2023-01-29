@@ -22,15 +22,34 @@ const User = require("../models/user");
 // => this (Local-Strategies) basically help the (passport): for (Authentication):
 
 passport.use(
+
   // local-strategies are basically like a (schema):or we can say its our (stratey) for doing a  (authentication) of the (user):
   // but here we only had to gave the those (objects) in the (local-Strategy):which we want to be  used as (authentication):
+
   new LocalStrategy(
+
+    // under (local-strategy) function: 
+    // we basically use two (functions):for the (complete) authentication of the (user):
+    // 1 => first we (check) that we have (email) present for (authentication) or not:
+    // 2 => if we have (email):then we also  have to (found) that (user) in the (database):for completing the (authentication):
+    // because (user) will get its (data) from the (database):
+    // In (database) we basically check the (two) things for the (authentication):
+    // first => (email) was correct or not:
+    // second => (password) was correct or not:
+
+
+    // here we do our (first) function for (authentication):
     {
+      
       // here we create (local-strategy) through (email): for doing a(Authentication) of the (user):
       // means in the (local-Strategy): we are basically doing a (Authentication) of the (user) through (email):
 
       usernameField: "email",
+
     },
+
+
+    // here we do our (second) function for (authentication):
 
     // we also had to the found (user) in the (database):for completing the (Authentication) of the (user):
     // here we use inbuild-function of (passportjs):that is for the  (LocalStrategies) that we created;
