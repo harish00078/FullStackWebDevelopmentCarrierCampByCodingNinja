@@ -48,7 +48,7 @@ passport.use(
   new LocalStrategy(
 
 
-    
+
 
     // under (local-strategy) function: 
     // we basically use two (functions):for the (complete) authentication of the (user):
@@ -148,7 +148,42 @@ passport.use(
 // basically for handling the (cookies):through (passport):
 
 // first function Is:- (serializing) the (user) to decide that which key we want to be (kept) in the (cookies):
+// (Serializing) a (user) determines which data of the (user) object should be (stored) in the (session):usually we (use) the  (user_id):
+// Imp => (serializing) user function sets and (id) as the (cookie) in the user's browser:
+// (serializeUser) is a Innbuild funcion in the (passport):
+
+passport.serializeUser(function(user,done){
+
+  // here we gave (user.id) in the form of (cookie) to the (browser):
+  // and it is also (encrypted):the (passportjs) inbuild function named as (serializingUser) function will automatically (encrypt) it:
+  done(null,user.id);
+
+});
 
 
 
 // second function Is: (deserializing) the (user) from the (key) in the (Cookies):
+// IMp => (deserializing) function uses the (id) to look up the (user) in the (database) and retrieve the (user) object with (data):
+// deserialize basically (unencrypt) the (user.id) when we are getting the user's (req) from  the (browser):so that (user) or we can say its (req) can commnicate with the (database):or get its (data) from the (database):
+// OR we can say we can check that the (User):is present in the (database) or not:
+// (deserializeUser) is a Innbuild funcion in the (passport):
+passport.deserializeUser(function(id,done){
+
+  User.findById(id,function(err,user){
+
+    if(err){
+
+      console.log('error in finding user through --> (passport)');
+
+    }
+
+    return done(null,user);
+
+  });
+
+
+});
+
+
+
+
