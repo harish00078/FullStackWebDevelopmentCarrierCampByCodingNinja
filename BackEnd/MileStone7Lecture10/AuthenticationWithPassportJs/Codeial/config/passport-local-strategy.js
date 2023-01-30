@@ -1,14 +1,27 @@
 // here we are basically setting-up  our (passportJs):
 
+
+
 // 1 = for that first we need to import it:
 const passport = require("passport");
+
+
+
+
 
 // 2 = second from (passport-local):we have to import the (library):named as (LocalStrategy) or we can say (Strategy):
 
 const LocalStrategy = require("passport-local").Strategy;
 
+
+
+
 // here we (import) user: so we can create (authentication) on it: through (passport):
 const User = require("../models/user");
+
+
+
+
 
 // 3 = here we create (Authentication) by using (passport):
 
@@ -21,12 +34,21 @@ const User = require("../models/user");
 // => so that (passport) can use this  (local-strategy) for the (Auhentication):
 // => this (Local-Strategies) basically help the (passport): for (Authentication):
 
+
+
+
 passport.use(
 
   // local-strategies are basically like a (schema):or we can say its our (stratey) for doing a  (authentication) of the (user):
   // but here we only had to gave the those (objects) in the (local-Strategy):which we want to be  used as (authentication):
 
+
+
+
   new LocalStrategy(
+
+
+    
 
     // under (local-strategy) function: 
     // we basically use two (functions):for the (complete) authentication of the (user):
