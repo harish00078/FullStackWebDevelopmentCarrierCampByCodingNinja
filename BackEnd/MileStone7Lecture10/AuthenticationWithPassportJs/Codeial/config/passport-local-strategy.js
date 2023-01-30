@@ -187,3 +187,5 @@ passport.deserializeUser(function(id,done){
 
 
 
+// we also had to export our (passport) or we can say our (Passport-strategy):so we can use it in our (server-file):
+module.exports = passport;

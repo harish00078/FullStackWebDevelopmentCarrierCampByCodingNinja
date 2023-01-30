@@ -48,5 +48,15 @@ module.exports.create = function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
-    // TODO later
+    // here we are basically creating a (session):for the (user):
+    // if (user) was (successfully) able to (signed-in):
+
+    // know here in this (createSession) function or we can say In (controller):
+    // we only have to gave the (redirection-response) here:
+    // IMP = because all the (other) things (related) to the (sessions) were handle by the (passport):
+
+    // here we only have to gave the (redirect-response) to  the (user) of the (home-page):if (user) was successfully (signed-in) in the (web-site):
+    
+    return res.redirect('/');
+
 }
