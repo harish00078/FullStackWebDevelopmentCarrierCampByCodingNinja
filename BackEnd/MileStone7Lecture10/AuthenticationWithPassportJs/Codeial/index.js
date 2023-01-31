@@ -81,8 +81,8 @@ app.use(session({
 //  for that we have to the (initialize) function:
   app.use(passport.initialize);
 
-  // after that we also have to connect our app with the (passport)'s (session) function:
-  // because that function of the (passport) basically handles the (sessions):
+  // after that we also have to connect our (passport) with the (session) function that we have created:In our (app):
+  // IMP = because the (passport) basically handles all the (sessions):
   app.use(passport.session());
 
 
