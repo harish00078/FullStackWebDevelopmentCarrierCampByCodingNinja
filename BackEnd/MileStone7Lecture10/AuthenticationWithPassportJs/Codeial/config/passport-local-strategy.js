@@ -220,7 +220,9 @@ passport.setAuthenticatedUser = function(req,res,next){
   if(req.isAuthenticated()){
     // then in (response):
     // we have to gave the (req.user):which contains the (current) singed-user from the (sesson-cookie):
-    // and we are just sending  this to the (locals) for the (views):
+    // and we are just sending  this to the (locals) for accesing  the (views-file):
+    // this function will set the (user) to the (locals) or we can say to the (views):
+   // so that (user) can access the (profile-webpage) with its (own-profile) :
     res.locals.user = req.user
   }
 
