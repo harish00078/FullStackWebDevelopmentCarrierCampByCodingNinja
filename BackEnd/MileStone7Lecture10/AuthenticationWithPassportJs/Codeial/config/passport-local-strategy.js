@@ -187,5 +187,50 @@ passport.deserializeUser(function(id,done){
 
 
 
+// here we create function for  checking that:if user is authenticated or not:
+passport.checkAuthentication = function(req,res,next){
+
+  // here we are  checking that:this (req) is (authenticated) or not or we can say (signed-in) or not :
+  // we can check that through the inbuild function of the (passport) named as (isAuthenticated): 
+  // here we do that if(req) is (authenticated):
+  if(req.isAuthenticated()){
+    // then we have to return him the (webpage):
+    // we will gave that (webpage) to the (user): with the help of the (next) argument:
+    // here (next) function:means that (pass) this (req) to the (next) function:and that function is our (Controller):
+
+
+    return next();
+
+  }
+  
+
+  // if the user is not (signed-in):then we have to return the (user) to the (signed-in) page again:
+  return res.redirect('/users/sign-in');
+
+
+}
+
+
+// here we create another function:after checking the (user):
+// through this function:we basically send our (user):to the (locals) or we can send our (user) openly to our (app's-folder):so we can use it in the (views):
+passport.setAuthenticatedUser = function(req,res,next){
+
+  // before that we have to check again that (user) is (authenticated) or not:
+  // if (authenticated):
+  if(req.isAuthenticated()){
+    // then in (response):
+    // we have to gave the (req.user):which contains the (current) singed-user from the (sesson-cookie):
+    // and we are just sending  this to the (locals) for the (views):
+    res.locals.user = req.user
+  }
+
+
+  // here we use the (next) function: for completing this (function):
+  next();
+
+}
+
+
+
 // we also had to export our (passport) or we can say our (Passport-strategy):so we can use it in our (server-file):
 module.exports = passport;

@@ -25,8 +25,7 @@ app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
-// use express router
-app.use("/", require("./routes"));
+
 
 // set up the view engine
 app.set("view engine", "ejs");
@@ -85,7 +84,16 @@ app.use(session({
   // IMP = because the (passport) basically handles all the (sessions):
   app.use(passport.session());
 
+ 
+  //  here we are using the function: that we have created in the (passport-file):
+  // this function will set the (user) to the (locals) or we can say to the (views):
+  // so that (user) can access the (profile-webpage) with its (own-profile) :
+  app.use(passport.setAuthenticatedUser);
 
+
+
+  // use express router:
+  app.use("/", require("./routes"));
 
 
 
