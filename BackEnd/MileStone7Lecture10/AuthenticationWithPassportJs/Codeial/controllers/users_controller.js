@@ -10,6 +10,13 @@ module.exports.profile = function(req, res){
 
 // render the sign up page
 module.exports.signUp = function(req, res){
+    // here we are ristricting the (user):for again going  on the (sign-up) page:after that once he successfully able to (log-in) or we can say (signed-in) in the (webpage):
+
+    if(req.isAuthenticated()){
+
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_up', {
         title: "Codeial | Sign Up"
     })
@@ -18,6 +25,18 @@ module.exports.signUp = function(req, res){
 
 // render the sign in page
 module.exports.signIn = function(req, res){
+
+
+    // here we are ristricting the (user):for again going  on the (sign-In) page:after that once he successfully able to (log-in) or we can say (signed-in) in the (webpage):
+
+    
+    if(req.isAuthenticated()){
+
+        return res.redirect('/users/profile');
+    }
+
+
+
     return res.render('user_sign_in', {
         title: "Codeial | Sign In"
     })

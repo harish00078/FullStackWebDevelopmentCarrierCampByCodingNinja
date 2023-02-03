@@ -212,7 +212,7 @@ passport.checkAuthentication = function(req,res,next){
 
 
 // here we create another function:after checking the (user):
-// through this function:we basically send our (user):to the (locals) or we can send our (user) openly to our (app's-folder):so we can use it in the (views):
+// through this function:we basically send our (user):to the (locals) or we can send our (user) openly to our (app's-folder) every-where:so we can use it in the (views) or we can say in our (webpages):
 passport.setAuthenticatedUser = function(req,res,next){
 
   // before that we have to check again that (user) is (authenticated) or not:

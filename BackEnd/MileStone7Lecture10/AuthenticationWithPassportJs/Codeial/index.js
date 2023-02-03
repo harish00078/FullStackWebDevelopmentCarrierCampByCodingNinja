@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+
 const app = express();
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
@@ -13,6 +14,12 @@ const passport = require("passport");
 
 // and also have to import the (possport-strategy):that we have created for the user's (Authentication):
 const passportLocal = require("./config/passport-local-strategy");
+
+
+// here we (Import) the (mongo-store): through the (connect-mongo) library:
+// or we can say that (mongoStore) is basically a (connect-mongo) library:
+const MongoStore = require('connect-mongo');
+
 
 app.use(express.urlencoded());
 
@@ -69,7 +76,24 @@ app.use(session({
     cookie: {
 
         maxAge:(1000 * 60 * 100)
-    }
+    },
+    // here we use the (MongoStore):for storing our (session-cookie):
+    // we have to  connect the (MongoStore):with our (database) through inbuild (mongoUrl) function:
+    // so that we can store our (session-cookie) in our mongodb = (database):
+    store: MongoStore.create(
+      {
+      // here we connect our (MongoStore) with our (database) through inbuild (mongoUrl) function:
+      // under (mongoUrl) function:we basically have to provide the (link) of our (mongodb) database:
+
+        mongoUrl:'mongodb://127.0.0.1:27017/codeial_development',
+        autoRemove:'disabled'
+      },
+      //create  function: for check that if we have any (error):while connecting the (mongoStore) with the (database):
+      function(err){
+        console.log(err || 'connect-mongodb setup ok');
+      }
+    )
+
 
 
   }));
@@ -88,6 +112,7 @@ app.use(session({
   //  here we are using the function: that we have created in the (passport-file):
   // this function will set the (user) to the (locals) or we can say to the (views):
   // so that (user) can access the (profile-webpage) with its (own-profile) :
+  // it basically works like a (middleware):
   app.use(passport.setAuthenticatedUser);
 
 
