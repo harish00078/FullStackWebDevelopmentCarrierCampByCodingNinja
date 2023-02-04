@@ -79,3 +79,35 @@ module.exports.createSession = function(req, res){
     return res.redirect('/');
 
 }
+
+
+
+
+// here we create (Controller) for the (sign-out):
+
+
+module.exports.destroySession = function(req,res){
+
+    // here we (signed-out): the (user):
+    // for (siging-out) the (user):we have to simply use the inbuild (logout) function of the (passport):
+
+    req.logout(function(err) {
+
+        if (err) {
+            
+            console.log('have error in log-out');
+            return;
+        }
+    
+
+      });
+    
+
+
+
+    // after (signed-out):we have to (redirect) the (user) to the (home-page):
+    return res.redirect('/');
+}
+
+
+
