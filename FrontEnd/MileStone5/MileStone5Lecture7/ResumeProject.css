@@ -235,7 +235,7 @@ section:target {
 
 
 /* [2] = here we are creating the background structure for skills  */
-.progress-java {
+.skill-progress {
   width: 11rem;
   height: 2.2rem;
   margin: 25px;
@@ -247,7 +247,7 @@ section:target {
 
 
 }
-
+/* 
 .progress-dsa {
   width: 11rem;
   height: 2.2rem;
@@ -310,7 +310,7 @@ section:target {
   overflow: hidden;
 
 
-}
+} */
 
 /* [3] = here we gave the (border) to our skills.
 
