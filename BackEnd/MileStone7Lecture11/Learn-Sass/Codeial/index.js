@@ -21,6 +21,39 @@ const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require('connect-mongo');
 
 
+// here we import our (SassMiddleware):
+const sassMiddleware = require('node-sass-middleware');
+
+
+
+// here we use or we can say create (sassMiddleware):for our (css) files:
+app.use(sassMiddleware({
+
+  // for connecting the (scss) files with our (css) files:
+
+  // first:we need our (scss-files) in the middleware:
+  src:'./assets/scss',
+  
+  // second:we have to define that were we have to put (our) css-files:
+  // that we get from those compile (scss-files) through the (middleware):
+  dest:'./assets/css',
+
+  // here we have (debug) mode:that will tell us about the (errors):if it has (errors) while (compiling) the files from one-form to another-form:
+  debug:true,
+
+  // we also have to tell the (style) of the scss-files:
+  outputStyle:'extended',
+
+  // we also have to define the (prefix):
+  // prefix basically use for when we want to gave the more (priority) to the particular types of the files:
+  // because browser does not understand the (scss):all also (scss) is basically  the middlware between the (css) or the (browser):
+  prefix:'/css'
+
+
+}));
+
+
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
