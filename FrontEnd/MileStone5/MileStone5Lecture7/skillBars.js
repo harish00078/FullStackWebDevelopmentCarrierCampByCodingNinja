@@ -1,4 +1,4 @@
-// for creating animation on the (skill-bar) section: we have to follow some few things:
+// creating: (fill) the  (skill-bars)  animation on the (skill) section: we have to follow some few things:
 //  1 = first: we have to handle the (scroll) event on the (webpage):
 
 // 2 = second: we have to (check) the (skill-section) after the each (scroll):that we made on the (webpage):
@@ -12,7 +12,7 @@
 
 // here we get all the (skill-progress) parts:that we want to be (animate):
 // through the (querySelector) function:
-var progressBars = document.querySelector('.skill-progress > div');
+var progressBars = document.querySelectorAll('.skill-progress > div');
 
 // after that we get all the (containers) of our (skills):through (getElementById) function:
 // here we try to do that:if we get the (skills-container):while scrolling on the (webpage): and we have to trigger our (skills) animation:
@@ -39,10 +39,44 @@ function initailiseBars(){
   }
 } 
 
+// here we use the (initialiseBars) function:that we have created:
+initailiseBars();
+
+
 
 
 // here we create another function (fillBars):under this function be will basically (fill) our (skill-progress): acc to the (values) that we have given to those  (skills):
 function fillBars(){
+
+  // we have to run  till we reach the (progress-bars)
+  for(let  bar of progressBars){
+    // after reaching:we also  have to provide the (targetWidth) to the (skillbars):that they had to reach: 
+    // we are getting that width from the (getAttribute) function:
+    let targetWidth = bar.getAttribute('data-bar-width');
+
+    // here we  have  our (currentWidth):
+    let currentWidth = 0;
+
+    // here we create (setInterval) function:because through (setInterval) function be basically get our animation of reaching the (targetWidth):
+    let interval = setInterval(function(){
+
+      // if our currentwidth gets greater then the (targetwidth):then we have to (Clear) the interval or we can say (stop) the interval:
+      if(currentWidth > targetWidth){
+        
+        clearInterval(interval);
+        return;
+      }
+
+      currentWidth++;
+      // and we have to  set the width of the (bar) to our (currrentwidth):
+      bar.style.width = currentWidth + '%';
+
+    },5);
+
+
+
+    
+  }
   
 }
 
@@ -70,7 +104,19 @@ function checkScroll(){
     console.log('skills section visible');
 
 
-    // fillBars();
+    // here we use the (fill-bar) function that we have created:
+    fillBars();
+
+
+    // here we are doing that:when we scroling in the (webpage) and we are out of the (skill) section:then we have to (reset) the skill-bars to the (zero) again:so we when we reach the (skill-section) again then the (skillbars) should amimate again:
+
+  }else if(coordinates.top > window.innerHeight){
+
+    // for doing that we have to put the (animationDone) varaible to (false):
+    animationDone = false;
+
+    // and also use the (iitialisebars) function:to put the (skillbars) in the (zero%):
+    initailiseBars();      
 
   }
 
