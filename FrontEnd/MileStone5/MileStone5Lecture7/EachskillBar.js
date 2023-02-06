@@ -55,12 +55,15 @@ function checkScroll() {
 
          bar.setAttribute("data-visited", true);
 
+        //  here we use (fillBar) function:
           fillBar(bar);
+
+
       } else if (barCoordinates.top > window.innerHeight) {
 
 
           bar.setAttribute("data-visited", false);
-          
+
           initialiseBar(bar);
       }
 
