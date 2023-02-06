@@ -1,0 +1,11 @@
+=>install the (nvm-setup.exe) latest package:from this repository of the github:
+
+https://github.com/coreybutler/nvm-windows/releases
+
+
+=> after we have to run  some commands on the (command prompt):
+1 = check the version of the (nvm):
+2 = nvm install 16.0.0 => after that install this version of the nvm:or the new compatable version of the nvm
+3 = after installing it Use:that version with (commmand) => nvm use 16.0.0
+
+

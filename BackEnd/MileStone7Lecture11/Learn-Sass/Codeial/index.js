@@ -35,7 +35,7 @@ app.use(sassMiddleware({
   src:'./assets/scss',
   
   // second:we have to define that were we have to put (our) css-files:
-  // that we get from those compile (scss-files) through the (middleware):
+  // that we get from those compile (scss-files) through the (node-sass-middleware):
   dest:'./assets/css',
 
   // here we have (debug) mode:that will tell us about the (errors):if it has (errors) while (compiling) the files from one-form to another-form:

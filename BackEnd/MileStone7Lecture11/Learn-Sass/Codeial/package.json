@@ -20,6 +20,7 @@
     "mongodb": "^4.13.0",
     "mongoose": "^6.9.0",
     "mongosh": "^1.6.2",
+    "node-sass-middleware": "^1.0.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }
