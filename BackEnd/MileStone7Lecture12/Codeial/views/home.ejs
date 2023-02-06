@@ -1,4 +1,36 @@
+<h1>
+    Codeial / <%= title %>
+</h1>
 
-        <h1>
-            Codeial / <%= title %>
-        </h1>
+
+<!-- In our (home-page):we basically have the (Posts): -->
+
+<!-- here in our (home_Page): we will basically create the (section):were we have our (posts) or we can say from were we can get our (posts): -->
+<!-- for creating (section): we can use the (section)tag: -->
+<section id="feed-posts">
+
+    <h4>
+        Posts
+    
+    </h4>
+
+    <!-- under that (section):we will  basically created a  (Form):through that (Form) we will basically get our (posts):  -->
+    <form action="/posts/create" id="new-post-form" method="post">
+        <!--under that form:we will (get) the (content) for the (Post) acc to our (post-schema) -->
+        <!-- for getting the (content): we can use the (textarea) tag -->
+
+
+        <textarea name="content"  cols="30" rows="3" placeholder="Type Here.....">
+
+
+
+        </textarea>
+
+        <!-- under that (form) tag: we can use (input-tag) for submitting that (Content)  -->
+        <input type="submit" value="Post">
+
+    </form>
+
+
+
+</section>
