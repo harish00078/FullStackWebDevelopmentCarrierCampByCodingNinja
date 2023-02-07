@@ -26,7 +26,7 @@ module.exports.create = function(req,res){
       return;
     }
 
-    // return res.redirect('./views/home.ejs');
+    
     return res.redirect('back');
 
   });

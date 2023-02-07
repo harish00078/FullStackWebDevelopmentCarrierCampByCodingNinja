@@ -3,6 +3,13 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = 8000;
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
 

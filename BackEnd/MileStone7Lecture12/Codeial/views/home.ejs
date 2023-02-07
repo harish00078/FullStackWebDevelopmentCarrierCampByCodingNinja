@@ -11,7 +11,7 @@
 
     <h4>
         Posts
-    
+
     </h4>
 
     <!-- under that (section):we will  basically created a  (Form):through that (Form) we will basically get our (posts):  -->
@@ -20,7 +20,7 @@
         <!-- for getting the (content): we can use the (textarea) tag -->
 
 
-        <textarea name="content"  cols="30" rows="3" placeholder="Type Here.....">
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here.....">
 
 
 
@@ -32,5 +32,16 @@
     </form>
 
 
+    <!-- here we are putting the  (posts) on the (webpage):those were created by the (user): -->
+
+    <div id="posts-list-container">
+        <ul>
+            <%for (post of posts) { %>
+                <li>
+                    <%= post.content %>
+                </li>
+            <% } %>
+        </ul>
+    </div>
 
 </section>
