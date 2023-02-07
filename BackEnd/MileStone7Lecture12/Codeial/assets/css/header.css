@@ -1,20 +1,20 @@
-head {
-  background-color: #319bbe;
-  padding: 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  color: black; }
-
-h1 {
-  font-size: 30px;
-  display: inline-block; }
-
-#logs-page {
-  display: inline;
-  font-size: 30px;
-  right: 50px;
-  text-align: center;
-  justify-content: space-between; }
-
-span a {
-  color: darkblue; }
+#layout-header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-image: linear-gradient(skyblue, black);
+  color: white;
+  box-shadow: 1px 1px 1px 1px whitesmoke; }
+  #layout-header nav .mini-logo p {
+    margin: 5px;
+    font-size: 1.4rem;
+    font-weight: bold; }
+  #layout-header nav .auth-links ul {
+    margin: 5% 5px;
+    display: flex;
+    list-style: none; }
+    #layout-header nav .auth-links ul li {
+      margin-right: 10px; }
+  #layout-header nav a {
+    color: white;
+    text-decoration: none; }

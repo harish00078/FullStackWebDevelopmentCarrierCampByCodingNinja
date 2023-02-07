@@ -17,7 +17,7 @@ module.exports.create = function(req,res){
     // we can say that through this way are able to check that which (user) create the which (Post):
     // we can gave that (user-objectID) with the help of (database)= objectID function:
     // here (_id) define the (user's) database(ObjectID):
-    user:req.user._id
+    user:req.user._id,
 
   },function(err,post){
 

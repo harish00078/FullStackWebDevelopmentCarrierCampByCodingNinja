@@ -2,7 +2,5 @@ body {
   margin: 0;
   /* text-align: center; */ }
   body #layout-main {
-    height: 100%; }
-
-body {
-  background-image: linear-gradient(lightblue, skyblue, cyan); }
+    height: 100%;
+    background-image: linear-gradient(#0b5775, #004e7f); }
