@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <title>Up Counter</title>
+</head>
+
+<body>
+  <!-- here we have (Counter) values -->
+  <div id="counter-value">
+
+    <p id="enter-number">Enter Value From 1 and 9</p>
+    <!-- here we get range from user -->
+    <div id="input-range">
+
+      <input type="number" name="number" id="number" placeholder="Enter Number">
+      <!-- here we use inbuild function or property:
+        
+        => (onclick) and we gave the value to that function (startCounter): and we gave the (counter) function:to that value:
+        => so when-ever we trigger the (button) it will start the (Counter): -->
+      <button onclick="startCounter()">Start Counter</button>
+    </div>
+
+
+    <!-- here we have (counter-container): -->
+    <div id="counter-container">
+      <div class="counter" id="first">
+        <p class="current">0</p>
+        <p class="next">1</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>
