@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/home.css" type="text/css">
+
 <h1>
     Codeial / <%= title %>
 </h1>
@@ -9,10 +11,15 @@
 <!-- for creating (section): we can use the (section)tag: -->
 <section id="feed-posts">
 
-    <h4>
+    <h1 id="post-heading">
         Posts
 
-    </h4>
+    </h1>
+
+
+    <!-- here we are restricting the (users):that only those (users) are  able to (create) post:which are successfully able to (sign-in) on the (webpage):-->
+    <% if(locals.user){ %>
+
 
     <!-- under that (section):we will  basically created a  (Form):through that (Form) we will basically get our (posts):  -->
     <form action="/posts/create" id="new-post-form" method="post">
@@ -30,7 +37,7 @@
         <input type="submit" value="Post">
 
     </form>
-
+    <% } %>
 
     <!-- here we are putting the  (posts) on the (webpage):those were created by the (user): -->
 
@@ -38,9 +45,20 @@
         <ul>
             <%for (post of posts) { %>
                 <li>
-                    <%= post.content %>
+                    <p>
+                        <!-- here we are giving  the (post) content:from that (database):that has been created by(user) -->
+                        <%= post.content %>
+
+                            <br>
+                            <small>
+                                <!-- here we are giving  the (user-name):who created those (posts):we are getting that (user) name from the (posts-database):
+                        => because with (posts) we are also stores the (user):who create those post: -->
+                                <%= post.user.name %>
+
+                            </small>
+                    </p>
                 </li>
-            <% } %>
+                <% } %>
         </ul>
     </div>
 
