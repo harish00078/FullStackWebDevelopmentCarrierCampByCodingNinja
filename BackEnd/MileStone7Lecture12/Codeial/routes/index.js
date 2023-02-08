@@ -16,6 +16,18 @@ router.use('/users', require('./users'));
 router.use('/posts',require('./posts'));
 
 
+// here we connect the (comments) router file: 
+// were we create the  (router) for the (comments):
+// here we can connect that (comments) router file:with our (main) or (Index) router file:
+
+router.use('/comments',require('./comments'));
+
+
+
+
+
+
+
 // for any further routes, access from here
 // router.use('/routerName', require('./routerfile));
 

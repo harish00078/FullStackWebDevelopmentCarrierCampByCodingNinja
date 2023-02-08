@@ -27,9 +27,7 @@
         <!-- for getting the (content): we can use the (textarea) tag -->
 
 
-        <textarea name="content" cols="30" rows="3" placeholder="Type Here.....">
-
-
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here....." required>
 
         </textarea>
 
@@ -57,6 +55,61 @@
 
                             </small>
                     </p>
+
+                    <!-- here we are (putting) comments:under the (posts): -->
+                    <div class="post-comment">
+                        <!-- here we are putting the  (authentication) on the (comments): so that only the (Log-in) user able to see the (commnets):or we can say that only the (user) is able to see those (comment): how created them: -->
+                        <% if (locals.user){ %>
+                            <!-- here we create  (Form) for the (Comments):througn which can get the (comments) from the (user): -->
+                            <form action="/comments/create" method="post">
+
+                                <!-- through this (input)tag:we will get (comments): -->
+                                <input type="text" name="content" placeholder="Type Here To 
+                                add Comments...." required>
+
+                                <!-- here we get the (id) of the (Post):so we know that or connect  that  (Comment) with its (post):
+                                => we are getting that (Post-id) (automatically):because when  we (put)  some (comments) on the particular (post):then we will get its (post_id) automatically acc to our (schema): we are getting  that in  (hidden) way from  the (user): so for that we use (hidden) type of the (input-tag): -->
+                                <input type="hidden" name="post" value="<%= post._id %>">
+
+                                <!-- after that we need the (submit) button for (submitting) the (comment) on the (database):for that we use(input-tag) as  (submit) type: -->
+                                <input type="submit" value="Add Comment">
+
+
+
+                            </form>
+                            
+
+                        
+                         <% } %>
+
+                         <!-- here we are Putting the (comments) on the (home-webpage): under of its (posts): -->
+                         <div class="post-comments-list">
+                            <ul id="post-comments-<%= post._id %>">
+                                <!-- here we are (putting) the Post's (comments) on the webpage:because (posts) also have there (comments): -->
+                                <% for (comment of post.comments){ %>
+
+                                    
+                                    <p>
+                                        <!-- here we are putting the (content) of the (comments): -->
+                                        <%= comment.content %>
+                                        <br>
+
+                                        <small>
+                                            <!-- here we are (putting) the name of the (user): who created that (comment): -->
+                                            <%= comment.user.name %>
+                                        </small>
+                                    </p>
+
+
+                                <% } %>
+                            </ul>
+                         </div>
+
+
+                    </div>
+
+
+
                 </li>
                 <% } %>
         </ul>

@@ -8,7 +8,7 @@ const passport = require('passport');
 const postController = require('../controllers/Posts_controller');
 
 // here we gave (router) to the (post) controller:
-// here we are connecting the (Post) router with the  (possport.checkauthentication) function:that we have created:so that Only the (login-user) able to (use) (post-form) on the (webpage):
+// here we are connecting the (Post) router with the  (possport.checkauthentication) function:that we have created:so that Only the (login-user) able to (use) the  (post-form) on the (webpage):
 
 
 router.post('/create', passport.checkAuthentication,postController.create);

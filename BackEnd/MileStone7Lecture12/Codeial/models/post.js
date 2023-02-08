@@ -39,7 +39,22 @@ const postSchema = new mongoose.Schema({
     // here we gave him the (reference) of the  (User-schema):from were we get the (objectID) of the (user):
     ref:'User'
 
-  }
+  },
+
+
+  // here we are (putting): all the (id's) of the (comments):so that we can have (direct) connection between the (posts) with there (comments): 
+  //=> or so we can get the (commnets) frequently of the (particular) post:In this way we can (directly) get all the (commments) of the (particular) post:
+  //=> we did not have to go on the (comment) section or schema:for getting the (comments) of the (particular) (post):
+  //=> we (store) all the comment (id's): under the (array):we will basically create array of comment (id's) object:
+  comments:[
+    {
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Comment'
+
+    }
+  ]
+
+
 
 
 
