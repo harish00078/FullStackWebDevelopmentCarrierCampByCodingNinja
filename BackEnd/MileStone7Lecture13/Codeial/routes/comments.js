@@ -16,5 +16,9 @@ const commentsController = require('../controllers/comments_controller');
 router.post('/create', passport.checkAuthentication,commentsController.create);
 
 
+// here we create (router): for (deleting) comments from the (posts):
+router.get('/destroy/:id',passport.checkAuthentication,commentsController.destroy);
+
+
 // we also have to export this (router):
 module.exports  = router;

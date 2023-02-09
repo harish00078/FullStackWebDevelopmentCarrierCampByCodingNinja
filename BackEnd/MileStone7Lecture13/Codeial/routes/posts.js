@@ -14,6 +14,14 @@ const postController = require('../controllers/Posts_controller');
 router.post('/create', passport.checkAuthentication,postController.create);
 
 
+// here we create the (route) for the  (delete) or (destroy) function of the  (post-controller):that  we created for (deleting) (posts) on the (database) with there (comments):
+// we also use the (checkAuthentication) function:so that only the (login) user able to (delete) the (posts):
+
+router.get('/destroy/:id',passport.checkAuthentication,postController.destroy);
+
+
+
+
 // we also have to export this (router):
 module.exports  = router;
 
