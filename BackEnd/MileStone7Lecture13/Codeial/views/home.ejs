@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="/css/home.css" type="text/css">
+
+<h1>
+    Codeial / <%= title %>
+</h1>
+
+
+<!-- In our (home-page):we basically have the (Posts): -->
+
+<!-- here in our (home_Page): we will basically create the (section):were we have our (posts) or we can say from were we can get our (posts): -->
+<!-- for creating (section): we can use the (section)tag: -->
+<section id="feed-posts">
+
+    <h1 id="post-heading">
+        Posts
+
+    </h1>
+
+
+    <!-- here we are restricting the (users):that only those (users) are  able to (create) post:which are successfully able to (sign-in) on the (webpage):-->
+    <% if(locals.user){ %>
+
+
+    <!-- under that (section):we will  basically created a  (Form):through that (Form) we will basically get our (posts):  -->
+    <form action="/posts/create" id="new-post-form" method="post">
+        <!--under that form:we will (get) the (content) for the (Post) acc to our (post-schema) -->
+        <!-- for getting the (content): we can use the (textarea) tag -->
+
+
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here....." required>
+
+        </textarea>
+
+        <!-- under that (form) tag: we can use (input-tag) for submitting that (Content)  -->
+        <input type="submit" value="Post">
+
+    </form>
+    <% } %>
+
+    <!-- here we are putting the  (posts) on the (webpage):those were created by the (user): -->
+
+    <div id="posts-list-container">
+        <ul>
+            <%for (post of posts) { %>
+                <li>
+                    <p>
+                        <!-- here we are giving  the (post) content:from that (database):that has been created by(user) -->
+                        <%= post.content %>
+
+                            <br>
+                            <small>
+                                <!-- here we are giving  the (user-name):who created those (posts):we are getting that (user) name from the (posts-database):
+                        => because with (posts) we are also stores the (user):who create those post: -->
+                                <%= post.user.name %>
+
+                            </small>
+                    </p>
+
+                    <!-- here we are (putting) comments:under the (posts): -->
+                    <div class="post-comment">
+                        <!-- here we are putting the  (authentication) on the (comments): so that only the (Log-in) user able to see the (commnets):or we can say that only the (user) is able to see those (comment): how created them: -->
+                        <% if (locals.user){ %>
+                            <!-- here we create  (Form) for the (Comments):througn which can get the (comments) from the (user): -->
+                            <form action="/comments/create" method="post">
+
+                                <!-- through this (input)tag:we will get (comments): -->
+                                <input type="text" name="content" placeholder="Type Here To 
+                                add Comments...." required>
+
+                                <!-- here we get the (id) of the (Post):so we know that or connect  that  (Comment) with its (post):
+                                => we are getting that (Post-id) (automatically):because when  we (put)  some (comments) on the particular (post):then we will get its (post_id) automatically acc to our (schema): we are getting  that in  (hidden) way from  the (user): so for that we use (hidden) type of the (input-tag): -->
+                                <input type="hidden" name="post" value="<%= post._id %>">
+
+                                <!-- after that we need the (submit) button for (submitting) the (comment) on the (database):for that we use(input-tag) as  (submit) type: -->
+                                <input type="submit" value="Add Comment">
+
+
+
+                            </form>
+                            
+
+                        
+                         <% } %>
+
+                         <!-- here we are Putting the (comments) on the (home-webpage): under of its (posts): -->
+                         <div class="post-comments-list">
+                            <ul id="post-comments-<%= post._id %>">
+                                <!-- here we are (putting) the Post's (comments) on the webpage:because (posts) also have there (comments): -->
+                                <% for (comment of post.comments){ %>
+
+                                    
+                                    <p>
+                                        <!-- here we are putting the (content) of the (comments): -->
+                                        <%= comment.content %>
+                                        <br>
+
+                                        <small>
+                                            <!-- here we are (putting) the name of the (user): who created that (comment): -->
+                                            <%= comment.user.name %>
+                                        </small>
+                                    </p>
+
+
+                                <% } %>
+                            </ul>
+                         </div>
+
+
+                    </div>
+
+
+
+                </li>
+                <% } %>
+        </ul>
+    </div>
+
+</section>
