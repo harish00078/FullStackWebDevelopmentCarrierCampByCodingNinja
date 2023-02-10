@@ -16,4 +16,4 @@ function outer(){
 }
 
 var inner =  outer();
-inner;
+inner(); 
