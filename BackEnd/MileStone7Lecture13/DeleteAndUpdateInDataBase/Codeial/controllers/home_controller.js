@@ -1,5 +1,4 @@
 // here we (import) the (post) schema:
-const { populate } = require("../models/comment");
 const Post = require("../models/post");
 
 // here we are importing the (user) database or schema :so that we can (show) the (userS) on the (webpage):

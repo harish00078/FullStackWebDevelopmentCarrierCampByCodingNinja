@@ -1,7 +1,7 @@
 // here we (import) the (schema) of the (comments):so we can create (controller) for the (comments):
 const Comment = require("../models/comment");
 const Post = require("../models/post");
-const { post } = require("../routes");
+
 
 // here we import the (post) schema:because (before) putting the (comment) on the (particular) post:we have to (check) the (Post-id) of that (comment):
 // => so that we (show) the (comment) on the (right) post:
