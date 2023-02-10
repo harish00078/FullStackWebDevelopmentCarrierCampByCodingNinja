@@ -10,7 +10,12 @@ const passport = require('passport');
 const usersController = require('../controllers/users_controller');
 
 // here we are checking the (user):through the (checkAuthentication) function that we have created under the (passport-file):before giving the (access) to the (user)  of the (profile) page:
-router.get('/profile',passport.checkAuthentication, usersController.profile);
+router.get('/profile/:id',passport.checkAuthentication, usersController.profile);
+
+
+// here we are giving the (router) to the (update) function of the (user_controller):
+router.post('/update/:id',passport.checkAuthentication, usersController.update);
+
 
 router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.signIn);

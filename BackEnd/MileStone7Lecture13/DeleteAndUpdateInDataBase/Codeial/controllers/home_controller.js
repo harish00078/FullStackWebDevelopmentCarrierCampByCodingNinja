@@ -2,6 +2,9 @@
 const { populate } = require("../models/comment");
 const Post = require("../models/post");
 
+// here we are importing the (user) database or schema :so that we can (show) the (userS) on the (webpage):
+const User = require('../models/user');
+
 module.exports.home = function (req, res) {
   // console.log(req.cookies);
   // res.cookie('user_id', 25);
@@ -39,10 +42,24 @@ module.exports.home = function (req, res) {
         }
     })
     .exec(function (err, posts) {
-      return res.render("home", {
-        title: "codeial | home",
-        posts: posts,
-      });
+
+      // here we (showing) the (userS):on the (webpage):those were present in our database:
+      // for that first: we have to (get) that (users) from the database:we can do that with the help of (find)  function:
+
+      User.find({}, function(err,users){
+
+        return res.render("home", {
+          title: "codeial | home",
+          posts: posts,
+          all_users:users
+        });
+
+
+      })
+
+
+
+
     });
 };
 

@@ -4,8 +4,62 @@
 </h1>
 
 
-<!-- here we show the (data) of the (user):who ever will successfully able to (login) in the browser: -->
-<!-- here we (access) the data of  the (user):through the (setAuthenticatedUser) function: because in this function be basically set the (data) of the (user) to the (locals) or we can say set to (openly): so we can access or use its (data) in our (views) or we can say in our (webpages):-->
 
-<p><%= user.name%></p>
-<p><%= user.email%></p>
+
+
+
+<!-- here we are (updating) the (user_profile) or we can say that the  (profile-page) of (user):with the help of (form): -->
+
+<!-- before that we have to check that the (user) how try to (update) the (profile-page):IS the (same) (user) who's (profile) it  is:
+
+=> or we can say that we will only show the (form) on the (profile-page):if the (user) who (try) to (update) the (profile-Page) or the  (profile_user) both are the (same): -->
+
+<% if(user.id == profile_user.id){ %>
+
+    <!-- if (user) mataches with the (profile_user):then we will (show) the (form) on the (profile_page): -->
+
+    <!-- here we create form for (updating) the (user's) profile-page:or we can say (user's) profile  on  the (profile-page):
+    
+    => basically with the (help) of this (form) user will able to (update) its  (profile_data) on the (database):and that (updated) data of the (user-profile):will be shown on its (profile-page): -->
+
+    <form action="/users/update/<%=  profile_user.id %>" method="post">
+
+
+        <!-- here we are giving the (permission) of  the (two) things:to the (user):that he can (update) from its (profile): 
+        => first: is its (email):
+        => second: is its (name): -->
+        <!-- for that we have to use the (input) tags:for getting the (input) from the (user) for those (two) things: -->
+
+        <!-- first (input-tag) we create for updating (name): -->
+        <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+
+        <!-- second (input-tag) we create for updating (email): -->
+        <input type="text" name="name" placeholder="Your Email" value="<%= profile_user.email %>" required>
+
+        <!-- after that we have to create the (submit) button:we can create that with the help of (input-tag) as well-->
+        <input type="submit" value="Update">
+
+    </form>
+
+
+
+
+
+
+
+    <% }else{ %>
+        <!-- else we will only (show) the (profile) information:-->
+
+
+        <!-- here we show the (data) of the (user):who ever will successfully able to (login) in the browser: -->
+        <!-- here we (access) the data of  the (user):through the (setAuthenticatedUser) function: because in this function be basically set the (data) of the (user) to the (locals) or we can say set to (openly): so we can access or use its (data) in our (views) or we can say in our (webpages):-->
+
+        <p>
+            <%= profile_user.name%>
+        </p>
+        <p>
+            <%= profile_user.email%>
+        </p>
+
+
+        <% } %>

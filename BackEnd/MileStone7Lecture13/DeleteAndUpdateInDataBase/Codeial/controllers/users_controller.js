@@ -2,10 +2,58 @@ const User = require('../models/user');
 
 
 module.exports.profile = function(req, res){
-    return res.render('user_profile', {
-        title: 'User Profile'
-    })
+
+    // here we are showing the (profile-page) to (user):
+    // who successfully able to log-in on the (website):
+
+    // for giving the (user) its (profile-page):
+    // we have to first (check) that (user) present in the database or not :and then gave him the (profile-page) with its (data):
+
+    // here we are getting the  (user) in the (database):with the help of (findById) method:because from (req) argument: we are getting the (id) of the (user):
+    User.findById(req.params.id,function(err, user){
+
+        return res.render('user_profile', {
+            title: 'User Profile',
+            profile_user:user
+        });
+
+    });
+
+
 }
+
+// here we create (controller): for (updating) the (user-profile):
+module.exports.update = function(req,res){
+
+    // first we have to check or match the (user) who make the (update) (req):with the (profile_user) that  both the (users) are the same or not:then only we (Update) the (data) or (profile-data) of the (user):
+    // here simply (id) resperent the (Id) of the (profile_user):
+    if(req.user.id == req.params.id){
+
+        // know we have to (update) the (data) of the (user_profile) in the (database):that we are getting from the (form):that we have created on the (profile-page):
+        // we can do that with the help of (findByIdAndUpdate) function:
+        // here  (req.body):will basically have the (form) values or we can say the (data):that we have to (update) on the (req.params.id) in the (database):
+        User.findByIdAndUpdate(req.params.id, req.body,function(err,user){
+
+            return res.redirect('back');
+        });
+
+
+    }else{
+
+        // if (user) does not match with the (profile_user):
+        // then we will gave the (http) resquest (error) to the (user):
+        // and here we are giving the (401) HTTP (request) error to the (user):and that is (unauthorized);
+        
+        return res.status(401).send('Unauthorized');
+        
+    }
+
+
+}
+
+
+
+
 
 
 // render the sign up page

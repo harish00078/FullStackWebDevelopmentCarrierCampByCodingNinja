@@ -48,10 +48,33 @@
 
                         <!-- for using that code:we have to use (include) function:
                         => and under that function:we have to gave him the (file)  name:were we  have  (written) the code for this (particular) thing:-->
-                        <%- include('_post')  -%>
+                        <%- include('_post') -%>
 
-                        <% } %>
+                            <% } %>
                 </ul>
             </div>
+
+</section>
+
+
+
+<!-- here we are showing all the (users):those were (present) in  our database: -->
+
+<section id="user-friends">
+
+    <h4>
+        Friends
+    </h4>
+
+    <!-- here we are showing all the (users):those were (present) in the database: on the (webpage): -->
+
+    <% for(u of all_users){ %>
+
+        <!-- and those list of the (users):were also the (links) to there (profile-pages): -->
+        <p>
+            <a href="/users/profile/<%= u.id  %>"><%= u.name  %></a>
+        </p>
+
+    <% } %>
 
 </section>
