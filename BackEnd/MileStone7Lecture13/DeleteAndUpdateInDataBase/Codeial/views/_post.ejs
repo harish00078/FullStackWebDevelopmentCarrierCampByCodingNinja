@@ -16,7 +16,7 @@ IMP => if we creating code (partialy) for the (things):that we have created on t
   => first: Is  that (only) the  (log-in):user able to (delete) the (post):
   => second: Or the (post) is  also should (delete) by the (user):who created that  (post): -->
 
-    <% if(locals.user && locals.user.id==post.user.id){ %>
+    <% if(locals.user && locals.user.id == post.user.id){ %>
       <small>
         <a href="/posts/destroy/<%= post.id %>">X</a>
       </small>
