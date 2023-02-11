@@ -1,27 +1,15 @@
-<!-- here we create another (partail) for the (comments): -->
 <li>
-
-  <p>
-
-    <!-- here we create (delete) =button:for deleting (comments) from the (posts): 
-                => we create delete  button:with the help of (anchor-tag):-->
-    <% if(locals.user && locals.user.id==comment.user.id){ %>
-      <small>
-        <a href="/comments/destroy/<%= comment.id %>">X</a>
-      </small>
-      <% } %>
-
-
-
-
-        <!-- here we are putting the (content) of the (comments): -->
-        <%= comment.content %>
-          <br>
-
-          <small>
-            <!-- here we are (putting) the name of the (user): who created that (comment): -->
-            <%= comment.user.name %>
-          </small>
-  </p>
+        <p>
+            <% if (locals.user && locals.user.id == comment.user.id){ %>
+            <small>
+                <a href="/comments/destroy/<%= comment.id %>">X</a>
+            </small>
+            <% } %>
+            <%= comment.content %>
+            <br>
+            <small>
+                <%= comment.user.name %>
+            </small>
+        </p>    
 
 </li>

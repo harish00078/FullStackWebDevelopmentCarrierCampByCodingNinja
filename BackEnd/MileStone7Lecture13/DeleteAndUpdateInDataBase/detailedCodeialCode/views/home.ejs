@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/css/home.css" type="text/css">
+
+<h1>
+    Codeial / <%= title %>
+</h1>
+
+
+<!-- In our (home-page):we basically have the (Posts): -->
+
+<!-- here in our (home_Page): we will basically create the (section):were we have our (posts) or we can say from were we can get our (posts): -->
+<!-- for creating (section): we can use the (section)tag: -->
+<section id="feed-posts">
+
+    <h1 id="post-heading">
+        Posts
+
+    </h1>
+
+
+    <!-- here we are restricting the (users):that only those (users) are  able to (create) post:which are successfully able to (sign-in) on the (webpage):-->
+    <% if(locals.user){ %>
+
+
+        <!-- under that (section):we will  basically created a  (Form):through that (Form) we will basically get our (posts):  -->
+        <form action="/posts/create" id="new-post-form" method="post">
+            <!--under that form:we will (get) the (content) for the (Post) acc to our (post-schema) -->
+            <!-- for getting the (content): we can use the (textarea) tag -->
+
+
+            <textarea name="content" cols="30" rows="3" placeholder="Type Here....." required>
+
+        </textarea>
+
+            <!-- under that (form) tag: we can use (input-tag) for submitting that (Content)  -->
+            <input type="submit" value="Post">
+
+        </form>
+        <% } %>
+
+            <!-- here we are putting the  (posts) on the (webpage):those were created by the (user): -->
+
+            <div id="posts-list-container">
+                <ul>
+                    <%for (post of posts) { %>
+
+                        <!-- here we are using the code  of (post) and (comments):that we created (separately) or we can say (partialy):
+                        => so that (home.ejs) file looks (cleaner): -->
+
+                        <!-- for using that code:we have to use (include) function:
+                        => and under that function:we have to gave him the (file)  name:were we  have  (written) the code for this (particular) thing:-->
+                        <%- include('_post') -%>
+
+                            <% } %>
+                </ul>
+            </div>
+
+</section>
+
+
+
+<!-- here we are showing all the (users):those were (present) in  our database: -->
+
+<section id="user-friends">
+
+    <h4>
+        Friends
+    </h4>
+
+    <!-- here we are showing all the (users):those were (present) in the database: on the (webpage): -->
+
+    <% for(u of all_users){ %>
+
+        <!-- and those list of the (users):were also the (links) to there (profile-pages): -->
+        <p>
+            <a href="/users/profile/<%= u.id  %>"><%= u.name  %></a>
+        </p>
+
+    <% } %>
+
+</section>

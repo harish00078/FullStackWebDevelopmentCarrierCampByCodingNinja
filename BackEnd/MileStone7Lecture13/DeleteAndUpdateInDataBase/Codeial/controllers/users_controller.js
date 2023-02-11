@@ -156,6 +156,3 @@ module.exports.destroySession = function(req,res){
     // after (signed-out):we have to (redirect) the (user) to the (home-page):
     return res.redirect('/');
 }
-
-
-

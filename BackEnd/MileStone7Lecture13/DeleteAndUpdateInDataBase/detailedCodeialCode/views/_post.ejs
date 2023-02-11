@@ -1,0 +1,85 @@
+<!-- here we create code for the  (posts) and (comments): we create there(separately) or we can say (partialy):
+
+IMP => if we creating code (partialy) for the (things):that we have created on the (website):will help us to (easily) intreact with the  (Code) of the particular (thing):
+
+=> and also (home.ejs) file:looks cleaner:  -->
+
+
+<li>
+  <p>
+    <!-- here we create (delete) Button:for deleting the (posts):we create the (delete) button with the help of  (anchor-tag): -->
+
+    <!-- we create the (delete) button:under the (for-loop):which we use (show) all the (posts): those were present in our (database):
+      => so when we (delete): the  any (post):then this (for-loop) fetch the (presnt-post): and show them on the (brower) or the (webpage): -->
+
+    <!-- here we (put) the (authentication) on the (delete) function:
+  => first: Is  that (only) the  (log-in):user able to (delete) the (post):
+  => second: Or the (post) is  also should (delete) by the (user):who created that  (post): -->
+
+    <% if(locals.user && locals.user.id == post.user.id){ %>
+      <small>
+        <a href="/posts/destroy/<%= post.id %>">X</a>
+      </small>
+      <% } %>
+
+
+
+        <!-- here we are giving  the (post) content:from that (database):that has been created by(user) -->
+        <%= post.content %>
+
+          <br>
+          <small>
+            <!-- here we are giving  the (user-name):who created those (posts):we are getting that (user) name from the (posts-database):
+=> because with (posts) we are also stores the (user):who create those post: -->
+            <%= post.user.name %>
+
+          </small>
+  </p>
+
+  <!-- here we are (putting) comments:under the (posts): -->
+  <div class="post-comment">
+    <!-- here we are putting the  (authentication) on the (comments): so that only the (Log-in) user able to see the (commnets):or we can say that only the (user) is able to see those (comment): how created them: -->
+    <% if (locals.user){ %>
+      <!-- here we create  (Form) for the (Comments):througn which can get the (comments) from the (user): -->
+      <form action="/comments/create" method="post">
+
+        <!-- through this (input)tag:we will get (comments): -->
+        <input type="text" name="content" placeholder="Type Here To 
+      add Comments...." required>
+
+        <!-- here we get the (id) of the (Post):so we know that or connect  that  (Comment) with its (post):
+      => we are getting that (Post-id) (automatically):because when  we (put)  some (comments) on the particular (post):then we will get its (post_id) automatically acc to our (schema): we are getting  that in  (hidden) way from  the (user): so for that we use (hidden) type of the (input-tag): -->
+        <input type="hidden" name="post" value="<%= post._id %>">
+
+        <!-- after that we need the (submit) button for (submitting) the (comment) on the (database):for that we use(input-tag) as  (submit) type: -->
+        <input type="submit" value="Add Comment">
+
+
+
+      </form>
+
+
+
+      <% } %>
+
+        <!-- here we are Putting the (comments) on the (home-webpage): under of its (posts): -->
+        <div class="post-comments-list">
+          <ul id="post-comments-<%= post._id %>">
+            <!-- here we are (putting) the Post's (comments) on the webpage:because (posts) also have there (comments): -->
+            <% for (comment of post.comments){ %>
+
+              <!-- here we are using the (comments) code:that we have created (partialy) or we can (separately):-->
+              <!-- for using that code:we have to use (include)  function:and under that (include) function: we have to (provide) the name of the (file):were we have written the code for the (Comments):-->
+              <%- include('_comment')  -%>
+
+
+              <% } %>
+          </ul>
+        </div>
+
+
+  </div>
+
+
+
+</li>
