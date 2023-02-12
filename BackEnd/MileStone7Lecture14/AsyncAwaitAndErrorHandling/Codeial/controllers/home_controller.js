@@ -117,4 +117,4 @@ module.exports.home = async function (req, res) {
 
 // 2 = and after that call the (then) function on the (varibale):were we create the (code-query):
 
-// posts = then();
+// posts.then();
