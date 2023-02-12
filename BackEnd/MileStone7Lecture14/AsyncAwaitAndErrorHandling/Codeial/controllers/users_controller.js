@@ -115,6 +115,18 @@ module.exports.create = function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
+
+
+    // here we create (massege) for the (user) on successfully able to (login) on the (webpage):with the help of (flash):
+    // we have to gave him the (two) arguments:
+    // 1 = first is the types of the (flash) massege:
+    // 2 = second is  the (massege) that we want to show to the (user):on the (webpage):
+
+    req.flash('success','Logged In Successffully');
+
+
+
+
     // here we are basically creating a (session):for the (user):
     // if (user) was (successfully) able to (signed-in):
 
@@ -139,18 +151,11 @@ module.exports.destroySession = function(req,res){
     // here we (signed-out): the (user):
     // for (siging-out) the (user):we have to simply use the inbuild (logout) function of the (passport):
 
-    req.logout(function(err) {
+    req.logout();
 
-        if (err) {
-            
-            console.log('have error in log-out');
-            return;
-        }
     
 
-      });
-    
-
+    req.flash('success','you have logged out!');
 
 
     // after (signed-out):we have to (redirect) the (user) to the (home-page):

@@ -12,6 +12,14 @@ const MongoStore = require('connect-mongo');
 const sassMiddleware =require('node-sass-middleware');
 
 
+// here we are using the (connect-flash) library of the (npm):
+// for showing (masseges) to the (user) on the (webpage):like (log-in) massege etc:
+const flash = require('connect-flash');
+
+// here we are importing our (middlware):that we have created for the (flash) messages:
+const customMware = require('./config/middleware');
+
+
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -68,6 +76,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+
+// here we are using the (flash) library of the (npm):
+// for showing the (messages) to the (user) on the (webpage):
+// we have to use the (flash):after the (session) was called:
+// because the (flash) is a specail area of the (session) used for (storing) masseges:
+app.use(flash());
+
+// here we are using our owm (middleware):that we have created for the (flash) messages:
+// and we gave (setFlash-Function) to our own (middlware):that we have created under (middleware-file):
+// under that (function):
+app.use(customMware.setFlash);
+
 
 // use express router
 app.use('/', require('./routes'));

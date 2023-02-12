@@ -13,6 +13,19 @@
 
     <body>
         <%- include('_header'); %>
+
+        <!-- here we are showing those (flash) messsages on the (webpage): 
+        => here we are only showing the (success) types (messages):that we have created:-->
+        <% if(flash.success && flash.success.length > 0 ){ %> 
+        
+            <!-- and here we are show the (messages) on  the (webpage):acc to the (flash)req: -->
+            <h5>
+                <%= flash.success %>
+            </h5>
+            
+        <% } %>
+
+
         
         <main id="layout-main">
             <%- body %>
