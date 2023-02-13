@@ -1,32 +1,41 @@
 <html>
-    <head>
-        <title>
-            <%= title  %>
-        </title>
-        <link rel="stylesheet" href="/css/layout.css">
-        <link rel="stylesheet" href="/css/header.css">
-        <link rel="stylesheet" href="/css/footer.css">
 
-        <%- style %>
-        
-    </head>
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- here we are putting the (NOTY) files:because through those (files): we are basically using the (NOTY) in our (system): -->
+    <!-- we need two files:
+        => 1 = noty.min.css
+        => 2 = noty.min.js -->
+    <!-- this is the (noty.min.css) file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <!-- this is the (noty.min.js) file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
-    <body>
-        <%- include('_header'); %>
+    <%- style %>
+
+</head>
+
+<body>
+    <%- include('_header'); %>
 
         <!-- here we are showing those (flash) messsages on the (webpage): 
         => here we are only showing the (success) types (messages):that we have created:-->
-        <% if(flash.success && flash.success.length > 0 ){ %> 
+        <!-- <% if(flash.success && flash.success.length > 0 ){ %> 
         
-            <!-- and here we are show the (messages) on  the (webpage):acc to the (flash)req: -->
+             and here we are show the (messages) on  the (webpage):acc to the (flash)req: 
             <h5>
                 <%= flash.success %>
             </h5>
             
-        <% } %>
+        <% } %> -->
 
 
-        
+
         <main id="layout-main">
             <%- body %>
 
@@ -35,7 +44,44 @@
 
         <%- include('_footer'); %>
 
-        <%- script %>
-        
-    </body>
+            <%- script %>
+
+                <!-- here we are using the (NOTY) for showning:those (flash) messages on the (webpage): -->
+                <script>
+
+            <% if (flash.success && flash.success.length > 0) { %>
+
+                        <!-- here we are using the (NOTY):through its (syntax) or (format)we can say: -->
+
+                        new Noty({
+
+                            <!-- here we use inbuild (notification) theme function of the (Noty): -->
+                            theme: 'relax',
+
+                            <!-- here we have to provide the (message) to the (noty):that we want to be show on the (webpage) as a (notification)
+                            => so for messages we are using the (flash) messages:
+                            => that's why in the (text) section we will provide the (flash) messages:that we have created:  -->
+                            Text: '<%= flash.success %>',
+
+                            <!-- we also have to (provide) the (type) of the (notification-message) to the (Noty): -->
+                            type:'success',
+
+                            <!-- we also have to (provide) the (layout) for the (notification) to the (noty): -->
+                            layout:'topRight',
+                            
+                            <!-- and we also have to (provide) the (time-sequence) to the (notification): 
+                            => here we have t0 (provide) the (time-sequence) in the (form) of milliseconds: -->
+                            time:1500
+
+
+                        }).show();
+                
+            <% } %>
+
+                </script>
+
+
+
+</body>
+
 </html>
