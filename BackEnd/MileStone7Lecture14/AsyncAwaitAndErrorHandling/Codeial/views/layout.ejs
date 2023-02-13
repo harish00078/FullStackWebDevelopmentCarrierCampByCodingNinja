@@ -47,36 +47,79 @@
             <%- script %>
 
                 <!-- here we are using the (NOTY) for showning:those (flash) messages on the (webpage): -->
+                <!-- how we use (NOTY):
+
+                    => here we are using the (NOTY):through its (syntax) or (format)we can say:
+
+                    1 = (first) we use inbuild (notification) theme function of the (Noty): 
+                    
+                    2 = (second) here we have to provide the (message) to the (noty):that we want to be show on the (webpage) as a (notification)
+                            => so for messages we are using the (flash) messages:
+                            => that's why in the (text) section we will provide the (flash) messages:that we have created:  
+                    
+                   3 =  (third) we also have to(provide) the(type) of the(notification - message) to the(Noty):
+
+
+                   4 = (fourth) we also have to(provide) the(layout) for the(notification) to the(noty):
+
+                   5 = (fifth) we also have to(provide) the(time - sequence) to the(notification): 
+                            => here we have t0(provide) the(time - sequence) in the(form) of milliseconds: 
+
+                 -->
+
                 <script>
 
-            <% if (flash.success && flash.success.length > 0) { %>
+                    <!-- here we show (notification) messages for the (success) -->
+                <% if (flash.success && flash.success.length > 0) { %>
 
-                        <!-- here we are using the (NOTY):through its (syntax) or (format)we can say: -->
 
                         new Noty({
 
-                            <!-- here we use inbuild (notification) theme function of the (Noty): -->
+
                             theme: 'relax',
 
-                            <!-- here we have to provide the (message) to the (noty):that we want to be show on the (webpage) as a (notification)
-                            => so for messages we are using the (flash) messages:
-                            => that's why in the (text) section we will provide the (flash) messages:that we have created:  -->
+
                             Text: '<%= flash.success %>',
 
-                            <!-- we also have to (provide) the (type) of the (notification-message) to the (Noty): -->
-                            type:'success',
 
-                            <!-- we also have to (provide) the (layout) for the (notification) to the (noty): -->
-                            layout:'topRight',
-                            
-                            <!-- and we also have to (provide) the (time-sequence) to the (notification): 
-                            => here we have t0 (provide) the (time-sequence) in the (form) of milliseconds: -->
-                            time:1500
+                            type: 'success',
+
+
+                            layout: 'topRight',
+
+                            time: 1500
 
 
                         }).show();
-                
-            <% } %>
+
+                        <% } %>
+
+
+                            < !--same thing we have to do for the(error) Notification(messages)-- >
+
+                            <% if (flash.success && flash.success.length > 0) { %>
+
+
+                            new Noty({
+
+
+                                theme: 'relax',
+
+
+                                Text: '<%= flash.success %>',
+
+
+                                type: 'success',
+
+
+                                layout: 'topRight',
+
+                                time: 1500
+
+
+                            }).show();
+
+                             <% } %>
 
                 </script>
 

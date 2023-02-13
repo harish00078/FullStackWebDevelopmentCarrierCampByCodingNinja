@@ -8,7 +8,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 const sassMiddleware =require('node-sass-middleware');
 
 
@@ -56,19 +56,31 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
 
-    store: MongoStore.create(
-        {
-        // here we connect our (MongoStore) with our (database) through inbuild (mongoUrl) function:
-        // under (mongoUrl) function:we basically have to provide the (link) of our (mongodb) database:
+    store: new MongoStore(
+
+      {
+
+        mongooseConnection:db,
+        autoRemove: 'disabled'
+
+      },
+      function(err){
+        console.log(err || 'connect-mongodb setup');
+      }
+    )
+    // store: MongoStore.create(
+    //     {
+    //     // here we connect our (MongoStore) with our (database) through inbuild (mongoUrl) function:
+    //     // under (mongoUrl) function:we basically have to provide the (link) of our (mongodb) database:
   
-          mongoUrl:'mongodb://127.0.0.1:27017/codeial_development',
-          autoRemove:'disabled'
-        },
-        //create  function: for check that if we have any (error):while connecting the (mongoStore) with the (database):
-        function(err){
-          console.log(err || 'connect-mongodb setup ok');
-        }
-      )
+    //       mongoUrl:'mongodb://127.0.0.1:27017/codeial_development',
+    //       autoRemove:'disabled'
+    //     },
+    //     //create  function: for check that if we have any (error):while connecting the (mongoStore) with the (database):
+    //     function(err){
+    //       console.log(err || 'connect-mongodb setup ok');
+    //     }
+    //   )
 
 }));
 
