@@ -76,10 +76,10 @@
                         new Noty({
 
 
-                            theme: 'relax',
+                            theme:'relax',
 
 
-                            Text: '<%= flash.success %>',
+                            text: "<%= flash.success %>",
 
 
                             type: 'success',
@@ -94,7 +94,32 @@
 
                         <% } %>
 
+                        <!-- same thing we have to do for the (Error) Notification (messages): -->
 
+
+                        <% if (flash.error && flash.error.length > 0) { %>
+
+
+                            new Noty({
+    
+    
+                                theme: 'relax',
+    
+    
+                                Text: '<%= flash.error %>',
+    
+    
+                                type: 'error',
+    
+    
+                                layout: 'topRight',
+    
+                                time: 1500
+    
+    
+                            }).show();
+    
+                            <% } %>
 
                 </script>
 
