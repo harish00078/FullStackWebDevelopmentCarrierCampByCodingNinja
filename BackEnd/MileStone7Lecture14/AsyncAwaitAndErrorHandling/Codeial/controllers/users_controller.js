@@ -151,18 +151,18 @@ module.exports.destroySession = function(req,res){
     // here we (signed-out): the (user):
     // for (siging-out) the (user):we have to simply use the inbuild (logout) function of the (passport):
 
-    req.logout();
+    // req.logout();
 
-    // req.logout(function(err) {
+    req.logout(function(err) {
 
-    //     if (err) {
+        if (err) {
             
-    //         console.log('have error in log-out');
-    //         return;
-    //     }
+            console.log('have error in log-out');
+            return;
+        }
     
 
-    //   });
+      });
 
     
 

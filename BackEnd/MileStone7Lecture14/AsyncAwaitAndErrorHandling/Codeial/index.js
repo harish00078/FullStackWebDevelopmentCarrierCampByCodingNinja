@@ -8,8 +8,8 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-const MongoStore = require('connect-mongo')(session);
-// const MongoStore = require('connect-mongo');
+// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 const sassMiddleware =require('node-sass-middleware');
 
@@ -58,6 +58,8 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
 
+    
+
     store: new MongoStore(
 
       {
@@ -72,6 +74,8 @@ app.use(session({
         console.log(err || 'connect-mongodb setup');
       }
     )
+
+    
     // store: MongoStore.create(
     //     {
     //     // here we connect our (MongoStore) with our (database) through inbuild (mongoUrl) function:
