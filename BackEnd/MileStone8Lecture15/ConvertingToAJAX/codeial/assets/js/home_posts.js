@@ -33,7 +33,7 @@
         data: newPostForm.serialize(),
 
         // after that we have to define the (success) function of the (ajax):
-        // success:function will have the (data) of the (post-Form):
+        // success:function will have the (data) of the (post-Form) in the form of (json):
         success: function (data) {
           // if (ajax) will get the (post-form) data successfully:
           // then  we have to (print) that (data) on the console of the (browser):
@@ -43,44 +43,29 @@
           // then we have to create the (post):with the help of (newPostDom) function:that we have created:
           // we have to gave the (data) of  the (post) to  the (newPostDom) function:so that it can create the (post):
           let newPost = newPostDom(data.data.post);
-          
+
           // after creating (post) with the help of (newPostDom) function:know we have to show that (post) on the (webpage):
           // so we are showing the (posts) on the (home) page:
           // here we are giving the (post-list-container) id  with the (unordered-list) to the (ajax):so that we can show the created post on the home page:
 
           // here we use (prepend) function of the (jquery):that will add the new (post) on the (top) of all the (posts):
 
-          $('#post-list-container>ul').prepend(newPost);
-
-
+          $("#post-list-container>ul").prepend(newPost);
 
           // if it not able to get the data:
         },
 
-
         error: function (error) {
-
-
           // then we have (print) the error message on the console:
           console.log(error.responseText);
-
-
         },
-
-
-
       });
-
-
     });
-
-
   };
 
   // method to create a post in (DOM) or on a (webpage) we can say:
   // here are giving the (post) data in this function:so that we can create the (post):
   let newPostDom = function (post) {
-
     return $(`<li id="post-${post._id}">
     <p>
 
@@ -111,6 +96,8 @@
     </div>
 
 </li>`);
+
+
   };
 
   // here we are calling the (createPost) function:that we have created through (ajax):
