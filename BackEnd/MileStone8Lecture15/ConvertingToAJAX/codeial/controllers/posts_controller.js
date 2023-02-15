@@ -4,7 +4,7 @@ const Comment = require('../models/comment');
 module.exports.create = async function(req, res){
 
     try{
-        let posts  = await Post.create({
+        let post  = await Post.create({
             content: req.body.content,
             user: req.user._id
         });
@@ -15,23 +15,28 @@ module.exports.create = async function(req, res){
         // first we have to check that the (data) or the (req):that we are getting in the (form) of (ajax):
         // so the (ajax) request are in the form of (XMLHTTPRequests):the shortform is (XHR):
 
+        // if it is (xhr) request:
         if(req.xhr){
 
-            // then we simple have to return the (response):with the (status) of code:
+            // then In (response) we have to return the the (json-data):which will have the (data) of the (post):
+
+            // we can gave the (json-data):with the help of  (status) of the response:
+            // means:if (status == 200):then it means it is (xhr) request:or we can say (ajax) request:
             return res.status(200).json({
 
-                // IMP = and we also have to return the response of (post-form's-data):
-                // that we are getting in the form of (json) through the (ajax) request:
-                // through which we are create our (posts)
+
+                // here we gave that (form-data) in the form of  (json) to the (post) varaiable:
+                // IMP = were we are creating the (post):using that (json-data):
 
                 data:{
 
-                    // here we gave the (json's) post-form's-data to the (posts) varaiable:
-                    // through which are creating the (posts):
+                    // here we gave the form-data to the (post) varaiable:
+                    // through which are creating the (post):
 
-                    post: posts
+                    post: post
                 },
                 // here ajax (req):will gets the (message) with it: to know that the (post) has been created: or not:
+                // or we can say that  (ajax) resquest has been (successfully) executed or not:
                 message: 'Post created!'
 
             });
