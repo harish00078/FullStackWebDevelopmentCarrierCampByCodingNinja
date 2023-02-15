@@ -42,6 +42,7 @@
           // if (ajax) will get the (post-form) data successfully:
           // then we have to create the (post):with the help of (newPostDom) function:that we have created:
           // we have to gave the (data) of  the (post) to  the (newPostDom) function:so that it can create the (post):
+          // here use (json) data:for creating (post):
           let newPost = newPostDom(data.data.post);
 
           // after creating (post) with the help of (newPostDom) function:know we have to show that (post) on the (webpage):
