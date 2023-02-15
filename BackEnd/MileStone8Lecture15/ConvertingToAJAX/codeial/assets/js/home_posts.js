@@ -95,6 +95,7 @@
     // here we get the (post-id) of the post:so that we can delete this  post through the (ajax):
 
     // IMP = we also have to (convert) this (creating-post) code text into the (html) text:because we are try to create the (post) under the (js) file:
+    // we try to create (post) with the help of (jquery): so we have to (convert) this (code) text into the (html) text:
     // for that we have to use the (back-ticks = ` `):that will (interpolate) the (html) text:
 
     // (INTERPOLATION) = String interpolation is a great programming language feature that allows injecting variables, function calls, arithmetic expressions directly into a string. String interpolation was absent in JavaScript before ES6. String interpolation is a new feature of ES6, that can make multi-line strings without the need for an escape character. We can use apostrophes and quotes easily that they can make our strings and therefore our code easier to read as well. These are some of the reasons to use string interpolation over string concatenation.
