@@ -81,7 +81,17 @@ module.exports.createSession = function(req, res){
 }
 
 module.exports.destroySession = function(req, res){
-    req.logout();
+    
+    req.logout(function(err) {
+
+        if (err) {
+            
+            console.log('have error in log-out');
+            return;
+        }
+    
+
+      });
     req.flash('success', 'You have logged out!');
 
 
