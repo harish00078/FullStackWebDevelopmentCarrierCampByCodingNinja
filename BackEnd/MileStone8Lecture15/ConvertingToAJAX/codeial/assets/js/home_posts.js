@@ -51,7 +51,7 @@
 
           // here we use (prepend) function of the (jquery):that will add the new (post) on the (top) of all the (posts):
 
-          $("#post-list-container>ul").prepend(newPost);
+          $("#post-list-container > ul").prepend(newPost);
 
           // if it not able to get the data:
         },
