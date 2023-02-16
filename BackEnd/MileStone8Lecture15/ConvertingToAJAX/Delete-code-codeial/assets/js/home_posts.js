@@ -101,6 +101,7 @@
           // for removing that (post):
           //  and under jquery we use the (interpolation) function:
           // Interpolation => String interpolation is a great programming language feature that allows injecting variables, function calls, arithmetic expressions directly into a string
+          //  here (#post-${data.data.post_id}) basically represents this (#post-<%= post._id %>) (id) that we have given to the (list-tag) of the (posts) in the (_post.ejs) file:
           $(`#post-${data.data.post_id}`).remove();
 
           // if it does not get into  the (success) function:then it means that the (ajax) request have (error) in it:
