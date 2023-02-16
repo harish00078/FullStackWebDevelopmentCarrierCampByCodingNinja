@@ -38,6 +38,35 @@ module.exports.destroy = async function(req, res){
 
             await Comment.deleteMany({post: req.params.id});
 
+            // here we are getting the (ajax) request:for deleting the (post):
+            // first we have to check that the (post) that we are getting is actually in the form of (AJAX) request:
+            if(req.xhr){
+
+                // for using the (ajax) request (data):
+                // first we have to (return) the (status) of the (request):
+                return res.status(200).json({
+
+                    // and after that we can (use) the (ajax) request data:
+                    // that is in the form of (json):
+                    data: {
+
+                        // and here we gave that (post_id) which is (present) in the (ajax) request in the (form) of (json) data:
+                        // to the (req.params.id) argument of the (destroy) function:
+                        // so that we can delete that (post) from the (database):
+                        post_id:req.params.id
+
+                        // and we also have to gave the (message) to the (ajax) request:
+                        // so it knows that we have (successfully) deleted the (post):
+                    },
+                    message: "Post deleted!"
+
+                    
+                    
+                });
+            }
+
+
+
             req.flash('success', 'Post and associated comments deleted!');
 
             return res.redirect('back');
