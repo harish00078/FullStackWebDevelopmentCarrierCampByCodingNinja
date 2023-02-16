@@ -25,15 +25,29 @@ $('div').css({
 // first way of creating (event) on the(element) with the help of (jquery):
 // here we create (event) on this (div) element:
 
-// $('div').click(function(){
+$('div').click(function(){
 
-//   // here we create (alert) event on this (div) element:
-//   alert("div clicked");
+  // if we want to create some (manipulation) on the (div) element:
+  // while we create (event) on the (div) element:
+  // we can do that with the help of (this)  function:
+  // this funciton will gave us the (div) element:
+  // and after that we can (manupulate) the (div) element:
+  // here we use (this) function with the help of (jquery):
+  var element = $(this);
+
+  // here we are changing the (width) of the (div) element:when ever the event will be triggered on the (div) element:
+  // we will increase the (width) of the (div) element:
+
+  element.width(element.width() + 20 + 'px');
+
+
+  // here we create (alert) event on this (div) element:
+  alert("div clicked");
 
   
 
 
-// });
+});
 
 // second way of creating (event) on the(element) with the help of (jquery):through the (javascript) property (on):
 
