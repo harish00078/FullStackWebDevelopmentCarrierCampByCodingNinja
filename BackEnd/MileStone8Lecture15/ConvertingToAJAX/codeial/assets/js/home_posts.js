@@ -41,7 +41,7 @@
         // after that we have to define the (success) function of the (ajax):
         // if the (ajax-request) is successful get (executed) or worked:
         // IMP = then it means that: we successfully have created a new post:in the form of (json) data:
-        // IMP = and success:function will have the (data) of that (post) in the form of (json):
+        // IMP = and success:function will have the (data) of that (post) in the form of (json):in the (data) argument:
 
         success: function (data) {
           // if (ajax) will get the (post) data successfully:

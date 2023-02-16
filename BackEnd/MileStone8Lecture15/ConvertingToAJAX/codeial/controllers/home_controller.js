@@ -8,6 +8,8 @@ module.exports.home = async function(req, res){
     try{
          // populate the user of each post
         let posts = await Post.find({})
+        // here we sort the posts:In (-) equation:so that the (new) posts:will show  on the top  of  all posts:
+        .sort('-createdAt')
         .populate('user')
         .populate({
             path: 'comments',
