@@ -27,6 +27,13 @@ app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
+// here we are defining the (avatar) path or directory to the (server):
+// so that  (server) will able to access the (avatar) of the (user):
+// and show them on the (user-profile) webpage:
+app.use('/uploads',express.static(__dirname + '/uploads'));
+
+
+
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);

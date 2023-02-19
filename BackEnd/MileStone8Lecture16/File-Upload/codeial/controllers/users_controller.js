@@ -1,5 +1,21 @@
 const User = require("../models/user");
 
+// here we are importing the (fx) module or library:we can say:
+// what is (fs) = The Node.js file system module allows you to work with the file system on your computer.
+// Common use for File System module:
+// 1 = Read Files
+// 2 = Write Files
+// 3 = Append Files
+// 4 = Close Files
+// 5 = Delete Files
+const fs = require("fs");
+
+
+
+// here we are importing the (path) of the (avatar): so that we can delete the (avatar):
+// if it is already there in the (user) profile:
+// so that it can add the (new) one to his profile:
+const path = require('path');
 
 // let's keep it same as before
 module.exports.profile = function (req, res) {
@@ -48,6 +64,18 @@ module.exports.update = async function (req, res) {
         // before (uploading) the (user) avater in the database:
         // we have to check that the  (user) gave the (avatar) or (avatar) file:with its (updated) profile data  or not:
         if(req.file){
+
+          // here we are checking that:if the (user) already has an (avatar):
+          if(user.avatar){
+
+            // then we have to first (delete) that avatar:which is  already present in the (user) profile:
+            // we can (delete) avatar:with the help of (unlinkSync) method:because we not only have to delete the (avatar):we also have to delete its (link) or (path) we can say:
+            // what is (fs) = The Node.js file system module allows you to work with the file system on your computer.
+            fs.unlinkSync(path.join(__dirname,'..', user.avatar));
+            
+
+
+          }
         
             // then only we update  the (user) profile with the (avatar) file data:
             // here we are using the (filename) or (avatarPath) of the (user's-avatar) :for  storing the (reference) of (avatar) in the database:
