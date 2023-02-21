@@ -24,7 +24,7 @@ const router = express.Router();
 // here we connect the (v1) version (api)  router:with the (further) files:
 // acc to the (user-request) to the (api):
 // here we are basically connecting with the (posts) file:if (user) request to the (apI) for the (posts):
-router.use('/posts',require('./posts'))
+router.use('/posts',require('./posts'));
 
 
 

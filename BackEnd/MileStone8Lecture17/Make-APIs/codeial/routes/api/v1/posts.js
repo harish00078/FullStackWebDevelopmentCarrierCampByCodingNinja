@@ -11,6 +11,9 @@ const postsApi = require('../../../controllers/api/v1/posts_api');
 // here we gave controller to this (api-request):
 router.get('/', postsApi.index);
 
+// here we create (delete) post (route) through the (api):
+router.delete('/:id', postsApi.destroy);
+
 
 
 
