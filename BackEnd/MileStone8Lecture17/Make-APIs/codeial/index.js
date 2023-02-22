@@ -8,6 +8,10 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+
+// here we are using the (passport-jwt) strategy:that we have created or stored in the (passport-jwt-strategy) file:
+const passportJWT = require('./config/passport-jwt-strategy');
+
 const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
