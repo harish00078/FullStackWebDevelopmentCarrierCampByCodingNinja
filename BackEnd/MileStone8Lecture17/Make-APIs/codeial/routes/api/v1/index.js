@@ -27,6 +27,12 @@ const router = express.Router();
 router.use('/posts',require('./posts'));
 
 
+// here we create route of the (user's) api authentcation controller:
+// or we say controller for the (user) authentication:and creating  (session) for it:so that it can use the (api) after it successfully logged in:
+router.use('/users',require('./users'));
+
+
+
 
 
 module.exports = router;

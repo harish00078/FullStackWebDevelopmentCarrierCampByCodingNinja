@@ -95,4 +95,4 @@ passport.use(new JWTStrategy(opts, function(jwtPayLoad, done){
 
 
 // and after that we have to import this (passport-jwt-strategy):
-module.exports = passport;
+module.exports = passport; 
