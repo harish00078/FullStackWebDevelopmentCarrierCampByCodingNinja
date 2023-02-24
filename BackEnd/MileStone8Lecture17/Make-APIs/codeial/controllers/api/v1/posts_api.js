@@ -44,12 +44,22 @@ module.exports.index = async function (req, res) {
   });
 };
 
+
+
+
+
 // here we creating a (destory) function:In the (api):
 // so that (user) will also able to delete the (posts) through the (api-request):
 
 module.exports.destroy = async function (req, res) {
+
   try {
+
     let post = await Post.findById(req.params.id);
+
+    if(post.user == req.user.id){
+
+    
 
     post.remove();
 
@@ -59,6 +69,20 @@ module.exports.destroy = async function (req, res) {
     return res.json(200, {
       message: "post and associated comments deleted successfully",
     });
+
+
+    // if the (user) does not match:
+  }else{
+
+
+    return res.json(401,{
+
+      message: "you are not authorized to delete this post",
+    });
+
+
+
+  }
 
 
   } catch (err) {

@@ -62,7 +62,7 @@ module.exports.createSession = async function (req, res) {
         // for the other things:those were use by  the (user):
 
 
-        token: jwt.sign(user.toJSON(),'codeial',{expiresIn:'10000'})
+        token: jwt.sign(user.toJSON(),'codeial',{expiresIn:'100000'})
 
       }
     });
