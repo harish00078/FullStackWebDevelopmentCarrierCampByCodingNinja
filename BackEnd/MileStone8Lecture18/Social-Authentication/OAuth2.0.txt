@@ -1,0 +1,19 @@
+// learn about:what is (OAuth2.0):
+
+OAuth 2.0 is an authorization framework that allows third-party applications to access resources on behalf of a user, without requiring the user to share their credentials (such as username and password) with the third-party application. It is widely used by web and mobile applications to provide users with a seamless login experience, without requiring them to create a separate account or enter their login credentials each time they use a new application.
+
+OAuth 2.0 works by defining a set of roles and protocols that govern the interaction between the user, the client application, and the resource server (the server that hosts the user's data). The basic flow of an OAuth 2.0 authentication process involves the following steps:
+
+The client application requests authorization from the user to access their resources on a resource server.
+
+The user grants authorization to the client application.
+
+The client application receives an authorization grant from the authorization server (which could be the same server as the resource server or a separate server).
+
+The client application uses the authorization grant to request an access token from the authorization server.
+
+The authorization server issues an access token to the client application.
+
+The client application uses the access token to access the user's resources on the resource server.
+
+OAuth 2.0 is widely used by popular services like Google, Facebook, and Twitter to provide authentication and authorization services to third-party applications.

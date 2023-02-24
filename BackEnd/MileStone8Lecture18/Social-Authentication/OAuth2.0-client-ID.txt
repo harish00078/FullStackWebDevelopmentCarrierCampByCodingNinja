@@ -1,0 +1,9 @@
+// learn about: what is (OAuth2.0-client-ID):
+
+In the OAuth 2.0 framework, a client ID is a unique identifier that is assigned to a client application by the authorization server. The client ID is used by the authorization server to identify the client application when it requests an access token to access a user's resources.
+
+When a client application wants to access a user's resources, it first needs to be registered with the authorization server. During the registration process, the authorization server assigns a client ID and a client secret (a confidential value that is used to authenticate the client application) to the client application. The client ID is a public value that is used by the client application in its requests to the authorization server.
+
+The client ID is an important component of the OAuth 2.0 framework because it enables the authorization server to identify the client application and to ensure that only authorized client applications can access a user's resources. The client ID is typically included in the authorization request that the client application sends to the authorization server, along with other information such as the requested scope (the set of permissions that the client application is requesting) and the redirect URI (the URI to which the authorization server should send the access token).
+
+In summary, the client ID is a unique identifier that is assigned to a client application by the authorization server, and it is used by the client application in its requests to the authorization server to access a user's resources.
