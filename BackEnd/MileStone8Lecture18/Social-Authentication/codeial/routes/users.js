@@ -34,8 +34,8 @@ router.get('/sign-out', usersController.destroySession);
 // 2 = second is the (scope):under scope we define the things to the (req):that we are looking for in the (response):if the (user) get (signed in) successfully:
 // here we gave two things in the (scope):
 // 1 = first is (profile)data of the (user):
-// 2= second is (email0 of the (user):through which it try to log-in:
-router.get('/auth/google',passport.authenticate('google',{scope: 'user'}));
+// 2= second is (email) of the (user):through which it try to log-in:
+router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 
 
 // here we create our second route:through which we get the (user-data) in the (response) from the (google):

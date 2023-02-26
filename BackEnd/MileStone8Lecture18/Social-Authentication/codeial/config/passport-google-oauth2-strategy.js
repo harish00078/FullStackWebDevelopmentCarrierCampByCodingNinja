@@ -23,9 +23,9 @@ passport.use(
     {
       // In google strategy:first we gave the (CLientID) to the (passport):
       clientID:
-        "736890997571-fd1p3oihith6naqo3dcqa4h6c40de5nk.apps.googleusercontent.com",
+        "289203943405-pbn6uhs3a6d7ab3f0bsq6ftm8k77vomd.apps.googleusercontent.com",
       // second we have to provide the (clientSecret):
-      clientSecret: "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",
+      clientSecret: "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",
 
       // third we have to provide the (callbackURL):
       callbackURL: "http://localhost:8000/users/auth/google/callback",
@@ -58,6 +58,9 @@ passport.use(
           return;
 
         }
+        // here we are also printing the (access token) or (refresh token):
+
+        console.log(accessToken,refreshToken);
 
         // here we  are printing the (profile) data on the (console):
         // so we can see that:what is (profile):

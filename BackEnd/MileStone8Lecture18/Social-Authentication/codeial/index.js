@@ -12,6 +12,10 @@ const passportLocal = require('./config/passport-local-strategy');
 // here we are using the (passport-jwt) strategy:that we have created or stored in the (passport-jwt-strategy) file:
 const passportJWT = require('./config/passport-jwt-strategy');
 
+// here we are using the (passport-google) strategy:that we have created or stored in the (passport-google-oauth2-strategy) file:
+// we used it for the (socail-authentication):
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
+
 const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
