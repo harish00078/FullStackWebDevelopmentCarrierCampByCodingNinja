@@ -79,7 +79,7 @@ let renderTemplate = (data,relativePath) =>{
 
       // template = here template is basically the (structure) of the (email):which also has a (user) data in it:
 
-      // if we have (err)
+      // if we have (err):while rendering the (ejs) template:
       if(err){
 
         console.log('error in rendering template');
