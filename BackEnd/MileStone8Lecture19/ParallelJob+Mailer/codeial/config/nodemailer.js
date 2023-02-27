@@ -67,7 +67,7 @@ let renderTemplate = (data,relativePath) =>{
     // which ejs has to render:
     // because they we are in the form of (ejs):
 
-    // relativePath is basically the (path) through which this (function) has been called:
+    // relativePath is basically the (path) through which this (function) has been called:or we can say through which the (email) has been send:
     path.join(__dirname,'../views/mailers',relativePath),
 
     // here we are passing the (data):to the (email-templates):
@@ -79,6 +79,7 @@ let renderTemplate = (data,relativePath) =>{
 
       // template = here template is basically the (structure) of the (email):which also has a (user) data in it:
 
+      // if we have (err)
       if(err){
 
         console.log('error in rendering template');
