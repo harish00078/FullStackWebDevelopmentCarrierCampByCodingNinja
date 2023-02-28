@@ -1,6 +1,9 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 
+// here we are importing the (mailer) function:that we have created for the (comments):
+const commentsMailer = require('../mailers/comments_mailer');
+
 module.exports.create = async function(req, res){
 
     try{
@@ -16,9 +19,30 @@ module.exports.create = async function(req, res){
             post.comments.push(comment);
             post.save();
 
+            // here we are populating the (user):to see that which user made this comment:
+            // and we also need the (email) of the (user):to see that which (user) create that (comment):
+            // and  also we  need that (email-id):for ending him the(Mail):
+            comment = await comment.populate('user', 'name email').execPopulate();
+            // here we are using the (comment_mailer) function:that we have created for sending (mail) to the (user):
+            commentsMailer.newComment(comment);
+
+            if (req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Comment created!"
+                });
+            }
+
+            req.flash('success', 'Comment published!');
+
+            res.redirect('/');
+
+
             if (req.xhr){
                 // Similar for comments to fetch the user's id!
-                comment = await comment.populate('user', 'name').execPopulate();
+                // comment = await comment.populate('user', 'name').execPopulate();
     
                 return res.status(200).json({
                     data: {

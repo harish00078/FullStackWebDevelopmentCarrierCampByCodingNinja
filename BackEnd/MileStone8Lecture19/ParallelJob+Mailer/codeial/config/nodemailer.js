@@ -34,9 +34,12 @@ let transporter  = nodemailer.createTransport({
   // basically use to tell that we want to secure our (port) or not:
   secure: false,// true for 465, false for other ports:
 
-  // In authentication we define that to (user): which we have to send the (email):
+  // In  authentication: we have to define the (gmail) identity:through which  we are sending the (mails) to the (user):
+  // we also have to define the (gmail) identity:so that (gmail) (API-server) can track on us:
+  // and check that we are the (real-user) or not:
+  // for example:like we are not spaming the other (users):
   auth:{
-    user:'harishkunar987@gmail.com',
+    user:'hk313665@gmail.com',
     pass:'BOSS009bond'
   }
 

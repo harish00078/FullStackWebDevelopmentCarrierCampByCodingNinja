@@ -12,7 +12,7 @@ const nodeMailer = require("../config/nodemailer");
 // we can also (exports):the created (function) directly:
 // we are creating the function:with the help of (arrow) functions:
 exports.newComment = (comment) => {
-  console.log("inside  newComment mailer");
+  console.log("inside  newComment mailer",comment);
 
   // here we are sending the (mail) to the (user):
   // who had created that comment:
@@ -26,7 +26,7 @@ exports.newComment = (comment) => {
     {
       // In (from):we  tell the (user) that we are sending this (mail):
       // or we can say this (mail) is from the (website): on which you have commented:
-      from: "harishkunar987@gmail.com",
+      from: "harishpathania150@gmail.com",
       // In (to):we tell that to which (user): we have sent this (mail):
       // and here we tell that the (user):who commented on the (website):
       to: comment.user.email,
