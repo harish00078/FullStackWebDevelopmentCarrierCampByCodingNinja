@@ -14,6 +14,11 @@ const nodeMailer = require("../config/nodemailer");
 exports.newComment = (comment) => {
   console.log("inside  newComment mailer",comment);
 
+  // here we are giving the (template) path or the (comment) data to the nodemailer's (renderTemplate) function:
+  // that we use to create the (mail-template) structure with the (user) data: for the (maiL) that we are sending to the (user):which commented on the (website):
+  // or we can through which we are sending the created (mail) to the (user):
+  let htmlString = nodeMailer.renderTemplate({comment:comment},'/comments/new_comment.ejs');
+
   // here we are sending the (mail) to the (user):
   // who had created that comment:
   // heree we are using the (nodeMailer) that we have (configure) in our (system):for sending the (email):
@@ -37,7 +42,9 @@ exports.newComment = (comment) => {
       subject: "new comment published!",
       // after that we have to provide the (body) to this (mail):
       // we can do that with the help of (html):
-      html: "<h1>yup, your comment is now published </h1>",
+      // here (htmlString) is basically the (structure) of the (mail) with the (user) data:
+      // that we have created with the help of nodemailer (renderTemplate) function:
+      html: htmlString,
 
       // and here we create the callback function::with the help of (arrow) function:
       // info = info argument basically have the information about the (req)that has been send to the (mail) server:for sending the (mail) to the (user):

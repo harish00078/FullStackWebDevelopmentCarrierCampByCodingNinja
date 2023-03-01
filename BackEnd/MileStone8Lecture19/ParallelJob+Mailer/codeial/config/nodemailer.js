@@ -39,7 +39,7 @@ let transporter  = nodemailer.createTransport({
   // and check that we are the (real-user) or not:
   // for example:like we are not spaming the other (users):
   auth:{
-    user:'hk313665@gmail.com',
+    user:'hk313665',
     pass:'BOSS009bond'
   }
 
@@ -85,7 +85,7 @@ let renderTemplate = (data,relativePath) =>{
       // if we have (err):while rendering the (ejs) template file:
       if(err){
 
-        console.log('error in rendering template');
+        console.log('error in rendering template',err);
 
         return;
         
