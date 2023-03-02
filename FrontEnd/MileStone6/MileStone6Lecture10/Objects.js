@@ -24,3 +24,23 @@ console.log(Object.getPrototypeOf('obj1'));
 // for doing that we have to use the (property):named as (isPrototypeOf):
 
 console.log(Object.prototype.isPrototypeOf(obj1));
+
+
+// important thing is that:
+// any object that we create in the (javascript):are connected with the inbuild (object) constructor prototype:
+// for example if we create a constructor function or object:then that (constructor) function: will be created or connected with the  inbuild (object) constructor prototype:
+
+// here we create Vehicle constructor function:and this constructor function:will be created with the help of the inbuild (Object) constructor prototype:
+
+function Vehicle(numWheels,Price){
+
+  this.numWheels = numWheels;
+  this.Price = Price;
+}
+
+
+// and if we create (object) with the help of this Vehicle constructor function:
+// IMP = then that object will be connected with the (prototype) of the Vehicle constructor function:
+// IMP = same as the Vehicle constructor function connected with the (prototype) of the Inbuild (Object) constructor function:
+// these things work:like a hierarchical system:or we can also say that this is the (chain) of the prototype:
+var car =   new Vehicle(8,13242343);
