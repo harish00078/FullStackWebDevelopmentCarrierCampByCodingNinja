@@ -46,12 +46,12 @@ module.exports.create = async function(req, res){
             let job = queue.create('emails',comment).save(function(err){
                 // we are also giving the callback function:
                 if(err){
-                    // if we have error creating (queue):
+                    // if we have error creating (job) in the (queue:
                     console.log('error in giving a job to the  queue',err);
 
                     return;
                 }
-                // if we did not have error while creating (queue):
+                // if we did not have error while creating (job) in the (queue)):
                 // it means that we have created  a (task) or (job) in the queue:
                 // then we will print that (job.id) in the (console):
                 // we will get this (job.id):through the (job) variable:In which we are creating the (job) for the (queue):
