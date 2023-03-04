@@ -39,8 +39,8 @@ let transporter  = nodemailer.createTransport({
   // and check that we are the (real-user) or not:
   // for example:like we are not spaming the other (users):
   auth:{
-    user:'hk313665',
-    pass:'BOSS009bond'
+    user:'hk313665@gmail.com',
+    pass:'macgnpblfzjssxnw'
   }
 
 

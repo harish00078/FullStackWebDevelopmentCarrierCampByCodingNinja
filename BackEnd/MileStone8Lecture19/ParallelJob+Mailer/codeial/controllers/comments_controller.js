@@ -28,7 +28,7 @@ module.exports.create = async function(req, res){
             // here we are populating the (user):to see that which user made this comment:
             // and we also need the (email) of the (user):to see that which (user) create that (comment):
             // and  also we  need that (email-id):for ending him the(Mail):
-            comment = await comment.populate('user', 'name email').execPopulate();
+           await comment.populate('user', 'name email');
             // here we are using the (comment_mailer) function:that we have created for sending (mail) to the (user):
             // commentsMailer.newComment(comment);
 

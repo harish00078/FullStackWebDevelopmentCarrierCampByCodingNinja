@@ -32,7 +32,7 @@ exports.newComment = (comment) => {
       // In (from):we  tell the (user) that we are sending this (mail):
       // or we can say this (mail) is from the (website): on which you have commented:
       // (from) is basically the (sender address):
-      from: "harishpathania150@gmail.in",
+      from: "hk313665@gmail.com",
       // In (to):we tell that to which (user): we have sent this (mail):
       // and here we tell that the (user):who commented on the (website):
       // (To) is basically the (list of receivers)
