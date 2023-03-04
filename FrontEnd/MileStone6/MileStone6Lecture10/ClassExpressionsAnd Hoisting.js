@@ -2,12 +2,12 @@
 
 //  if we try to create the vehicle(object):before we declare the class for that (object):
 
-// var truck = new vehicle(12,34624654);
+var truck = new vehicle(12,34624654);
 
 // and if we try to print it:then this will not we printed:because (class) function are not (hoisted) in the javascript:
 // (hoisted) means the function:which we can be accessable in anywhere of the (file):were that function has been created:
 
-// console.log(truck);
+console.log(truck);
 
 
 // here we are creating the function: or we can say (constructor) funtion:with the help of (class) keyword:
@@ -47,6 +47,12 @@ var car = new vehicle(8,35234512354523);
 console.log(car);
 
 console.log(vehicle.prototype);
+
+
+
+
+
+
 
 
 
