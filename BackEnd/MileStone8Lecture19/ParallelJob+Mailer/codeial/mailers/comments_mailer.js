@@ -44,7 +44,7 @@ exports.newComment = (comment) => {
       // we can do that with the help of (html):
       // here (htmlString) is basically the (structure) of the (mail) with the (user) data:
       // that we have created with the help of nodemailer (renderTemplate) function:
-      html: htmlString,
+      html: htmlString
 
       // and here we create the callback function::with the help of (arrow) function:
       // info = info argument basically have the information about the (req)that has been send to the (mail) server:for sending the (mail) to the (user):

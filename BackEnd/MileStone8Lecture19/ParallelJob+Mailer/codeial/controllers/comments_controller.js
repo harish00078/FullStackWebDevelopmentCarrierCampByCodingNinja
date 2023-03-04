@@ -8,7 +8,7 @@ const commentsMailer = require('../mailers/comments_mailer');
 const queue = require('../config/Kue');
 
 //  here we import the comment-email-worker that we have created in this file that we have imported::
-const commentEmailWorker = require('../workers/comment_email_worker');
+const commentEmailWorker = require('../Workers/comment_email_worker');
 
 module.exports.create = async function(req, res){
 
