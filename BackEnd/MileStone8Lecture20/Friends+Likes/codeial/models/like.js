@@ -12,7 +12,7 @@ const likeSchema  = new mongoose.Schema({
   user:{
     // we put the (user) in the like  (schema):with the help of its database (objectID):
     // because (objectID) is always unique  for every (user):
-    type:mongoose.Schema.objectId,
+    type:mongoose.Schema.ObjectId,
   },
   // here In (likeable)key:
   // IMP = we store the objectID of the (post) or (Comment) on which that like has been triggered or put:
@@ -20,7 +20,7 @@ const likeSchema  = new mongoose.Schema({
 
     // here we put the (objectID):of that (post) and (comment):
     // so we  know that on which particular (post) or (comment) that (like) has been triggered or put:
-    type:mongoose.Schema.objectId,
+    type:mongoose.Schema.ObjectId,
 
     require:true,
     

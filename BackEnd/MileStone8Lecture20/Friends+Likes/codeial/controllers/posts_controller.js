@@ -1,5 +1,7 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+// here we are importing the (like)schema:
+const Like = require('../models/like');
 
 module.exports.create = async function(req, res){
     try{
@@ -39,6 +41,27 @@ module.exports.destroy = async function(req, res){
         let post = await Post.findById(req.params.id);
 
         if (post.user == req.user.id){
+
+            //  here we are deleting the (likes) on the  (post):because when we are deleting the particular (post):then its (likes) should also got deleted:
+            await Like.deleteMany({
+
+                likeable:post,
+                onModel:'Post',
+            });
+
+            // same thing we have to do for the (comments) of that (post):
+            // because if we are deleting the (post):then its (comments) should also got deleted:if comments get deleted:then we also have to delete the (likes) of that (comment):
+            await Like.deleteMany({
+
+                _id:{
+                    $in: post.comments
+                }
+
+            });
+
+
+
+
             post.remove();
 
             await Comment.deleteMany({post: req.params.id});
