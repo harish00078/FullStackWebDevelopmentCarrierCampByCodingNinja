@@ -1,0 +1,106 @@
+<!-- here we are using the (react) with the help of the (script-tags):those were provided by the (react):through which we can use the (react) as well: -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using React With script-tag</title>
+
+  <!-- here we are adding the (react) script-tags: -->
+
+  <!-- The quickest way to try JSX in your project is to add this <script> tag to your page: -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+
+
+  <!-- we have two ways to create the (components) in the (react):
+  => first is the (function) based react components: => second is the (class) based react componenets:-->
+
+  <!-- here we are creating  the (function) based react components: -->
+  <!-- for creating (react) components:we have to use the (script-tag):because we are only able to create the (functions) under the (script-tag): -->
+
+  <!-- and that (script-tag's) type should be in the form of  (text/babel):
+  => because with the help of (text/babel) type: know we you can use JSX in any <script> tag by adding type="text/babel" attribute to it.  -->
+
+
+
+
+
+  <!-- way of creating (React-Component): -->
+
+  <script type="text/babel">
+
+
+    //  here under the  script-tag:we are  creating the (react) components:with the help of the  (function):
+
+    // IMP => every component that we create in the (react):is basically repersented by  a (object):
+
+    function App() {
+
+      // here we are simply returing the (hello-world) in this component:
+
+      //  here the (heading-tag) that we are using:
+      // => they are not in the form of  (html) syntax:
+      // => they are basically in the form of (JSX) syntax:
+
+      // IMP = here we are using the (jsx) syntax format:for creating the (react)components:so our browser does not understand the (jsx) syntax:that why we are using the (babel) in  the  (type) of the (script-tag):
+      // 1 => (babel) basically work as a (compiler) between (jsx) and (browser):
+      // 2 => (babel) basically convert this (jsx) in the (form) of the  (normal-javascript):which is understandble by the (browser):
+
+      return <h1> Hello World</h1>
+
+    }
+
+    // react components are not directly get (render) to the (browser):for (rendering) them we have to use the (ReactDOM.render) function: 
+
+    // IMP =  (object) that is given the (react) component:we did not directly use that in the (browser):so that's  why  we are using the (ReactDOM.render) function:
+    // => which will convert these (react) component (object) into the (DOM-nodes) or (nodes):
+
+    // => after that it will push those (DOM-nodes) basically in the (DOM):because browser will only understand the (DOM) elements:
+
+    // IMP =>we are pushing them into the (DOM):with help of (referencing) them or putting them in the (simple-html) format:In  this way we will connnect those (DOM_nodes) with the browser (DOM):
+    // =>  like here we are connecting the (render) function:with the (div-tag):that is basically a simple-html element:
+
+    ReactDOM.render(
+
+
+      // under the render function:we have to define the two things:
+      // => first we have to provide the (component):that we want to render:that component should be in the (tag-syntax):and also it has the (backslash) in the end of the (tag) syntax:
+
+
+      <App />,
+
+      // =>second we have to tell that:were we want to render this (component):
+      // => so we want to render this component:In the (div-tag) that we have created in the (body-tag):out of this script-tag: 
+      // => so for connecting this render function:with the (div-tag):we have to use the (id) of the (div-tag):so we can gave the (div-tag) reference to the (render) function:
+
+
+      document.getElementById('app')
+
+    );
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
