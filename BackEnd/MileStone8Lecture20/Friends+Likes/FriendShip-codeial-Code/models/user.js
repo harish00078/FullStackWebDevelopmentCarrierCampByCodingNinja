@@ -20,7 +20,22 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String
-    }
+    },
+    //  here we are creating the (friendship) property in the (user) shcema:
+    // under that property: (user) will have the array-object:which  store the (ID's) of there (friends):
+
+    // and this  (property) will we refer to the (Friendship) schema:to know that this  (user) is the friend of that another (user):
+    friendships:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Friendship',
+        }
+    ]
+
+
+
+
+
 }, {
     timestamps: true
 });
