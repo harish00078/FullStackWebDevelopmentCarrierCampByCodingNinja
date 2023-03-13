@@ -7,7 +7,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* here we have style for the cart container: */
+.cart-item{
+  display: inline-flex;
+  margin: 20px 10px;
+}
+
+/* we conver the cart container into the (two-blocks):left or right */
+
+/* here we gave style to its (right) block: */
+.cart-item .right-block{
+  padding: 0 20px;
+}
+
+/* after that we gave style to the (actionS) that we have added in the (cart):like adding (product) quantity and (deleting) it from the cart: */
+.cart-item-actions{
+  margin-top: 20px;
+
+}
+
+/* here we gave style to the (cart-action) icons */
+.action-icons{
+  height: 25px;
+  width: 25px;
+  margin: 10px;
+}
+
+.action-icons:hover{
+  cursor: pointer;
 }
