@@ -30,6 +30,15 @@ class ChatEngine{
 
   // here we create the (socket) connection-handler for the (client) side:with the (server) side:
   connectionHandler(){
+
+    // here we are creating the (chat-room):
+    // whenever the connection has been established between the both of them:we have to create  the (chat-room) for them:
+
+    let self = this;
+
+
+
+
     // this socket or socket connection handler:will have two function in it:
     // first (function) is the (on):this basically tells that we are getting the (messsage):
     // second (function) is the (amit):this basically tells that we are sending the (message):
@@ -38,6 +47,27 @@ class ChatEngine{
     this.socket.on('connect', function(){
 
       console.log('connection established using sockets...!');
+
+
+      // here we are creating (join_room) event:with the help of the (emit) function of the (socket):
+      // here we are basically creating the chat-room:and sending the chat (request) to the other person for join the chat-room:
+      // while sending the chat-room (request) to the (other person):we can also send some data with that:
+      // like what is the name of the (chat-room):and who's the (user) is:
+
+      self.socket.emit('join_room',{
+
+        user_email:self.userEmail,
+        chatroom:'codeial'
+        
+
+      });
+
+      // here we are checking that  (user) joins the chat room or not:to which we have send the join (chat-room) request:
+      self.socket.on('user_joined',function(data){
+
+        console.log('a user joined the chat room',data);
+
+      });
 
     });
 

@@ -27,10 +27,32 @@ module.exports.chatSockets = function (socketServer) {
     });
 
 
+    // here we are getting the  (chat-room) request from the (user):
+    socket.on('join_room',function(data){
+
+      console.log('joining request received',data);
+
+      // after getting that (request):we have to join that (chat-room):
+      // we can join that (chat-room):with the help of the inbuild (join) function of the (socket):
+      // In join function: we also have to define the (data) that we are getting in the (join_room) request from the (user):of the chat-room to tell the (socket) that which (chat-room) we are joining:
+
+      // this will also create the  new (chat-room):if its not already has been created:
+
+      socket.join(data.chatroom);
+
+      // after joing the chat-room:we have to tell the (user's):those were in that (chat-room):that another (user) has joined the chat-room:
+      // for sending some text in the (specific) chat-room: we have to use the inbuilt (in) function of the (socket):
+      io.in(data.chatroom).emit('user_joined',data);
+
+    });
+
 
 
 
   });
+
+  
+
 
 
 
