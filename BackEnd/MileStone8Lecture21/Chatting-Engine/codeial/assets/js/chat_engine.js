@@ -1,7 +1,8 @@
 // here we are setting-up the (socket.io) for the (client)side as well:
+// or we can say setting-up the (socket) for the (clients):
 
 //  for the (client)side:we create the socket function:with the help of the (class) objects:
-
+// here we create (chatEngine) for the (clients):
 class ChatEngine{
 
   // class constructor will take two things as arguments:
@@ -70,6 +71,29 @@ class ChatEngine{
       });
 
     });
+
+    // here we create the (Event) on sending messages:
+
+    // 1 = firstly that (message)  will go to the (server):with the (chat-box)ID:
+    // 2 = and after that (server) will create another (Event):through which (server) will send that particular (user) message to the  Other (user):those were in that same (chat-room):
+    // server will send that (message) in the same (chat-room):
+
+    $('#send-message').click(function(){
+
+      let msg = $('#chat-message-input').val();
+
+      if(msg != ''){
+        self.socket.emit('send_message',{
+          message:msg,
+          user_email:self.userEmail,
+          chatroom:'codeial'
+        })
+      }
+
+    });
+
+
+
 
   }
 

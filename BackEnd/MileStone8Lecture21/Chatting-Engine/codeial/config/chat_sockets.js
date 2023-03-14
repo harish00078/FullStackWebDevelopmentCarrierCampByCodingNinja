@@ -1,5 +1,6 @@
 // here we are setting up the (socket.io):for our chat-Box:
 // here we are setting it up for the (server) side:
+// or we can say setting up the (socket) in our (app's) server:
 // its also set up in the (client) side:because web-sockets established the communication in (both-ways):
 
 // here we are creating the (socket.io) function for the chat-Box:from the server-side:
@@ -45,6 +46,11 @@ module.exports.chatSockets = function (socketServer) {
       io.in(data.chatroom).emit('user_joined',data);
 
     });
+
+
+    
+
+
 
 
 
