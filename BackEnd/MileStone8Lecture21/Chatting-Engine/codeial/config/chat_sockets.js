@@ -48,6 +48,12 @@ module.exports.chatSockets = function (socketServer) {
     });
 
 
+    // here we detect the (message) from the particular (user):and (broadcast) to everyone in the room:
+    socket.on('send_message',function(data){
+
+     io.in(data.chatroom).emit('receive_message',data);
+
+    });
     
 
 
