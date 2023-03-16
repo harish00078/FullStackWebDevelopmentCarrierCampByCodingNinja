@@ -10,9 +10,41 @@ import React from "react";
 // IMP = we are inheriting the (cart-iteams) class with (react) component (class): because we want to use its (properties) or we can say its (features) in the (cart-iteams) class:
 
 class CartItem extends React.Component {
+
+  // here we are creating the (state) Object:for this particular component:
+  // => (state): A (state) is basically the way to store your (local-data) for that particular (component):
+  // we create the (state) object with the help of the (constructor):
+  // because the (constructor): is used to store the (state) of the (component):
+  constructor(){
+    // here we use the (super) function or constructor we can say:
+    // (Super):super is a constructor of (parent) class that is (cartitem) which is under react-component library. we can call (super) class in the (state) constructor because we are (Inheriting) state-constructor in our (parent) constructor:
+    super();
+
+    this.state = {
+      price:999,
+      title:'Mobile-phone',
+      qty:1,
+      img:''
+    }
+
+  }
+
+
+
   // here we are creating the (cart-item) as a (Class) component:
   // so we also have to convert it into the (React) component:
   render() {
+
+    // instead of writing (javascript) object everytime in the (cartitem) for the (state) data:but we can do is we can simply get all the (data) of the (state) object:and stored them in the (variables):
+    // and we will gave those  variables to the (cartitem's):
+    
+    // but we are doing here is (object-destructuring):
+    // (object-destructuring):destructuring is a javascript expression that allows us to  extract data from (arrays),(objects), and (maps) and set them into the new (distinct) varaibles:
+    // here we basically doing that we are getting these three properties or we can say there (data) from the (state) object:
+    const{price,title,qty} = this.state;
+
+
+
     // here under (return) statement:we will write the (jsx) code for the(cart-item):
     return (
       // here we are giving the (class-names) to the (elements):so that we can (style) them:
@@ -47,14 +79,26 @@ class CartItem extends React.Component {
           {/* we can also style them the same-way be style the (image): */}
           {/* we can also gave the (style) properties:with in the (style) function to the elements:we did not have to create the  (different) javascript-objects for that:if there is not that much that we have write for  the (particular) element: */}
 
-          <div style={{fontSize: 25}}>Phone</div>
-          <div style={{color:'grey'}}>Rs 999</div>
-          <div style={{color:'grey'}}>Qty: 1</div>
+          {/* here we are giving the data to the (cartitem):with the help of the (state) object:that we have createde:
+          => IMP =  with the help of the (state) object:we can gave the (local-data) to the (cart-item): */}
+          {/* we can  gave that (state) object data with the help of the currly brackets({}): because we are giving the (javascript) object data to the (cart-item):and that cart-item is written in the (jsx) code: that's why we have to use the currly brackets*/}
+
+          <div style={{fontSize: 25}}>{title}</div>
+          <div style={{color:'grey'}}>RS{price}</div>
+          <div style={{color:'grey'}}>Qty:+{qty}</div>
 
           {/* In right-block:we also have button related to the (cart-iteams):
           => like (increase) quantity of (iteam):
           => deleting the cart-iteam etc: */}
           <div className="cart-item-actions">
+
+            {/* here we create buttons:with the help of the (image)tag:
+            => because we are using the (icons) as (buttons): */}
+            {/* we are getting the icons from the (flaticon).com */}
+            <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png"  />
+            <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/9632/9632763.png"  />
+            <img alt="delete" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"  />
+            
 
 
           </div>
