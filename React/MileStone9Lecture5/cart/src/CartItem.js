@@ -85,7 +85,7 @@ class CartItem extends React.Component {
 
           <div style={{fontSize: 25}}>{title}</div>
           <div style={{color:'grey'}}>RS{price}</div>
-          <div style={{color:'grey'}}>Qty:+{qty}</div>
+          <div style={{color:'grey'}}>Qty:{qty}</div>
 
           {/* In right-block:we also have button related to the (cart-iteams):
           => like (increase) quantity of (iteam):
