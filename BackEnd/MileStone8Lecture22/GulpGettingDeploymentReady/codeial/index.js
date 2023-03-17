@@ -1,4 +1,10 @@
 const express = require('express');
+
+// here we are Importing our  environment-file:
+// In this environment-file:we have created our both the environments:
+const env = require('./config/environment');
+
+
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
@@ -22,19 +28,29 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 
+// here we import the (path) library:
+// so that we can simply provide the different (file-path's) to our (server) application: from the different folders or files we can say:
+const path = require('path');
 
+// here we gave (static-files) or we can say  (assets-files) to our application (server):with the help of the (environment):that we have created for the (development): 
 app.use(sassMiddleware({
-    src: './assets/scss',
+
+    // here we are giving the reference of the (different) files and folders:with the help of  the (path) library:
+    // (path.join) = Join all arguments together and normalize the resulting path.
+
+    src: path.join(__dirname,env.asset_path,'/scss'),
     dest: './assets/css',
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
 }));
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+// here we gave (static-files) or we can say  (assets-files) to our application (server):with the help of the (environment):that we have created for the (development): 
+app.use(express.static(env.asset_path));
 // make the uploads path available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
