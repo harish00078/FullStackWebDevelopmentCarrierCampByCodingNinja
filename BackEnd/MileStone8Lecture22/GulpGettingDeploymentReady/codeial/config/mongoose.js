@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://localhost/codeial_development');
+
+// here we import our (environment) file:through which we gave the name to our database:
+// because we store the name of our database in the (environment) file:
+const env = require('./environment');
+
+mongoose.connect(`mongodb://localhost/${env.db}`);
 
 const db = mongoose.connection;
 

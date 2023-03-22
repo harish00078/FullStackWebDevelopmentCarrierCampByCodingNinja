@@ -38,9 +38,9 @@ app.use(sassMiddleware({
     // here we are giving the reference of the (different) files and folders:with the help of  the (path) library:
     // (path.join) = Join all arguments together and normalize the resulting path.
 
-    src: path.join(__dirname,env.asset_path,'/scss'),
+    src: path.join(__dirname,env.asset_path,'scss'),
 
-    dest: './assets/css',
+    dest: path.join(__dirname,env.asset_path,'css'),
 
     debug: true,
 
@@ -76,7 +76,8 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    // here we are giving the (path) of the secret (session_cookie) to our application:from the (environment.js) file:were we have stored our session_cookie:
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

@@ -14,6 +14,12 @@ const development = {
   // like here we store the path of the all the (assets) related to our (application):In the development environment:
   asset_path:'/assets',
 
+  // here we are storing the (secret) (session_cookie) key that is related to our (application): In the development environment:
+  session_cookie_key:'blahsomething',
+
+  // here we are storing the (name) of our (database) that is related to our (application): In the development environment:
+  db:'codeial_development',
+
 
 }
 
