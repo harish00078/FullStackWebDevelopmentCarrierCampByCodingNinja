@@ -39,11 +39,17 @@ app.use(sassMiddleware({
     // (path.join) = Join all arguments together and normalize the resulting path.
 
     src: path.join(__dirname,env.asset_path,'/scss'),
+
     dest: './assets/css',
+
     debug: true,
+
     outputStyle: 'extended',
+
     prefix: '/css'
+
 }));
+
 
 app.use(express.urlencoded());
 
