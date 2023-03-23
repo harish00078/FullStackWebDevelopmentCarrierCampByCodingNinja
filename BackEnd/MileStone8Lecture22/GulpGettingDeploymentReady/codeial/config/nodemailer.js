@@ -1,18 +1,13 @@
 const nodemailer = require("nodemailer");
 const ejs = require('ejs');
 const path = require('path')
+// here we are importing the (environment) file:
+// so we can gave the (smtp) or we can say (config) path of the nodemailer:that we have stored in the (development) environment:
+const env = require('./environment');
 
 
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-        user: 'hk313665@gmail.com',
-        pass: 'macgnpblfzjssxnw'
-    }
-});
+// here we are giving the (smtp) or we can say (config) path of the nodemailer:
+let transporter = nodemailer.createTransport(env.smtp);
 
 
 let renderTemplate = (data, relativePath) => {

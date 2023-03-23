@@ -2,6 +2,10 @@
 const User = require('../../../models/user');
 const jwt = require('jsonwebtoken');
 
+// here we are importing the (environment) file:
+// so that we can gave the (secret-key) path to the (jwt-token):that we have stored in the (environment) file:
+const env = require('../../../config/environment');
+
 
 module.exports.createSession = async function(req, res){
 
@@ -17,7 +21,7 @@ module.exports.createSession = async function(req, res){
         return res.json(200, {
             message: 'Sign in successful, here is your token, please keep it safe!',
             data:  {
-                token: jwt.sign(user.toJSON(), 'codeial', {expiresIn:  '100000'})
+                token: jwt.sign(user.toJSON(), env.jwt_secret, {expiresIn:  '100000'})
             }
         })
 

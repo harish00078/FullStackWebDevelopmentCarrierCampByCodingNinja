@@ -2,12 +2,18 @@ const passport = require('passport');
 const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 
+// here we are importing the (evironment) file:
+// so that we can gave the (secret-key) to the (passport-jwt-strategy):that we have stored in the development environment object of the (environment) file:
+const env = require('./environment');
+
 const User = require('../models/user');
 
 
 let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'codeial'
+
+    // here we are giving the secret-key path to the (passport-jwt-strategy):that we have stored in the development-environment object of the (environment) file:
+    secretOrKey: env.jwt_secret,
 }
 
 
