@@ -32,6 +32,11 @@ class CartItem extends React.Component {
     //   // here we are changing the  (quantity) in the (state) object:
     //   qty:this.state.qty + 1
 
+    //   // we can also gave the (callback) function to the first-form of the (setState) function:
+    // } ,() => {
+
+    //   console.log('this state', this.state);
+
     // });
 
     // IMP = we mostly use this first (form):if we directly want to change something in the particular (key) of the (state) object:
@@ -92,6 +97,11 @@ class CartItem extends React.Component {
         qty: prevState.qty + 1
       }
 
+      // In react we have option to put: the callback function in the another callback function:
+      // we also have to gave the another call back function:to the (setState) function:to check that our (setState) function is worked or not:
+      // and we also know that our setState function is finished its work or not:that we have given to him:
+    },() =>  {
+      console.log('this state', this.state);
     });
 
     // but if we increase the quantity of the Product:by multiple times with the help of the (second-form) of the setState function:
@@ -99,29 +109,33 @@ class CartItem extends React.Component {
     // but it will also happen in the (Batching) process:means all those multiple functions only get rendered by once:
     // but In second-form of setState function:we will able to increase the quantity of the Product by multiple times:even if we have (Batching) process happen:
     
-    this.setState((prevState) => {
 
-      // here we are giving the change value to the state object:so that we can change the value of the quantity key in the state object:
-      return{
+    // IMP = In second-form of setState function:we will able to increase the quantity of the Product by multiple times:even if we have (Batching) process happen:
+    // IMP = it will work because In second-form of setState function:react will maintain a (queue) of the (same type) functions: and it will not render the (functions): until it did not get execute all the functions:those were present in the (queue):
 
-        qty: prevState.qty + 1
-      }
+    // this.setState((prevState) => {
 
-    });    
+    //   // here we are giving the change value to the state object:so that we can change the value of the quantity key in the state object:
+    //   return{
+
+    //     qty: prevState.qty + 1
+    //   }
+
+    // });    
     
-    this.setState((prevState) => {
+    // this.setState((prevState) => {
 
-      // here we are giving the change value to the state object:so that we can change the value of the quantity key in the state object:
-      return{
+    //   // here we are giving the change value to the state object:so that we can change the value of the quantity key in the state object:
+    //   return{
 
-        qty: prevState.qty + 1
-      }
+    //     qty: prevState.qty + 1
+    //   }
 
-    });
+    // });
 
 
 
-    console.log("this", this.state);
+    // console.log("this", this.state);
 
 
   };
@@ -163,7 +177,7 @@ class CartItem extends React.Component {
     return (
       <div className="cart-item">
         <div className="left-block">
-          <img style={styles.image} alt="" />
+          <img style={styles.image} alt="" src="" />
         </div>
         <div className="right-block">
           <div style={{ fontSize: 25 }}>{title}</div>
