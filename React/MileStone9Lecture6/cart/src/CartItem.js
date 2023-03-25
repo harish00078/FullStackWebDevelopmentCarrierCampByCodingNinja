@@ -10,6 +10,37 @@ class CartItem extends React.Component {
       img: "",
     };
     // this.increaseQuantity = this.increaseQuantity.bind(this);
+    this.testing();
+  }
+
+  //IMP = (setState) function is not an (asynchronous) call everytime.it is a (synchronous) call for (AJAX) or (Promise).so,when we call the setState function for (AJAX) or (Promise),the (Batching) fails and calls are rendered the number of times they are called:
+
+  // like here we are creating the (testing) function:and under that (testing) function:we create the (promise) request:to check that how it works with the (Batching):
+
+  testing(){
+
+    const promise = new Promise ((resolve, reject) => {
+
+      setTimeout(() => {
+        resolve('done');
+      }, 5000);
+
+    })
+
+    promise.then(() => {
+
+      // here setState acts like a synchronous call:
+      // that's why testing function will makes a promise call with a setState function called thrice.which updates the (qty) value by 10.the output for this code comes out to be (31):
+      this.setState({qty: this.state.qty + 10});
+
+      this.setState({qty: this.state.qty + 10});
+
+      this.setState({qty: this.state.qty + 10});
+
+
+      console.log('state',this.state);
+    });
+
   }
 
 
