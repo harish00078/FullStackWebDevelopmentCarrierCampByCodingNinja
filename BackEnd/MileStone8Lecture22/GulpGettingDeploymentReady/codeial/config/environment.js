@@ -65,7 +65,7 @@ const production = {
   asset_path: process.env.CODEIAL_ASSET_PATH,
 
 
-  session_cookie_key: "blahsomething",
+  session_cookie_key: "tj5jCbPbA6yLhRX7VHnJhyFsz4IPthPa",
 
   db: "codeial_production",
 
@@ -93,8 +93,10 @@ const production = {
 
   google_call_back_url: "http://codeial.com/users/auth/google/callback",
 
+  // like here we gave the path of  (jwt_secret) key related to our (application) from the (environment-varaibles):In the production environment:
+  // for accessing the environment variables:we have to use the (process.env.variable_name):
 
-  jwt_secret: "codeial",
+  jwt_secret:process.env.CODEIAL_JWT_SECRET,
 
 
 };
