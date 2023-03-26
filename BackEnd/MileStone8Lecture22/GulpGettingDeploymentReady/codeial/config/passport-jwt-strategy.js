@@ -13,7 +13,7 @@ let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
 
     // here we are giving the secret-key path to the (passport-jwt-strategy):that we have stored in the development-environment object of the (environment) file:
-    secretOrKey: env.jwt_secret,
+    secretOrKey: process.env.CODEIAL_JWT_SECRET,
 }
 
 
