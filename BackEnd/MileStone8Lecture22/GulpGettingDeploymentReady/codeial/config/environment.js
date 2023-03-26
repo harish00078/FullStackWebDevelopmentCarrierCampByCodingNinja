@@ -84,13 +84,13 @@ const production = {
   },
 
   // here we are storing the (passport) google-authentication (strategy): which is related to our (application):In the production environment:
-  google_client_id:process.env.GOOGLE_CLIENT_ID,
-  google_client_secret: process.env.GOOGLE_CLIENT_SECRET,
+  google_client_id:process.env.CODEIAL_GOOGLE_CLIENT_ID,
+  google_client_secret: process.env.CODEIAL_GOOGLE_CLIENT_SECRET,
 
   // here we are changing the (localhost) or its (port) number into the (website) name with (.com):
   // because we use it as (domain) name:In production of our application:
 
-  google_call_back_url:process.env.GOOGLE_CALLBACK_URL ,
+  google_call_back_url:process.env.CODEIAL_GOOGLE_CALLBACK_URL ,
 
   // like here we gave the path of  (jwt_secret) key related to our (application) from the (environment-varaibles):In the production environment:
   // for accessing the environment variables:we have to use the (process.env.variable_name):
