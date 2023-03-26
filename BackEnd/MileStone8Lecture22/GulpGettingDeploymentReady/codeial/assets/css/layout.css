@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  /* text-align: center; */ }
+  /* text-align: center; */
+  background-image: linear-gradient(#0088ff, skyblue, #003c8b); }
   body #layout-main {
     height: 100%;
     overflow: auto; }

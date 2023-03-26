@@ -6,7 +6,7 @@
     border: 1px dashed grey;
     height: 350px;
 	width: 300px;
-	background: white;
+	background: black;
 	padding: 5px;
 	box-shadow: 1px 1px 1px 1px lightgrey;
 
@@ -14,7 +14,7 @@
     	list-style: none;
 	    padding: 10px;
 	    height: 70%;
-	    background-color: white;
+	    background-image: linear-gradient(rgb(10, 54, 68), rgb(255,255,255));
 	    overflow: auto;
 
 	    .other-message{
@@ -51,13 +51,14 @@
 		    #chat-message-input{
 	    	    height: 50%;
     			width: 70%;
+					background-color:skyblue;
 		    }
 
 		    #send-message{
 	    	    height: 50%;
 			    width: 30%;
 			    font-size: 25px;
-			    color: white;
+			    color: black;
 			    border: none;
 			    background: #58d258;
 		    }
