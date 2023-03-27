@@ -33,22 +33,32 @@ console.log('chat server is listening on port 5000');
 const path = require('path');
 
 // here we gave (static-files) or we can say  (assets-files) to our application (server):with the help of the (environment):that we have created for the (development): 
-app.use(sassMiddleware({
 
-    // here we are giving the reference of the (different) files and folders:with the help of  the (path) library:
-    // (path.join) = Join all arguments together and normalize the resulting path.
+// here we put the check for the (sassmiddleware):
+// if the (mode) is (development):then it should run continously:
+// but if we are on the (production-mode):then (sassmiddleware) should only run for once:
 
-    src: path.join(__dirname,env.asset_path,'scss'),
+if(env.name == 'development'){
 
-    dest: path.join(__dirname,env.asset_path,'css'),
+    app.use(sassMiddleware({
 
-    debug: true,
+        // here we are giving the reference of the (different) files and folders:with the help of  the (path) library:
+        // (path.join) = Join all arguments together and normalize the resulting path.
+    
+        src: path.join(__dirname,env.asset_path,'scss'),
+    
+        dest: path.join(__dirname,env.asset_path,'css'),
+    
+        debug: true,
+    
+        outputStyle: 'extended',
+    
+        prefix: '/css'
+    
+    }));
 
-    outputStyle: 'extended',
+}
 
-    prefix: '/css'
-
-}));
 
 
 app.use(express.urlencoded());
