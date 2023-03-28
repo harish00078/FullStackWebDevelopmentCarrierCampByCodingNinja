@@ -1,5 +1,7 @@
 import React from "react";
 
+// here In (cart-item) file:we have created the (cart-item) or (cart-component):we can say:
+// with the help of this (cart-item) file: we can create multiple cart-items or components:In  the (Cart) file:
 class CartItem extends React.Component {
   constructor() {
     super();
