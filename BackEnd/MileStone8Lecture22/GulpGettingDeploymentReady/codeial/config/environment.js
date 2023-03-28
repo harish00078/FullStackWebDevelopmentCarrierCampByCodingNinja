@@ -3,6 +3,17 @@
 // IMP = so that we can remove the (load) from the (server):
 // V.IMP = and also we can easily track on the important files or things on the (server) we can say:like => (authentication-passwords) of different libraries and etc:
 
+// here we import (fs) or we can (file-system) for the (morgan):
+// because we are using the (morgan):we can say setup the (morgan):with the help of the (files):that why we have to import the (fs):
+const fs = require('fs');
+
+// here we import the (rotating-file-stream) library:through which we can basically delete the (older) logs from the (file) or we can say (put) them into the (anoother-file): so that new ones can (stored) in that file:it is basically used to reduce the (log) storage load from the (system):
+const rfs = require('rotating-file-stream');
+
+// here we are importing the (path) library:through which we can gave the (file) path to the (rotating-file-stream') library:to tell that In which (file) we have to store the (logs):
+const path = require('path'); 
+
+
 // one of the (environment) is (development-environment):
 
 // here we create a (development) environment:
