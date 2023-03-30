@@ -72,6 +72,15 @@ app.use(express.static(env.asset_path));
 // make the uploads path available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
+// here we gave (logger) function to our (application):through which our (application) will get the (logs):
+// under (logger) function:we have to define the two things:
+// => first is the (mode) of the (application) environment:that we have given to the (morgan) library:acc to our (application) environment:
+// => second is the morgan library (options):In which we have gave the (path) of the (directory) were we have stored those (logs):
+app.use(logger(env.morgan.mode, env.morgan.options));
+
+
+
+
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);

@@ -11,7 +11,45 @@ const fs = require('fs');
 const rfs = require('rotating-file-stream');
 
 // here we are importing the (path) library:through which we can gave the (file) path to the (rotating-file-stream') library:to tell that In which (file) we have to store the (logs):
-const path = require('path'); 
+const path = require('path');
+
+
+
+
+
+
+// => here we create variable (logDirectory):which will have the (path) of the (folder):In which we want to store the (logs):
+const logDirectory = path.join(__dirname,'../production_logs');
+
+// we have to check that if the (logDirectory) is already exits:
+// if its not (exits):then we have to create the new one:
+
+// for checking (logDirectory) already exit in the (filesystem):we have to use the (existsSync) function: 
+// if its not (exits):then we have to create the new once:for that we can use the (mkdirSync) function of the (fs) library:
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+
+// after that we have to create the (rotate-file-stream) function:
+// through which we are handling the (logs) file system:or we can storing the (log):
+// and also deleting the older onces:so that system doesn't get storage(overloaded) problems:
+
+// here (access.log) is basically the (file) name:that we have given to the (logs) file:
+// for creating (rotate-file-stream) function:
+// we have to use the (createStream) function of the  (rotate-file-stream) library :
+const accessLogStream = rfs.createStream('access.log',{
+
+  // under this function:we have to define all the things: those were related to the (logs) file:
+
+  // first we define (rotation) of the (logs) file:we gave the (one) day interval time:
+  interval:'1d',
+
+  // second we gave the (path) of the (directory) or (folder):were we want to store the (logs):
+  path:logDirectory,
+
+});
+
+
+
 
 
 // one of the (environment) is (development-environment):
@@ -51,6 +89,23 @@ const development = {
 
   // here we are storing the (secret-Key) of the (passport-JWT-strategy): which is related to our (application):In the development environment:
   jwt_secret: "codeial",
+
+  // here we are giving the (logs) to the (development) environment of the (application):
+  // with the help of the (morgan) library:
+  morgan:{
+
+    // under morgan we have to define the two things:
+    // => one is the (mode) of the application (environment):
+    mode:'dev',
+
+    // => second we have to define the (options):
+    // In options we will the define  the (rotate-file-stream) function:through which we are handling our (logs) or we can handling the (storage) or  (file-system) of the (logs):
+    options:{stream: accessLogStream}
+
+
+  }
+
+
 };
 
 // second (environment) is the (production-environment):
@@ -107,6 +162,23 @@ const production = {
   // for accessing the environment variables:we have to use the (process.env.variable_name):
 
   jwt_secret:process.env.CODEIAL_JWT_SECRET,
+
+
+  // here we are giving the (logs) to the (production) environment of the (application):
+  // with the help of the (morgan) library:
+  morgan:{
+
+    // under morgan we have to define the two things:
+    // => one is the (mode) of the application (environment):
+    // here In production environment: we have write the mode (combined):because our (development) environment (server) is also running under the (production) environment:
+    mode:'combined',
+
+    // => second we have to define the (options):
+    // In options we will the define  the (rotate-file-stream) function:through which we are handling our (logs) or we can handling the (storage) or  (file-system) of the (logs):
+    options:{stream: accessLogStream}
+
+
+  }
 
 
 };
