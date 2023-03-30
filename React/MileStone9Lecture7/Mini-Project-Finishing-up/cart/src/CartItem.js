@@ -3,17 +3,19 @@ import React from "react";
 // here In (cart-item) file:we have created the (cart-item) or (cart-component):we can say:
 // with the help of this (cart-item) file: we can create multiple cart-items or components:In  the (Cart) file:
 class CartItem extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      price: 999,
-      title: "Mobile Phone",
-      qty: 1,
-      img: "",
-    };
-    // this.increaseQuantity = this.increaseQuantity.bind(this);
 
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     price: 999,
+  //     title: "Mobile Phone",
+  //     qty: 1,
+  //     img: "",
+  //   };
+
+  //   // this.increaseQuantity = this.increaseQuantity.bind(this);
+
+  // }
 
 
 
@@ -77,7 +79,24 @@ class CartItem extends React.Component {
 
 
   render() {
-    const { price, title, qty } = this.state;
+
+    // here we are (accessing): those properties or (props) we can say in the (cartitem) file:
+
+    // so that we can gave those (properties) or we can say those (props) to the (cartiem) component:we can do that with the help of the (props) function:
+
+    // and here we are printing them on the console:with the help of the (props) function:
+
+    console.log('this.props',this.props);
+
+    // here we are giving the (properties) or we can say (props) and there (values) to the (cartitem) component:with the help of the (props) function:
+    // that we have created in the (state) object:
+    const { price, title, qty } = this.props.product;
+
+
+
+    // here we are giving the (properties) or there(values) to the (cartiem) component:with the help of the (state) function:
+    // const { price, title, qty } = this.state;
+
     return (
       <div className="cart-item">
         <div className="left-block">
