@@ -20,62 +20,62 @@ class CartItem extends React.Component {
 
 
 
-  increaseQuantity = () => {
+  // increaseQuantity = () => {
 
 
-    // setState form-2: In second form we can use this function:by simply giving the (callback - function) to it:
-    // that callback function will change the value of the (state) object's (qty)key:
-    // IMP => and this (prevState) argument will have the old value of the (qty) key:
+  //   // setState form-2: In second form we can use this function:by simply giving the (callback - function) to it:
+  //   // that callback function will change the value of the (state) object's (qty)key:
+  //   // IMP => and this (prevState) argument will have the old value of the (qty) key:
     
-    this.setState((prevState) => {
+  //   this.setState((prevState) => {
 
-      return{
+  //     return{
 
-        qty: prevState.qty + 1
-      }
-
-
-
-    },() =>  {
-
-
-      console.log('this state', this.state);
-
-
-    });
+  //       qty: prevState.qty + 1
+  //     }
 
 
 
-
-  };
-
+  //   },() =>  {
 
 
-  decreaseQuantity = () => { 
+  //     console.log('this state', this.state);
 
 
-    const {qty} = this.state;
-
-    if(qty === 0){
-
-      return ;
-
-    }
-
-    this.setState((prevState) => {
+  //   });
 
 
-      return{
-
-        qty: prevState.qty - 1
-      }
-
-    });
 
 
-    console.log("this", this.state);
+  // };
 
-  }
+
+
+  // decreaseQuantity = () => { 
+
+
+  //   const {qty} = this.state;
+
+  //   if(qty === 0){
+
+  //     return ;
+
+  //   }
+
+  //   this.setState((prevState) => {
+
+
+  //     return{
+
+  //       qty: prevState.qty - 1
+  //     }
+
+  //   });
+
+
+  //   console.log("this", this.state);
+
+  // }
 
 
   render() {
@@ -112,7 +112,13 @@ class CartItem extends React.Component {
               alt="increase"
               className="action-icons"
               src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
-              onClick={this.increaseQuantity}
+              // here we are giving the (onIncreaseQuantity) function to the (event):as a (function) not as a (reference) of the (function):
+              // we are doing that with the help of the (props):because we gave this function to the (cart-item) component as a  argument or parameter we can say:
+              // and here we are using that (function) for the (event) handling:
+
+              // IMP = we also have to gave the cart--item (product) as a (props): to this increase quantity function:
+              // so that we can get that (product) and increase its quantity:
+              onClick={() => this.props.onIncreaseQuantity(this.props.product)}
             />
             <img
               alt="decrease"
