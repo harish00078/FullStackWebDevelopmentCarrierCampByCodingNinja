@@ -88,9 +88,13 @@ class CartItem extends React.Component {
 
     console.log('this.props',this.props);
 
-    // here we are giving the (properties) or we can say (props) and there (values) to the (cartitem) component:with the help of the (props) function:
-    // that we have created in the (state) object:
+    // here we are giving the cart-item (object) or we can say (product) (properties) and there (values) to the (cartitem) component:with the help of the (props) function:
+    // because we  pass those (properties) and there (values) to the (cartitem) component as (props):
     const { price, title, qty } = this.props.product;
+
+
+    // here we are storing the (props) functions in the variable:same like we did with the (object)  or (product) of the (cart-item) component: so that we can simply access them with there (names) in the cart-item component (elements):
+    const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = this.props;
 
 
 
@@ -118,19 +122,33 @@ class CartItem extends React.Component {
 
               // IMP = we also have to gave the cart--item (product) as a (props): to this increase quantity function:
               // so that we can get that (product) and increase its quantity:
-              onClick={() => this.props.onIncreaseQuantity(this.props.product)}
+              onClick={() => onIncreaseQuantity(product)}
             />
             <img
               alt="decrease"
               className="action-icons"
               src="https://cdn-icons-png.flaticon.com/512/9632/9632763.png"
-              onClick={this.decreaseQuantity}
+
+              // here we are giving the (onDecreaseQuantity) function to the (event):as a (function) not as a (reference) of the (function):
+              // we are doing that with the help of the (props):because we gave this function to the (cart-item) component as a  argument or parameter we can say:
+              // and here we are using that (function) for the (event) handling:
+
+              // IMP = we also have to gave the cart--item (product) as a (props): to this Decrease quantity function:
+              // so that we can get that (product) and Decrease its quantity:
+
+              onClick={() => onDecreaseQuantity(product)}
 
             />
             <img
               alt="delete"
               className="action-icons"
               src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+
+              // here we are giving the (onDecreaseQuantity) function to the (event):as a (function) not as a (reference) of the (function):
+              // we are doing that with the help of the (props):because we gave this function to the (cart-item) component as a  argument or parameter we can say:
+              // and here we are using that (function) for the (event) handling:
+              onClick={() => onDeleteProduct(product.id)}
+
             />
           </div>
         </div>

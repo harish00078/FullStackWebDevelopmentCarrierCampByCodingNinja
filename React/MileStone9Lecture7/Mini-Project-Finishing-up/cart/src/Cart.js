@@ -123,6 +123,71 @@ class Cart extends React.Component {
 
   };
 
+  // here we create function: through which we are handling the (decrease quantity) event of the cart-item components:with the help of this function:
+  // this function will have the (product) as a (argument):
+  handleDecreaseQuantity = (product) => {
+
+    console.log('hey please dec the qty of',product);
+
+    const {products} = this.state;
+    const index = products.indexOf(product);
+
+    // before decreasing the (qty) of the particular (product):
+    // first we have to check that it does not already have (zero) quantity:
+    if(products[index].qty === 0){
+
+      // if its already zero:then we simply return  from this (decrease quantity) function:
+      return;
+
+    }
+    
+   products[index].qty -= 1;
+
+    this.setState({products: products});
+
+
+
+  }
+
+  // here we create (delete) function:through which we are handling the (delete) event of the (cart-item) component:
+  // with the help of this function we can delete our cart-item component:
+
+  // here we are passing the (product-id) of the (cart-item) component as a (argument) to this function:
+  // so that we should only delete that (particular) cart-item component:amoung all of the other (cart-item) components::
+  handleDeleteProduct = (id) =>{
+
+    // for deleting the particular component or product we can say:
+    // for that first we have to find that (product) in the (products) array of the (state) object:
+    const {products} = this.state;
+
+    // know we have to find that (product) in the (products) array:that we want to delete:we can find it with the help of its (unique-id):that we have given to every (cart-item) component (product):
+
+    // for finding the product in the (products) array:with the help of its (unique-id):we have to use the (filter) function:
+
+    // under this (filter) function we create another function:In that function we are doing that if the (item.id) is not equal to the product (id) that we are passing as argument to this delete function:
+    // IMP => this filter function (basically) filter the (products) array and create a new array will not have the (product) that we want to delete:basically with the help of filter function we delete the (product) which we want to delete: because filter function will create a new array which will not have the (product) that we want to delete:
+    // means we are basically checking the (product) with the help of its (id) in the (products) array:
+    // IMP => this function basically checks the (product) with the help of its (id) in the (products) array:
+    // V.IMP => and its will return the new (array) and that array will have all the (products) which were not match with the (product) that we are finding to delete:
+    // basically this new array not have the (product) that we are finding:so if we gave this new array to the (products) array of the (state) object:then the (product) will automatically  get deleted from the (products) array of the (state) object:
+    // because we filter the (products) array with the help of the (filter) function:
+
+    const items = products.filter((item) => item.id !== id);
+
+
+    // know we have to gave this new-array to the (products) array of (state) objects:so that we can reflect that deleted cart-item product or component on our (web-app):
+    this.setState({
+
+      products: items
+
+    })
+
+  }
+
+
+
+
+
   render() {
 
     // here we create (array):which will have (list) of (numbers) in it:
@@ -187,6 +252,13 @@ class Cart extends React.Component {
               key={product.id}
 
               onIncreaseQuantity={this.handleIncreaseQuantity}
+              // here we are passing the (decrement-quantity) function as props to the (cart-item) components:
+              // so that we can handle the decrease quantity evnets of the (components):or we can say decrease there quantity with the help of this function:
+              onDecreaseQuantity = {this.handleDecreaseQuantity}
+
+              // here we are passing the (Delete Product) function as props to the (cart-item) components:
+              // so that we can handle the delete-component evnets of the cart-item (components):or we can say delete the component with the help of this function:
+              onDeleteProduct = {this.handleDeleteProduct}
 
             />
 
