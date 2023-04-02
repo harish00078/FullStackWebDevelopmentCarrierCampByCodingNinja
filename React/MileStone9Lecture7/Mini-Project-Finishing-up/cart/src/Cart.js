@@ -14,6 +14,7 @@ class Cart extends React.Component {
 
   // under that array : we will basically create multiple the cart-items (products):
   constructor() {
+    
     super();
 
     // here we create multiple cart-item (products):with the help of the (state) function:
