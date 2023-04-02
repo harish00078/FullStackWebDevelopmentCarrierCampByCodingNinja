@@ -42,7 +42,17 @@ gulp.task('css',function(){
 
 
   // after compressing those (css) files:we have to (put) them into the (folder):
+  // for giving the (folder):were we want to store those (compress) files:we have to use the (dest) function of the (gulp):
+
+  // this (path) is for the (development) mode:it will we different for the (production) mode:
+  // for the (production) mode:we will create the folder with the name of (public):and under that (public) folder: we have multiple folders which were related to all the files that we want to compress and we store those multiple compress files acc to the (folders) that we have coreted for them:
+  .pipe(gulp.dest('./assets.css'));
 
 
+  // after compressing the (files) and (stored) them in the folder:
+  // IMP = know we have to return them with the (changed-name):so that the browser compiler can differentiate between the (older) files with the (newer) files:
+
+
+  
 
 })
