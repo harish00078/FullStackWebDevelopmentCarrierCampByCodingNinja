@@ -36,7 +36,7 @@ class Cart extends React.Component {
           id: 1,
         },
         {
-          price: 199999,
+          price: 19999,
           title: "Mobile Phone",
           qty: 10,
           img: "",
