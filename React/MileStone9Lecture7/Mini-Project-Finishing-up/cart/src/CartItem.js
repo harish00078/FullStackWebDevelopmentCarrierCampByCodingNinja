@@ -2,7 +2,9 @@ import React from "react";
 
 // here In (cart-item) file:we have created the (cart-item) or (cart-component):we can say:
 // with the help of this (cart-item) file: we can create multiple cart-items or components:In  the (Cart) file:
-class CartItem extends React.Component {
+
+// we convert our cart-item component into the (function) component:
+const cartItem = (props) => {
 
   // constructor() {
   //   super();
@@ -78,7 +80,9 @@ class CartItem extends React.Component {
   // }
 
 
-  render() {
+  // In function component:we did not need the (render) function:because function component basically are the plain javascript functions:
+
+  // render() {
 
     // here we are (accessing): those properties or (props) we can say in the (cartitem) file:
 
@@ -86,15 +90,15 @@ class CartItem extends React.Component {
 
     // and here we are printing them on the console:with the help of the (props) function:
 
-    console.log('this.props',this.props);
+    // console.log('this.props',this.props);
 
     // here we are giving the cart-item (object) or we can say (product) (properties) and there (values) to the (cartitem) component:with the help of the (props) function:
     // because we  pass those (properties) and there (values) to the (cartitem) component as (props):
-    const { price, title, qty } = this.props.product;
+    const { price, title, qty } = props.product;
 
 
     // here we are storing the (props) functions in the variable:same like we did with the (object)  or (product) of the (cart-item) component: so that we can simply access them with there (names) in the cart-item component (elements):
-    const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = this.props;
+    const {product, IncreaseQuantity, DecreaseQuantity, DeleteProduct} = props;
 
 
 
@@ -122,7 +126,7 @@ class CartItem extends React.Component {
 
               // IMP = we also have to gave the cart--item (product) as a (props): to this increase quantity function:
               // so that we can get that (product) and increase its quantity:
-              onClick={() => onIncreaseQuantity(product)}
+              onClick={() => IncreaseQuantity(product)}
             />
             <img
               alt="decrease"
@@ -136,7 +140,7 @@ class CartItem extends React.Component {
               // IMP = we also have to gave the cart--item (product) as a (props): to this Decrease quantity function:
               // so that we can get that (product) and Decrease its quantity:
 
-              onClick={() => onDecreaseQuantity(product)}
+              onClick={() => DecreaseQuantity(product)}
 
             />
             <img
@@ -147,14 +151,14 @@ class CartItem extends React.Component {
               // here we are giving the (onDecreaseQuantity) function to the (event):as a (function) not as a (reference) of the (function):
               // we are doing that with the help of the (props):because we gave this function to the (cart-item) component as a  argument or parameter we can say:
               // and here we are using that (function) for the (event) handling:
-              onClick={() => onDeleteProduct(product.id)}
+              onClick={() => DeleteProduct(product.id)}
 
             />
           </div>
         </div>
       </div>
     );
-  }
+  // }
 }
 
 const styles = {
@@ -166,4 +170,4 @@ const styles = {
   },
 };
 
-export default CartItem;
+export default cartItem;
