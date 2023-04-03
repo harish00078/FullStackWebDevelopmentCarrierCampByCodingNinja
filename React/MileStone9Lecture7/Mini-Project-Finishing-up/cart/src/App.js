@@ -137,8 +137,11 @@ class App extends React.Component {
   // with the help of this function we can delete our cart-item component:
 
   // here we are passing the (product-id) of the (cart-item) component as a (argument) to this function:
-  // so that we should only delete that (particular) cart-item component:amoung all of the other (cart-item) components::
+  // so that we should only delete that (particular) cart-item component:amoung all of the other (cart-item) components:
+
   handleDeleteProduct = (id) => {
+
+
     // for deleting the particular component or product we can say:
     // for that first we have to find that (product) in the (products) array of the (state) object:
     const { products } = this.state;
@@ -157,11 +160,56 @@ class App extends React.Component {
 
     const items = products.filter((item) => item.id !== id);
 
+
     // know we have to gave this new-array to the (products) array of (state) objects:so that we can reflect that deleted cart-item product or component on our (web-app):
+
     this.setState({
+      
       products: items,
+
     });
+
   };
+
+  // here we are creating the (count) function:which will gave us the (count) of the (cart-item) products or components we can say:
+  getCartCount = () => {
+
+    // for that first we need the (products) array of the  (state) objects:
+    // because we are creating the (cart-item) components:with the help or we can say acc to the (products) array of (state) objects:
+    const {products} = this.state;
+
+
+    // => for getting the (count) of the (products) array of (state) objects:
+    // we have to use the (for-loop):so that we can iterate over them and get the (count) of that (products) array:
+  
+    // here we create (count) variable:which will have zero value by default:
+    let count = 0;
+
+    // we will increment this (count) variable:acc to the for-loop (iterations):means it will only increment acc to the (count) of the (products) which were present in the (products) array of the (state) objects:
+    
+    // IMP = for using for-loop in the (react):
+    // IMP => or we can say if we have to (iterate) over the (multiple) things for  (counting) them:then for that we  can  use the (forEach) function:
+    // (forEach) => The forEach() method can be used to iterate over an array outside of your JSX code in React. 
+    // (map) => If you need to iterate over an array and render its elements directly in your JSX code, use the map() method instead.
+    products.forEach((product) => {
+      
+      // we have to count the quantity of all the (products):
+      // because some products may have multiple quantity of the particular (product) or (component) we can say:
+
+      count += product.qty;
+
+
+    });
+
+
+
+
+
+    // and after that we will return that (count) variable:which will have the (count) value of the (products) or (components) we can say which were present in the (products) array of the  (state) object:
+    return count;
+
+  }
+
 
   render() {
 
@@ -175,6 +223,7 @@ class App extends React.Component {
         {/* here we are putting the (Navbar) component: in our (app.js) file or we can say in our (application) file: */}
 
         {/* here we are giving the (count) function to our (navbar) component:
+
         => IMP =  we gave that (count) function to the (navbar) component as (props): */}
 
         <Navbar count={this.getCartCount()} />
