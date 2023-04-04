@@ -108,7 +108,13 @@ const cartItem = (props) => {
     return (
       <div className="cart-item">
         <div className="left-block">
-          <img style={styles.image} alt="" src="" />
+
+          {/* here we are giving the (source) or we can say (path) of the (images) to the (image) element:to tell the image element:that from were it has to get the (images):
+          
+          => every cart-item (Component) or (product) have its image-path:stored with in it:
+          => so here we gave the (img) property  of the (product) or (component) to the (image) element:because every product or component have its (image) path stored with in it:*/}
+
+          <img style={styles.image} alt="" src={product.img} />
         </div>
         <div className="right-block">
           <div style={{ fontSize: 25 }}>{title}</div>

@@ -49,9 +49,13 @@ const Navbar = (props) => {
           {/* here we are using the (count) function:that we have created in the (App) component:for counting the products (quantity):
           => and we gave the (function) as (props) to the (navbar) component:so that we can use that (function):
           => In the (navbar) component's (count) element:which will show that count on the (web-page): */}
+
           <span style={styles.cartCount}>{props.count}</span>
+
         </div>
+
       </div>
+      
     );
 
   // }

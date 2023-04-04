@@ -30,7 +30,8 @@ class App extends React.Component {
           price: 9999,
           title: "Watch ",
           qty: 1,
-          img: "",
+          // here we gave Images or we can say there path to our cart-item (components):
+          img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdhdGNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
           // here we gave (unique-key) to the  (cart-items) object:
           id: 1,
         },
@@ -38,21 +39,21 @@ class App extends React.Component {
           price: 19999,
           title: "Mobile Phone",
           qty: 10,
-          img: "",
+          img: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=367&q=80",
           id: 2,
         },
         {
           price: 59999,
           title: "Laptop",
           qty: 4,
-          img: "",
+          img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
           id: 3,
         },
         {
           price: 568686,
           title: "Pc",
           qty: 1,
-          img: "",
+          img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1142&q=80",
 
           id: 4,
         },
@@ -210,6 +211,14 @@ class App extends React.Component {
 
   }
 
+  // here we are creating the function:which will calculate the (total-price) of the (cart-item) components:
+
+  getCartTotal = () =>{
+
+    
+
+  }
+
 
   render() {
 
@@ -250,6 +259,19 @@ class App extends React.Component {
           // so that we can handle the delete-component evnets of the cart-item (components):or we can say delete the component with the help of this function:
           onDeleteProduct={this.handleDeleteProduct}
         />
+
+        {/* here we create another (div) element:which will show the (total-price) of the (cart-item) components:  */}
+
+        <div>
+
+          {/* here we are giving or passing the (total-price) function to this div-element: that function we have created for  calculating the (total-price) of the (cart-item) components: */}
+
+          TOTAL:{this.getCartTotal()}
+
+        </div>
+
+
+
       </div>
     );
   }
