@@ -215,7 +215,32 @@ class App extends React.Component {
 
   getCartTotal = () =>{
 
+    // first we have to import (products) in the function:so that we can calculate there total price:
+    const {products} = this.state;
+
+    // here we create count variable:In this variable we will add the every products price:one by one when we loop over them:
     
+    let cartTotal = 0;
+
+    // after that we have to (loop-over) these products:so that we can get the (price) of every product:
+    // for looping on the products we have to use the (map) function:
+    products.map((product) =>{
+
+      // we have to add the price of the product:acc to its (quantity):that's why we multiply the price of the product with its (quantity):
+
+      // then add it into the cart total price variable:
+
+      cartTotal += product.qty * product.price;
+
+      return cartTotal
+    })
+
+    // after adding all the products price in the (cartTotal) variable:
+    // we have to return that variable:
+    return cartTotal;
+
+
+
 
   }
 
