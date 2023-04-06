@@ -87,7 +87,7 @@ gulp.task("css", function () {
     merge: true
 
 
-  }))
+  })) 
 
   // know after creating the manifest:we have to again put these files in the (directory) or (folder):were we are previously storing them for the (production) environment  mode: 
   .pipe(gulp.dest('./public/assets'));
