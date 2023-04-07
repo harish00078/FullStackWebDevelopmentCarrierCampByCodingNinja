@@ -15,11 +15,28 @@ const cssnano = require("gulp-cssnano");
 // this library basically add the (hashcode) with the code (file-name):so that we can creating differentiate between newer and the older files:
 const rev = require('gulp-rev');
 
+
+// here we are importing the (gulp) library for the (javascript) files:
+const uglify = require('gulp-uglify-es');
+
+// here we are importing the (gulp) library for the (image):
+const imagemin = require('gulp-imagemin');
+
+// here we are importing the (gulp) library:through which we will (delete) old files:
+const del = require('del');
+
+
+
+
 // => for using (gulp):we have to create (tasks):
 
 // here we create one of the (task):In this task we are (minifinig) or we can say (compressing) the (css):
 // we gave a name to this task is (css):
-gulp.task("css", function () {
+
+// here we are passing the (done) as argument to the callback (function):
+// here (done) is basically work as a callback function:
+
+gulp.task("css", function (done) {
 
 
   console.log("minifying css...");
@@ -55,7 +72,7 @@ gulp.task("css", function () {
   // here we are returning the (Compressed) files:that we have stored in ('./assets.css'):
   // so we have to return the every compressed file and the folder:so that's why we are using the stars (**) to represent that every file or folder should get returned:of the compressed files:
 
-  return gulp.src("./assets/**/*.css")
+  gulp.src("./assets/**/*.css")
 
       // we have to (rename) it:so that browser compiler can differentiate between the (old) files and the (newer) files:
       // we can do that with the help of by addding the  (hash-code) strings in it:
@@ -92,5 +109,136 @@ gulp.task("css", function () {
   // know after creating the manifest:we have to again put these files in the (directory) or (folder):were we are previously storing them for the (production) environment  mode: 
   .pipe(gulp.dest('./public/assets'));
 
+
+  // here we are using  the (done) callback function in  the (gulp) task:
+  // for handling the  (error) or we can say for checking the (errors) in the (gulp) task:
+  done();
+
+});
+
+
+
+
+
+// here we are creating the (gulp) task for the (javascript) files:
+
+gulp.task('js', function (done) {
+
+  // here we are printing statement to know that our (gulp) task is working for the (javascript) files:
+  console.log('minifying javascript....');
+
+  // here we giving the (javascript) files source to the (gulp) task:
+  gulp.src('./assets/**/*.js')
+
+  // here we are compressing those (javascript) files:with the help of the (gulp-uglify-es) library of the (gulp):
+  .pipe(uglify())
+
+  // after compressing them know we have to (rename) them by simply adding the (hash-code) string with the (old-name) of there (files): 
+  // for renaming them we have to use the (rev) Library of the (gulp):
+  .pipe(rev())
+
+
+  // know after renaming or compressing them:we have to store them in the (folder):
+  // for giving the folder path to the (gulp) task:we have to use the (dest) library  of the (gulp):
+  .pipe(gulp.dest('./public/assets'))
+
+  // after that know: we have to (manifest) those files:
+  // for manifesting the files:we have to use the (manifest) function of (rev) library of the (gulp): 
+
+  .pipe(rev.manifest({
+
+    cwd:'public',
+    merge:true,
+
+  }))
+
+  // after (manifesting) them:know we have to again stored those files in the (folder):where we have stored them previously:
+  .pipe(gulp.dest('./public/assets'));
+
+
+  // In the last we have to put the (done) callback function:to tell the gulp task that we have finished the (task):
+  done();
+
+
+
+});
+
+
+
+// here we are creating the (gulp) task for the (images):
+
+gulp.task('images', function (done) {
+
+  // here we are printing statement to know that our (gulp) task is working for the images:
+  console.log('minifying images....');
+
+  // here we giving the (images) source to the (gulp) task:
+  // In source  we have to define the all type of the (images):
+  gulp.src('./assets/**/*.+(png|jpg|jpeg|gif|svg)')
+
+  // here we are compressing those (image) files:with the help of the (gulp-imagemin) library of the (gulp):
+  .pipe(imagemin())
+
+  // after compressing them know we have to (rename) them by simply adding the (hash-code) string with the (old-name) of there (files): 
+  // for renaming them we have to use the (rev) Library of the (gulp):
+  .pipe(rev())
+
+
+  // know after renaming or compressing them:we have to store them in the (folder):
+  // for giving the folder path to the (gulp) task:we have to use the (dest) library  of the (gulp):
+  .pipe(gulp.dest('./public/assets'))
+
+  // after that know: we have to (manifest) those files:
+  // for manifesting the files:we have to use the (manifest) function of (rev) library of the (gulp): 
+
+  .pipe(rev.manifest({
+
+    cwd:'public',
+    merge:true,
+
+  }))
+
+  // after (manifesting) them:know we have to again stored those files in the (folder):where we have stored them previously:
+  .pipe(gulp.dest('./public/assets'));
+
+
+  // In the last we have to put the (done) callback function:to tell the gulp task that we have finished the (task):
+  done();
+
+
+
+});
+
+
+// here we create another gulp task:through which we will (empty) our (public-assetes) folder or directory we can say:
+// so that we can delete the older (files) and (put) the new onces in those folder:
+
+gulp.task('clean:assets', function(done){
+
+  // for deleting the older files:we have to use the  (del) library of the gulp:
+  // with the (del) library:we also have to use its (sync) function:
+  del.sync('./public/assets');
+
+  // we also have to gave the (done) callback function:
+  done();
+
+
+});
+
+
+
+
+// we also have to  create anther (gulp) task:with the help of this (task):
+// we can run all the other (tasks) of the (gulp) that we have created with in (one-command):
+
+// we can name this (task) as (build): because we are compressing or re-naming all the files with the help of (gulp):
+
+// IMP = we can also define the (series) of files in this task:
+// so that we can compress or re-name those files in the sequence:
+
+gulp.task('build', gulp.series('clean:assets','css', 'js', 'images'),function(done) {
+
+  console.log('Building assets....');
+  done();
 
 });
