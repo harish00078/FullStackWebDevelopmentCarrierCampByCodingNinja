@@ -7,7 +7,7 @@ import React from "react";
 
 import CartItem from "./CartItem";
 
-// here we ara converting our class (cart) component:into the function (cart) component:
+// here we are converting our class (cart) component:into the function (cart) component:
 
 const  Cart = (props) => {
 
