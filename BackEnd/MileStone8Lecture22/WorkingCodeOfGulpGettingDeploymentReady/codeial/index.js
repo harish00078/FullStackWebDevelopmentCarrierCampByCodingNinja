@@ -12,7 +12,7 @@ const app = express();
 
 // here we are importing the (helper) function of the (views):that we have created:
 // we also have to pass our (app) as argument to this function:
-require('./config/view-helpers');
+require('./config/view-helpers')(app);
 
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
