@@ -1,7 +1,13 @@
-JsRender templates are made up of HTML markup, text, and template tags. Template tags are used to evaluate data-paths or computed expressions, and insert those values into the rendered output.
+In Node.js, a helper function is a function that is designed to assist in the execution of other functions or to perform a specific task. Helper functions are used to improve code readability and maintainability by breaking down complex operations into smaller, more manageable pieces of code.
 
-But often the values you will want to insert are not actually taken from the data, but rather from other parameters or metadata which you want to use. And often you will want to process the values, using helper functions or other code, e.g. for converting values to other formats, or for computed values.
+Helper functions can be defined in the same file as the function that calls them or can be defined in a separate file and imported into the calling function using the "require" statement.
 
-Helpers, in JsRender, refers to any functions, objects, parameters or metadata which you want to provide, in addition to the actual data you passed to the render() method (or link() method if you are using JsViews).
+Some common examples of helper functions in Node.js include:
 
-Helpers can also be objects, arrays, etc.
+=> Validation functions - Functions that validate user input or ensure that data conforms to a specific format or standard.
+
+=> Utility functions - Functions that provide common utility operations, such as formatting data or handling errors.
+
+=> Middleware functions - Functions that process incoming HTTP requests before they are passed to the main request handler function.
+
+Overall, helper functions can greatly simplify and improve the structure of Node.js code, making it easier to read, maintain, and debug.

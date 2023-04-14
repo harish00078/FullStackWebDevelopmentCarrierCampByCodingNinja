@@ -1,6 +1,19 @@
 const express = require('express');
+
+// here we are Importing our  environment-file:
+// In this environment-file:we have created our both the environments:
+const env = require('./config/environment');
+
+// here we are importing the (Morgan):through which we can create or we can say run our (log) system of the application:
+const logger = require('morgan');
+
 const cookieParser = require('cookie-parser');
 const app = express();
+
+// here we are importing the (helper) function of the (views):that we have created:
+// we also have to pass our (app) as argument to this function:
+require('./config/view-helpers');
+
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -16,40 +29,62 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
-// here we are connecting the (socket-io) with our app-server:
-// so that (socket-io) know about the server:to which it has connect with:
-
-// here we setup the (chat-server) to be used with  (socket-io):
-
-// => here we have our (server):
-// these (http) and (server) are the (inbuilt) methods in the (nodejs) through  which we can get our (server):
+// setup the chat server to be used with socket.io
 const chatServer = require('http').Server(app);
-
-// => and here we are connecting the (socket.io) configuration with the (server):so that it knows about which (server) it has to connect with:
-// or we can say here we are connecting the (chatSockets) function that we have created under in the (chat_sockets) configuration file:with the (server):
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-
-// => and we also have to gave the different port to the (socket):or we can say to the (chat-server):
 chatServer.listen(5000);
-console.log('chat server listening on port 5000');
+console.log('chat server is listening on port 5000');
+
+// here we import the (path) library:
+// so that we can simply provide the different (file-path's) to our (server) application: from the different folders or files we can say:
+const path = require('path');
+
+// here we gave (static-files) or we can say  (assets-files) to our application (server):with the help of the (environment):that we have created for the (development): 
+
+// here we put the check for the (sassmiddleware):
+// if the (mode) is (development):then it should run continously:
+// but if we are on the (production-mode):then (sassmiddleware) should only run for once:
+
+if(env.name == 'development'){
+
+    app.use(sassMiddleware({
+
+        // here we are giving the reference of the (different) files and folders:with the help of  the (path) library:
+        // (path.join) = Join all arguments together and normalize the resulting path.
+    
+        src: path.join(__dirname,env.asset_path,'scss'),
+    
+        dest: path.join(__dirname,env.asset_path,'css'),
+    
+        debug: true,
+    
+        outputStyle: 'extended',
+    
+        prefix: '/css'
+    
+    }));
+
+}
 
 
 
-
-app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}));
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+// here we gave (static-files) or we can say  (assets-files) to our application (server):with the help of the (environment):that we have created for the (development): 
+app.use(express.static(env.asset_path));
 // make the uploads path available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+// here we gave (logger) function to our (application):through which our (application) will get the (logs):
+// under (logger) function:we have to define the two things:
+// => first is the (mode) of the (application) environment:that we have given to the (morgan) library:acc to our (application) environment:
+// => second is the morgan library (options):In which we have gave the (path) of the (directory) were we have stored those (logs):
+app.use(logger(env.morgan.mode, env.morgan.options));
+
+
+
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
@@ -67,7 +102,8 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    // here we are giving the (path) of the secret (session_cookie) to our application:from the (environment.js) file:were we have stored our session_cookie:
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
