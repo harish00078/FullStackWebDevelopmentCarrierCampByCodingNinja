@@ -24,12 +24,12 @@ const development = {
         port: 587,
         secure: false,
         auth: {
-            user:"hk313665@gmail.com" ,
-            pass: "macgnpblfzjssxnw",
+            user: 'alchemy.cn18',
+            pass: 'codingninjas'
         }
     },
-    google_client_id: "289203943405-pbn6uhs3a6d7ab3f0bsq6ftm8k77vomd.apps.googleusercontent.com",
-    google_client_secret:"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",
+    google_client_id: "313233209747-dnqmail3j800a2jvsuckqhohodhs7i63.apps.googleusercontent.com",
+    google_client_secret: "0FXb5EBWa4xRfJ8jR-1HKMd2",
     google_call_back_url: "http://localhost:8000/users/auth/google/callback",
     jwt_secret: 'codeial',
     morgan: {
@@ -40,7 +40,6 @@ const development = {
 
 
 const production =  {
-    
     name: 'production',
     asset_path: process.env.CODEIAL_ASSET_PATH,
     session_cookie_key: process.env.CODEIAL_SESSION_COOKIE_KEY,
