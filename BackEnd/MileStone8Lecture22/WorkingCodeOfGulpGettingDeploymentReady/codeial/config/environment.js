@@ -40,6 +40,7 @@ const development = {
 
 
 const production =  {
+    
     name: 'production',
     asset_path: process.env.CODEIAL_ASSET_PATH,
     session_cookie_key: process.env.CODEIAL_SESSION_COOKIE_KEY,
@@ -66,4 +67,4 @@ const production =  {
 
 
 
-module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == undefined ? development : eval(process.env.CODEIAL_ENVIRONMENT);
+module.exports = eval(process.env.NODE_ENV) == undefined ? development : eval(process.env.NODE_ENV);

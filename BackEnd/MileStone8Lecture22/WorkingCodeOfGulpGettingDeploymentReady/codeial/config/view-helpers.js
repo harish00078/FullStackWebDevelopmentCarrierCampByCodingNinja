@@ -36,7 +36,6 @@ module.exports = (app) => {
 
     // if the file is coming from the (development) environment:then we did not have to do anything:
     if(env.name == 'development'){
-
       // we will simply gave that file or filepath again the (browser):
       return filePath;
 
