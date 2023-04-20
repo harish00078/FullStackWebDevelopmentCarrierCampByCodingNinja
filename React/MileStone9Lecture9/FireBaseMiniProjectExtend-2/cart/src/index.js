@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 // here we are importing the (firebase):
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
 // we also have to import the (firestore) module of the (firebase):
 // because we are using the (firestore) as our (database):
@@ -25,10 +25,11 @@ const firebaseConfig = {
   appId: "1:209552220210:web:8ac898c342ef2b98525c2b"
 };
 
+// here we are Initializing the  Firebase with our application:
+// with the help of its (initializeApp) function:
+firebase.initializeApp(firebaseConfig);
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
 
-// here we are Initializing the  Firebase with our application:
-// with the help of its (initializeApp) function:
-firebase.initializeApp(firebaseConfig);
