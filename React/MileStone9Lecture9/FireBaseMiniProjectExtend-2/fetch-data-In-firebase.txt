@@ -1,0 +1,25 @@
+When it comes to reading data from Cloud Firestore, there are two options available. The first one is to read the data using a persistent listener, meaning that we’ll always be in sync with the Firebase servers, or we can read the data only once. The first option is very helpful when we need to listen for changes in real-time. We can achieve this using Query’s addSnapshotListener() method. This method adds a listener for changes in the data at a collection in the database or a query. Each time the data changes, the listener will be invoked with an immutable snapshot of the data. However, there are cases in which we need to read the data from the database only once.
+
+So Cloud Firestore, the newer massively scalable NoSQL cloud-hosted real-time database from Google, has a specific type of mechanism for reading the data once. To read a single document, we can use DocumentReference’s get() method that returns a Task<DocumentSnapshot>, while reading multiple documents from a collection or Query, we can use Firestore Query’s get() method that returns an object of type Task<QuerySnapshot>. Both methods read the data only once.
+
+
+=> Importing Firebase In App:
+● Use componentDidMount function to import firebase database.
+● Import firebase database using firebase.firestore.collection.
+● Then we have to methods to fetch data that are:
+1. get() method
+2. Event Listener - onSnapshot()
+
+=> What is a get() method?
+The GET method is used to retrieve data from a given server using a given
+URI. Applications using GET should only return data and should not have any
+other effect on the data.
+This method will retrieve data for us but if there is any change in the
+database, it will not show it up in the UI as soon as we refresh the page. For
+this, there comes an event listener called onSnapshot.
+
+=> What is onSnapshot function?
+onSnapshot() function is used to fetch data from the firebase document.
+The initial call using the backup you provided creates a document snapshot
+with the current contents of the same document. Then, every time the
+content changes, the second call updates the document snapshot.
