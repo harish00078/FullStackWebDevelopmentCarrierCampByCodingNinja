@@ -16,6 +16,14 @@ class App extends React.Component {
 
       products:[],
 
+      // here we create  another state:and named it as (loading):
+      // we use it as (text)  for reperesting that (products) are loading on browser:
+      loading:true,
+
+
+
+      
+
 
 
       // here we are giving the (products) to our (state-object):from the (firebase) database:
@@ -89,7 +97,62 @@ class App extends React.Component {
       .collection("products")
       .get()
       .then((snapshot) => {
+
         console.log(snapshot);
+
+        // IMP => In (snapshot) object:we have a (docs) array element:and that docs (array) contains our (products):that we have created in the (firebase) database:
+
+        //  for getting the each product: those where present in the (docs) array:we have to use the (map) function:which will help us to traverse or loop on the each (product or object) of the array:
+
+        // eslint-disable-next-line array-callback-return
+        snapshot.docs.map((doc) => {
+
+          // and under that (docs) array: we have another element (data):which will have the (data) of each (product):
+          // so for getting the data of those (products):we have to use the (data) element of the (snapshot's) docs object:
+          console.log(doc.data());
+
+
+        });
+
+
+        // know after getting all the products with there data:know we have to show them on the browser:
+        // for that we have to use the (setstate) function:which will set the state of our (component):
+
+        // for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
+
+        // or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
+
+        // we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
+        
+        // we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
+
+        const products = snapshot.docs.map((doc) => {
+
+          // here we create (data) variable:which will have the (data) of our (products):
+          const data = doc.data();
+
+          // we also have to return the (unique-id) of our each product:
+          // so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
+          // we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
+          data['id'] = doc.id;
+
+          return data;
+
+        })
+
+        // here we are giving our (products) to our components:with the help of (setstate) function:
+        this.setState({
+
+          products:products,
+
+          // after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
+          loading:false,
+
+
+        })
+
+
+
       });
 
   }
@@ -155,7 +218,7 @@ class App extends React.Component {
     return cartTotal;
   };
   render() {
-    const { products } = this.state;
+    const { products, loading } = this.state;
     return (
       <div className="App">
         <Navbar count={this.getCartCount()} />
@@ -165,6 +228,12 @@ class App extends React.Component {
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDeleteProduct={this.handleDeleteProduct}
         />
+        {/* here we are creating the conditional rendering:
+        => on our (loading) state:
+        => this (loading) state will work as a (loading products..) text on our browser:until we did not get all products from the (database):*/}
+        {loading && <h1>loading products ...</h1>}
+
+
         <div style={{ padding: 10, fontSize: 20 }}>
           TOTAL: {this.getCartTotal()}{" "}
         </div>
