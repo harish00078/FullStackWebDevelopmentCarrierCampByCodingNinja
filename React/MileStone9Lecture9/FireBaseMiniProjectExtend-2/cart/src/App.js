@@ -67,6 +67,12 @@ class App extends React.Component {
 
   componentDidMount() {
 
+    // we have two methods to fetch the data from the database:
+    // => 1 = get() method:-this method will only read the data once:means that it is not in the continous connection state with the database: 
+    // => 2 = onsnapshot method:-this method basically Attaches a listener and listens for any operational changes on our Firestore database in real time: — such as CRUD (Create, Read, Update and Delete) operations.means that it is in the continous connection state with the database:
+
+
+    // here we use first method (get):
     // here we are getting the data from the (firebase) database:
     // and gave that data to this (componentDidMount) method:because this method will gave that data or we can say put that data into our component:
 
@@ -88,72 +94,152 @@ class App extends React.Component {
     
     // (then) = JavaScript Promise then () method is called whenever a promise is resolved. It takes data from the resolved promise. It can take up to two arguments which are (callback) functions for the (fulfilled/success) and rejected cases respectively. Just like the catch () method it also returns a Promise so it is used to chain Promises.
 
-    // V.IMP => we are also giving the (querysnapshot) object to our (then) method or function:because that (object) will have the (data) of the (collection) which we want to (get or fetch) from our database:we are getting this (object) or (data) with the help of (get) method:
+    // V.IMP => we are also giving the (querysnapshot) object to our (then) method or function:because that (object) will have the (data) of our (collection's) document which we want to (get or fetch) from our database:we are getting this (object) or (data) with the help of (get) method:
+
+    // firebase
+
+
+    //   .firestore()
+    //   .collection("products")
+    //   .get()
+    //   .then((snapshot) => {
+
+    //     console.log(snapshot);
+
+    //     // IMP => In (snapshot) object:we have a (docs) array element:and that docs (array) contains our (products):that we have created in the (firebase) database:
+
+    //     //  for getting the each product: those where present in the (docs) array:we have to use the (map) function:which will help us to traverse or loop on the each (product or object) of the array:
+
+    //     // eslint-disable-next-line array-callback-return
+    //     snapshot.docs.map((doc) => {
+
+    //       // and under that (docs) array: we have another element (data):which will have the (data) of each (product):
+    //       // so for getting the data of those (products):we have to use the (data) element of the (snapshot's) docs object:
+    //       console.log(doc.data());
+
+
+    //     });
+
+
+    //     // know after getting all the products with there data:know we have to show them on the browser:
+    //     // for that we have to use the (setstate) function:which will set the state of our (component):
+
+    //     // for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
+
+    //     // or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
+
+    //     // we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
+        
+    //     // we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
+
+    //     const products = snapshot.docs.map((doc) => {
+
+    //       // here we create (data) variable:which will have the (data) of our (products):
+    //       const data = doc.data();
+
+    //       // we also have to return the (unique-id) of our each product:
+    //       // so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
+    //       // we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
+    //       data['id'] = doc.id;
+
+    //       return data;
+
+    //     })
+
+    //     // here we are giving our (products) to our components:with the help of (setstate) function:
+    //     this.setState({
+
+    //       products:products,
+
+    //       // after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
+    //       loading:false,
+
+
+    //     })
+
+
+
+    //   });
+
+
+
+
+
+    // => here we are using the second method (onsnapshot):
+
+    // V.IMP => when we use the (onsnapshot) method:for fetching the data from the (database):
+    // we will directly gave the callback function to the (onsnapshot) method:
+    // we are also passing the (querysnapshot) object as argument to our callback function:
+    // V.IMP => we are also giving the (querysnapshot) object to our callback function:because that (object) will have the (data) of our  (collection's) document which we want to (get or fetch) from our database:
+
 
     firebase
 
 
-      .firestore()
-      .collection("products")
-      .get()
-      .then((snapshot) => {
+    .firestore()
+    .collection("products")
+    .onSnapshot((snapshot) => {
 
-        console.log(snapshot);
-
-        // IMP => In (snapshot) object:we have a (docs) array element:and that docs (array) contains our (products):that we have created in the (firebase) database:
-
-        //  for getting the each product: those where present in the (docs) array:we have to use the (map) function:which will help us to traverse or loop on the each (product or object) of the array:
-
-        // eslint-disable-next-line array-callback-return
-        snapshot.docs.map((doc) => {
-
-          // and under that (docs) array: we have another element (data):which will have the (data) of each (product):
-          // so for getting the data of those (products):we have to use the (data) element of the (snapshot's) docs object:
-          console.log(doc.data());
-
-
-        });
-
-
-        // know after getting all the products with there data:know we have to show them on the browser:
-        // for that we have to use the (setstate) function:which will set the state of our (component):
-
-        // for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
-
-        // or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
-
-        // we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
-        
-        // we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
-
-        const products = snapshot.docs.map((doc) => {
-
-          // here we create (data) variable:which will have the (data) of our (products):
-          const data = doc.data();
-
-          // we also have to return the (unique-id) of our each product:
-          // so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
-          // we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
-          data['id'] = doc.id;
-
-          return data;
-
+          console.log(snapshot);
+  
+          // IMP => In (snapshot) object:we have a (docs) array element:and that docs (array) contains our (products):that we have created in the (firebase) database:
+  
+          //  for getting the each product: those where present in the (docs) array:we have to use the (map) function:which will help us to traverse or loop on the each (product or object) of the array:
+  
+          // eslint-disable-next-line array-callback-return
+          snapshot.docs.map((doc) => {
+  
+            // and under that (docs) array: we have another element (data):which will have the (data) of each (product):
+            // so for getting the data of those (products):we have to use the (data) element of the (snapshot's) docs object:
+            console.log(doc.data());
+  
+  
+          });
+  
+  
+          // know after getting all the products with there data:know we have to show them on the browser:
+          // for that we have to use the (setstate) function:which will set the state of our (component):
+  
+          // for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
+  
+          // or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
+  
+          // we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
+          
+          // we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
+  
+          const products = snapshot.docs.map((doc) => {
+  
+            // here we create (data) variable:which will have the (data) of our (products):
+            const data = doc.data();
+  
+            // we also have to return the (unique-id) of our each product:
+            // so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
+            // we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
+            data['id'] = doc.id;
+  
+            return data;
+  
+          })
+  
+          // here we are giving our (products) to our components:with the help of (setstate) function:
+          this.setState({
+  
+            products:products,
+  
+            // after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
+            loading:false,
+  
+  
+          })
+  
+  
+  
         })
 
-        // here we are giving our (products) to our components:with the help of (setstate) function:
-        this.setState({
-
-          products:products,
-
-          // after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
-          loading:false,
-
-
-        })
 
 
 
-      });
 
   }
 
