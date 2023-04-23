@@ -60,6 +60,10 @@ class App extends React.Component {
     // this.increaseQuantity = this.increaseQuantity.bind(this);
     // this.testing();
 
+    // IMP => here we are putting our (firebase()) and  (.firestore()) functions in the (variable) under our (state-object):
+    // so that we can simply call this (variable) where ever:if we want to use these two functions:
+
+    this.db = firebase.firestore();
 
   }
 
@@ -173,10 +177,10 @@ class App extends React.Component {
     // V.IMP => we are also giving the (querysnapshot) object to our callback function:because that (object) will have the (data) of our  (collection's) document which we want to (get or fetch) from our database:
 
 
-    firebase
-
-
-    .firestore()
+    // here Instead of using the (firebase) and (.firestore)) methods:we can use the (db) variable:that we have created under the (state) object:which will already have these two (methods) with in it:
+    // firebase
+    // .firestore()
+    this.db
     .collection("products")
     .onSnapshot((snapshot) => {
 
@@ -303,11 +307,73 @@ class App extends React.Component {
 
     return cartTotal;
   };
+
+
+
+  // here we are creating the (addProduct) function:through which we will add the products in our database direclty from our (App): 
+
+  addProduct = () => {
+
+    // here we are also using the (db) variable that we have created:which  will have the (firebase and (.firestore())) methods in it:
+    this.db
+    // and here we gave  collection and its name in which we want to add the new products:
+    .collection('products')
+
+    // after giving the collection and its name: know we have to use the (add) method of the firebase:
+    // => through which we will add the new products in our database direclty:
+    // under this (add) method:we will gave or pass an our  (new-product) as object:
+
+    // (add) => Add a new document to this collection with the specified data, assigning to it: and also add or assigning a document-ID automatically to it.
+    .add({
+
+      img:'',
+      price:'139788',
+      qty:3,
+      title:'washing machine'
+
+    })
+
+    // and after that this (add) method:will return or gave us a A Promise resolved with a DocumentReference pointing to the newly created document after it has been written to the backend.
+    // => means that after creating a new document on the (database) with the help of (add) method:it will gave or return us the (reference) of that (new-document) In the form of (promise)::which it has created on the database:
+    // know for handling the (promise):that we are getting from the (get) method:we will use the (then) method:
+    // which basically work as a callback function to the fulfill or rejection on the (promise) work:
+    
+    // => we also pass the (docRef) as argument to the (then) method:that we are getting from the (get) method:
+    .then((docRef) => {
+
+      // here we print  the docRef:that we are getting from the (get) method:
+      console.log('Product has been added to the database',docRef);
+
+    })
+    // we can also add the (catch) method:with the (then) method:so that we can catch the (error): while adding the (new-product) or document in the database:
+    .catch((error) => {
+
+      // we will print that (error) on the (console):so that we can see it or (debug) it:
+      console.log('Error: In adding the products to the database',error);
+
+    });
+
+
+
+
+
+
+  }
+
+
   render() {
     const { products, loading } = this.state;
     return (
       <div className="App">
         <Navbar count={this.getCartCount()} />
+
+        {/* here we create the button in our (App):
+        => so that with the help of this (button): we can create the (products) in our (database) from our (App) directly: */}
+
+        {/* we also gave the (onClick) event-listener to this button:
+        => and that (event-listener) will have the reference to (addProduct) function which we have created:  */}
+        <button onClick={this.addProduct} style={{padding:20,fontSize:20,backgroundColor:'black',color:'white'}}>Add a product</button>
+
         <Cart
           products={products}
           onIncreaseQuantity={this.handleIncreaseQuantity}

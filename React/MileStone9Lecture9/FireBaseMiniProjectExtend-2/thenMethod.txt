@@ -1,0 +1,1 @@
+The then () method schedules callback functions for the eventual completion of a Promise — either fulfillment or rejection. It is the primitive method of promises: the thenable protocol expects all promise-like objects to expose a then () method, and the catch () and finally () methods both work by invoking the object's then () method.

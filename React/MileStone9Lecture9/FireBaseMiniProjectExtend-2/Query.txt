@@ -1,0 +1,4 @@
+=> In computer science and programming, a query is often used to retrieve data from a database using a query language, such as SQL. A query can be used to search for specific information, filter results based on certain criteria, or perform calculations and aggregations on the data.
+
+
+=> A query is typically a question or a set of criteria that is used to retrieve specific information or records from a database or other data source. A query can be used to search for specific information.
