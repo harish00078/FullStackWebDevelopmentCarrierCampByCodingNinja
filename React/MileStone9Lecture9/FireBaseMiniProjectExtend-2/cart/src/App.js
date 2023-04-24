@@ -248,16 +248,82 @@ class App extends React.Component {
   }
 
   handleIncreaseQuantity = (product) => {
+
     console.log("Heyy please inc the qty of ", product);
+
     const { products } = this.state;
+
+    // 1 => here we are getting the (index) number of our particular (product) from the (state) object's (products) array:with the help of (indexOf) function:
+
+
+    // => for updating a particular (product's) quantity in the database:first we need to get that (product) from the database:so that we can increment the right product's quantity:
+
+    // IMP => so for that first we have to find that (product) in the (state) object's (products) array:we can find that particular (product) in the (state) object with the help of its (index) number because it is the (array) object:for that we can use the (indexOf) function:
+
     const index = products.indexOf(product);
 
-    products[index].qty += 1;
+    // products[index].qty += 1;
 
-    this.setState({
-      products,
-    });
+    // this.setState({
+    //   products,
+    // });
+
+
+
+
+  
+
+    // here we are (updating) or (Increasing) the value of  our (product's) quantity in the (firebase) database:
+
+    // => after finding that particular (product) index-number in the (state) object:which we want to update:know we have to find that (product) in our (products) or (documents) array of  (database) as well: so that we can change or update its value from the (database):
+    
+    // IMP => for finding that particular (product) in the (database): we have to use its (index-number):because in database we have a (array) of (products) or (documents) we can say: we also need to use the (unique-id) of that product:which is given by the (database) to them:
+    // we will save that particular product's (unique-id) in the (variable): as a (reference) to that (product) or (document): so we can interact with that (product) or (document):and do some changes or updates on them:
+
+    
+    // 2 => here we are finding that product in the (database): with the help of there (index-number) or (unique-id):
+
+    // IMP => In (database): our product is  basically a (document):so that's why we are using the (doc):it basically have a (array) of (documents) or (products) we can say:but we only want the particular (product) or (document) that's why we are using the (doc):
+
+    // (doc) => Get a DocumentReference for the document within the collection at the specified path. If no path is specified, an automatically-generated unique ID will be used for the returned DocumentReference.
+
+
+
+    const docRef = this.db.collection('products').doc(products[index].id);
+
+    // after getting the reference of that particular product from the database:
+    // know we have to update that particular (product):so here we are basically updating its (quantity):
+    // IMP => because its a (increasequantity) function:
+    // => for doing that we need to use the (update) method of the database:
+    // we will basically pass the (object) to the (update) method: of the product (element) which we want to update:and that (object) will have the (updated) value:
+    // this method will basically update the (quantity) of the (product):and return us with a (promise):
+    // it basically return a Promise once the data has been successfully written to the backend:
+
+    docRef
+    .update({
+
+      // for updating the quantity of the  product in database:first we need its previous quantity value:
+      // for that we can use the (product[index].qty):this will gave us the product with its (quantity) key-element:
+      qty: products[index].qty + 1
+    })
+
+    // after updating the quantity value of the product:with the help of (update) method:it will gave us the (promise):
+    // know we also have to handle the (promise):we can do that with the help of (then) method:we can simple gave the (callback) to the (promise) with the help of (then) method:
+    .then(() => {
+      console.log('document updated successfully');
+    })
+    // we can also use the (.catch) method for handling the (errors):that if our product does not get updated:
+   .catch((error) => {
+    console.log('Error',error);
+   })
+
+
+
+
+
   };
+
+
   handleDecreaseQuantity = (product) => {
     console.log("Heyy please inc the qty of ", product);
     const { products } = this.state;
@@ -372,7 +438,7 @@ class App extends React.Component {
 
         {/* we also gave the (onClick) event-listener to this button:
         => and that (event-listener) will have the reference to (addProduct) function which we have created:  */}
-        <button onClick={this.addProduct} style={{padding:20,fontSize:20,backgroundColor:'black',color:'white'}}>Add a product</button>
+        {/* <button onClick={this.addProduct} style={{padding:20,fontSize:20,backgroundColor:'black',color:'white'}}>Add a product</button> */}
 
         <Cart
           products={products}
