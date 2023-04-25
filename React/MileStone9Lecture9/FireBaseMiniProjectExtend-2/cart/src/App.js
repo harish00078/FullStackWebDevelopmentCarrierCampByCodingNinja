@@ -275,10 +275,10 @@ class App extends React.Component {
 
     // here we are (updating) or (Increasing) the value of  our (product's) quantity in the (firebase) database:
 
-    // => after finding that particular (product) index-number in the (state) object:which we want to update:know we have to find that (product) in our (products) or (documents) array of  (database) as well: so that we can change or update its value from the (database):
+    // => after finding the index-number of  our (product) in the (state) object:which we want to update:know we have to find that (product) in our (products) or (documents) array of  (database) as well: so that we can change or update its value from the (database):
     
-    // IMP => for finding that particular (product) in the (database): we have to use its (index-number):because in database we have a (array) of (products) or (documents) we can say: we also need to use the (unique-id) of that product:which is given by the (database) to them:
-    // we will save that particular product's (unique-id) in the (variable): as a (reference) to that (product) or (document): so we can interact with that (product) or (document):and do some changes or updates on them:
+    // IMP => for finding that particular (product) in the (database): we have to use its (index-number):because in database we have a (array) of (products) or (documents) we can say: and after finding that (product) in the (database) with the help of its (index-number):  
+    // V.IMP => know we can easily get the (unique-id) of particular (product):
 
     
     // 2 => here we are finding that product in the (database): with the help of there (index-number) or (unique-id):
@@ -325,28 +325,131 @@ class App extends React.Component {
 
 
   handleDecreaseQuantity = (product) => {
+
     console.log("Heyy please inc the qty of ", product);
+
     const { products } = this.state;
+
     const index = products.indexOf(product);
+
 
     if (products[index].qty === 0) {
       return;
     }
 
-    products[index].qty -= 1;
+    // products[index].qty -= 1;
 
-    this.setState({
-      products,
-    });
+    // this.setState({
+    //   products,
+    // });
+
+
+    // here we are decreasing the quantity of our (product) in the (database) directly:for the decreasequantity function:
+
+
+    // => for doing that: first we need to get that product from the (database):
+    // we can get that product or its reference from the (database):with the help of its (unique-id): which is given to all the products by the database automatically:
+
+    // before that first we need to get the index-number of our product from our state object:for finding the index number of our product:we have to use the (indexOf) function:
+    // because we have to find our product in the (products) array of our (database):so for that we need to have the  index-number of our product:
+
+    // IMP => this index number will help us to find our (product) in the (products) array easily:
+
+    // V.IMP => and after that with the index number of our product: we can easily get the (unique-id) of a particular (product):
+    // so that we can easily connect with our (product) in the (products) array of our database:
+
+    // => we will save the reference of our (product) in the variable:so that we can easily work on our (product):with the help of database (methods or functions):
+
+    // IMP => In (database): our product is  basically a (document):so that's why we are using the (doc):it basically have a (array) of (documents) or (products) we can say:but we only want the particular (product) or (document) that's why we are using the (doc):
+
+    // (doc) => Get a DocumentReference for the document within the collection at the specified path. If no path is specified, an automatically-generated unique ID will be used for the returned DocumentReference.
+
+
+
+    const docRef = this.db.collection('products').doc(products[index].id);
+
+    // after getting the reference of that particular product from the database:
+    // know we have to update that particular (product):so here we are basically updating its (quantity):
+    // IMP => because its a (decreasequantity) function:
+    // => for doing that we need to use the (update) method of the database:
+    // we will basically pass the (object) to the (update) method: of the product (element) which we want to update:and that (object) will have the (updated) value:
+    // this method will basically update the (quantity) of the (product):and return us with a (promise):
+    // it basically return a Promise once the data has been successfully written to the backend:
+
+    docRef
+    .update({
+
+      // for updating the quantity of the  product in database:first we need its previous quantity value:
+      // for that we can use the (product[index].qty):this will gave us the product with its (quantity) key-element:
+      qty: products[index].qty - 1
+    })
+
+    // after updating the quantity value of the product:with the help of (update) method:it will gave us the (promise):
+    // know we also have to handle the (promise):we can do that with the help of (then) method:we can simple gave the (callback) to the (promise) with the help of (then) method:
+
+    .then(() => {
+
+      console.log('document updated successfully');
+
+    })
+
+    // we can also use the (.catch) method for handling the (errors):that if our product does not get updated:
+
+   .catch((error) => {
+
+    console.log('Error',error);
+
+   })
+
+
+
+
+
+
+
   };
+
+
   handleDeleteProduct = (id) => {
-    const { products } = this.state;
 
-    const items = products.filter((item) => item.id !== id); // [{}]
+    // const { products } = this.state;
 
-    this.setState({
-      products: items,
-    });
+    // const items = products.filter((item) => item.id !== id); // [{}]
+
+    // this.setState({
+    //   products: items,
+    // });
+    
+    // here we are deleting the product:from the (database) directly:
+
+    // for that we need that (product) or (document) we can say  from our (database):so that we can interact with it or delete it from our database:
+
+    // so for deleting the particular product or (document):from the (database):we need the reference of there (unique-id):which is given by the database to them automatically:
+
+    const docRef = this.db.collection('products').doc(id);
+
+    // know after getting the reference of that particular product OR (document): we have to delete it from the database:we can do that with the help of (delete) method:
+    docRef
+    .delete()
+    // this delete method will gave us the (promise): after deleting the particular product or document from the database:
+    //  we have to handle that (promise):we can do that with the help of (then) method:
+
+    .then(() => {
+
+      console.log('document deleted successfully');
+
+    })
+
+    // we can also use the (.catch) method for handling the (errors):that if our product does not get deleted successfully:
+
+   .catch((error) => {
+
+    console.log('Error',error);
+
+   })
+
+
+
   };
 
   getCartCount = () => {
@@ -438,7 +541,7 @@ class App extends React.Component {
 
         {/* we also gave the (onClick) event-listener to this button:
         => and that (event-listener) will have the reference to (addProduct) function which we have created:  */}
-        {/* <button onClick={this.addProduct} style={{padding:20,fontSize:20,backgroundColor:'black',color:'white'}}>Add a product</button> */}
+        <button onClick={this.addProduct} style={{padding:20,fontSize:20,backgroundColor:'black',color:'white'}}>Add a product</button>
 
         <Cart
           products={products}
