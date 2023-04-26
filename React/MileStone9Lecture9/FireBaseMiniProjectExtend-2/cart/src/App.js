@@ -182,6 +182,23 @@ class App extends React.Component {
     // .firestore()
     this.db
     .collection("products")
+
+    // here we are creating the (query) with the help of (where) function:
+    // if we want the particular product:from the (database):for that we have to create the query:or we can create the query with the help of the (where) function:
+    // we need to create the query before when we are fetching the data from the database:
+
+    // .where('price','>=',3000)
+
+    // we can also create the multiple queries:
+
+    // .where('title','==','camera')
+
+    // we can also sort our products:with the help of (orderBy) query method:
+    .orderBy('price', 'asc')
+
+
+
+
     .onSnapshot((snapshot) => {
 
           console.log(snapshot);
