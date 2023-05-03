@@ -73,6 +73,51 @@ function App(props) {
   },[userId]);
 
 
+  // IMP => with the help of (UseEffect) method: we can also handle the (eventListener):
+
+  // for example:IF we want to create the (mousemove) EventListener:then we can do that with the help of (useEffect) method:
+  // we will gave the callback function to the (useEffect) method:and under that callback function:we will create our (eventListener):
+  useEffect(() => {
+    // here we create our (eventListener):under the callback function:that we have given to the (useEffect) method:
+    // first we need to create our (eventListener) with (document.addEventlistener) command:
+    // and then we need to gave the two things to the (eventListener):
+    // 1 = first we need to define the (type) of (eventListener):
+    // 2 = second we need to define the (function):through which we will handle that (eventListener):
+    document.addEventListener('mousemove',onMouseMove);
+
+
+
+    // V.IMP => here we are doing the (componentDidUnmount) component lifecycle method on function component:with the help of (useEffect)method:its basically a (optional) function:
+    // IMP =>  for doing that we need to use the (return) method:and we will gave the (callback) function to that (return) method:
+    // under that (callback) function:that we have given to the (return) method:we need to define the (thing):which we want to delete or remove from the (component):
+
+    // for example:we want to remove the (eventListener):On if our component is get destroyed:
+    // because we did not want it run continously and consume lot of extra (memory):even if our component is destroyed:
+    return () => {
+
+      // here we are removing the eventListener:
+      document.removeEventListener('mousemove',onMouseMove);
+
+    }
+
+
+
+  });
+
+  // here we create (function):for handling the mousemove eventlistener:
+  // we also need to pass the (event) as (argument) to this function:
+  function onMouseMove(event){
+
+
+    // we are basically printing the (coordinates) of our mouse on the (console):
+    console.log(event.clientX);
+
+
+  }
+
+
+
+
   return (
     <div className="App" style={{paddingLeft:20}}>
 
