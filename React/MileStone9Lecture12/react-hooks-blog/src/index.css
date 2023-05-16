@@ -60,13 +60,15 @@ code {
   list-style-type: none;
   padding: 0;
   display: flex;
+  /* background-color: black; */
+  
 }
 #nav li {
   margin-left: 10px;
 }
 #nav li a {
   text-decoration: none;
-  color: #9e9e9e;
+  color:black;
 }
 #nav li a:hover {
   text-decoration: underline;
