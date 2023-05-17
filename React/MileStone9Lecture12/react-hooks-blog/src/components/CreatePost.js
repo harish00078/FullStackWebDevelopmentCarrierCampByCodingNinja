@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+// here we import (fireStore):
+// so that we can store the (data) of created (blog-post) in the (database):
+import {firestore} from '../firebase';
+
 
 // here we build the (Create-Post) component:with the help of (function) component:
 
@@ -22,7 +26,7 @@ function CreatePost() {
 
     // under this function: we will stopped the (default) working of our (event):because we did not want to (reload) our (web-page): again after (submitting) the (form):
     //Imp = because if we did not do that:then the (written) data on our (form) by the (user) got deleted (automatically):after the (form) get submitted:
-    // IMP => that's why  we will stop the (default) submission working of the (form) element:why simply preventing its default (submission) event:
+    // IMP => that's why  we will stop the (default) submission working of the (form) element:why simply preventing its default -+(submission) event:
 
     e.preventDefault();
 
