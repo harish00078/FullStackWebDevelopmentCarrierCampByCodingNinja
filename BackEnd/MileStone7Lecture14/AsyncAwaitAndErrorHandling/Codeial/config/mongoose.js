@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', true);
-
 mongoose.connect('mongodb://localhost/codeial_development');
-
-// mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true});
 
 const db = mongoose.connection;
 

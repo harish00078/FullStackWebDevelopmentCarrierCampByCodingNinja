@@ -1,6 +1,6 @@
 #layout-footer {
   color: white;
-  background-image: linear-gradient(#02cebd, #04bed3, #0878a4);
+  background: grey;
   padding: 5px 10px;
   display: flex;
   justify-content: flex-start; }

@@ -1,28 +1,15 @@
-// here we are styling our (home.ejs) webpage:
-
 #home-container{
+    display: flex;
+    
+    #feed-posts{
+        width: 70%;
+        padding: 10px;
+    }
 
-  display: flex;
-
-  #feed-posts{
-    width: 70%;
-    padding: 10px;
-  }
-
-  #user-friends{
-    width: 30%;
-    padding: 10px;
-    border-left:2px solid rgb(73, 182, 218);
-    height: 100%;
-  }
-
+    #user-friends{
+        width: 30%;
+        padding: 10px;
+        border-left: 1px solid lightgrey;
+        height: 100%;
+    }
 }
-
-body{
-
-  background-image: linear-gradient(rgb(2, 206, 189),rgb(4, 190, 211),rgb(8, 120, 164));
-
-}
-
-
-

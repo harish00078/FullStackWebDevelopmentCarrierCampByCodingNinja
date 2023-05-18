@@ -6,8 +6,5 @@
   #home-container #user-friends {
     width: 30%;
     padding: 10px;
-    border-left: 2px solid #49b6da;
+    border-left: 1px solid lightgrey;
     height: 100%; }
-
-body {
-  background-image: linear-gradient(#02cebd, #04bed3, #0878a4); }
