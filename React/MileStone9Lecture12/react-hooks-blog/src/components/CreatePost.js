@@ -35,6 +35,25 @@ function CreatePost() {
     console.log('sub-title',subTitle);
     console.log('content',content);
 
+    // here we use (firestore):In this (event-handler) function:
+    // so that we can store the data of (created) blog-post:In the (database):that we are getting through the (event-handler):
+
+    // => here we are creating the (collection) in the (firestore):if it was not already created:and we named it as (posts):
+    // know after creating the (collection):we need to add the (posts) in that collection:for that we need to use the (add) function:
+    // => so for adding the (post) document in the (collection):we need to define the structure of that (post):In the (add) function:
+    // In the structuring of (post):we will only define the (fields) or (sections) of the (post) that we are using to create the (blog) post:
+    // IMP => we can also add the other extra (fields) instead of the (fields) that we are using to create (blog-post):In the structuring of (post) document:like we can add the (time-stamp) field in it:so that we can easily track on the (particular) post:
+    // we can add extra fields:by simply calling there functions with the (new) keyword:like we can call the (date) function for adding the (time-stamp) in the (post):
+
+    firestore.collection('posts').add({
+      title,
+      content,
+      subTitle,
+      createdAt: new Date(),
+    });
+
+
+
   }
 
 
