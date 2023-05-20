@@ -1,10 +1,17 @@
 // here we import the (useState) function of (react):
 
-import { useState } from "react";
+// import { useState } from "react";
 
 // here we import (fireStore):
 // so that we can store the (data) of created (blog-post) in the (database):
 import {firestore} from '../firebase';
+
+// here we are importing the (custom-hook) :that we have created in the (hooks-file):
+  // => for getting the (data) of our (form's Input) with the help of (form's) event:and we will create (event-handler) function:for handling that (event)
+  // => so that we can gave that data to application (component) with the help of  (useState) function:
+import { useFormInput } from "../hooks";
+
+
 
 
 // here we build the (Create-Post) component:with the help of (function) component:
@@ -15,9 +22,18 @@ function CreatePost() {
   // here we use the (useState) function of (react):
   // through we which can (check) or (change) the (data) of our (blog) elements:
 
-  const [title,setTitle] =useState();
-  const [subTitle,setSubTitle] =useState();
-  const [content,setContent] =useState();
+  // const [title,setTitle] = useState();
+  // const [subTitle,setSubTitle] =useState();
+  // const [content,setContent] =useState();
+
+  // here we are using the (custom-hook) :that we have created in the (hooks-file):
+  // => for getting the (data) of our (form's Input) with the help of (form's) event:and we will create(event-handler) function:fro handling that (event):
+  // => so that we can gave that data to application (component) with the help of  (useState) function:
+
+   const title = useFormInput('');
+   const subTitle = useFormInput('');
+   const content = useFormInput('');
+
 
 
   // here we create the function which will handle the (event) of our (form) element:
@@ -45,10 +61,15 @@ function CreatePost() {
     // IMP => we can also add the other extra (fields) instead of the (fields) that we are using to create (blog-post):In the structuring of (post) document:like we can add the (time-stamp) field in it:so that we can easily track on the (particular) post:
     // we can add extra fields:by simply calling there functions with the (new) keyword:like we can call the (date) function for adding the (time-stamp) in the (post):
 
+    // if we are using the (custom-hook):for giving the value of our component elements:
+    // then we also need to define the (key) of our (custom-hook's) return object:while giving the value to our (component) elements:
+    // like here for creating the (post) in the (database): we need to use the (value) key key of our (custom-hook's) return object:
+    //  because that (value) key have the (data) of our (post) Component elements:
+
     firestore.collection('posts').add({
-      title,
-      content,
-      subTitle,
+      title:title.value,
+      content:content.value,
+      subTitle:subTitle.value,
       createdAt: new Date(),
     });
 
@@ -91,14 +112,27 @@ function CreatePost() {
           => through the (onChange) event-handler of our (input-tag):and the call-back function :that we have given to this (event-handler):
           => In this (callback) function will gave the (event-handler) data to the (setTitle) function of (useState): */}
 
-          <input value={title} onChange={(e) => setTitle(e.target.value)} />
+          {/* <input value={title} onChange={(e) => setTitle(e.target.value)} /> */}
+
+          {/* here we are giving the (custom-hook):To the (input-tag):
+          =>through which we will handle all the related things to our component's particular element:
+          =>like:the (data) of our (component) elements or there (event-handler) functions: */}
+          {/* we will basically spread our (custom-hook):In the (input-tag):with the help of spread-operator:(...):
+          => these triple dots repersent the (spread-operator):
+          => Imp = we have stored our custom-hook:speartely for each of the component element:In the variables of component-element names:  */}
+
+          <input {...title}/>
+
         </div>
 
 
         {/* here we are getting the (sub-title) for (post): */}
         <div className="form-field">
           <label>Sub Title</label>
-          <input value={subTitle} onChange={(e) => setSubTitle(e.target.value)} />
+          {/* <input value={subTitle} onChange={(e) => setSubTitle(e.target.value)} /> */}
+
+          {/* same as the (title):we also use the (custom-hook) here: */}
+          <input {...subTitle}/>
 
         </div>
 
@@ -110,7 +144,11 @@ function CreatePost() {
 
           {/* here Instead of (input) tag:we are using the (textarea) tag:because we want the long-paragraph (blog) content from the (user): */}
 
-          <textarea value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+          {/* <textarea value={content} onChange={(e) => setContent(e.target.value)}></textarea> */}
+
+          {/* same as  the (title) or (subtitle):we are using the (custom-hook) here: */}
+          <textarea {...content}></textarea>
+
         </div>
 
 
