@@ -49,15 +49,19 @@ code {
   color: white;
 }
 .home .post h3 {
-  margin: 0;
+  margin: auto;
   padding: 0;
   font-size: 25px;
   font-weight: bold;
   color: white;
+  transition: 0.5s all ease-out;
+
   
 }
 .home .post h3:hover {
-  color:skyblue;
+  color:rgb(7, 25, 61);
+  transform: scale(1.5);
+
 }
 .home .post p {
   font-size: 13px;
@@ -83,13 +87,18 @@ code {
 }
 #nav li {
   margin-left: 10px;
+
 }
 #nav li a {
-  text-decoration: none;
+  text-decoration:dashed;
   color:white;
+
+
 }
 #nav li a:hover {
-  text-decoration:2px underline;
+
+  text-decoration:2px underline cyan;
+
 
 }
 .create-post h1 {
