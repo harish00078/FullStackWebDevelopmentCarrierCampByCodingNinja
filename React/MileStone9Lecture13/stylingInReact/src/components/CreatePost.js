@@ -102,7 +102,7 @@ function CreatePost() {
 
           {/* with the help of (label) tag:we will gave the Label to our (input)tag:To tell the (user) that but kind of (input):they had to put in the which particular (input) tag: */}
 
-          <label>Title</label>
+          <label style={labelStyle}>Title</label>
 
           {/* and here with the help of this (input) tag:we will get the (data) from our (user): */}
 
@@ -128,7 +128,7 @@ function CreatePost() {
 
         {/* here we are getting the (sub-title) for (post): */}
         <div className="form-field">
-          <label>Sub Title</label>
+          <label style={labelStyle}>Sub Title</label>
           {/* <input value={subTitle} onChange={(e) => setSubTitle(e.target.value)} /> */}
 
           {/* same as the (title):we also use the (custom-hook) here: */}
@@ -140,7 +140,7 @@ function CreatePost() {
         {/* here we are getting the (content) for (post): */}
         <div className="form-field">
 
-          <label>Content</label>
+          <label style={labelStyle}>Content</label>
 
           {/* here Instead of (input) tag:we are using the (textarea) tag:because we want the long-paragraph (blog) content from the (user): */}
 
@@ -167,3 +167,13 @@ function CreatePost() {
 }
 
 export default CreatePost;
+
+
+// here we gave style to our component with the help of creating a (style) atttribute separatly:
+//  And we will gave this style attribute to our component elements:where we want to use this style:
+
+// => style attributes: The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
+
+const labelStyle ={
+  color:'skyblue',
+}
