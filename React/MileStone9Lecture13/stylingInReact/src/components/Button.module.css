@@ -1,0 +1,20 @@
+/* here we create modules: for styling our application components: */
+/* css-modules => In the React application, we usually create a single .css file and import it to the main file so
+the CSS will be applied to all the components. In the large project there can be name
+collision between two css files. But using CSS modules helps to create separate CSS files for
+each component and is local to that particular file and avoids class name collision.
+
+=> A css module class is created using the [name].module.css file naming convention. CSS
+Modules allows the scoping of CSS by automatically creating a unique classname of the
+format [filename]\_[classname]\_\_[hash]. */
+
+.createPostBtn{
+  height: 33px;
+  background: black;
+  border: 0;
+  color: cyan;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}

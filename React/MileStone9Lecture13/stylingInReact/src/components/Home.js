@@ -62,6 +62,12 @@ function Home() {
 
   return (
     <div className="home">
+
+      {/* => IMP =  here we gave the same classname:To this button which we have given to the (createPost) component:but here this classname did not work:because of the (css-modules):
+      => so this is the reason that we have to use the (css-modules) for giving the styles to the (application) componenet-elements:instead of using the simple (css-stylesheets): */}
+
+      <button className="createPostBtn">this is button</button>
+
       <h1>Tech Blog</h1>
       {/* here we gave author-name to the blog: */}
 

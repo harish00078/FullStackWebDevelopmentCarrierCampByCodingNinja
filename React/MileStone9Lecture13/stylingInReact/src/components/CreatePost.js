@@ -12,6 +12,12 @@ import {firestore} from '../firebase';
 import { useFormInput } from "../hooks";
 
 
+// here we are importing the (button-module) file of (css):which we have created:
+// so that with the help of this style module-file:we can gave the style to our application components:
+import classes from './Button.module.css';
+
+
+
 
 
 // here we build the (Create-Post) component:with the help of (function) component:
@@ -154,7 +160,16 @@ function CreatePost() {
 
         {/* here we create the (button):which will create the (blog) post:
         => or we can say submit our (blog) post data: */}
-        <button className="create-post-btn">Create Post</button>
+
+        {/* <button className="create-post-btn">Create Post</button>*/}
+
+        {/* here we gave style to our component (elements):with the help of (css-modules): 
+        
+        => V-IMP = for giving the style to our component element:through the (css-module):
+        => we have to gave the reference of that css-module (object): under the (class-name) or (id) attribute: which we wanna gave to this (component-element):*/}
+        
+        <button className={classes.createPostBtn}>Create Post</button>
+
       </form>
 
 
