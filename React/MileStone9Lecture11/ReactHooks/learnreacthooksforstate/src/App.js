@@ -16,7 +16,7 @@ function App() {
 
   // (useState) method of (react) is basically  a (array) or we can say provide us the (array):which will only take the (one) argument:
   // and we have to pass the (initail-state) of our component in that (argument):we can also pass the (empty) string as (initail-state) of our component:
-  // IMP = this (useState) function:basically return the two things or two arguments we can say:In first argument,we have the (current) state of our component:and In second argument,we have the (function) to that function:we have pass our own created function for (handling) the (state-change) (event) of the component:through that function we can handle our component (state) or we can say change its (state):
+  // IMP = this (useState) function:basically return the two things or two arguments we can say:In first argument,we have the (current) state of our component:and In second argument,we have the (function):To that function we have pass our own created function which are (handling) the (OnChange) (event) of the component element:by passing our own created  function:To the (useState) method function: we can handle our component (state) or we can say change its (state):
   const emailState =  useState('');
 
 

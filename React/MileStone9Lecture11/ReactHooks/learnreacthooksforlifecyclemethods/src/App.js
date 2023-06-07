@@ -96,6 +96,7 @@ function App(props) {
     return () => {
 
       // here we are removing the eventListener:
+      
       document.removeEventListener('mousemove',onMouseMove);
 
     }
