@@ -21,7 +21,7 @@ code {
   margin: 0 auto;
 }
 
-
+/* 
 .home h1 {
   text-align: center;
   color: #2196f3;
@@ -30,7 +30,7 @@ code {
   transition: 0.5s all ease-in-out;
 
   
-}
+} */
 .home h1:hover {
 
   transform: scale(1.5);

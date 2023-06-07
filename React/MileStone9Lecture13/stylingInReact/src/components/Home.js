@@ -9,6 +9,32 @@ import { firestore } from "../firebase";
 // here we import the (Link) tag from the (react-router-dom) library:
 import { Link } from "react-router-dom";
 
+// here we are importing the (styled-components) library:through which we can style our components:with the help of (css) under the (javascript):
+import styled from "styled-components";
+
+
+// =>  here we are styling our components with the help of (styled-components)  library:
+
+// here we gave style to the heading-tag of our component:with the help of (styled-components) library:
+// =>  for giving the style to the heading-tag of our component:with the help of (styled-components) library:
+// => first we will create the variable and under that varaible:we will call the styled-component library:
+// and then second: we have to use the inbuilt functions of it:acc to the element-type of component:which we want to style:
+// => like: if we  want to gave the style to the heading-tag of our component:then we have to use the (h1 or other heading-tags) inbuild function of it:acc to our component-element:
+// => after all that will use the (string-interpolation) = (``) signs or we can quotes:because we will able to write our (css) code under those (string-interpolation) quotes:
+// => any of the (css) that we write under those (string-interpolation) quotes:will we pass as the (arguments) to the function of (styled-component) library:
+
+// this hole things will become the (component):It means that our (BlogHeading) variable will become the (component):know we can easily use that variable in our react application component:
+
+const BlogHeading = styled.h1`
+  text-align: center;
+  color: #2196f3;
+  margin-bottom: 2px;
+  background-color:black;
+  transition: 0.5s all ease-in-out;
+
+`;
+
+
 function Home() {
   // here we use the (useState) hook:so that we can (get) the data of (create-post) from the (database): and stored that or we can say gave data to the (post) variable of (useState) function:
 
