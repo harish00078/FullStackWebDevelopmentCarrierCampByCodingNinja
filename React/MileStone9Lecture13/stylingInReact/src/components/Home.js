@@ -23,7 +23,7 @@ import styled from "styled-components";
 // => after all that will use the (string-interpolation) = (``) signs or we can quotes:because we will able to write our (css) code under those (string-interpolation) quotes:
 // => any of the (css) that we write under those (string-interpolation) quotes:will we pass as the (arguments) to the function of (styled-component) library:
 
-// this hole things will become the (component):It means that our (BlogHeading) variable will become the (component):know we can easily use that variable in our react application component:
+// => V.IMP = this hole things will become the (component):It means that our (BlogHeading) variable will become the (component):know we can easily use this variable as a (component) in our react application:
 
 const BlogHeading = styled.h1`
   text-align: center;
@@ -94,7 +94,11 @@ function Home() {
 
       <button className="createPostBtn">this is button</button>
 
-      <h1>Tech Blog</h1>
+      {/* <h1>Tech Blog</h1> */}
+
+      {/* here use the variable-component:which we have created for giving the style to the (heading) of our home page: */}
+      <BlogHeading>Tech Blogs</BlogHeading>
+
       {/* here we gave author-name to the blog: */}
 
       <div id="blog-by">
