@@ -34,6 +34,52 @@ const BlogHeading = styled.h1`
 
 `;
 
+// how we can gave the styling to the (nesting-elements):with the help of styled-components library:
+
+const Post = styled.div`
+  border: 3px solid darkblue;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color:black;
+
+  /* how we can use the (sudo-classes) or we can say inbuild function of the (css):like (hover) and etc: In the styled-components library:
+  
+  => we want to use the (hover) function: on the (h3)-tag:
+  => for doing that we have to use the (amparsent-sign or symbol) =  (&):
+  => which will define to the compiler that we want to gave the (hover) function to the  element:which were present at the lower side of me:*/
+  &:hover{
+    color:rgb(7, 25, 61);
+  transform: scale(1.5);
+  }
+
+
+  /* if we want to gave the style to the any other element:which is persent in the (post-div):or In main element we can say:
+  => then we can simply do this why defining the (tag-name) of that element:
+  => and  we will gave the (style) code to that tag: why simply using the curly bracket on it
+  :*/
+  h3{
+    margin: auto;
+  padding: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  transition: 0.5s all ease-out;
+  }
+  a{
+    text-decoration: none;
+  color: white;
+  }
+
+  /* we can also use multiple things in it same as we do in the (css):like (media-queries) and etc: */
+  /* @media (max-width:1100){
+    color: cyan;
+  } */
+
+
+
+`;
+
 
 function Home() {
   // here we use the (useState) hook:so that we can (get) the data of (create-post) from the (database): and stored that or we can say gave data to the (post) variable of (useState) function:
@@ -118,7 +164,11 @@ function Home() {
       {posts.map((post, index) => (
         // using this (div):we will display the (post-titles) on the browser:
         // we are also passing the (index) number to the (posts):so that we can differentiate between the multiple (posts): when we are using the (map) function to display them on the browser:
-        <div className="post" key={`post-${index}`}>
+
+        // IMP =>  here we are giving the style to the (post-div):with the help of styled-component libraray:
+        // for this (post-div) we have created the (Post) component:with the help of styled-component library:and we will use that (Post) component as (tag) instead of (div) tag:here in the (post-div) element:for giving the style to it:
+
+        <Post className="post" key={`post-${index}`}>
           {/* under this (post-div):we have added the (link):
         => through which we will be connected to the (post-detail) page: 
         => IMP = where we show our (post) in the (details):*/}
@@ -134,7 +184,7 @@ function Home() {
           {/* we also add the (subtitle) of the (post):outside the linK:
         => so that user can have more clreaty related to the (post): */}
           <p>{post.subTitle}</p>
-        </div>
+        </Post>
       ))}
     </div>
   );
