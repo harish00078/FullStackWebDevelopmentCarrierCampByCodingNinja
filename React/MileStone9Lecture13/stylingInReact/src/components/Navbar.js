@@ -2,6 +2,21 @@
 // so that we can add the (Links) of different components in the (navbar) component:
 import { Link } from "react-router-dom";
 
+// here we are importing the (styled-components) library:so that with the help of this library we can gave the (style) to the (Link-tag):which we are using from the other third party library:
+// here we are learning about that:how we can gave the style to the third party libraries:with the help of (styled-components) library:
+import styled  from 'styled-components';
+
+
+// here we are giving the style to (link-tag):which we are getting from the third party library named as (react-router-dom):
+// for giving the style to the (link-tag):with the help of (styled-components) library:
+// we simply have to put the (tag) or whatever which we are using from the third party library:In the simple-brackets:
+// know after putting it in the (brackets):we can simply gave the style to it with the help of styled-components library:why using the (string-interpolation) = (``) marks after that (tag):
+
+const StyledLink = styled(Link)`
+
+`;
+
+
 
 // here we create the (Navbar) component:with the help of (function) component:
 
@@ -28,13 +43,13 @@ function Navbar() {
         {/* here we add the link of our (home) component:In the (navbar): */}
 
         <li>
-          <Link to="/">Home</Link>
+          <StyledLink to="/">Home</StyledLink>
         </li>
 
           {/* here we add the link of our (create post) component:In the (navbar): */}
 
         <li>
-          <Link to="/create-post">Create Post</Link>
+          <StyledLink to="/create-post">Create Post</StyledLink>
         </li>
 
 
