@@ -89,18 +89,18 @@ code {
   margin-left: 10px;
 
 }
-#nav li a {
+/* #nav li a {
   text-decoration:dashed;
   color:white;
 
 
-}
-#nav li a:hover {
+} */
+/* #nav li a:hover {
 
   text-decoration:2px underline cyan;
 
 
-}
+} */
 .create-post h1 {
   text-align: center;
   font-style: italic;
