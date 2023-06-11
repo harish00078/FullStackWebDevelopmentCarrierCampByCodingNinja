@@ -14,9 +14,27 @@ import { useFormInput } from "../hooks";
 
 // here we are importing the (button-module) file of (css):which we have created:
 // so that with the help of this style module-file:we can gave the style to our application components:
-import classes from './Button.module.css';
+// import classes from './Button.module.css';
 
 
+// here we are importing the (styled-component) library:
+import styled from 'styled-components';
+
+
+// here we are creating the (component) with the help of (styled-component) library:
+// through which we can gave the style to (button-element) of our application component:
+// by simply passing that styled (component) to the button-element as a (tag):
+
+const StyledButton = styled.button`
+  height: 33px;
+  background: black;
+  border: 0;
+  color: cyan;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+`;
 
 
 
@@ -168,7 +186,13 @@ function CreatePost() {
         => V-IMP = for giving the style to our component element:through the (css-module):
         => we have to gave the reference of that css-module (object): under the (class-name) or (id) attribute: which we wanna gave to this (component-element):*/}
         
-        <button className={classes.createPostBtn}>Create Post</button>
+        {/* <button className={classes.createPostBtn}>Create Post</button> */}
+
+        {/* here we are giving the style to the button element:
+        =>with the help of (styled-component) library: */}
+        
+        <StyledButton>Create Post</StyledButton>
+
 
       </form>
 
