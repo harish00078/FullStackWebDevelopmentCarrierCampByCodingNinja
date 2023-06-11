@@ -13,7 +13,14 @@ import styled  from 'styled-components';
 // know after putting it in the (brackets):we can simply gave the style to it with the help of styled-components library:why using the (string-interpolation) = (``) marks after that (tag):
 
 const StyledLink = styled(Link)`
+  text-decoration:dashed;
+  color:white;
 
+  &:hover{
+    
+  text-decoration:2px underline cyan;
+
+  }
 `;
 
 
