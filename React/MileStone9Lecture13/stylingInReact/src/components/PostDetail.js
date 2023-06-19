@@ -1,7 +1,7 @@
 // here we create the (PostDetail) component:with the help of (function) component:
 
 import { useEffect, useState } from "react";
-import { firestore } from "../firebase";
+
 
 // here we are importing the (useParams) hook:from the (react-router-dom) library:
 // through this (useParams) hook:we will get our (post-id) from this (post-detail) component's (urL):
@@ -9,9 +9,23 @@ import { firestore } from "../firebase";
 import {useParams} from "react-router-dom";
 
 
+// here we are importing the (radium) library:through which we can also gave the style to our application component:
+// IMP => radium is basically a (higher order component):It basically take the component  as argument and return us with the newer component:
+import Radium from 'radium';
+
+// how to use radium: => 
+// 1 = Start by wrapping your component class with Radium(), like export default Radium(Component), or Component = Radium(Component):
+// 2 = which works with classes,createClass, and stateless components (functions that take props and return a ReactElement).
+// 3 =  Then, write a style object as you normally would with inline styles, and add in styles for interactive states and media queries. Pass the style object to your component via style={...} and let Radium do the rest!
+
+
+
+import { firestore } from "../firebase";
+
+
 function PostDetail(){
 
-
+ 
   // here we gave the (empty) object:To the UseState hook:as the initail-value of our post-detail component:
 
   const [post,setPost] = useState({});
@@ -48,11 +62,29 @@ function PostDetail(){
 
   return <div className="post-detail"> 
 
-  <h1>{post.title}</h1>
+  <h1  style={styles.heading}>{post.title}</h1>
 
   <p>{post.content}</p>
 
   </div>;
 }
 
-export default PostDetail;
+// here we rap our application component:with in the (radium) library:which is our higher order component:
+export default  Radium(PostDetail);
+
+
+// here we create styles-object:under that object we can create multiple objects acc to the elements of application component:and gave the styles to them:
+// Its same as the inline-styling:but with the help of (radium): we can also add the multiple other style things in this inline-styling:like we can add the (hover) type sudo-classes in it:
+const styles = {
+  heading:{
+    backgroundColor: 'black',
+    color: 'white',
+    fontStyle: 'oblique',
+    transition: '0.5s all ease-in-out',
+    // here we are adding the (hover) type sudo-class:
+    ':hover':{
+      // transform: 'scale(1.5)',
+      color: 'cyan',
+    }
+  },
+}

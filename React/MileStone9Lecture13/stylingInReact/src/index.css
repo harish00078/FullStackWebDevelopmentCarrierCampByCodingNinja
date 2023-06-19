@@ -153,17 +153,17 @@ code {
   cursor: pointer;
 } */
 
-.post-detail h1{
+/* .post-detail h1{
   background-color: black;
   color: white;
   font-style: oblique;
   transition: 0.5s all ease-in-out;
 
-}
+} */
 
-.post-detail h1:hover{
+/* .post-detail h1:hover{
   transform: scale(1.5);
-}
+} */
 
 .post-detail p{
   background-color: black;
