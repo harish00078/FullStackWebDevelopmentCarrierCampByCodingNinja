@@ -94,6 +94,9 @@ const styles = {
     // backgroundColor: "black",
 
     },
+    '@media(max-width:720px)':{
+      color:'cyan',
+    },
     // ':active': {
     //   backgroundColor: '#005299',
     //   transform: 'translateY(2px)',
