@@ -52,7 +52,7 @@ function PostDetail() {
     <div className="post-detail">
       <h1 style={styles.heading}>{post.title}</h1>
 
-      <p>{post.content}</p>
+      <p style={styles.PostDetail}>{post.content}</p>
     </div>
   );
 }
@@ -63,17 +63,40 @@ export default Radium(PostDetail);
 // here we create styles-object:under that object we can create multiple objects acc to the elements of application component:and gave the styles to them:
 // Its same as the inline-styling:but with the help of (radium): we can also add the multiple other style things in this inline-styling:like we can add the (hover) type sudo-classes and the ()in it:
 const styles = {
+
+   // Adding interactive state couldn't be easier! Add a special key to your
+    // style object (:hover, :focus, :active, or @media) with the additional rules.
+
+  PostDetail: {
+
+    backgroundColor: 'black',
+    color: 'white',
+    fontStyle: 'italic',
+    fontSize: '25px',
+
+    // here we are adding the (media-queries) in it:
+    '@media(max-width:720px)':{
+      color:'cyan',
+    }
+
+  },
+
+
   heading: {
-    // backgroundColor: "black",
-    color: "black",
+    backgroundColor: "black",
+    color: "white",
     fontStyle: "oblique",
-    transition: "0.5s all ease-in-out",
+    // transition: "0.5s all ease-in-out",
     // here we are adding the (hover) type sudo-class:
     ':hover': {
       // transform: 'scale(1.5)',
-      color: "skyblue",
-    backgroundColor: "black",
+      color:'cyan',
+    // backgroundColor: "black",
 
     },
+    // ':active': {
+    //   backgroundColor: '#005299',
+    //   transform: 'translateY(2px)',
+    // },
   },
 };
