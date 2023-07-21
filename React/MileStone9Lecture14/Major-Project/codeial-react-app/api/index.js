@@ -28,6 +28,5 @@ const getPosts = (page,limit) => {
 
 }
 
-// create the getpost function for react component?
 
 
