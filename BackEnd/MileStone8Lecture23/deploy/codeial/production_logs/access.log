@@ -438,3 +438,27 @@
 [0mGET /users/css/footer.css [33m404[0m 6.650 ms - 159[0m
 ::1 - - [21/Apr/2023:12:11:57 +0000] "GET /users/sign-in HTTP/1.1" 200 2131 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [21/Apr/2023:12:11:59 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET / [0m-[0m - ms - -[0m
+[0mGET / [32m200[0m 739.170 ms - 4506[0m
+[0mGET /favicon.ico [33m404[0m 30.504 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 42.222 ms - 2095[0m
+[0mGET /users/css/header.css [33m404[0m 16.508 ms - 159[0m
+[0mGET /users/css/layout.css [33m404[0m 16.252 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 27.178 ms - 159[0m
+[0mGET /users/sign-in [36m304[0m 13.484 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 9.553 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 14.573 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 11.615 ms - 159[0m
+[0mGET /users/sign-in [36m304[0m 9.364 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 9.816 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 12.763 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 13.542 ms - 159[0m
+[0mGET /users/sign-in [36m304[0m 8.881 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 9.647 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 9.613 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 10.840 ms - 159[0m
+::1 - - [22/Jul/2023:12:08:55 +0000] "GET / HTTP/1.1" 200 4460 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [22/Jul/2023:12:09:00 +0000] "GET /users/sign-in HTTP/1.1" 200 2131 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [22/Jul/2023:12:09:09 +0000] "POST /users/create-session HTTP/1.1" 302 72 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [22/Jul/2023:12:09:09 +0000] "GET /users/sign-in HTTP/1.1" 200 2423 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [22/Jul/2023:12:09:11 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
