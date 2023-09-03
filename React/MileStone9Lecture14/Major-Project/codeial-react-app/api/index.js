@@ -1,9 +1,9 @@
 // here we are creating  the (customFetch) function:
 // so that we did not have to write the (fetch) function.again and again for the every function which we will create to get the data from the APIs related to the particular compomemt element of our application:
 // with the help of this (customFetch) function.we did not have to write the (try) and (catch) method again and again as well. for the every function which we have created to get the data of particular application component element: 
-const customFetch = () => {
+// const customFetch = () => {
 
-};
+// };
 
 
 
@@ -17,16 +17,16 @@ const customFetch = () => {
 // second is the (limit).In  this argument: we will define that how much (posts) we want  to fetch  from the (API):
 
 
-// IMP => getPosts is basically a (pull) API request:basically it means that we are getting the data from the (API):
-const getPosts = (page,limit) => {
+// // IMP => getPosts is  a (pull) API request:basically it means that we are getting the data from the (API):
+// const getPosts = (page,limit) => {
 
-  // under this function: we need to call the (API):from where we get the (posts) data.
-  // Instead of directly calling the (API) in this (function): we will call our  (customFetch)  function. where we have written the (logic) related to our (API) calling:
+//   // under this function: we need to call the (API):from where we get the (posts) data.
+//   // Instead of directly calling the (API) in this (function): we will call our  (customFetch)  function. where we have written the (logic) related to our (API) calling:
 
-  // so for  connecting it with the (customFetch) function:we need to return it to the (customFetch) function:
-  return customFetch();
+//   // so for  connecting it with the (customFetch) function:we need to return it to the (customFetch) function:
+//   return customFetch();
 
-}
+// }
 
 
 
