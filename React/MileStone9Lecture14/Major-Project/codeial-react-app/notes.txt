@@ -2,6 +2,10 @@
 
 => The Bearer Token is created for you by the Authentication server. When a user authenticates your application (client) the authentication server then goes and generates for you a Token. Bearer Tokens are the predominant type of access token used with OAuth 2.0. A Bearer token basically says "Give the bearer of this token access".
 
+// defination of the Bearer token:
+
+=> A bearer token is a type of access token used in authentication and authorization processes for securing access to online resources or services. It is typically a long, randomly generated string that serves as proof of the authenticated user's identity or authorization to access certain resources.and is used in web applications and APIs to hold user credentials and indicate authorization for requests and access. Bearer tokens are generated based on protocols and specifications such as OAuth and JWT (JSON Web Token).
+
 => The Bearer Token is normally some kind of opaque value created by the authentication server. It isn't random; it is created based upon the user giving you access and the client your application getting access.
 
 => In order to access an API for example you need to use an Access Token. Access tokens are short lived (around an hour). You use the bearer token to get a new Access token. To get an access token you send the Authentication server this bearer token along with your client id. This way the server knows that the application using the bearer token is the same application that the bearer token was created for. Example: I can't just take a bearer token created for your application and use it with my application it wont work because it wasn't generated for me.
@@ -9,3 +13,18 @@
 => Google Refresh token looks something like this: 1/mZ1edKKACtPAb7zGlwSzvs72PvhAbGmB8K1ZrGxpcNM
 
 => copied from comment: I don't think there are any restrictions on the bearer tokens you supply. Only thing I can think of is that its nice to allow more than one. For example a user can authenticate the application up to 30 times and the old bearer tokens will still work. oh and if one hasn't been used for say 6 months I would remove it from your system. It's your authentication server that will have to generate them and validate them so how it's formatted is up to you.
+
+
+// how bearer tokens work:
+
+Authentication: When a user or application wants to access a protected resource, they first need to obtain a bearer token through a prior authentication process. This process usually involves providing a username and password or other credentials.
+
+Token Issuance: After successful authentication, a bearer token is generated and issued to the user or application. This token is associated with specific permissions or scopes that determine what actions can be performed with it.
+
+Authorization: The bearer token is included in the HTTP request headers when accessing a protected resource. The token alone is used to authenticate the request, and the server validates the token to determine if the request is authorized.
+
+Stateless: Bearer tokens are typically stateless, meaning the server doesn't need to store any session information. The token itself contains all the necessary information for authentication and authorization.
+
+Security Considerations: Since bearer tokens can grant access without additional credentials, they must be kept secure. If a token is intercepted or stolen, an attacker can potentially gain unauthorized access to the associated resource. To mitigate this risk, tokens should be transmitted over secure channels (e.g., HTTPS) and stored securely.
+
+Bearer tokens are commonly used in web applications and APIs to allow users or applications to access protected resources, such as user data or services, without constantly providing their credentials. However, it's crucial to implement proper security measures to protect bearer tokens and ensure they are used securely.
