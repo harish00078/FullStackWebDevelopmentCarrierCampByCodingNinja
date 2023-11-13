@@ -28,3 +28,10 @@ Stateless: Bearer tokens are typically stateless, meaning the server doesn't nee
 Security Considerations: Since bearer tokens can grant access without additional credentials, they must be kept secure. If a token is intercepted or stolen, an attacker can potentially gain unauthorized access to the associated resource. To mitigate this risk, tokens should be transmitted over secure channels (e.g., HTTPS) and stored securely.
 
 Bearer tokens are commonly used in web applications and APIs to allow users or applications to access protected resources, such as user data or services, without constantly providing their credentials. However, it's crucial to implement proper security measures to protect bearer tokens and ensure they are used securely.
+
+
+
+// More on Bearer-Token:
+Bearer tokens are a type of access token used in the OAuth 2.0 authentication framework. They're utilized for authorizing and accessing resources on the internet, commonly within APIs. The term "Bearer" signifies that whoever possesses the token has the authority to access a resource and perform actions on behalf of the user without demonstrating their ownership of the token.
+
+These tokens are issued by an authorization server upon successful authentication and are included in the HTTP Authorization header of requests to prove the user's authorization to access a particular resource. The token itself holds information about the permissions and the duration of access granted. It's crucial to handle bearer tokens securely since anyone in possession of a bearer token can access the associated resources until the token expires or is revoked.
