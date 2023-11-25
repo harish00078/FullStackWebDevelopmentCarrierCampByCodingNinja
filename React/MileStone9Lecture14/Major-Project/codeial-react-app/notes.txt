@@ -56,3 +56,6 @@ https://www.devopsschool.com/blog/wp-content/uploads/2021/05/What-is-bearer-toke
 => Cross-Origin Resource Sharing (CORS):
 - If the token is sent in the Authorization header, CORS won't be an issue as it doesn't use cookies.
 V.IMP => To keep JWTs secure, you can store them inside an httpOnly cookie. This is a special kind of cookie that's only sent in HTTP requests to the server.
+
+// webpage link:
+https://www.devopsschool.com/blog/what-is-bearer-token-and-how-it-works/
