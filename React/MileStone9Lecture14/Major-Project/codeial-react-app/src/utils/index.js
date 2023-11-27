@@ -10,7 +10,8 @@ const API_ROOT = "https://codeial.codingninjas.com:8000/api/v2/";
 
 // doc url - https://www.notion.so/aakashcn/Codeial-API-docs-3a4d0b5a42c54f0a94d951a42aabc13f
 
-// here we have stored our all the (API-URls):In the export method with the help of (const) variable method:so that we can use them in the other files of the application as well:
+// here we have stored our all the (API-URls):In the export method with the help of (const) variable (object):so that we can use them in the other files of the application as well:
+// this (API_URlS) is basically a (object).which has the (Key,value) pairs in it.these (key,values) are in the form of (functions):
 // here we have created the (object) of (API-URls):so that we can store them in the form of (Key, Value) pairs:
 // here these (keys) basically are the functions and these (values) are value for those functions:
 // IMP => we use the (function) method instead of using the simple (String) method:To create key,value pairs:because In some of the (API-urls) we have the conditions present in them:so for passing those (urls) a condition (value): we need to use the function method:so that we can pass the condition (values) to those (urls) with the help of  function (argument):
@@ -37,3 +38,12 @@ export const API_URLS = {
   userInfo: (userId) => `${API_ROOT}/users/${userId}`,
   searchUsers: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
+
+
+// here we create the another object:which has the (key,value) pairs:
+// In this object we will store our (tokens).which we are getting from the (server).
+// when the (User) authenticate in the application:
+
+// here we gave this object a (default) value:
+// so when we login or authenticate in  the application.we will replace it with the (original) token key:
+export const LOCALSTORAGE_TOEKN_KEY = '__codeial_token__';
