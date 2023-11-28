@@ -59,3 +59,28 @@ V.IMP => To keep JWTs secure, you can store them inside an httpOnly cookie. This
 
 // webpage link:
 https://www.devopsschool.com/blog/what-is-bearer-token-and-how-it-works/
+
+
+
+
+// what is the meaning of this syntax: (${});
+=> The syntax is used in template literals, also known as template strings.
+=> It allows you to embed expressions inside string literals using backticks (`).
+=> The embedded expressions are replaced with their values when the code is executed.
+=> for example:
+javascript
+const name = "John";
+console.log(`Hello ${name}`); // Output: Hello John;
+
+// what are the (promises):
+- In JavaScript, a Promise is an object that will produce a single value some time in the future. If the promise is successful, it will produce a resolved value,
+- but if something goes wrong then it will produce a reason why the promise failed.
+=> A Promise represents the eventual completion or failure of an asynchronous operation and its resulting value.
+=> Promises can aggregate multiple callbacks into a single callback via.
+=> Promise.all() method returns a promise that resolves to an array of results from each of the promises passed as input.
+=> They provide a more readable way to handle asynchronous operations.
+
+
+// meaning of (const variable = {}) and (variable :{}):
+- curly brackets: {} this is used to enclose block of statements and declare object (like var obj = {}) .
+- semicolon: this is also used to access the properties of the object. for-Example: if we have a json-object .

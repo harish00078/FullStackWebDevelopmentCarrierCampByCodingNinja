@@ -39,11 +39,10 @@ export const API_URLS = {
   searchUsers: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
 
-
 // here we create the another object:which has the (key,value) pairs:
 // In this object we will store our (tokens).which we are getting from the (server).
 // when the (User) authenticate in the application:
 
 // here we gave this object a (default) value:
 // so when we login or authenticate in  the application.we will replace it with the (original) token key:
-export const LOCALSTORAGE_TOEKN_KEY = '__codeial_token__';
+export const LOCALSTORAGE_TOEKN_KEY = "__codeial_token__";
