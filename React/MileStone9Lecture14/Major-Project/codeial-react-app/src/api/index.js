@@ -1,7 +1,11 @@
 // here we are importing our object:which we have created in the (utils) folder of application:
 // so that we can  store the  (token-key) in our application.
 // and also we will be ablw to use it where-ever and when-ever we want it:
-import { LOCALSTORAGE_TOEKN_KEY } from "../src/utils";
+
+// we are also importing the (API_URLS):from the (utils) folder:
+// so that we can use them in our component-function.
+// TO fetch the particular data from the (server) acc to our component:
+import {API_URLS, LOCALSTORAGE_TOEKN_KEY } from "../utils";
 
 // here we are creating  the (customFetch) function:
 // so that we did not have to write the (fetch) function.again and again for the every function which we will create to get the data from the APIs related to the particular compomemt element of our application:
@@ -103,7 +107,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // if we (successfully) get the (data) from the (server):
     // then we need to (return) it from this (customFetch) function:
     // so we can use that (data) in our (Component) function and represent it on our application:
-    if (response.success) {
+    if (data.success) {
       // our const (data) variable will have the (json) object:
       // and In that (json) object.we have the (data)-key.
       // In that (data-key) will have our (data) related to the (api-req) which we have made to the (server):
@@ -112,7 +116,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
         data: data.data,
         success: true,
       };
-      console.log(data);
+      // console.log(data);
     }
     // console.log(data);
 
@@ -144,12 +148,31 @@ const customFetch = async (url, { body, ...customConfig }) => {
 // we also need to pass the two (arguments) to this customFetch function:
 // first is the (page).In this argument:we will define that which (page's) posts we want to fetch:
 // second is the (limit).In  this argument: we will define that how much (posts) we want  to fetch  from the (API):
+// IMP = we can also gave the (value) to the (arguments) here.if we did not get them from the application (component) it self:
 
 // IMP => getPosts is  a (pull) API request:basically it means that we are getting the data from the (API):
-const getPosts = (page, limit) => {
+export const getPosts = (page = 1, limit = 5) => {
   // under this function: we need to call the (API):from where we get the (posts) data.
   // Instead of directly calling the (API) in this (function): we will call our  (customFetch)  function. where we have written the (logic) related to our (API) calling:
-
   // so for  connecting it with the (customFetch) function:we need to return this (getPosts) function's data to the (customFetch) function:
-  return customFetch();
+
+  // IMP = we need to the (data) related to our (component-function).
+  // which we want to send to the (server) through the (api-request):
+  // In this (return-statement) through which we are connecting to the (CustomFetch).
+  // we wull gave our data to it.related to our (component) or our (Api-request):
+  // which we want to send to the (server):
+
+  // IMP:things we have define in the (return) statement:
+  // 1 = first we need to define the particular (URl):related to our (component) function:
+  // V.IMP = we also need to define the (url) with its (key) acc to its type:
+  // like if its (function-type) or simple (string-type) (key-value) pair :
+  // V.IMP = we also need to pass the (arguments) in the (key) of the (URL):
+  // if there were present for the particular (component-function):
+  // 2 = second we need to pass the (method) or (type) of this (request):
+
+  return customFetch(API_URLS.posts(page,limit),{
+    method:'GET',
+  });
+
 };
+

@@ -125,37 +125,37 @@ class App extends React.Component {
     //     });
 
 
-    //     // know after getting all the products with there data:know we have to show them on the browser:
-    //     // for that we have to use the (setstate) function:which will set the state of our (component):
+    //     know after getting all the products with there data:know we have to show them on the browser:
+    //     for that we have to use the (setstate) function:which will set the state of our (component):
 
-    //     // for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
+    //    for that first we have to store our (products) with there (data) in the (varaible):so that we can easily gave them to the (setstate) function:
 
-    //     // or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
+    //    or we can say we have to create the variable on that variable: we will create the arrow function:and that (arrow) function  will returing us all the  products with there data:
 
-    //     // we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
+    //    we use (arrow) function with (map) function:so that we can (loop) over on the (snapshot) object's (docs) element:which will have the array of our (products): 
         
-    //     // we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
+    //    we also did this so that we can (loop) over them one by one with there (data):and then gave them to our components one by one:with the help of (setstate) function:
 
     //     const products = snapshot.docs.map((doc) => {
 
-    //       // here we create (data) variable:which will have the (data) of our (products):
+    //      here we create (data) variable:which will have the (data) of our (products):
     //       const data = doc.data();
 
-    //       // we also have to return the (unique-id) of our each product:
-    //       // so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
-    //       // we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
+    //      we also have to return the (unique-id) of our each product:
+    //      so here we are putting or storing  the (unique-id) of our each product:In the (data) variable:
+    //      we create a (array) in our data variable:and that array will have the (string) of our products (UniqueId):
     //       data['id'] = doc.id;
 
     //       return data;
 
     //     })
 
-    //     // here we are giving our (products) to our components:with the help of (setstate) function:
+    //    here we are giving our (products) to our components:with the help of (setstate) function:
     //     this.setState({
 
     //       products:products,
 
-    //       // after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
+    //        after we will get all the products from our (database) on broswer:we will set our (loading) state into (false):
     //       loading:false,
 
 
