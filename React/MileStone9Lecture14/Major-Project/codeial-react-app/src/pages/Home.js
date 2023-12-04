@@ -10,7 +10,7 @@ const Home = () => {
   // so that we can export it from this file: and use it in our (application):
 
   return(
-    
+    <div ></div>
   );
 
 

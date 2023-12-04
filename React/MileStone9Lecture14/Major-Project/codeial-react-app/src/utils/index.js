@@ -1,48 +1,23 @@
-// what are APIs: Application Programming Interfaces APIs (Application Programming Interfaces) are software components that enable two software components to communicate with each other using a set of definitions and protocols. APIs serve as an intermediary between two disconnected applications, and can handle requests, business logic, and data formats. APIs can be open source or private, and may or may not require a network to function.
+//  here we are importing the (constants) file:
+// V.IMP = so basically there are so many ways to (import) and (export) the files.
+// V.IMP = it will basically depend on that what we have in the file:
+// for-example:if we are importing and exporting the (Constants) file.
+// so then instead of importing and exporting it as the normal file.
+// we can import and export it in different way or we can say in the (simple) way:
 
-// here we are using the (APIs) from the coding-ninjas:
+// => this is (simple) way to do it:if we have (multiple) export function in the one (file):
+// -> first we import:
+// import {API_URL,local_storage_token} from './constants.js';
+// -> and then second we export them:
+// V.IMP -> like this as an (object) of (multiple-functions):
+// export {API_URL,Local_Storage_token};
 
-// this is the root of the (APIs):
-const API_ROOT = "https://codeial.codingninjas.com:8000/api/v2/";
+// => this is (other) way to do it:
+// V.IMP = by simply using the (*) asterisk method on the (constants) file and (export) it:
+// => (asterisk) =  The asterisk (*) in the context of React’s export statement is used to export all the named exports from a module as a single object1. This is useful when you want to group multiple exports from a module into a single object.
+// V.IMP = this will basically get all the (exported-function) from the (Constants) file in the (Utils) file:
+// and then from the (utils) file we will export them and gave it to the (application):
+// IMP = with the help of this method we can (export) all the export-function in (one-line):
+export * from './constants';
 
-// here we have the documentation related to these (APIs):In the (notion) documentation system:
-// like how these (APIs) has been created and what are things has been  used to create them:
 
-// doc url - https://www.notion.so/aakashcn/Codeial-API-docs-3a4d0b5a42c54f0a94d951a42aabc13f
-
-// here we have stored our all the (API-URls):In the export method with the help of (const) variable (object):so that we can use them in the other files of the application as well:
-// this (API_URlS) is basically a (object).which has the (Key,value) pairs in it.these (key,values) are in the form of (functions):
-// here we have created the (object) of (API-URls):so that we can store them in the form of (Key, Value) pairs:
-// here these (keys) basically are the functions and these (values) are value for those functions:
-// IMP => we use the (function) method instead of using the simple (String) method:To create key,value pairs:because In some of the (API-urls) we have the conditions present in them:so for passing those (urls) a condition (value): we need to use the function method:so that we can pass the condition (values) to those (urls) with the help of  function (argument):
-
-// IMP => we also need to convert those (API-urls) into the pure (string) form:so for that we are using the (string-interpolation) function:
-
-export const API_URLS = {
-  login: () => `${API_ROOT}/users/login`,
-  signup: () => `${API_ROOT}/users/signup`,
-  posts: (page, limit) => `${API_ROOT}/posts?page=${page}&limit=${limit}`,
-  createPost: (content) => `${API_ROOT}/posts/create`,
-  createFriendship: (userId) =>
-    `${API_ROOT}/friendship/create_friendship?user_id=${userId}`,
-  friends: () => `${API_ROOT}/friendship/fetch_user_friends`,
-  removeFriend: (userId) =>
-    `${API_ROOT}/friendship/remove_friendship?user_id=${userId}`,
-  toggleLike: (itemId, itemType) =>
-    `${API_ROOT}/likes/toggle?likeable_id=${itemId}&likeable_type=${itemType}`, // itemType is 'Post'/'Comment'
-  getLikes: (itemId, itemType) =>
-    `${API_ROOT}/likes?likeable_id=${itemId}&likeable_type=${itemType}`,
-  comment: () => `${API_ROOT}/comments`, // POST - create, GET - list of comments
-  deleteComment: (commentId) => `${API_ROOT}/comments?comment_id=${commentId}`,
-  editUser: () => `${API_ROOT}/users/edit`,
-  userInfo: (userId) => `${API_ROOT}/users/${userId}`,
-  searchUsers: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
-};
-
-// here we create the another object:which has the (key,value) pairs:
-// In this object we will store our (tokens).which we are getting from the (server).
-// when the (User) authenticate in the application:
-
-// here we gave this object a (default) value:
-// so when we login or authenticate in  the application.we will replace it with the (original) token key:
-export const LOCALSTORAGE_TOEKN_KEY = "__codeial_token__";
