@@ -15,3 +15,10 @@ import Home from "./Home";
 // V>IMP 5 -> that's why we are putting them in the export (object):
 // V.IMP = and  we did not use the (default) method on export. if we are importing the multiple (file) in the one export statement:
 export { Home };
+
+// IMP = we can also export the (pages) with the help of (asterisk):
+// with the help of this method we can easily (import) and (export) the (pages).
+// In the application from the main file of the (pages) folder:
+// export * from './Home';
+
+

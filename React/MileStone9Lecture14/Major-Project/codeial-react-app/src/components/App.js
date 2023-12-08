@@ -1,9 +1,14 @@
 // we use (useEffect) hook of (react):To fetch the data from the (server) through (API):
 import { useEffect } from "react";
 
-// here we are importing the function.through which we are connecting to the (server):
+// =>  here we are importing the functions.through which we are connecting to the (server):
 // and the getting the (data) for the (component):
 import { getPosts } from "../api";
+
+// => here we are importing our application (pages):
+
+// first we import the (home) page:
+import { Home } from "../pages";
 
 function App() {
   // here we are using the (useEffect) hook:
@@ -33,9 +38,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        <button> harish this side</button>
-      </h1>
+    
+        {/* here we are rendering or showing out (home) page */}
+        <Home/>
+      
     </div>
   );
 }
