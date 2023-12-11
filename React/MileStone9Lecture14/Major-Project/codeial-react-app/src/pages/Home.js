@@ -3,21 +3,11 @@
 // we basically tell the (react) that the (prop) which we are passing to this component.
 // that should be in the form of (array):so that we did not get (error) in application:
 // while we are fetching the (data) from the (prop):
-import PropTypes from 'prop-types';
-
-// import { useEffect,useState } from "react";
+import PropTypes from "prop-types";
 
 // here we are creating the home-component for our application:
 // here we are importing the (css-module) which we have created particularly for this (component) of our application:
 import styles from "../styles/home.module.css";
-// =>  here we are importing the functions.through which we are connecting to the (server):
-// and the getting the (data) for the (component):
-// import { getPosts } from "../api";
-
-// here we are importing the loader-component:
-// we can simply use the (./) to import  our Loader-comonent:
-// because our (app) or (loader) component both present in the same folder:
-// import { Loader } from "../components";
 
 // we are creating the home page or component through  (Function) component type:
 // so for creating the (home) page we can use the (arrow) function:instead of using casual function:
@@ -39,100 +29,18 @@ import styles from "../styles/home.module.css";
 // and we are accessing our (prop) from that (Object).
 // that' why we need to pass the (prop) as object to the (component):
 
-
-export const Home = ({posts}) => {
+export const Home = ({ posts }) => {
   // under this arrow function.we will write the (html) for our (home-page):
   // and return it from this function.
   // so that we can export it from this file: and use it in our (application):
-
-
-    // here we using the (useState) hook to repersent our (posts) from the (server):
-  // In our (app) or (home) component:
-  // IMP = the initail value of (useState) hook will be a empty array:
-
-  // V.IMP = after getting the (posts) from the (setPosts) function to (posts) variable:
-  // we need to gave that (posts) or (posts) variable to our (home-page):
-  // because we have written the (posts-component) in our home-page:
-  // V.IMP = we can do that with the help of (props) method:
-  // so we are passing the (posts) variable.which have our (posts) data:
-  // To our (home-page) with the help of (props) method:
-  // const [posts, setPosts] = useState([]);
-
-  // // here we are creating the another (State) loading:
-  // // through which we will show the (loading) spinner on our application-browser:
-  // // while we are fetching the (data) from the (server):
-
-  // // by default this loader will have the (true) value:
-  // // so that when ever our application get start or load:
-  // // it will start immediately.and continous running until we will get the (data) from the (server) 
-  // const[loading,setLoading] = useState(true);
-
-
-  // // here we are using the (useEffect) hook:
-  // // To calling the (api_url) for the particular (component):
-  // // IMP => we are also using the (async) function here on the (useEffect) method:
-  // // so that our application did not get (crash).and successfully (get) or (fetch) the (data) from the (api) function:
-
-  // useEffect(() => {
-  //   // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
-  //   // we can created the another (arrow-function) and on that (function) we will use the (async) method:
-  //   // and  In this function we will  (fetch) or get our  (data) from the (api) function:
-  //   const fetchPosts = async () => {
-  //     // here we will get the (data) from the (getPosts) function:
-  //     // and we will save it in the (response) variable:
-  //     // IMP = we are also using the (await) function on the (variable).
-  //     // so that we will successfully (fetch) our data from the (api) function:
-  //     const response = await getPosts();
-  //     console.log("response", response);
-
-  //     // IMP => here we are giving our (posts) data to the (setPosts) function of the (useState) hook:
-  //     // so that our (posts) data will get repersented on the browser:
-  //     // IMP =>  through this (setPosts) function we will gave our data to the (posts) variable of (useState) hook:
-  //     // and with the help of that (post) variable.
-  //     /// we will gave our (posts) data to (post) component:
-
-  //     // before giving the (post) data to the (setPosts) function:
-  //     // we need to check that we have the (data) in our (response) or (data-variable);
-  //     // so that we can avoid the (error) of the (undefined) data:
-  //     // IMP => we can do that by simply checking the (message-key) in the (data):
-  //     // if its (success).then it means we have the (data):
-  //     if (response.success) {
-
-  //       setPosts(response.data.posts);
-
-  //     }
-
-  //     // => and after we get the (data) from (server) successfully:
-  //     // then we need to put the (loader) default value into (false):
-  //     setLoading(false);
-
-  //   };
-
-  //   // now we just call the (fetchPosts) function:
-  //   // so that we can access (data) of its outside the (function):In the (useEffect) method:
-  //   fetchPosts();
-
-  //   // we are also using the (square) brackets on the (useEffect) method:
-  //   // so that can only run once:
-  // }, []);
-
-  // IMP => if we did not get the (data) from the (server):
-  // and the (home-page) still showing the (loading):
-  // then we need to show the (loader-component):
-  // if(loading){
-  //   // here we are returning the (Loader) component in our (app) component:
-  //   return <Loader />;
-  // }
-
-
 
   // IMP => here we are converting our (posts) object into the (array):
   // because the (map) function only traverse on the (array):
   // const postsArray = Array.isArray(posts) ? posts : [];
 
   if (!Array.isArray(posts)) {
-    console.log('posts: ', posts);
-    console.error('Posts is not an array:', posts);
+    console.log("posts: ", posts);
+    console.error("Posts is not an array:", posts);
     return null; // or handle the error in another way
   }
 
@@ -165,7 +73,33 @@ export const Home = ({posts}) => {
         //   V.IMP => so we need to gave the (keys) of that (object).
         //   which will have the (data) related to our post-component's (html-elements):
         //    so that we can show that (data) on our component's browser-page:
-        <div className={styles.postWrapper}>
+
+        // 1 =>  v.IMP = we also need to provide the (unique-key) or (identity) to the every-post:
+        // otherwise we will get the (error) from the (react):Warning: Each child in a list should have a unique "key" prop.
+        // because we are getting the every post from the (map) function:
+        // so we need to separate them from each other by providing the unique key or identity:
+        // IMP = we are going to gave them there (unique-ID).which we are getting with them from the server:
+        // when we are fetching them from the server:which has been given them through the (server):
+
+        // 2 => V.IMP => for the we need to use the (key) method:
+        // and under that (key) method. we will basically define the (object):
+        // which will have the (unique) identity for the every post:
+        // those we are getting with the (posts) from the (server):
+
+        // 3 => V.IMP => how we can do that:
+        // 1 - we will use the (key) method:
+        // 2 - and under that  (key) method.we will create the object:
+        // 3 - under that object we gonna use the (string-interpolation) method:
+        // 4 - To create a (key):and that will have a value of the (post) unique-key or identity:
+        // here (post) is our key.and that key will have a value of post's (unique-identity):
+        // 5 - IMP = for giving the value  of the (unique-identity) to the (post) key.
+        //  we are going to use the ($) dollar-sign.and under that we gonna put the (post-id) which we are getting from the (server) with the (posts):
+        // for giving that (id).we need to simply write the (post._id):the we are getting them from the (server):
+
+        // 4 = V.IMp = Note: learn more about them from the (notes-page):
+        // - The ($) character identifies a string-literal (" ") as an interpolated-string (` `).
+
+        <div className={styles.postWrapper} key={`post-${post._id}`}>
           <div className={styles.postHeader}>
             <div className={styles.postAvatar}>
               <img
@@ -211,7 +145,6 @@ export const Home = ({posts}) => {
           </div>
         </div>
       ))}
-      
     </div>
   );
 };
@@ -226,27 +159,26 @@ export const Home = ({posts}) => {
 // through the prop-types package:
 // IMp => we will basically create the object of (properties):
 // and gonna pass that object to our component with the help of (prop-types) package:
-Home.prototype ={
+Home.prototype = {
   // 3 = IMP => under this (object) we gonna pass the (props).
   // which we wanna gave to this (component) as a (Key):
   // currently we are only passing the (posts) prop to this (home-component):
 
   // 4 = IMP => under this (posts) key we are going define the properties of the (prop-types) package:
- // so that our application does not get crash while fetcing the data from the (prop):
+  // so that our application does not get crash while fetcing the data from the (prop):
 
- // 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
- // under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
- //  which we gonna gave to this (prop) key:
- // V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
- // with the help of (prop-types) package:
+  // 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
+  // under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
+  //  which we gonna gave to this (prop) key:
+  // V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
+  // with the help of (prop-types) package:
 
- // 6 => we also need to define that if any-one using this home-component:
- // then they need to pass this (posts) prop to the component:
- // for doing that we gonna gave the (isrequired) property of the (prop-types) package:
- // To this posts-prop key:
-  posts:PropTypes.array.isRequired,
-
-}
+  // 6 => we also need to define that if any-one using this home-component:
+  // then they need to pass this (posts) prop to the component:
+  // for doing that we gonna gave the (isrequired) property of the (prop-types) package:
+  // To this posts-prop key:
+  posts: PropTypes.array.isRequired,
+};
 
 // here we are exporting the (home-page) component:
 export default Home;

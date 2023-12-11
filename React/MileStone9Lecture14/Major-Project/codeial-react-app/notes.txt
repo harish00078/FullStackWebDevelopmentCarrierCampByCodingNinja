@@ -91,7 +91,7 @@ console.log(`Hello ${name}`); // Output: Hello John;
 - String interpolation is a technique used in computer programming to (embed-expressions) inside string literals.
 - It allows for easier and more intuitive string formatting and content specification.
 - The ($) character identifies a string literal as an interpolated-string. 
-- An interpolated string is a string literal that might contain interpolation expressions. 
+- An interpolated string is a string-literal that might contain interpolation-expressions. 
 - When an interpolated string is resolved to a result string, items with interpolation expressions are replaced by the string representations of the expression results.
 
 // => one function related to it: ( key = {`post-${post._id}`})
