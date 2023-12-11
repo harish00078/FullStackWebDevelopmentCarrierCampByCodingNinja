@@ -151,7 +151,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 // IMP = we can also gave the (value) to the (arguments) here.if we did not get them from the application (component) it self:
 
 // IMP => getPosts is  a (pull) API request:basically it means that we are getting the data from the (API):
-export const getPosts = (page = 1, limit = 10) => {
+export const getPosts = (page = 2, limit = 10) => {
   // under this function: we need to call the (API):from where we get the (posts) data.
   // Instead of directly calling the (API) in this (function): we will call our  (customFetch)  function. where we have written the (logic) related to our (API) calling:
   // so for  connecting it with the (customFetch) function:we need to return this (getPosts) function's data to the (customFetch) function:
