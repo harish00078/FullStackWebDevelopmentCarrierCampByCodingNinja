@@ -173,6 +173,7 @@ export const getPosts = (page = 2, limit = 10) => {
   return customFetch(API_URLS.posts(page,limit),{
     method:'GET',
   });
+  
 
 };
 

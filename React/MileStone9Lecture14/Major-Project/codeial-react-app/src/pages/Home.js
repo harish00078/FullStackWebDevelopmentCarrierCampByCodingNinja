@@ -9,6 +9,9 @@ import PropTypes from "prop-types";
 // here we are importing the (css-module) which we have created particularly for this (component) of our application:
 import styles from "../styles/home.module.css";
 
+// import comment-component from the component's-folder:
+import Comment from '../components/Comment';
+
 // we are creating the home page or component through  (Function) component type:
 // so for creating the (home) page we can use the (arrow) function:instead of using casual function:
 // and we can also use the (Const) variable-type on that arrow function:
@@ -131,16 +134,30 @@ export const Home = ({ posts }) => {
             <div className={styles.postCommentBox}>
               <input placeholder="start typing a comment" />
             </div>
-
+            {/* here we are showing the comments.
+            => related to the (posts): */}
+            {/* V.IMp = so for doing that we are importing our (comments) component:
+            => which we have created in our components-folder:
+            => through which we will show our comments here.under the every (post) */}
             <div className={styles.postCommentList}>
-              <div className={styles.postCommentItem}>
-                <div className={styles.postCommentHeader}>
-                  <span className={styles.postCommentAuthor}>Bill</span>
-                  <span className={styles.postCommentTime}>a minute ago</span>
-                  <span className={styles.postCommentLikes}>22</span>
-                </div>
-                <div className={styles.postCommentContent}>random comment</div>
-              </div>
+              {/* IMP = so before getting the comment-component:
+              => we need to have the data related to the  comments: */}
+              {/* IMP = we will have our comments-data.
+              => under the (posts) prop.because every post have a comment in it:
+              => so we will fetch our comments-data from the (posts) prop: */}
+              {/* we will run the map-function on the (post.comment) object.
+              => so that we can have every comment acc to our posts: */}
+              {post.comments.map((comment) => {
+                // Under it we will use our comment (comment)component:
+                // which we have created in the (component) folder:
+                // V.IMp => we also need to pass the (Comments) data.To our (Comment) component.
+                // so that we can gave data to our comment-component (elements).
+                //  and show them on under the every post of our application.on the browser:  
+                // IMP = we use (props)  method to pass the data of the every comment to our (Comment) component:
+                <Comment comment={comment}/>
+
+              })}
+          
             </div>
           </div>
         </div>
@@ -149,6 +166,7 @@ export const Home = ({ posts }) => {
   );
 };
 
+// here we create (protypes) object of our (home-component):
 // 1 => IMP = we can use the (Prop-types) package:
 // BY define or giving some  properties to our function-component:
 // related to the (prop) which we are passing to it:
@@ -159,7 +177,7 @@ export const Home = ({ posts }) => {
 // through the prop-types package:
 // IMp => we will basically create the object of (properties):
 // and gonna pass that object to our component with the help of (prop-types) package:
-Home.prototype = {
+Home.proptype = {
   // 3 = IMP => under this (object) we gonna pass the (props).
   // which we wanna gave to this (component) as a (Key):
   // currently we are only passing the (posts) prop to this (home-component):

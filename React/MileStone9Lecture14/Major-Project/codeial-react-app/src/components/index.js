@@ -2,6 +2,8 @@
 import App from "./App";
 // import Navbar Component.
 import Navbar from "./Navbar";
+// import Comment Component;
+import Comment from "./Comment";
 
 
 
@@ -15,4 +17,4 @@ import Loader from "./Loader";
 // so we did not have write the export again and again for the particular component.which we want to export.
 // IMP = it also help system to do not check all the components one by one:
 // it can get them in one (go):
-export { App,Navbar, Loader };
+export { App,Navbar,Comment, Loader };
