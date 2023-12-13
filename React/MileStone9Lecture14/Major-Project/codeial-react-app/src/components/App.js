@@ -10,6 +10,10 @@ import { getPosts } from "../api";
 // first we import the (home) page:
 import { Home } from "../pages";
 
+// here we import our (Navbar) component:
+// so that we can use or get it into our application:
+import {Navbar} from "./";
+
 // here we are importing the loader-component:
 // we can simply use the (./) to import  our Loader-comonent:
 // because our (app) or (loader) component both present in the same folder:
@@ -98,6 +102,10 @@ function App() {
 
   return (
     <div className="App">
+      
+      {/*  here we have our (Navbar) component: */}
+      <Navbar/>
+
       {/* here we are rendering or showing out (home) page */}
       {/* IMP = so here we passing the (posts) variable to our (home-page):
       =>with the help of (props) method:
@@ -107,7 +115,7 @@ function App() {
 
       {/* <Home/> */}
     </div>
-  );
+  ); 
 }
 
 export default App;
