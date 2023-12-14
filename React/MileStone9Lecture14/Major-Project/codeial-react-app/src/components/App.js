@@ -1,6 +1,15 @@
 // we use (useEffect) hook of (react):To fetch the data from the (server) through (API):
 import { useEffect, useState } from "react";
 
+// we are using the (react-router-dom) package.
+// for providing or giving the (routes) to our application pages or components:
+// IMP => we need to import the multiple (methods or functions) from the (react-router-dom) package:
+// which will help us to giving the (routes) to our application pages or components:
+// first method is (BrowserRouter).we need to import it as (BrowserRouter as Router):
+// second method is (Routes):
+// third method is (Route):
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 // =>  here we are importing the functions.through which we are connecting to the (server):
 // and the getting the (data) for the (component):
 import { getPosts } from "../api";
@@ -8,17 +17,24 @@ import { getPosts } from "../api";
 // => here we are importing our application (pages):
 
 // first we import the (home) page:
-import { Home } from "../pages";
+// second we import the (Login) page:
+import { Home, Login } from "../pages";
 
 // here we import our (Navbar) component:
 // so that we can use or get it into our application:
-import {Navbar} from "./";
+import { Navbar } from "./";
 
 // here we are importing the loader-component:
 // we can simply use the (./) to import  our Loader-comonent:
 // because our (app) or (loader) component both present in the same folder:
 import { Loader } from "./";
 
+const About = () => {
+  return <h1>About</h1>;
+};
+const UserInfo = () => {
+  return <h1>UserInfo</h1>;
+};
 function App() {
   // here we using the (useState) hook to repersent our (posts) from the (server):
   // In our (app) or (home) component:
@@ -38,9 +54,8 @@ function App() {
 
   // by default this loader will have the (true) value:
   // so that when ever our application get start or load:
-  // it will start immediately.and continous running until we will get the (data) from the (server) 
-  const[loading,setLoading] = useState(true);
-
+  // it will start immediately.and continous running until we will get the (data) from the (server)
+  const [loading, setLoading] = useState(true);
 
   // here we are using the (useEffect) hook:
   // To calling the (api_url) for the particular (component):
@@ -71,15 +86,12 @@ function App() {
       // IMP => we can do that by simply checking the (message-key) in the (data):
       // if its (success).then it means we have the (data):
       if (response.success) {
-
         setPosts(response.data.posts);
-
       }
 
       // => and after we get the (data) from (server) successfully:
       // then we need to put the (loader) default value into (false):
       setLoading(false);
-
     };
 
     // now we just call the (fetchPosts) function:
@@ -93,29 +105,79 @@ function App() {
   // IMP => if we did not get the (data) from the (server):
   // and the (home-page) still showing the (loading):
   // then we need to show the (loader-component):
-  if(loading){
+  if (loading) {
     // here we are returning the (Loader) component in our (app) component:
     return <Loader />;
   }
 
-
-
   return (
     <div className="App">
-      
-      {/*  here we have our (Navbar) component: */}
-      <Navbar/>
-
       {/* here we are rendering or showing out (home) page */}
       {/* IMP = so here we passing the (posts) variable to our (home-page):
       =>with the help of (props) method:
       =>we are doing this because the (posts) variable will have all the data related to our (posts):
       => And in the (home-page).we have written our (posts-component):*/}
-      <Home posts={posts}/>
 
-      {/* <Home/> */}
+      {/* here we gave (Routers) to our application pages and components: 
+      => for giving (Routes) to the pages and components:
+      => first we  use the (Router) method of package:
+      => under that second we use the (Routes) method of package:we use it when we are creating the multiple (Route) for the Application:
+      => and with in that (Routes) method we will gave the (Route) to reach (page) and (component).
+      with the help of third (Route) method of the package:*/}
+
+      {/* here we have (Router) method first: */}
+      <Router>
+        {/* under (Router) method: we can put our those (components):
+        => which we did not want to get (Route):
+        => Like = Navbar-component,Footer-component*/}
+        {/*  here we have our (Navbar) component: */}
+        <Navbar />
+
+        {/* here we have (Routes) Method second:  */}
+        <Routes>
+          {/* and  under that (Routes) method.we create the multiple (Route):
+        => And we will gave that each Route to the Each page or component of our Application:*/}
+
+          {/* IMP = Under the Route method.we need to provide the (path) for the (Route) of the particular page or component:
+        => we have to provide the (path) for our page or component:In the way we have define or use them in our Application:
+        => IMP = for providing path in the (Route). we can use the (Path) function of the (Route) method: */}
+
+          {/* here we gave (Route) to our (home) component:*/}
+
+          {/* V.V.IMP = (Note-1) => if we are using the (React-Router) version is greater than (6):
+      => V.V.IMP = then we need to provide the (pages) and (components).
+      => To the (Route) method.with the help of Route method's (element) function or Prop:
+      => we need to gave our (page) or (component) To the particular (Route):
+      => with the help of (Route) method's (element) named (function or Prop):
+      => IMP = we will create the javascript-object with in the (element) Prop or function of (Route) method:
+      => and Under that object we will provide our (page) and (component)*/}
+          {/*  V.V.IMP = (Note-2) => if we are using the (React-Router) version is greater than (6):
+      => then we also define or use the (Route) method.In our application the same way we define the (components) or (pages) of our application:
+      => In simple words we did not define or use the (Route) method.In our application as a (tag):
+      => we define or use it in the way.we define or use our application components or pages:
+      => other important functions which we use in our application:like (Image)tag:
+      => IMP =  In react we use the self closing tags.and we use the (Route) method in our application.
+      => with the (self-closing) tag:In the self closing tags.we did not have to write the closing-element of the tag:
+      => we can simple user the forward-slash in the (end) of the tag's (starting-element) */}
+
+      {/* V.V.IMP = (Note-3) => we also need to use the (exact) property of the (Route) method:
+      => so that Browser's (render) function.did to get confuse between the (route-paths):
+      => if they were little-bit matches with each other: */}
+
+          <Route path="/"  element={<Home posts={posts} />} exact />
+
+          {/* same thing we need to do for the other pages and components:
+        => which we have did in the (home) Route: */}
+
+          <Route path="/login" element={<Login />} exact/>
+
+          <Route path="/About" element={<About />} exact />
+
+          <Route path="/user/wertewr" element={<UserInfo />} exact />
+        </Routes>
+      </Router>
     </div>
-  ); 
+  );
 }
 
 export default App;

@@ -8,13 +8,18 @@
 // IMP 1 -> we can import our home-page as (object):
 import Home from "./Home";
 
+// import the Login page or component: 
+import Login  from "./Login";
+
 // here we export the (home) page:
 // IMP 2 -> or we can export it as (object):
 // V.IMP 3 -> by doing this we can add the multiple (pages) our application in the one (object):
 // V.IMP 4 -> and we can also export them all in the one (export) statement:instead of exporting them one by one:
 // V>IMP 5 -> that's why we are putting them in the export (object):
 // V.IMP = and  we did not use the (default) method on export. if we are importing the multiple (file) in the one export statement:
-export { Home };
+
+// export the log-in-page with home-page:
+export { Home ,Login};
 
 // IMP = we can also export the (pages) with the help of (asterisk):
 // with the help of this method we can easily (import) and (export) the (pages).

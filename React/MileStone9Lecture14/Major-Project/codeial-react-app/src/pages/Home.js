@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 // here we import the (prop-types) package:
 // IMP => with the help of this package.
 // we basically tell the (react) that the (prop) which we are passing to this component.
@@ -74,7 +75,7 @@ export const Home = ({ posts }) => {
         //    under the map-function.which we are running on the (posts) prop:
         //    It will have the (data) related to our (posts) in the (object) form:
         //   V.IMP => so we need to gave the (keys) of that (object).
-        //   which will have the (data) related to our post-component's (html-elements):
+        //   which will have the (data) or (value) related to our post-component's (html-elements):
         //    so that we can show that (data) on our component's browser-page:
 
         // 1 =>  v.IMP = we also need to provide the (unique-key) or (identity) to the every-post:
@@ -147,16 +148,27 @@ export const Home = ({ posts }) => {
               => so we will fetch our comments-data from the (posts) prop: */}
               {/* we will run the map-function on the (post.comment) object.
               => so that we can have every comment acc to our posts: */}
-              {post.comments.map((comment) => {
+              {post.comments.map((comment) => (
                 // Under it we will use our comment (comment)component:
                 // which we have created in the (component) folder:
                 // V.IMp => we also need to pass the (Comments) data.To our (Comment) component.
                 // so that we can gave data to our comment-component (elements).
                 //  and show them on under the every post of our application.on the browser:  
                 // IMP = we use (props)  method to pass the data of the every comment to our (Comment) component:
-                <Comment comment={comment}/>
 
-              })}
+                // V.IMP = we also need to provide the (unique) key or identity to the every comment:
+                // so that each comment can be separate from each other:
+                // we have to do this because we are fetching the comments with the help of map-function.
+                // so we need to provide them the unique identity: 
+                // we can do that with the help of same method we use for our (posts) component:
+                // IMP = we need to use the (key) method:and under that key-method.
+                // we need to create the js-object.which will have the (string-interpolation) of (unique-key) for the every (comment):
+                // we will use the (unique) key of the (comment).which we are getting from the (server):when we are fetching them from the server:
+                // IMP = and this (unique-key) will also help us to (delete) the particular (Comment):
+                // because every comment has its own identity: 
+                <Comment comment={comment} key={`post-comment-${comment._id}`}/>
+
+              ))}
           
             </div>
           </div>

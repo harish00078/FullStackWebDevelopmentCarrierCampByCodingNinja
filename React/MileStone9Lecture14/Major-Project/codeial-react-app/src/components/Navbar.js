@@ -61,7 +61,7 @@ const Navbar = () => {
             <li>
               {/* under List-tag.we will use the anchor-tag.
                     => To create a particular link or button for the particular thing */}
-              <a href="/">Log-In</a>
+              <a href="/login">Log-In</a>
             </li>
             {/* here this another list tag.will have another link. */}
             <li>
