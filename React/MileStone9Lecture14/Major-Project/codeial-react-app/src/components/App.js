@@ -35,6 +35,9 @@ const About = () => {
 const UserInfo = () => {
   return <h1>UserInfo</h1>;
 };
+const Page404 = () => {
+  return <h1>404</h1>;
+};
 function App() {
   // here we using the (useState) hook to repersent our (posts) from the (server):
   // In our (app) or (home) component:
@@ -174,7 +177,19 @@ function App() {
           <Route path="/About" element={<About />} exact />
 
           <Route path="/user/wertewr" element={<UserInfo />} exact />
+
+          {/* here we create the route at the end of all the routes:
+          => with the help of  the error or 404 component:
+          =>if any of above route does not match with the (user's) route request:
+          => then we will show this error or (404) component to the user: */}
+          {/* IMP = we also need to  gave the (path) and (exact) property to this route:
+          => IMp = In the path function. we have to gave him the (*) start:
+          => which will repersent that if user request for any random route request.then we will gave this route component:
+          => because it will only  works.when all the other uper routes path does not get match with the user's route request: */}
+          <Route path="*" element={<Page404/>} exact />
+
         </Routes>
+
       </Router>
     </div>
   );
