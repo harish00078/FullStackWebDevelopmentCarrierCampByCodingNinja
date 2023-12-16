@@ -5,11 +5,11 @@
 => and the other section of our word should in the form of (capital) alphabet */
 
 .postWrapper {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #170f0f;
   box-sizing: border-box;
   border-radius: 4px;
   margin-top: 20px;
-  background: #fff;
+  background: #78f8ff;
 }
 .postHeader {
   padding: 10px 10px;

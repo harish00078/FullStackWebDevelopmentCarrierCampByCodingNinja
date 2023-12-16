@@ -2,7 +2,7 @@
 => for the navbar-component elements: */
 .nav {
     display: flex;
-    background: #6200ee;
+    background: hsl(201, 81%, 67%);
     padding: 10px 20px;
     align-items: center;
     justify-content: space-between;
@@ -21,6 +21,7 @@
   .nav .user {
     display: flex;
     align-items: center;
+    color: white;
   }
   .nav span {
     margin-left: 10px;
