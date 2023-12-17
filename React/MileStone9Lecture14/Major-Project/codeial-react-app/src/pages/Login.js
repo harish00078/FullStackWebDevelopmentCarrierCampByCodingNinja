@@ -4,6 +4,10 @@
 import { useState } from "react";
 import styles from "../styles/login.module.css";
 
+// we need to use the particular package of the (react-toast-notification) library for adding the notifications in the particular element of the component :
+// and that  package name is (useToast):
+import { useToasts } from "react-toast-notifications";
+
 const Login = () => {
   // we are using the (useState) hook:To get the data from the (form):
   // and gave that data to the component elements:which will send that data to the (server) for authentication the user with the help of that data:
@@ -20,12 +24,72 @@ const Login = () => {
   // but when request get send to the server:then that button get disabled.until user did not get the conformation related for its first-request to the server:
   const [loggingIn, setLoggingIn] = useState(false);
 
+  // => IMp = useToast package of the notification libray:
+  // It is  also a (hook) or we can say work like (hook):
+  // so we need to use the (addToast) variable of this (useToasts) hook:
+  // through which we gonna add the (notifications) in our (component-elements):
+  const {addToast} = useToasts();
+
+
+  // here we are creating the (function).
+  // through which we will handle the (onSubmit) event-handler of the form-tag:
+  // IMP = In this function.we will pass the (event) of the form-tag:as a argument (e) in it:
+  // here (e) repersents the (event-handler) or (event) of the (form-tag):
+  const handleSubmit = (e) => {
+    // V.IMP = first we need to (prevent) the (default) working of the (form-tag) after submission:
+    // because in its default working.our application (page) gets reload when the user submit it:and we did not want that:
+    // we only want to reload it.when we are done with our component or page-logic.related to this form:
+    // => we use the (preventDefault) property of the (event-handler):To prevent it from doing its default working:
+    e.preventDefault();
+
+    // => (second) = after the form-get submited by the (user):
+    // we need to set the (setLoggingIn) variable of the (useState) hook into (true):
+    // so that we can disable the (log-in) button.for the (user) until it does not get the (response) from the (server).related to its first (log-in) request: 
+    setLoggingIn(true);
+
+    // => (third) =  we also need to check that.we have got the email or password.
+    // or we can say that user have added the email or password in the form:
+    // if we did not get one of them.after user's submission on the form:
+    // => then we need to gave the notification to the user:
+    // that we add the both the detials for logging into the applications:
+    // for notification.we are going to use the (react-toast-notification) library:
+    if(!email || !password){
+      // if we did not get any one of them from the user:
+      // then we need to return the notification to the user:
+      // under the notification hook-variable: we need to add the two things:
+      // first is message to the user: = we also need to add the string.acc to our perference:
+      // second is to define the (options) or (reasons) related to the notification:
+      // In second argument: we also have the multiple things to add:
+      // 1 = (appearance):basically means the type of (notification):we define the (type) of notification in it:
+      // like if its (error) notification.then we need to put the (error) value in it:
+      // 2 = autoDismiss:it basically automatically remove the notification:after the time we have given to him:
+      // we also have to gave the value to it:like (true) or (false):
+      return addToast('please enter both email or password',{
+        appearance:'error',
+        // we are not writing the autodismiss.here we because we have already declared it in the main file of app:
+        // autoDismiss:true,
+      });
+
+    }
+
+
+  }
+
   // under the Login-page:we will create the (Form):
   // through which we will get the input from the user related to there user-id and password:
   // and gave that data back to the server.TO check that this user is authorized user of the application or not:
 
   return (
-    <form className={styles.loginForm}>
+    // V.IMP = we also need to gave the event to the (form):
+    // so that we can handle the (working) of this form:
+    // IMP = we are giving the (onSubmit) event-handler to this form-tag:
+    // under that event-handler:we will create the javascript object:
+    // with in that object.we will gave him the function:
+    // and through that function we will handle this form-tag's working:
+    // working = means that we want to work this (form) after the submission by user:
+    // V.IMP = acc to our component's logic:
+
+    <form className={styles.loginForm} onSubmit={handleSubmit}>
       {/* we use span-tag as our page header */}
       <span className={styles.loginSignupHeader}>Log-In</span>
       {/* here we user div-tag:
@@ -71,7 +135,7 @@ const Login = () => {
         <input
           type="email"
           placeholder="Email"
-          required
+          // required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -91,7 +155,7 @@ const Login = () => {
         <input
           type="password"
           placeholder="Password"
-          required
+          // required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
