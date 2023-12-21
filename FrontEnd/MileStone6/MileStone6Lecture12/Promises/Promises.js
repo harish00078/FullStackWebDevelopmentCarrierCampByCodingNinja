@@ -23,7 +23,16 @@
 var promise = new Promise((resolve,reject) => {
     // if in the promise.we call the (resolve) argument or method:
     // then in console-log.we can say see that.we well get the output as (fullfilled):
-    resolve();
+    // IMP = what ever (Data) resolve function have in it:
+    // will be get into the (promise-result) key of the promise:
+    // resolve("yay promise get fullfilled");
+
+    // here we are checking the (reject) argument or method.of the promise function:
+    // that what it will have in it.if we get the (reject) as a output.from our promise function:
+    // In its output.we will get that (promise-state) is rejected.and its result will be (undefined): 
+    reject('something went wrong');
+
+
 });
 
 console.log(promise);
