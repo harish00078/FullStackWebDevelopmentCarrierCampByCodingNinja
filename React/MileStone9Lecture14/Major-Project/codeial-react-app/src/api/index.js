@@ -5,7 +5,7 @@
 // we are also importing the (API_URLS):from the (utils) folder:
 // so that we can use them in our component-function.
 // TO fetch the particular data from the (server) acc to our component:
-import {API_URLS, LOCALSTORAGE_TOEKN_KEY } from "../utils";
+import { API_URLS, LOCALSTORAGE_TOEKN_KEY } from "../utils";
 
 // here we are creating  the (customFetch) function:
 // so that we did not have to write the (fetch) function.again and again for the every function which we will create to get the data from the APIs related to the particular compomemt element of our application:
@@ -36,11 +36,12 @@ const customFetch = async (url, { body, ...customConfig }) => {
   // (2)  => second we need to set the (headers):
   // through which we will tell about our (criteria) to the (server) related to the (api-request) which we are sending to it.
   // by simply adding this (headers) object which we have created in our (api-request):
-  // we will tell it that be will only accept  the (Json) in the (request) of (api).
-  // and also we will only accept the (Json) in the (response) as well:
+  // V-IMP = headers is an object where each property represents a header that may be included in an HTTP request. In this case, there are two headers:
+  // 1 = Content-Type: The content-type header is set to "application/json". This header is commonly used to indicate the media type (or MIME type) of the resource being sent or received. In this case, it specifies that the content is in JSON format.
+  // 2 = Accept: The Accept header is set to "application/json". This header is used to indicate the media types that are acceptable for the response. In this case, it specifies that the client prefers to receive the response in JSON format.
   const headers = {
     "content-type": "application/json",
-    Accept: "applicaiton/json",
+    Accept: "application/json",
   };
 
   //=> if there is a (token) present then we need to add it into our headers object:
@@ -133,10 +134,10 @@ const customFetch = async (url, { body, ...customConfig }) => {
   } catch (error) {
     console.log("error");
     // then we need to (return) that (error) message as well:
-    return{
-      message:error.message,
-      success:false,
-    }
+    return {
+      message: error.message,
+      success: false,
+    };
   }
 };
 
@@ -170,10 +171,7 @@ export const getPosts = (page = 2, limit = 10) => {
   // if there were present for the particular (component-function):
   // 2 = second we need to pass the (method) or (type) of this (request):
 
-  return customFetch(API_URLS.posts(page,limit),{
-    method:'GET',
+  return customFetch(API_URLS.posts(page, limit), {
+    method: "GET",
   });
-  
-
 };
-
