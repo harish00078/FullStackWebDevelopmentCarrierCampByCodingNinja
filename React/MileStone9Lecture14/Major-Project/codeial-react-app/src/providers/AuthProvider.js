@@ -4,6 +4,9 @@
 // for that we have to import the (createContext) function from the react:
 import { createContext } from "react";
 
+// here we are importing the custom-hook:which we have created to handle the (authentication) in our application:
+import { useProvideAuth} from "../hooks";
+
 // Imp = here we are creating the (initailState).which we have to pass to the (createContext) function:
 // here we create the initialState object.
 const initailState = {
@@ -30,6 +33,10 @@ export const AuthContext = createContext(initailState);
 // which will have a (children) agrument in it:
 // this (children) arguments is basically a (prop):
 // or we can say we are getting the childrens from the (prop).by destructuring the (prop):
+// V.V.IMP = these childrens basically are the (components) or (children-components) of our application:
+// V.V.IMP = because we will (wrap) our hole application under this (AuthProvider) function:
+// with the help of this function.under which we are creating the (authcontext).
+// V.V.IMP = we are able to access the (user-auth) or (user-auth-state).In all the components of application:
 export const AuthProvider = ({ children }) => {
   // here we are creating the (auth) object.which will have the (auth) state in it:
   // which we need to pass to the (value) keyword of the (AuthContext.Provider) tag:
