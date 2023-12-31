@@ -2,10 +2,14 @@
 // so that we can  store the  (token-key) in our application.
 // and also we will be ablw to use it where-ever and when-ever we want it:
 
-// we are also importing the (API_URLS):from the (utils) folder:
+//1 =  we are also importing the (API_URLS):from the (utils) folder:
 // so that we can use them in our component-function.
 // TO fetch the particular data from the (server) acc to our component:
-import { API_URLS, LOCALSTORAGE_TOEKN_KEY } from "../utils";
+// 2 = we have also import the default (Token_key):which we have created in the utils folder's constants-file:
+// which will we replace by the original-one:
+// 3 = we have also import the (function).which we have created on the (utils) folder's mian-file:
+// through which we are converting the (request) body-data. in the form of (x-www-form-urlencoded) request:
+import { API_URLS, getFormBody,LOCALSTORAGE_TOEKN_KEY } from "../utils";
 
 // here we are creating  the (customFetch) function:
 // so that we did not have to write the (fetch) function.again and again for the every function which we will create to get the data from the APIs related to the particular compomemt element of our application:
@@ -35,13 +39,34 @@ const customFetch = async (url, { body, ...customConfig }) => {
 
   // (2)  => second we need to set the (headers):
   // through which we will tell about our (criteria) to the (server) related to the (api-request) which we are sending to it.
-  // by simply adding this (headers) object which we have created in our (api-request):
-  // V-IMP = headers is an object where each property represents a header that may be included in an HTTP request. In this case, there are two headers:
+  // by simply defining few things under the (headers) object of (api-request):
+  // V-IMP = headers is an object where each property represents a (headers) that may be included in an HTTP request.
+  // V.V.IMP => 1 =  first way of defining properites under the (headers) object:
+  // these properties and there values mainly used when we are sending the simple (data) request to the (server): related to our (application) components:
+  // In this case, there are two headers properties :
   // 1 = Content-Type: The content-type header is set to "application/json". This header is commonly used to indicate the media type (or MIME type) of the resource being sent or received. In this case, it specifies that the content is in JSON format.
   // 2 = Accept: The Accept header is set to "application/json". This header is used to indicate the media types that are acceptable for the response. In this case, it specifies that the client prefers to receive the response in JSON format.
+  // const headers = {
+  //   "content-type": "application/json",
+  //   Accept: "application/json",
+  // };
+  // V.V.IMP => 2 =  second way of defining properites under the (headers) object:
+  // these properties and there values mainly used when we are sending the (Authentication) request to the (server):
+  // It also work.In getting the simple (data) from the (server):related to our application user or its components:
+  // V.IMP = headers (content-type) mostly depend on our (server):like what kind of data.its accepts as a (request) from the (user):
+  // In this case, there we have one headers property:
+  // 1 = Content-Type:The content-type header is set to be "application/x-www-form-urlencoded".
+  // This header is commonly used to indicate the media type (or MIME type) of the resource being sent or received.
+  //  In this case, it specifies that the content is in the form of (x-www-form-urlencoded) .
+  // V.IMP = what is x-www-form-urlencoded :
+  // x-www-form-urlencoded is a way of encoding data that is sent in the body of an HTTP request.
+  // It is a standard method used to transmit data between a web browser and a web server.
+  // This encoding is commonly used when submitting (forms) on the web.
+  // V.IMP = because our current server only accepts this kind of request from the (user):
+  // When you submit a form on a web page, the data entered into the form fields needs to be sent to the server for processing.
+  // The x-www-form-urlencoded format is one way to structure and transmit this data.
   const headers = {
-    "content-type": "application/json",
-    Accept: "application/json",
+    "content-type": "application/x-www-form-urlencoded",
   };
 
   //=> if there is a (token) present then we need to add it into our headers object:
@@ -83,9 +108,14 @@ const customFetch = async (url, { body, ...customConfig }) => {
   // and then we will gave our (body) argument or its (data) to the (config) object:
 
   if (body) {
+    // V.IMP => 1 = we need to convert the (body) data  in the form of (json):when we are sending all the (content) related to the (request) in the form of (json) to the (server):
     // here we gave our (body) argument to the (config) object.
     // while or after converting it into the (json) format:
-    config.body = JSON.stringify(body);
+    // config.body = JSON.stringify(body);
+    // V.IMP => 2 = we need to convert the (body) data  in the form of (x-www-form-urlencoded) format:when we are sending all the (content) related to the (request) in the form of (x-www-form-urlencoded) to the (server):
+    // IMP => for doing that we need to use the (function).which we have specially created for it: In the (utils) folder's main-file:
+    // these kind of request basically accepts the (form) type data:
+    config.body = getFormBody(body);
   }
 
   // for (fetching) the data from the back-end (API). we will basically use the (try) and (catch) method. so that our application did not get (crashed).while we are fetching the data from the backend (api):

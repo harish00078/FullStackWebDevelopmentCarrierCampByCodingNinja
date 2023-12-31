@@ -30,7 +30,14 @@ export const useProvideAuth = () => {
 
   // 5 => the (sign-up) functionality will also be handle under this (function):
 
-  
-
-
+  // 6 => V.IMP = we also need to return all these things from this function:
+  // because through this function.we are providing the these things to the another function or element:
+  // that why we have to return them from this function:
+  // so that we can access these things on the another function or element:
+  return {
+    user,
+    login,
+    logout,
+    laoding,
+  };
 };
