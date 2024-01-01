@@ -28,14 +28,16 @@ const Login = () => {
   // It is  also a (hook) or we can say work like (hook):
   // so we need to use the (addToast) variable of this (useToasts) hook:
   // through which we gonna add the (notifications) in our (component-elements):
-  const {addToast} = useToasts();
-
+  const { addToast } = useToasts();
 
   // here we are creating the (function).
   // through which we will handle the (onSubmit) event-handler of the form-tag:
   // IMP = In this function.we will pass the (event) of the form-tag:as a argument (e) in it:
-  // here (e) repersents the (event-handler) or (event) of the (form-tag):
-  const handleSubmit = (e) => {
+  // here (e) repersents the (event-handler) or (event) of the (form-tag):\
+  // IMP = we are adding the (async-await) method on this (login-handle-submit) function:
+  // so that we can handle the (login) fucntionality without having any (crash) in our application:
+  // through this (function):
+  const handleSubmit = async (e) => {
     // V.IMP = first we need to (prevent) the (default) working of the (form-tag) after submission:
     // because in its default working.our application (page) gets reload when the user submit it:and we did not want that:
     // we only want to reload it.when we are done with our component or page-logic.related to this form:
@@ -44,7 +46,7 @@ const Login = () => {
 
     // => (second) = after the form-get submited by the (user):
     // we need to set the (setLoggingIn) variable of the (useState) hook into (true):
-    // so that we can disable the (log-in) button.for the (user) until it does not get the (response) from the (server).related to its first (log-in) request: 
+    // so that we can disable the (log-in) button.for the (user) until it does not get the (response) from the (server).related to its first (log-in) request:
     setLoggingIn(true);
 
     // => (third) =  we also need to check that.we have got the email or password.
@@ -53,7 +55,7 @@ const Login = () => {
     // => then we need to gave the notification to the user:
     // that we add the both the detials for logging into the applications:
     // for notification.we are going to use the (react-toast-notification) library:
-    if(!email || !password){
+    if (!email || !password) {
       // if we did not get any one of them from the user:
       // then we need to return the notification to the user:
       // under the notification hook-variable: we need to add the two things:
@@ -64,16 +66,50 @@ const Login = () => {
       // like if its (error) notification.then we need to put the (error) value in it:
       // 2 = autoDismiss:it basically automatically remove the notification:after the time we have given to him:
       // we also have to gave the value to it:like (true) or (false):
-      return addToast('please enter both email or password',{
-        appearance:'error',
+      return addToast("please enter both email or password", {
+        appearance: "error",
         // we are not writing the autodismiss.here we because we have already declared it in the main file of app:
         // autoDismiss:true,
       });
-
     }
 
+    // => fourth = if we get the (email) and (password) from the (user):
+    // then we have to login the (user) with those (credentials):
+    // IMP = 1 =>for doing that we will gave those (credentials) to the (login) function:
+    // which we have created.To hanlde the (login) functionality in our application:
+    // IMP = 2 => we have created that function.In the (main-file) of our (hooks) folder:
+    // that function is basically a custom-hook:
+    // through which we are (handling) or (creating) the (auth-state) of the (user):
+    // V.IMP = 3 => for that doing that we have to call the (login) function:
+    // and we have to pass the (user) credentials to that fucntion:
+    // while doing that we will add the (await) method on the function:
+    // so that we did not (crash) our application.while be  try to (login) the (user):
+    // through the (login) function:
+    // V.IMP = 4 =>  we will also have to save that (response) of (login) function:
+    // so that we can add the (notifications) acc to the (result) of that (response):
+    // To tell the user that.its login request worked or not:
+    // so for saving that (response).we have created the (response) variable:
+    const response = await login(email, password);
 
-  }
+    // => fifth = after getting the (response):
+    // related to the (user) login:from the (login) function:
+    // we have to create the (notification) for the (user):
+    // acc to that what kind of (response) we get from the (function):
+    if (response.success) {
+      addToast("successfully logged in", {
+        appearance: "success",
+      });
+    } else {
+      addToast(response.message, {
+        appearance: "error",
+      });
+    }
+
+    // => sixth = after all of that we set (setLoggingIn) state into (false):
+    // so that (user) can again use the (login) function:
+    // if they are not successfully able to (login) into the applicaiton:
+    setLoggingIn(false);
+  };
 
   // under the Login-page:we will create the (Form):
   // through which we will get the input from the user related to there user-id and password:
