@@ -28,6 +28,7 @@ const initailState = {
 // - under that function we have to pass the (initialState) to it:
 export const AuthContext = createContext(initailState);
 
+
 //second = after creating the context:
 // we will create the (AuthProvider) function.
 // which will have a (children) agrument in it:
@@ -43,9 +44,9 @@ export const AuthProvider = ({ children }) => {
   // V.V.IMP = with the help of that we are able to provide the current (auth-state) to the (Childrens) or (children-components):
   // V.IMP = this (auth) state.also  handle by another (custom-hook):which we named  as (useProvideAuth):
   // this custom-hook.basically grab or have the (Current-state) of (authentication) in it:it also have the  default state in it:
-
+  
   const auth = useProvideAuth();
-
+ 
   // 1 = V.IMP = under this function. we will basically return the (AuthContext) which we have created:
   // by connecting it with the (Provider) function:
   // 2 = V.IMP = the (AuthContext) with (Provider) function.will become the (tag):

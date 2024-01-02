@@ -53,8 +53,8 @@ export const getFormBody = (params) => {
   // so we will getting those both from the (params) by looping on it:
 
   for (let property in params) {
-    console.log(property);
-    console.log(params[property]);
+    // console.log(property);
+    // console.log(params[property]);
     // 5 = here we are converting our body-data.In the form of (form-content) type request:
     // so that we can send it into the (request):
     // IMP = In body data we will have the two things:

@@ -94,11 +94,14 @@ const customFetch = async (url, { body, ...customConfig }) => {
   // so that (config) object can get all the data related to the (headers-object) in it:
   // c => also if in the (customConfig) argument we have the (headers) section or key  as well.
   // then we will also add it in the (headers) sections of our (config) object:
+  // d => if (customConfig) argument have anything related to the request's header:
+  // that we will also add it in our (headers) object:so that it can get into our request's header:
 
   const config = {
     ...customConfig,
     headers: {
       ...headers,
+      ...customConfig.header,
     },
   };
 
@@ -197,11 +200,33 @@ export const getPosts = (page = 2, limit = 10) => {
   // 1 = first we need to define the particular (URl):related to our (component) function:
   // V.IMP = we also need to define the (url) with its (key) acc to its type:
   // like if its (function-type) or simple (string-type) (key-value) pair :
+  // means that we have the pass the arguments to its (url) or not:
+
   // V.IMP = we also need to pass the (arguments) in the (key) of the (URL):
   // if there were present for the particular (component-function):
   // 2 = second we need to pass the (method) or (type) of this (request):
 
   return customFetch(API_URLS.posts(page, limit), {
     method: "GET",
+  });
+};
+
+
+// here we have created the (login) function:
+// through which we are sending the (user) credentials to the (server):
+
+export const login = (email, password) => {
+    // IMP:things we have define in the (return) statement of this function:
+  // 1 = first we need to define the particular (URl):related to our (component) function:
+  // V.IMP = we also need to define the (url) with its (key) acc to its type:
+  // like if its (function-type) or simple (string-type) (key-value) pair :
+  // means that we have the pass the arguments to its (url) or not:
+  // V.IMP = we also need to pass the (arguments) in the (key) of the (URL):
+  // if there were present for the particular (component-function):
+  // 2 = second we need to pass the (method) or (type) of this (request):
+  // 3 = also have to pass the (body) object:if we have for the particular request:
+  return customFetch(API_URLS.login(), {
+    method: 'POST',
+    body: { email, password },
   });
 };

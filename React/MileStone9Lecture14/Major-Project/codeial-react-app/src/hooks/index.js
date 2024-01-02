@@ -7,6 +7,18 @@ import { useContext, useState } from "react";
 // In every component of our application:with the help of (useAuth) custom-hook function:
 import { AuthContext } from "../providers/AuthProvider";
 
+// here we are importing the (login) function from the (api) folder:
+// which is basically connected to the (server) and get the (user-auth) from the (server):
+// after (server) authenticate the (user-credentials):which has been send to the (Server) in the (request):
+// through this (login) function:\
+// IMp = we have to change the name of this (login) function:
+// which we are importing from the (api) folder:
+// because we have written the same name for the other (login) or (login) handing function:
+// we can change its with the help of (as) keyword:
+// by using it we can change the name of (login) fucntion:
+// when we are importing it from the (api) folder:
+import { login as userLogin } from "../api";
+
 // 2 => here we create the second custom-hook named as (useAuth):with the help of this custom-hook:
 // IMP = we will be able to (access) the (Auth-state) of the (user) in  our application-components:
 // 1 = basically means that the (AuthProvider) function will (provide) the (auth-state) of the (user) to the every component of our application:
@@ -33,10 +45,6 @@ export const useAuth = () => {
   // we can simple get that state with the help of this (custom-hook) funciton:
 
   return useContext(AuthContext);
-
-
-
-
 };
 
 // 1 => here we create the first custom-hook named as (useProvideAuth):
@@ -60,12 +68,53 @@ export const useProvideAuth = () => {
   // second is (password) which provided by the (user):
   // IMP = we will add the (async-await) method on this function:
   // so that our (application) did not get (crash):through any of the (error):
-  // when we try to login the (user) with the help of function:
-  
+  // when we try to login the (user) with the help of this function:
+
   const login = async (email, password) => {
+    // => 1 = V.IMP = this (login) function is also connected with the another (login) function:
+    // which we have written in our (api) folder's (main-file):
+    // that is the (function) which is connected to the (server) and get the (user-auth) from the (server):
+    // => 2 = V.IMp = so for getting (user-auth) from the (server):
+    // we need to call that (login-function) which is connected to the (server).under this function:
+    // and to that function we have pass the (user-credentials):
+    // so that it can pass those (user-credentials) to the (server).
+    // and get the (user-auth) from the (server) for us:
 
-    
+    //  => 3 =  V.IMP = when we get the (user-auth) result from the (login-function):
+    // which is connected to the (server):
+    // we have to save that (result) in this (login) fucntion:were  are handling the (login) functionality for our (application):
+    /// so that we can  authenticate the (user) to  our application:
+    // when its (login-credentials) successfully get (authenticated) by the (server):
 
+    // => 4 = we are saving the (server) response related to the (user-auth):
+    // In the (response) variable:
+    console.log(email);
+
+    const response = await userLogin(email, password);
+
+    // => 5 = after that we have to check that:
+    // (user) successfully get authenticated or not:
+    // if the (server) response is (successfull) or (true):
+    if (response.success) {
+
+      // then we need to return that (success) response:
+      // from this (login) function:so that (useProvideAuth) function:
+      // can have the (access) of that (response):
+      // and gave that to the every component of our applicaion:
+      return {
+        success: true,
+      };
+      // if the (server) response is (notsuccessfull) or (false):
+    } else {
+      // then we return.the whatever message.we get from the (server):
+      // through (login) function:so that (useProvideAuth) function:
+      // can have the (access) of that (response):
+      // and gave that to the every component of our applicaion:
+      return {
+        return: false,
+        message: response.message,
+      };
+    }
   };
 
   // 4 => it also have a (logout) functionality:

@@ -8,6 +8,15 @@ import styles from "../styles/login.module.css";
 // and that  package name is (useToast):
 import { useToasts } from "react-toast-notifications";
 
+
+
+// here we are importing the (useAuth) custom-hook:
+// which we have created.To access the (user-Auth) state:
+// In eaCh and every component of our application:
+import { useAuth } from "../hooks";
+
+
+
 const Login = () => {
   // we are using the (useState) hook:To get the data from the (form):
   // and gave that data to the component elements:which will send that data to the (server) for authentication the user with the help of that data:
@@ -29,6 +38,15 @@ const Login = () => {
   // so we need to use the (addToast) variable of this (useToasts) hook:
   // through which we gonna add the (notifications) in our (component-elements):
   const { addToast } = useToasts();
+
+
+  // here we are calling the (useAuth) custom-hook:
+  // which will have the (userAuth) state in it:
+  // and we store that (useAuth) custom-hook in the another variable:
+  // so that we can use that (auth) in our (application) component:
+  // In which component we are importing it:
+  const auth = useAuth();
+  console.log(auth);
 
   // here we are creating the (function).
   // through which we will handle the (onSubmit) event-handler of the form-tag:
@@ -89,7 +107,13 @@ const Login = () => {
     // so that we can add the (notifications) acc to the (result) of that (response):
     // To tell the user that.its login request worked or not:
     // so for saving that (response).we have created the (response) variable:
-    const response = await login(email, password);
+
+    // V.V.IMP = working of (auth.login):
+    // when you call the (login) function provided by the (useAuth) hook:
+    // V.V.IMP = you're essentially triggering the (logic) within the (login) function in the (AuthProvider):
+    // V.V.IMP = Or the another function.which we are using the in the (AuthProvider):To hanlde the (login) functionality:
+    // which, that In turn, updates the state. This updated state is then accessible to all components using the (useAuth) hook through the AuthContext.
+    const response = await auth.login(email, password);
 
     // => fifth = after getting the (response):
     // related to the (user) login:from the (login) function:
