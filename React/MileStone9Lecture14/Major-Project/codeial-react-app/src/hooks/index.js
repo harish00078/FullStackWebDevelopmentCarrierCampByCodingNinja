@@ -88,7 +88,7 @@ export const useProvideAuth = () => {
 
     // => 4 = we are saving the (server) response related to the (user-auth):
     // In the (response) variable:
-    console.log(email);
+    
 
     const response = await userLogin(email, password);
 
@@ -96,6 +96,16 @@ export const useProvideAuth = () => {
     // (user) successfully get authenticated or not:
     // if the (server) response is (successfull) or (true):
     if (response.success) {
+      // if user (successfully) get authenticated:
+      // then we will gave the (user) data which we are getting from the (server):
+      // To our (user) state:which we have created:
+      // so we can access that (state) in our application components:
+      // with the help of (useAuth) custom-hooK:
+      // here we will only gave the (user) data to the (user) state:
+      // IMP = under the (data) section of our (server's) response:we have the (user) data:
+      setUser(response.data.user);
+      console.log('sever',response.data);
+
 
       // then we need to return that (success) response:
       // from this (login) function:so that (useProvideAuth) function:

@@ -46,7 +46,7 @@ const Login = () => {
   // so that we can use that (auth) in our (application) component:
   // In which component we are importing it:
   const auth = useAuth();
-  console.log(auth);
+  console.log('auth',auth);
 
   // here we are creating the (function).
   // through which we will handle the (onSubmit) event-handler of the form-tag:
