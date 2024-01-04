@@ -129,9 +129,11 @@ To use the key to access the post information later.
 To identify the post related to the key.
 Without more context about the surrounding code, it's impossible to say for sure what the specific purpose of this line is. However, hopefully, this explanation helps you understand the basic syntax and structure of the code.
 
-
+ 
 // Meaning of persisting user in react:
 => Persisting a user in React means keeping track of the user's authentication status and data across different sessions or interactions. 
+=> V.IMP = In React, “persisting a user” refers to the process of keeping a user logged in even after they close the application or refresh the page. 
+=> This is typically achieved by storing the user’s login credentials in a secure location, such as the browser’s local storage, and then retrieving them when the user returns to the application:
 - This is important for ensuring that the user has a seamless experience when using the application, and that their data is not lost if they close the browser or refresh the page.
 - There are a few different ways to persist a user in React. One common approach is to use local storage.
 - Local storage is a key-value storage mechanism that is available in all modern browsers. 

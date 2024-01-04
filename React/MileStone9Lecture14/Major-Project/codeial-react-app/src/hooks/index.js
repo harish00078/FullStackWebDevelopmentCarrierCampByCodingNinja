@@ -104,8 +104,8 @@ export const useProvideAuth = () => {
       // here we will only gave the (user) data to the (user) state:
       // IMP = under the (data) section of our (server's) response:we have the (user) data:
       setUser(response.data.user);
-      console.log('sever',response.data);
-
+      // console.log('sever',response.data);
+  
 
       // then we need to return that (success) response:
       // from this (login) function:so that (useProvideAuth) function:
@@ -129,7 +129,11 @@ export const useProvideAuth = () => {
 
   // 4 => it also have a (logout) functionality:
   // through which we are handling the (logout) functionlity in our application:
-  const logout = () => {};
+  const logout = () => {
+    // for hanlding the (logout) functionality of our application:through the (logout) function:
+    // we simply have to set the (user) state to (null): 
+    setUser(null);
+  };
 
   // 5 => the (sign-up) functionality will also be handle under this (function):
 
