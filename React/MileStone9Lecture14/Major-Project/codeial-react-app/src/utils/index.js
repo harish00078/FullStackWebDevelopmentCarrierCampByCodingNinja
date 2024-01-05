@@ -20,8 +20,46 @@
 // IMP = with the help of this method we can (export) all the export-function in (one-line):
 export * from "./constants";
 
+// here we are creating the (helper) function:
+// through which we will store the (token) in the (local-storage) of (local-machine):
+// which we are get from the (server):when (user) successfully get authenticated in our application:
+// its basically get stored in the user's local-machine:when (user) successfully get authenticated by the (server):
+// we do this because:when user refresh the (app) or it gets refresh by it self:
+// then we need that (token) to fetch the (user) data from it:
+// IMP = this fucntion basically gets the two arguments in it:
+// first is the (value):
+// second is the (key):
+export const setItemInLocalStorage = (value, key) => {
+  // In the function.first we need to add some (ristrictions) or (test-case) to it:
+  // so that this function does not get (failed):
+  // because its the important function for our application:
+  
+  // first-test-case =  Is that.if any of the (argument) related to the function:
+  // does not present.then we have to return the (error).In the console-log:
+  // this case basically means that we are not getting any-one of the argument.
+  // In the funciton.from where this fucntion get triggered:
+  if (!key || !value) {
+    // we need to print on the console.that we are not able to set the (token) in the (local-storage):
+    return console.error('can not store token in LS')
+  }
 
+  // but if we get the (both) arguments or we can say there values in this function:
+  // then we have to set the (token) to the (local-storage):
+  // IMP = how we can store that token-value in hte (local-storage):
+  // => first we have to check that.the (value) which we are getting what is the type of that (value):
+  // for checking the type of the value.we can use the (typeof) operator or method we can say:
+  // IMP = if the value is not in the type of (string).then we have to convert that (data) of the (value) argument:
+  // In the form of (string):
+  // IMP = for example.if we have the data of (value) argument in the form of (object):
+  // then we have to convert that (object) in the form of string:
+  // we can do that with the help of (json):because we will get the java-script object:
+  // and we can convert that object in the form of (json-string):
+  // by using the (json) and its method to convert the (js-object) into the (string):
+  // we can use the (stringify) method of the (json) to convert (js-object) into (string):
+  // IMP = but if its already in the form of (string):then we can simply use it in our function logic:
+  const valueToStore = typeof value !==  "string"  ? JSON.stringify(value) : value;
 
+};
 
 // V.V.IMP = here we are creating the function:
 // through which we are converting our (request) body-data in the form of (x-www-form-urlencoded) request:
@@ -30,8 +68,8 @@ export * from "./constants";
 // V.V.IMP = so what does this (function) do:
 // for example:if we have a (body) object like this:
 // {
-    // username:'harish',
-    // password:'12345'
+// username:'harish',
+// password:'12345'
 //}
 // V.V.IMP = so when we pass this (body) object into this (function):
 // it will look like this:
@@ -78,16 +116,14 @@ export const getFormBody = (params) => {
     // with the help of equalsto (=):
     // after combining them.we need to push them into our (formBody) array:
     // we can do that with the help of (push) function:
-    formBody.push(encodeKey + '=' + encodeValue);
-
+    formBody.push(encodeKey + "=" + encodeValue);
   }
   // 7 = after getting the (conversion) of our (body-data) in the (formBody) array:
   // we have to (return) that (conversion) from this function:so that our request can have (access) of that (new) body-data:
-  // through the body which we are passing our (request): 
+  // through the body which we are passing our (request):
   // V.V.IMP => before returning that conversion from this function:
   // we have to separate those both the values from each other with the help of (join) function:
   // with the help of (join) function:we can add the (&)  ampersand-sign between those two values:
   // so that they got separated from each other:
-  return formBody.join('&'); // 'username=harish&password=12345'
+  return formBody.join("&"); // 'username=harish&password=12345'
 };
-
