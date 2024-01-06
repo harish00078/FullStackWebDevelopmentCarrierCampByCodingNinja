@@ -19,6 +19,14 @@ import { AuthContext } from "../providers/AuthProvider";
 // when we are importing it from the (api) folder:
 import { login as userLogin } from "../api";
 
+// 1 = here we import the (setItemInLocalStorage) function:
+// through which we will bascially ADD the (token-value) of the (user-auth) in our (localStorage):
+// 2 = we also have import the (unique-key) from the (same) folder:
+// through which we will basically add the (token-value) in the lacalstorage:
+// 3 = we will also import the (removeItemFromLocalStorage) function:
+// through which we will basically (remove) the (token-value) form the (localStorage):
+import { setItemInLocalStorage, removeItemFromLocalStorage,LOCALSTORAGE_TOEKN_KEY } from "../utils";
+
 // 2 => here we create the second custom-hook named as (useAuth):with the help of this custom-hook:
 // IMP = we will be able to (access) the (Auth-state) of the (user) in  our application-components:
 // 1 = basically means that the (AuthProvider) function will (provide) the (auth-state) of the (user) to the every component of our application:
@@ -88,7 +96,6 @@ export const useProvideAuth = () => {
 
     // => 4 = we are saving the (server) response related to the (user-auth):
     // In the (response) variable:
-    
 
     const response = await userLogin(email, password);
 
@@ -104,8 +111,22 @@ export const useProvideAuth = () => {
       // here we will only gave the (user) data to the (user) state:
       // IMP = under the (data) section of our (server's) response:we have the (user) data:
       setUser(response.data.user);
-      // console.log('sever',response.data);
-  
+
+      // V.IMP = here we are adding the our (token) to the (localStorage):
+      // which we are getting from the (server).On the behalf of user's (successfull) authentication (request's) response:
+      // IMP = for doing that we have to use the (setItemInLocalStorage) helper-function which we have created:
+      // through this function.we will add the (token) value in the (localstorage):
+      // we have to  pass the two things to this function:for storing the token-value in the local storage:
+      // => 1 = first the (unique-key):which we have created:
+      // through which we will basically find-out the (token-value) in our application.When we need it:
+      // => 2 = second the (token-value):It self which we are getting from the (server):
+      // after the user successfully get authenticated:
+      // IMP = we also add the condition on this fucntion:that if (token) is avaiable:
+      // then we add the (token-value) in localstorage:if its not then we will add its value to (null):
+      setItemInLocalStorage(
+        LOCALSTORAGE_TOEKN_KEY,
+        response.data.token ? response.data.token : null
+      );
 
       // then we need to return that (success) response:
       // from this (login) function:so that (useProvideAuth) function:
@@ -131,8 +152,20 @@ export const useProvideAuth = () => {
   // through which we are handling the (logout) functionlity in our application:
   const logout = () => {
     // for hanlding the (logout) functionality of our application:through the (logout) function:
-    // we simply have to set the (user) state to (null): 
+    // we simply have to set the (user) state to (null):
     setUser(null);
+    // => IMP = when (user):try to or (logout) from the (application):
+    // then we also have to (remove) the (Token-value).
+    // which is related to that particular (user).from the (localStorage):
+    // IMP = for that we have to use the (removeItemFromLocalStorage) fucntion:which we have created:
+    // TO (remove) the (token-value) of the (user) from the (localstorage):
+    // IMP = we have to pass the (key) argument.Through which we will pass the (unique-key) to this (fucntion):
+    // so that with the help of that (key).we will able to (remove) the (token-value) from the (localstorage):
+    removeItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
+
+
+
+
   };
 
   // 5 => the (sign-up) functionality will also be handle under this (function):

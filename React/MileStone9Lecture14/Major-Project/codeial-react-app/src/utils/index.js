@@ -20,27 +20,28 @@
 // IMP = with the help of this method we can (export) all the export-function in (one-line):
 export * from "./constants";
 
-// here we are creating the (helper) function:
-// through which we will store the (token) in the (local-storage) of (local-machine):
+// here we are creating the (helper) functionS:
+// => first-helper function:
+// through which we will store the (token) in the (local-storage) of (user's-Browser) local-storage:
 // which we are get from the (server):when (user) successfully get authenticated in our application:
-// its basically get stored in the user's local-machine:when (user) successfully get authenticated by the (server):
+// its basically get stored in the user's browser (local-storage):when (user) successfully get authenticated by the (server):
 // we do this because:when user refresh the (app) or it gets refresh by it self:
 // then we need that (token) to fetch the (user) data from it:
 // IMP = this fucntion basically gets the two arguments in it:
-// first is the (value):
-// second is the (key):
-export const setItemInLocalStorage = (value, key) => {
+// first is the (key):
+// second is the (value):
+export const setItemInLocalStorage = (key, value) => {
   // In the function.first we need to add some (ristrictions) or (test-case) to it:
   // so that this function does not get (failed):
   // because its the important function for our application:
-  
+
   // first-test-case =  Is that.if any of the (argument) related to the function:
   // does not present.then we have to return the (error).In the console-log:
   // this case basically means that we are not getting any-one of the argument.
   // In the funciton.from where this fucntion get triggered:
   if (!key || !value) {
     // we need to print on the console.that we are not able to set the (token) in the (local-storage):
-    return console.error('can not store token in LS')
+    return console.error("can not store token in LS");
   }
 
   // but if we get the (both) arguments or we can say there values in this function:
@@ -57,9 +58,58 @@ export const setItemInLocalStorage = (value, key) => {
   // by using the (json) and its method to convert the (js-object) into the (string):
   // we can use the (stringify) method of the (json) to convert (js-object) into (string):
   // IMP = but if its already in the form of (string):then we can simply use it in our function logic:
-  const valueToStore = typeof value !==  "string"  ? JSON.stringify(value) : value;
+  const valueToStore =
+    typeof value !== "string" ? JSON.stringify(value) : value;
+
+  // => IMP = after checking the type of the toekn-value or handling the type of the value:
+  // we will add token-value in the (localStorage):
+  // IMP =  for doing that we have to use the (localStorage) method.
+  // and also have to use it function (setItem):
+  // we use (setItem).because we want to add the our (value) in the localstorage:
+  localStorage.setItem(key, valueToStore);
+};
+
+// => second helper function:
+// it also same as the (setItemInLocalStorage) function:
+// the only difference is that.In this funciton we will get the (value) of the (token):
+// from the (LocalStorage):which we have store in the (localStorage) with the help of (setItemInLocalStorage) function:
+// IMP = here we just have to access the (item) from the (localStorage):
+// that why we are only passing the (one) argument to this function:
+// and argument is (key):because we have store our (token-value) in the (localstorage) with that (key):
+// so that we can easily access our (token-value) in the localstorage:
+export const getItemFromLocalStorage = (key) => {
+  // so for getting the (token).from the (localstorage):
+  // with the help of (key) argument:
+  // we simple have to pass the (key) argument:
+  // TO  the (getItem) function of the (localStorage) method:
+
+  // IMP = we also have to add some test cases in fucntion:
+  // so that our application did not get crash:
+  if(!key){
+    return console.error('did not have token in LS');
+  }  
+  // here we are getting the token-value from the localstorage with the help of (key):
+  localStorage.getItem(key);
 
 };
+
+// => third helper function:
+// it also same as the (setItemLocalStorage) function:
+// the only difference is that.In this funciton we will basically (remove) the (value) of the (token) from the (LocalStorage):
+// we did this only when the user (try-to)  or (already) get (logout) from the application:
+export const removeItemFromLocalStorage = (key) =>{
+
+  // we need to add some test-cases in this function:
+  // so that our application did not get crash:
+  if(!key){
+    return console.error('not able to find or remove the token-value from LS')
+  }
+
+  // for removing the (token-value) from the local-storage:
+  // we have to pass the (key) to the (removeItem) fucntion of the (localStorage) method:
+  
+
+}
 
 // V.V.IMP = here we are creating the function:
 // through which we are converting our (request) body-data in the form of (x-www-form-urlencoded) request:

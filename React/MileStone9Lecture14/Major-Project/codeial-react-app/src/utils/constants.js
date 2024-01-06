@@ -41,10 +41,8 @@ export const API_URLS = {
   searchUsers: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
 
-// here we create the another object:which has the (key,value) pairs:
-// In this object we will store our (tokens).which we are getting from the (server).
-// when the (User) authenticate in the application:
-
-// here we gave this object a (default) value:
-// so when we login or authenticate in  the application.we will replace it with the (original) token key:
+// HERE we create the (key) or we can say the (unique-key):
+// IMP =  through this (key):we will bascially store the (token-value) of the (user-authentication).In our localstorage:
+// we will use this (unique-key).everywhere in our application:
+// To basically (get),(set) and (remove) the (token-value) of the (user-auth) from our localstorage:
 export const LOCALSTORAGE_TOEKN_KEY = "__codeial_token__";

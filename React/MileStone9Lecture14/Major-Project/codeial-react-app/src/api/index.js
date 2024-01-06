@@ -29,7 +29,8 @@ const customFetch = async (url, { body, ...customConfig }) => {
   // => how we will get the token:
   // when ever user make the (log-in) request to the (server):
   // we will have the (token) in the response.
-  // and will save that (token) in the (local-storage) of our system:or can say it will automatically get saved in the local storage of our (windows) system:
+  // and will save that (token) in the (local-storage) or we can say in the localstorage of (browser) of our system:
+  // or can say thatit will automatically get saved in the local storage of our (windows) system or we can say in localstorage of (browser):
   // so that we can easily get or use that (token) in our (api-requests) in which were need it.
   //  for getting the data from the (server) for the (components) which required the (authorization) of the (user) in the application:
 
