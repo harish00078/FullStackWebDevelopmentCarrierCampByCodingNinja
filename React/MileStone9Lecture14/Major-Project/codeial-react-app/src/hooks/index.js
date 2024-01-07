@@ -1,7 +1,12 @@
 // here we will creating the  custom-hooks:
 // which we are using in our application:
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
+// here we are importing the (library):
+// through which we will basically (decode) the (user-token):|
+// and get the (user) data from it:
+import jwt from 'jwt-decode';
 
 // here we are importing the (AuthContext):so that we can have the access of this (AuthContext) or (AuthState) of the (user):
 // In every component of our application:with the help of (useAuth) custom-hook function:
@@ -25,7 +30,7 @@ import { login as userLogin } from "../api";
 // through which we will basically add the (token-value) in the lacalstorage:
 // 3 = we will also import the (removeItemFromLocalStorage) function:
 // through which we will basically (remove) the (token-value) form the (localStorage):
-import { setItemInLocalStorage, removeItemFromLocalStorage,LOCALSTORAGE_TOEKN_KEY } from "../utils";
+import { setItemInLocalStorage, removeItemFromLocalStorage,LOCALSTORAGE_TOEKN_KEY, getItemFromLocalStorage } from "../utils";
 
 // 2 => here we create the second custom-hook named as (useAuth):with the help of this custom-hook:
 // IMP = we will be able to (access) the (Auth-state) of the (user) in  our application-components:
@@ -68,6 +73,50 @@ export const useProvideAuth = () => {
   // for that we are creating the another state (loading);with the help of (useState) hook:
   // which is initially or bydefault set to be true:
   const [laoding, setLoading] = useState(true);
+
+  // V.IMP = here under this (useProvideAuth) function:
+  // we are basically handling the user-token (decode).
+  // so that whenever our (application) get reload:
+  // IMP = we are able to provide that (user-data) again to our application:
+  // IMP = so we will do that with the help of (useEffect) hook.
+  // And the (library) which we use to (decode) the (user-token):
+  useEffect(() =>{
+    // under this (useEffect) hook:
+    // => first we  have to get the (user-token).from the (localstorage) of the (user-browser):
+    // because we have store its (token).In the (localstorage) of its (browser):
+    // so for getting the token from Its (localStorage).we need to use the (fucntion):
+    // which we have specificaly created to get the (user-token) from user (browser's-localstorage):
+    // IMP => we also have to store that (token) in the (variable):
+    // so that we can decode that token:
+    const usertoken = getItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
+
+    // after getting the (token) from the (user-browser's) localstorage:
+    // IMP => 1 =  first we have to check that.If we get any token from the (localstorage):
+    if(usertoken){
+      // 2 = then we have get the (user-data) from that (token).by decoding it:
+      // for (decoding) the (token).we have to use the (decoding-library):
+      // which is named as (jwt-decode):here In this file we named it (jwt):
+      // we have to pass the (user-token) to this (library):so that it get (decode):
+      // IMP = we did not have to do anything to get the (user-data) from (token) with the help of (library):
+      // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
+
+      const user = jwt(usertoken); 
+
+      // 3 = after getting the (user) data from the (token):
+      // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
+      // so that every where in our app we can access that (user-data):
+      // and show that user-data on our application:
+      setUser(user);
+
+
+    }
+
+    // 4 = after giving the (user-data):To the (user) state-hook:
+    // we have to gave the (false) value to the (setLoading) state-hook:
+    // so that the (loading) state.get removed from our application's web-page:
+    setLoading(false);
+
+  },[]);
 
   // 3 => after that it aslo have a (login) function init:
   // through which we are handling the (login) functionlity in our application:

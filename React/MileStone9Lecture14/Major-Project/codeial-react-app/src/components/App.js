@@ -10,6 +10,10 @@ import { useEffect, useState } from "react";
 // third method is (Route):
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// here we are importing the (useAuth) custom-hook:
+// through this custom-hook. we can basically access the data of our (auth-context):
+import {useAuth} from '../hooks';
+
 // =>  here we are importing the functions.through which we are connecting to the (server):
 // and the getting the (data) for the (component):
 import { getPosts } from "../api";
@@ -58,7 +62,13 @@ function App() {
   // by default this loader will have the (true) value:
   // so that when ever our application get start or load:
   // it will start immediately.and continous running until we will get the (data) from the (server)
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
+
+  // V.V.IMP = here we are using the (useAuth) custom-hook fucntion:
+  // whhich we will basicallu have the data related to our (auth-context):
+  const auth = useAuth();
+
+
 
   // here we are using the (useEffect) hook:
   // To calling the (api_url) for the particular (component):
@@ -108,7 +118,13 @@ function App() {
   // IMP => if we did not get the (data) from the (server):
   // and the (home-page) still showing the (loading):
   // then we need to show the (loader-component):
-  if (loading) {
+  // V.V.IMP = this loading function.basically get its data from the (useAuth) custom-hook:
+  // because this custom-hook will have the (data) related to our (auth-context):
+  // under that (auth-context):we are also maniging the state related to the (laoding):
+  // IMP => when we have to show the (loading) or not:it basically depend on the (user) authentication process: 
+  // and we are managing the (process) under the (auth-context):
+  // so here we have to use the (laoding) state of (auth-context):
+  if (auth.loading) {
     // here we are returning the (Loader) component in our (app) component:
     return <Loader />;
   }

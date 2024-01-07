@@ -89,7 +89,9 @@ export const getItemFromLocalStorage = (key) => {
     return console.error('did not have token in LS');
   }  
   // here we are getting the token-value from the localstorage with the help of (key):
-  localStorage.getItem(key);
+  // IMP = In this function. we have to use the (return) method as well:
+  // because this function.also have to provde this value to the other (functions) and (components) as well:
+  return localStorage.getItem(key);
 
 };
 
