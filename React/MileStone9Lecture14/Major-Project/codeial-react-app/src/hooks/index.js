@@ -7,6 +7,8 @@ import { useContext, useEffect, useState } from "react";
 // through which we will basically (decode) the (user-token):|
 // and get the (user) data from it:
 import jwt from 'jwt-decode';
+// import jwt_decode from "jwt-decode";
+
 
 // here we are importing the (AuthContext):so that we can have the access of this (AuthContext) or (AuthState) of the (user):
 // In every component of our application:with the help of (useAuth) custom-hook function:
@@ -101,6 +103,7 @@ export const useProvideAuth = () => {
       // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
       const user = jwt(usertoken); 
+      // const user = jwt_decode(usertoken);
 
       // 3 = after getting the (user) data from the (token):
       // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
