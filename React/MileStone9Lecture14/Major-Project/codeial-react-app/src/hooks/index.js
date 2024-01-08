@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 // here we are importing the (library):
 // through which we will basically (decode) the (user-token):|
 // and get the (user) data from it:
-import jwt from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 // import jwt_decode from "jwt-decode";
 
 
@@ -102,7 +102,7 @@ export const useProvideAuth = () => {
       // IMP = we did not have to do anything to get the (user-data) from (token) with the help of (library):
       // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
-      const user = jwt(usertoken); 
+      const user = jwtDecode(usertoken); 
       // const user = jwt_decode(usertoken);
 
       // 3 = after getting the (user) data from the (token):
