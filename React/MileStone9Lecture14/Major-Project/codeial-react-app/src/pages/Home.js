@@ -123,6 +123,7 @@ useEffect(() => {
 
   if (!Array.isArray(posts)) {
     console.log("posts: ", posts);
+
     console.error("Posts is not an array:", posts);
     return null; // or handle the error in another way
   }

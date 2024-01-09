@@ -46,6 +46,7 @@ function App() {
   // V.V.IMP = here we are using the (useAuth) custom-hook fucntion:
   // whhich we will basicallu have the data related to our (auth-context):
   const auth = useAuth();
+  console.log('auth-app',auth)
 
   // =======> we use this code when we want to fetch the (posts).In the (app) component:
   // =======> and pass them to the (home) component as a (props):through its (route).In the app-component:
