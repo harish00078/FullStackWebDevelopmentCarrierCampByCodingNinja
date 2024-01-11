@@ -109,7 +109,12 @@ const Navbar = () => {
               <>
                 {/* V.IMP = here in this another list-tag.we will have another link or button. 
                 => through which (user) will get (logout) from our application:*/}
-                <li>
+                {/* V.IMP = we can also add the (onClick) event-hanler.function with in the (list-tag):
+                => basicallty means that instead of using (button) tag.provide it the (event-handler):
+                => we can direclty provide that to the (list-tag):
+                => and under that (event-hanlder) function.we will basically gave the (logout) funciton to it:
+                => with the help of (useAuth) custom-hook:the same way we did to the (button-tag): */}
+                <li onClick={auth.logout}>
                   {/* IMP = we can do that with the help of (useAuth) custom-hook:
                   => through this custom-hook.we will connect this Button with the (logout) function of our (auth-context):
                   => so when every user.(click) on this (button):our logout function of the (auth-context):
@@ -117,7 +122,9 @@ const Navbar = () => {
                   => V.IMP = how we can gonna do that:
                   => for that we will add the (onClick) event-handler in this (button):
                   => and under that (onclick) event-handler.will basically add the (logout) function of the (auth-context).with the help of (useAuth) custom-hook: */}
-                  <button onClick={auth.logout}>Log-Out</button>
+
+                  {/* <button onClick={auth.logout}>Log-Out</button> */}
+                  Log-Out
                 </li>
               </>
             ) : (
