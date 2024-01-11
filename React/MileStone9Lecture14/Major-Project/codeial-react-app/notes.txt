@@ -149,3 +149,8 @@ Without more context about the surrounding code, it's impossible to say for sure
 -  When the user logs out, you can destroy the session and remove the user's data from the session.
 - The best way to persist a user in React will depend on the specific needs of your application.
 -  If you need to keep track of the user's authentication status and data across different sessions or interactions, then you should use one of the approaches described above.
+
+=> Condition Operator in React:{ ? : } these two signs represents the (Condition-operator):
+// example: [ const user = useAuth();const greeting = auth.user ? user.name : "Guest";]
+- in React is called a conditional operator. It is used to check if a value is not null or undefined, 
+- and if it is, to return the value of the expression on the left side of the operator. Otherwise, it returns the value of the expression on the right side of the operator.

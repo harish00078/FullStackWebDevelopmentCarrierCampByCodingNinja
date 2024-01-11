@@ -15,7 +15,16 @@ import { Link } from "react-router-dom";
 // we will import the css-module.which we particularly created for this component:
 import styles from "../styles/navbar.module.css";
 
+// here we are importing the (useAuth) custom-hook:
+// through which we will provide the (user-auth) context to our (hole) application:
+// or here we can say to our application's (navbar) component:
+import { useAuth } from "../hooks";
+
 const Navbar = () => {
+  // here we are using the (useAuth) custom-hook:
+  // with the help of which we will provide the (user-auth) context to our hole application:
+  const auth = useAuth();
+
   return (
     <div className={styles.nav}>
       {/* under the main div.
@@ -43,29 +52,40 @@ const Navbar = () => {
       <div className={styles.rightDiv}>
         {/* under main right div.we will create div.
                 => which will have link to the (user-profile): */}
-        <div className={styles.user}>
-          {/* we gave link to this div.
+        {/*IMP => here we are giving the (auth-user) name to the navbar:
+                => and we only have to show this (name) element of the navbar:
+                => if we have any (auth-user):
+                => we can find our that (auth-user):with the help of (useAuth) custom-hOOK:
+                => we will basically add the (AND-operator) condition on this (element): */}
+        {auth.user && (
+          <div className={styles.user}>
+            {/* we gave link to this div.
                     => by using (anchor) tag */}
-                    {/* V.V.IMP = so instead of using the (anchor-tag):
+            {/* V.V.IMP = so instead of using the (anchor-tag):
                     => we will use the (Link) tag or function in the (SPA) applications which is provided by the (react-router-dom) Library:
                     => because the (Link) page did not reload the hole page of the application:
                     => for going from the one-page (url or route) of application to another-page (url or route):  */}
-                    {/* V.IMP = for using the (LinK) function: we simple need the two things like anchor-tag:
+            {/* V.IMP = for using the (LinK) function: we simple need the two things like anchor-tag:
                     => first is the (Link) function it self.instead of (a) tag
                     => second is the (to) property of the function.instead of (href) property of anchor-tag */}
-          <Link to="/">
-            {/* and anchor-tag.we use img-tag.
+            <Link to="/">
+              {/* and anchor-tag.we use img-tag.
                         => which will have the user profile-image (source): */}
-            <img
-              alt=""
-              src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
-              className={styles.userDp}
-            />
-          </Link>
-          {/* under anchor-tag.we have span tag.
+              <img
+                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
+                className={styles.userDp}
+              />
+            </Link>
+            {/* under anchor-tag.we have span tag.
           => which will repersent the name of the user */}
-          <span>harish</span>
-        </div>
+            {/* here we are giving the (auth-user-name) to the our (span) div element:
+          => which basically repersents the (user-name) on the browser: 
+          => we are getting that name from the (useAuth) custom-hook:*/}
+
+            <span>{auth.user.name}</span>
+          </div>
+        )}
 
         {/* under the right-div.
         => we will also have one more div.
@@ -75,19 +95,45 @@ const Navbar = () => {
           <ul>
             {/* under unordered-list-method.we use (list-tag):
                 => To repersent the (lists): */}
-            <li>
-              {/* under List-tag.we will use the anchor-tag.
+            {/* IMP = we are also giving the (ristrictions) to the (routes) that:
+            => if (user) logged in.then we only have to show the (log-out) route to the (user):
+            => if (user) not (Logged) in.then we will show the (login) and (register) route to the (user):
+            => IMP = we can check the (user) logged in or not:with the help of our (useAuth) custom-hook:
+            => because it will have the (auth-data). related to the (user): 
+            */}
+            {/* IMP = for doing that we need to use these (<> </>) (fragments):
+            => because with in one condition we are not able to use the (two-list) tags in continous manner or render:
+            */}
+
+            {auth.user ? (
+              <>
+                {/* V.IMP = here in this another list-tag.we will have another link or button. 
+                => through which (user) will get (logout) from our application:*/}
+                <li>
+                  {/* IMP = we can do that with the help of (useAuth) custom-hook:
+                  => through this custom-hook.we will connect this Button with the (logout) function of our (auth-context):
+                  => so when every user.(click) on this (button):our logout function of the (auth-context):
+                  => will basically logout the (user) from the application:
+                  => V.IMP = how we can gonna do that:
+                  => for that we will add the (onClick) event-handler in this (button):
+                  => and under that (onclick) event-handler.will basically add the (logout) function of the (auth-context).with the help of (useAuth) custom-hook: */}
+                  <button onClick={auth.logout}>Log-Out</button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  {/* under List-tag.we will use the anchor-tag.
                     => To create a particular link or button for the particular thing */}
-              <Link to="/login">Log-In</Link>
-            </li>
-            {/* here this another list tag.will have another link. */}
-            <li>
-              <a href="/">Log-Out</a>
-            </li>
-            {/* this list-tag.will have link of (register) component: */}
-            <li>
-              <a href="/">Register</a>
-            </li>
+                  <Link to="/login">Log-In</Link>
+                </li>
+
+                {/* this list-tag.will have link of (register) component: */}
+                <li>
+                  <a href="/">Register</a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

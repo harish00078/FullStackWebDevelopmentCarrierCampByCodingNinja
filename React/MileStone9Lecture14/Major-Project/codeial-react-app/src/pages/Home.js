@@ -14,8 +14,11 @@ import { useEffect, useState } from "react";
 // here we are importing the (css-module) which we have created particularly for this (component) of our application:
 import styles from "../styles/home.module.css";
 
-// import comment-component from the component's-folder:
-import Comment from '../components/Comment';
+// 1 = import comment-component from the component's-folder:
+// 2 =  we are also importing the (Loader) component:
+// so that we can show the (loader) on browser.
+// when our application fetching the (post-data) from the (server):
+import {Comment, Loader} from '../components';
 
 // =>  here we are importing the functions.through which we are connecting to the (server):
 // and  getting the (data) for the (component):
@@ -67,7 +70,7 @@ const [posts, setPosts] = useState([]);
 // by default this loader will have the (true) value:
 // so that when ever our application get start or load:
 // it will start immediately.and continous running until we will get the (data) from the (server)
-// const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
 
 useEffect(() => {
   // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
@@ -98,7 +101,7 @@ useEffect(() => {
 
     // => and after we get the (data) from (server) successfully:
     // then we need to put the (loader) default value into (false):
-    // setLoading(false);
+    setLoading(false);
   };
 
   // now we just call the (fetchPosts) function:
@@ -109,7 +112,16 @@ useEffect(() => {
   // so that can only run once:
 }, []);
 
-
+// here we are using the (Loader-component):
+// To show the Loading state on the browser:
+// util our application did not get the (posts-data) from the (server):
+// IMP = we do that with the help of our (laoding) state.which we are maintaining:
+// if our (loading) state is true:then we have to show the (Loader):
+// if its not.then it means that we have fetch the (post-data) from the (server):
+// then we have to set the (loading) state to (false):
+if(loading){
+  return <Loader/>
+}
 
 
 
