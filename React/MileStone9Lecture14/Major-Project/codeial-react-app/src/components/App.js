@@ -37,12 +37,15 @@ import { Loader } from "./";
 const About = () => {
   return <h1>About</h1>;
 };
+
 const UserInfo = () => {
   return <h1>UserInfo</h1>;
 };
+
 const Page404 = () => {
   return <h1>404</h1>;
 };
+
 function App() {
   // V.V.IMP = here we are using the (useAuth) custom-hook fucntion:
   // whhich we will basicallu have the data related to our (auth-context):
@@ -128,9 +131,13 @@ function App() {
   // IMP => when we have to show the (loading) or not:it basically depend on the (user) authentication process:
   // and we are managing the (process) under the (auth-context):
   // so here we have to use the (laoding) state of (auth-context):
+
   if (auth.loading) {
+
     // here we are returning the (Loader) component in our (app) component:
+
     return <Loader />;
+    
   }
 
   return (
