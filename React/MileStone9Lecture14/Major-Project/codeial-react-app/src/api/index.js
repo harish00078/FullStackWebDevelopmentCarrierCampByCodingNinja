@@ -231,3 +231,13 @@ export const login = (email, password) => {
     body: { email, password },
   });
 };
+
+// here we have created the (sign-up) or (register) function:
+// through which we will basically pass the user (sign-up) form data to the (server):
+// and get the (response) related to that (request) from (server):
+export const register = async (name,email,password,confirmPassword) =>{
+  return customFetch(API_URLS.signup(),{
+    method:'POST' ,
+    body:{name,email,password,confirm_password: confirmPassword}
+  })
+}

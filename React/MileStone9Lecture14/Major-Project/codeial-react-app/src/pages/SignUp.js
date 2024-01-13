@@ -27,11 +27,11 @@ const Signup = () =>{
     // 1 = first => we will manage the (name) of the (user) in our component:through (useState) hook:
     // the (name) that has been given to us.by the (signup) form.which we have created in the (sign-up) component:
     // through that (form) we will basically get the (user) data in our (sign-up) component:
-    const [user,setName] = useState('');
+    const [name,setName] = useState('');
     // 2 = secondly => we will handle the (email) of the (user):through (useState) hook:
     // the (email) that has been given to us.by the (signup) form.which we have created in the (sign-up) component:
     // through that (form) we will basically get the (user) data in our (sign-up) component:
-    const [email,setEnail] =  useState('');
+    const [email,setEmail] =  useState('');
     // 3 = thirdly => we will handle the (password) of the (user):
     // the same way.we get the user (name) or (email):
     const [password, setPassword] = useState('');
@@ -49,7 +49,7 @@ const Signup = () =>{
     const [signingUp, setSigningUp] = useState('');
     // 6 = sixth => here we are importing (addToast) function of the (useToasts) library:
     // through which we will basically (provide) and (add) notification in our application component-elements:
-    const {addTast} = useToasts();
+    const {addToast} = useToasts();
     // 7 = seventh => here we will call our (useAuth) custom-hook:
     // through which we will basically provide the (auth) to our application components:
     const auth = useAuth();
@@ -74,7 +74,7 @@ const Signup = () =>{
     // IMP => 2 =  we are also adding the (async) method on this function:
     // so that our application did not get crashed.
     // when we are getting or (passing) the (user-data) to the (server):
-    const handleFormSubmit = asyn (e) =>{
+    const handleFormSubmit = async (e) => {
     
         // => 3 = first we need to (stop) the (default) setting of the signUp-form's (event-hanlder):
         // so that our (sign-up) form does not get reloaded.after it get submitted:
@@ -150,7 +150,7 @@ const Signup = () =>{
             error = true;
         }
 
-        // IMP = And if we get any of the (error) from above form-data check-points:
+        // IMP => 8 = And if we get any of the (error) from above form-data check-points:
         // then we also have to (disabled) our (form) button:
         // so that (user) can again gave  (request) to the (server):
         // by providing the (appropriate) data on the (form):
@@ -158,9 +158,145 @@ const Signup = () =>{
             return setSigningUp(false);
         }
 
-    }
+
+        // IMP => 9 = if (user) form-data pass:
+        // all those (check-points):
+        // then we need to provide that user (sign-up) data to the (server):
+        // we can do that with the help of (useAuth) custom-hook:
+        // under that (custom-hook):we basically have written the (sign-up) function which is connected to the (server):
+        // we will use that function here.with the help of (useAuth) custom-hook:
+        // and pass the user (sign-up) form-data to it:
+        // IMP = we will call  the (useAuth) custom-hook's (signup) with the variable:
+        // because we also have to (save) the (response):which we get from the (server):
+        // after the (user's) sign-up request get satteled:
+        // we also use the (await) method on variable.so that our (application) did not get crash:
+
+        const response = await auth.signup(name,email,password,confirmPassword);
+
+        // IMP => 10 = if (response) is (success).
+        // then it means that (user) have (successfully) get (register) in our application:
+        // so after that we have to.(Redirect) our (users) to the (Login) page:
+        // so that our (users) can (login) into our application.and use the (application):
+
+        if (response.success){
+            // IMP => 11 = here we push our (users) to the (login) page:
+            // after they successfully get (authenticated) in our application:
+            history.push('/login');
+            // IMP => 12 = after that we also need to  (change) the state of our (signup) button:
+            // so that another (users) can sign-up into our application:
+            setSigningUp(false);
+
+            // IMP => 13 = we also have to add the notification:
+            // which show that (user) have been registered sucessfully:
+            return addToast('User registered successfully,Please Login Now',{
+                appearance:'success',
+                autoDismiss :true ,
+                        
+            });
+
+            // IMP => 14 = but if we got the (error):
+            // while registering the (user) in our (application):
+        }else{
+            // IMP => 15 = we have to show the (error) notification to the (user):
+            addToast(response.message,{
+                appearance:'error',
+                autoDismiss:true,
+            })
+
+        }
+
+        // IMP => 16 = after that we also need to change the (state) of our (sign-up) button:
+        // so that (user) can again try to login into our applicaiton:
+        setSigningUp(false);
+
+
+
+    };
+
+    return(
+        // here we are creating the (sign-up) form for our application:
+        // IMP = we also connect this with the (onSubmit) event-handler:
+        // and that (event-handler) basically connected to the (handleFormSubmit):
+        // because we will basically get the (form-data) in our (handleFormSubmit) fucntion:
+        // with the help of event-handler:
+        <form className={styles.loginForm} onSubmit={handleFormSubmit}>
+            {/* here we create the heading for our signup form */}
+            <span>SignUp</span>
+            {/* here we create different fields:
+            => through which we will basiclly get data related to the (sign-up) from (user): */}
+            {/* first we have is (name) field: */}
+            <div className={styles.field}>
+                {/* here we use the (input-tags):
+                => under the (form-tag):To basically get the (data) from the (user): */}
+                <input 
+                placeholder='Name'
+                type='text'required
+                // IMP = we also provide its own (value) to it:
+                // with the help of (useState) hook:
+                // through which we are Managing the each-fields value:
+                value={name}
+                // IMP = for providing the own-value of the (field) to the (field) again:
+                // V.IMP = and have that (value) in our (state) hook:
+                // so that we can use it in our (formsubmit) function:
+                // we first need to get that (value):
+                // for getting that (value) from the (field) or (input-tag).
+                // we need use the (onChange) event-handler on the (field):
+                // so that we can have access to the (value).which we has been enter on the (input-tag) or (field) in present-time:
+                // IMP = for getting that value with the help of (event-hanlder):
+                // we need to use the (target) function of the (event-hanlder):
+                // and under that (target) function.we have the (value) method:
+                // through which we will basically get the (value) of the input-tag or field:
+                // IMP = and we also have to provide that value to the (state) which is related to this input-tag or field:
+                // here we are getting the data related to the (name) field:
+                // that's why we gave this data to the (name) useState hook:
+                onChange={(e) => setName(e.target.value)}
+                autoComplete='new-password'
+                />
+
+            </div>
+            {/* here we second field: (Email) */}
+            <div className={styles.field}>
+                <input placeholder='Email'
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete='new-password'/>
+            </div>
+               {/* here we third field: (password) */}
+               <div className={styles.field}>
+                <input placeholder='Password'
+                type='password'
+                onChange={(e) => setPassword(e.target.value)}/>
+            </div>
+               {/* here we fourth field: (confirmPassword) */}
+               <div className={styles.field}>
+                <input placeholder='Confirm Password'
+                type='password'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            {/* here we have button:
+            => through which we user will submit this sign-up form: */}
+            <div className={styles.field}>
+                {/* here we are (disabling) our button:
+                => acc to the (state) which our (signingUp) state-hook will have: 
+                => IMP = for disabling our button:we are using the (disabled) method of (Button-tag)*/}
+                <button disabled={signingUp}>
+                    {/* if our (signingUp) state-hook:
+                    => have a (true) value:then button will get disabled.and we will show the (signing up..) text on the button:
+                    => but if it has (false) value:then button will not get disabled.and we will show the (signUp) text on the button */}
+                    {signingUp ? 'Signing up....' : 'SignUp'}
+                </button>
+
+            </div>
+        </form>
+    );
 
 
 
 
-}
+};
+// here we are exporting the sign-up page:
+
+export default Signup;

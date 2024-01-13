@@ -22,7 +22,8 @@ import { useAuth } from "../hooks";
 
 // first we import the (home) page:
 // second we import the (Login) page:
-import { Home, Login } from "../pages";
+// third we import the (signup) page:
+import { Home, Login} from "../pages";
 
 // here we import our (Navbar) component:
 // so that we can use or get it into our application:
@@ -198,10 +199,11 @@ function App() {
         => which we have did in the (home) Route: */}
 
           <Route path="/login" element={<Login />} exact />
+          {/* <Route path="/signUp" element={<Signup />} exact/> */}
 
           <Route path="/About" element={<About />} exact />
 
-          <Route path="/user/wertewr" element={<UserInfo />} exact />
+          <Route path="/user/wertewrkshylp" element={<UserInfo />} exact />
 
           {/* here we create the route at the end of all the routes:
           => with the help of  the error or 404 component:
