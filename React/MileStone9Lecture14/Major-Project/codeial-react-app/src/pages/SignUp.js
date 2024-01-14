@@ -5,7 +5,11 @@
 // through which we will basically hanlde the (register) and (sign-uip) state related to the (user):
 import {useState} from 'react';
 
-// import the (useHistory) library from  (react-router-dom):
+// import the (useHistory) library from  (react-router-dom) package:
+// IMP = this library basically have the (acccess) of (browser-history):
+// (browser) basically use the (stack) to maintain the (application) routes:
+// so with the help of this library.we will forward our (users) to the (login) page:
+// when they successfully get authenticated or register in our application:
 import {useHistory} from 'react-router-dom';
 
 // import the (useToasts) library from (react-toast-notifications) package:
@@ -55,8 +59,13 @@ const Signup = () =>{
     const auth = useAuth();
 
     // 8 = eight => here we are calling the (useHistory) Library:
-    // through that we can redirect the user to the homepage after successful registration:
+    // through that we can redirect the user to the homepage after (users) successfully get registered:
+    // IMP = we basically call the (useHistory) library:
+    // with in the (history) variable:
     const history = useHistory();
+    // here we console-log the (history) or history-library:
+    // so that we can see the working process of this (library):
+    console.log(history);
 
 
     // => 1 = Here we are creating the Fucntion:
@@ -181,6 +190,13 @@ const Signup = () =>{
         if (response.success){
             // IMP => 11 = here we push our (users) to the (login) page:
             // after they successfully get (authenticated) in our application:
+            // IMP = here we are forwarding the (users) to the (login-page):
+            // those who successfully get (registered) on application:
+            // we are doing that with the help of (history) variable:
+            // on which we have call the (useHistory) library:
+            // IMP = we also need to use the (push) function:
+            // because browser-history only triggers the (page-route):
+            // if it gets (pushed) or (added) in the (browser-history) stack:
             history.push('/login');
             // IMP => 12 = after that we also need to  (change) the state of our (signup) button:
             // so that another (users) can sign-up into our application:

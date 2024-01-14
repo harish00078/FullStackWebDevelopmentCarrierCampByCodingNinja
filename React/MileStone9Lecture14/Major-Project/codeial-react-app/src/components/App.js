@@ -6,9 +6,11 @@
 // IMP => we need to import the multiple (methods or functions) from the (react-router-dom) package:
 // which will help us to giving the (routes) to our application pages or components:
 // first method is (BrowserRouter).we need to import it as (BrowserRouter as Router):
-// second method is (Routes):
+// IMP = if we are using the (5.2.0) or older-version of the (react-router-dom) package:
+// then we need to use the (Switch) library.instead of (Routes) library:
+// second method is (Routes) or (switch):
 // third method is (Route):
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // here we are importing the (useAuth) custom-hook:
 // through this custom-hook. we can basically access the data of our (auth-context):
@@ -23,7 +25,8 @@ import { useAuth } from "../hooks";
 // first we import the (home) page:
 // second we import the (Login) page:
 // third we import the (signup) page:
-import { Home, Login} from "../pages";
+import { Home, Login, Signup} from "../pages";
+
 
 // here we import our (Navbar) component:
 // so that we can use or get it into our application:
@@ -164,7 +167,7 @@ function App() {
         <Navbar />
 
         {/* here we have (Routes) Method second:  */}
-        <Routes>
+        <Switch>
           {/* and  under that (Routes) method.we create the multiple (Route):
         => And we will gave that each Route to the Each page or component of our Application:*/}
 
@@ -206,7 +209,8 @@ function App() {
         => which we have did in the (home) Route: */}
 
           <Route path="/login" element={<Login />} exact />
-          {/* <Route path="/signUp" element={<Signup />} exact/> */}
+
+          <Route path="/register" element={<Signup />} exact />
 
           <Route path="/About" element={<About />} exact />
 
@@ -221,7 +225,7 @@ function App() {
           => which will repersent that if user request for any random route request.then we will gave this route component:
           => because it will only  works.when all the other uper routes path does not get match with the user's route request: */}
           <Route path="*" element={<Page404 />} exact />
-        </Routes>
+        </Switch>
       </Router>
     </div>
   );

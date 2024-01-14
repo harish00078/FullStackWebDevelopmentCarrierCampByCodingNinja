@@ -137,7 +137,7 @@ const Navbar = () => {
 
                 {/* this list-tag.will have link of (register) component: */}
                 <li>
-                  <a href="/">Register</a>
+                  <Link to="/register">Register</Link>
                 </li>
               </>
             )}
