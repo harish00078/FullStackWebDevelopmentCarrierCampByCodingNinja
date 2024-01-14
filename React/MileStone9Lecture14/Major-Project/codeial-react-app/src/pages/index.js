@@ -11,7 +11,7 @@ import Home from "./Home";
 // import the Login page or component: 
 import Login  from "./Login";
 // import the (Signup) page:
-import Signup from "./Signup";
+import Signup from "./SignUp";
 
 // here we export the (home) page:
 // IMP 2 -> or we can export it as (object):

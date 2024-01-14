@@ -109,6 +109,7 @@ export const removeItemFromLocalStorage = (key) =>{
 
   // for removing the (token-value) from the local-storage:
   // we have to pass the (key) to the (removeItem) fucntion of the (localStorage) method:
+  localStorage.removeItem(key);
   
 
 }

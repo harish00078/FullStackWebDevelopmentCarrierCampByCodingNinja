@@ -10,7 +10,7 @@
 // then we need to use the (Switch) library.instead of (Routes) library:
 // second method is (Routes) or (switch):
 // third method is (Route):
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // here we are importing the (useAuth) custom-hook:
 // through this custom-hook. we can basically access the data of our (auth-context):
@@ -166,8 +166,12 @@ function App() {
         {/*  here we have our (Navbar) component: */}
         <Navbar />
 
-        {/* here we have (Routes) Method second:  */}
-        <Switch>
+        {/* here we have (Routes) or (Switch) Method second:
+        => IMP =if we are using the (react-router-dom) package version is (5.2.0):
+        => IMP = then we need to use the (Switch) method or library:
+        => under this (Routes) or (Switch) method.we basically create the multiple (routes) for the application: 
+        => we are using the (Switch) method: */}
+        <Routes>
           {/* and  under that (Routes) method.we create the multiple (Route):
         => And we will gave that each Route to the Each page or component of our Application:*/}
 
@@ -197,6 +201,13 @@ function App() {
       => so that Browser's (render) function.did to get confuse between the (route-paths):
       => if they were little-bit matches with each other: */}
 
+      {/* V.V.IMP =  if we are using the (Switch) library:
+      => instead of (Routes) library.then we also have to create the (Route) or (Routes) for the application:
+      => acc to the (Switch) libaray: */}
+        {/* <Route exact path="/">
+            <Home />
+          </Route> */}
+
           <Route path="/" element={<Home  />} exact />
 
           {/* V.V.IMP = we use this route.
@@ -225,7 +236,7 @@ function App() {
           => which will repersent that if user request for any random route request.then we will gave this route component:
           => because it will only  works.when all the other uper routes path does not get match with the user's route request: */}
           <Route path="*" element={<Page404 />} exact />
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );

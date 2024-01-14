@@ -166,7 +166,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 
     // if we have the error: when we are fetching the data from the (server):
   } catch (error) {
-    console.log("error");
+    console.log("server-error",error);
     // then we need to (return) that (error) message as well:
     return {
       message: error.message,
@@ -238,6 +238,6 @@ export const login = (email, password) => {
 export const register = async (name,email,password,confirmPassword) =>{
   return customFetch(API_URLS.signup(),{
     method:'POST' ,
-    body:{name,email,password,confirm_password: confirmPassword}
+    body:{ name, email, password, confirm_password: confirmPassword}
   })
 }

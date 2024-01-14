@@ -14,7 +14,7 @@ import {jwtDecode} from 'jwt-decode';
 // In every component of our application:with the help of (useAuth) custom-hook function:
 import { AuthContext } from "../providers/AuthProvider";
 
-// here we are importing the (login) function from the (api) folder:
+// => 1 = here we are importing the (login) function from the (api) folder:
 // which is basically connected to the (server) and get the (user-auth) from the (server):
 // after (server) authenticate the (user-credentials):which has been send to the (Server) in the (request):
 // through this (login) function:\
@@ -24,7 +24,8 @@ import { AuthContext } from "../providers/AuthProvider";
 // we can change its with the help of (as) keyword:
 // by using it we can change the name of (login) fucntion:
 // when we are importing it from the (api) folder:
-import { login as userLogin } from "../api";
+// => 2 = here we are importing the (register) function:from the (api-folder):
+import { register, login as userLogin } from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
 // through which we will bascially ADD the (token-value) of the (user-auth) in our (localStorage):
@@ -200,6 +201,37 @@ export const useProvideAuth = () => {
     }
   };
 
+  // IMP = its also have a (Signup) functionality:
+  const signup = async (name,email,password,confirmPassword) =>{
+    // we have save the response.which we get from the (server):
+    // related to the (request) which this (function) has send to the (server):
+    // IMP = for giving this function's data to the (server):
+    // we need to call the (api) function.To whom we want to provide this data:
+    // that (api) fucntion.basically gave that to the (server) with the help of (customFetch) function:
+    const response = await register(name,email,password,confirmPassword);
+
+    // if (user) successfully get (registered) on the application:
+    // then we will return the (success) key value to true:
+    // TO tell the other function.where we use this fucntion:
+    // that user has successfully get (registered) on the application:
+    if(response.success){
+      return{
+        success:true,
+      };
+      // if not get register.then we will return the (success) key value to (false):
+      // and also return the (server-error) message:
+      // with in the (message) key's value:
+    }else{
+      return{
+        success:false,
+        message:response.message,
+      }
+    }
+    
+
+  }
+  
+
   // 4 => it also have a (logout) functionality:
   // through which we are handling the (logout) functionlity in our application:
   const logout = () => {
@@ -231,5 +263,6 @@ export const useProvideAuth = () => {
     login,
     logout,
     laoding,
+    signup,
   };
 };

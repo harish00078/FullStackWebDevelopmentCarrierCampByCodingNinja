@@ -19,6 +19,8 @@ const initailState = {
   // 4 = fourth it will have the (loading) key:that repersents the (loading-state) of the (user) authentication:
   // by default we put it into (true):
   loading: true,
+  // 5 - here we create the (Signup) key:which will also have a (arrow-function) in it:
+  signup:() => {},
 };
 
 // for that:
