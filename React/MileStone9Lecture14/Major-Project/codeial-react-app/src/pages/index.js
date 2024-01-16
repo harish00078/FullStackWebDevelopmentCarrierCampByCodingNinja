@@ -12,6 +12,8 @@ import Home from "./Home";
 import Login  from "./Login";
 // import the (Signup) page:
 import Signup from "./SignUp";
+// import the (setting) page:
+import Settings from "./Settings";
 
 // here we export the (home) page:
 // IMP 2 -> or we can export it as (object):
@@ -21,7 +23,7 @@ import Signup from "./SignUp";
 // V.IMP = and  we did not use the (default) method on export. if we are importing the multiple (file) in the one export statement:
 
 // export the log-in-page with home-page:
-export { Home ,Login, Signup};
+export { Home ,Login, Signup,Settings};
 
 // IMP = we can also export the (pages) with the help of (asterisk):
 // with the help of this method we can easily (import) and (export) the (pages).
