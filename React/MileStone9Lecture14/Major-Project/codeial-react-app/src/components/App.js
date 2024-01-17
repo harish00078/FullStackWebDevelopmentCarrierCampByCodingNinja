@@ -25,7 +25,8 @@ import { useAuth } from "../hooks";
 // first we import the (home) page:
 // second we import the (Login) page:
 // third we import the (signup) page:
-import { Home, Login, Signup} from "../pages";
+// fourth we import the (setting) page:
+import { Home, Login, Signup,Settings} from "../pages";
 
 
 // here we import our (Navbar) component:
@@ -222,6 +223,10 @@ function App() {
           <Route path="/login" element={<Login />} exact />
 
           <Route path="/register" element={<Signup />} exact />
+
+
+          <Route path="/settings" element={<Settings/>}/>
+
 
           <Route path="/About" element={<About />} exact />
 

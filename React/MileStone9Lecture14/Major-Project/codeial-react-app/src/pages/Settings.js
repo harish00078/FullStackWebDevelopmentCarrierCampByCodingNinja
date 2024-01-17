@@ -50,11 +50,11 @@ const Settings = () => {
       <div className={styles.field}>
         {/* under this container:
             => we have two fields basically:
-            => first (field) repersents the (title):like (name) or (email) of the (user):
+            => first (field) repersents the (title) or (Label):like (name) or (email) of the (user):
             => second (field) repersents the (value) related to that (title):like the (value) of user's (name) and (email): */}
         {/* first we have (email) field-section: */}
         {/* => this is the first-field: */}
-        <div className={styles.fieldName}>Email</div>
+        <div className={styles.fieldLabel}>Email</div>
         {/* => this is the second-field:
         => here we are providing the (value) of the (user-data) to this field.with the help of (useAuth) custom-hook:  */}
         {/* IMP = we also need to add the condition in this field.
@@ -70,7 +70,7 @@ const Settings = () => {
 
       {/* IMP = In second field-container we (repersents) the (name-value) of the (user): */}
       <div className={styles.field}>
-        <div className={styles.fieldName}>Name</div>
+        <div className={styles.fieldLabel}>Name</div>
         <div className={styles.fieldValue}>{auth.user?.name}</div>
       </div>
 
@@ -81,7 +81,7 @@ const Settings = () => {
       => we did not have the (value-field):
       => instead of that we use the (input-tag).through which  (user) will provide the (new-value) for its (password):  */}
       <div className={styles.field}>
-        <div className={styles.fieldName}>Password</div>
+        <div className={styles.fieldLabel}>Password</div>
         <input type="password" />
       </div>
 
@@ -89,7 +89,7 @@ const Settings = () => {
       => In the same way.we get the (value) for the (password):
       => we also need to get the (value) for (confirm-password) field.because  we are getting the (new-value) for the (password-field) from the (user): */}
       <div className={styles.field}>
-        <div className={styles.fieldName}>confirm Password</div>
+        <div className={styles.fieldLabel}>confirm Password</div>
         <input type="password" />
       </div>
 

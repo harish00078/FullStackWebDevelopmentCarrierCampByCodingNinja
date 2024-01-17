@@ -68,7 +68,7 @@ const Navbar = () => {
             {/* V.IMP = for using the (LinK) function: we simple need the two things like anchor-tag:
                     => first is the (Link) function it self.instead of (a) tag
                     => second is the (to) property of the function.instead of (href) property of anchor-tag */}
-            <Link to="/">
+            <Link to="/settings">
               {/* and anchor-tag.we use img-tag.
                         => which will have the user profile-image (source): */}
               <img
