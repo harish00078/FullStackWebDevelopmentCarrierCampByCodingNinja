@@ -8,8 +8,6 @@
 // through which we will basically manage the (states) of this (component-elements);
 import { useState } from "react";
 
-
-
 // here we are importing our styles-file from styles-folder:
 // which we have  created for this (page):
 import styles from "../styles/settings.module.css";
@@ -21,7 +19,6 @@ import { useAuth } from "../hooks";
 
 // here we are creating the setting-component:
 const Settings = () => {
-
   // =>here we are creating the multiple (states) with the help of (useState) hook.
   // through which we will basically manage the (states) related to the (elements) of this setting-component:
   // for-example:
@@ -39,7 +36,7 @@ const Settings = () => {
   // so that when user click on the (edit) button.its state get changed into (true):
   // and all those elements which  have connected with this state of edit-button:
   // get reflected on the (form):
-  const [editMode,setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   // => 2 = second we will manage the state of form's (save-button):
   // in order to show or hide it based on whether user is in edit mode or not:
@@ -52,27 +49,17 @@ const Settings = () => {
   // and after that also block the (save-button) of the form:
   const [savingForm, setSavingForm] = useState(false);
 
-
   // IMP = here we are creating the (states) for handling the (data) of (form) (diff-elements):
   // we are basically getting the input from the (user) related to the few-element of the (form) with the help of (input-tag):
   // for having that data with us. we need to create the (states) for them.
   // so that we can have the (data) of those input-tags.and gave data to the (server):
   // when user click on the form's (save-button):
   // => 3 = first we will create the state for form's (name-element) data:
-  const[name,setName] = useState('');
+  const [name, setName] = useState("");
   // => 4 = second we will create the state for form's (password-element) data:
-  const[password,setPassword] = useState('');
+  const [password, setPassword] = useState("");
   // => 5 = third we will create the state for  form's (confirmPassword-element) data:
-  const[confirmPassword,setConfirmPassword] = useState('');
-
-
-
-
-  
-
-
-
-
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   // here we are using the (useAuth) custom-hook:
   // through which we will  access the (Auth-Context) of our application:
@@ -130,11 +117,44 @@ const Settings = () => {
       {/* IMP = In second field-container we (repersents) the (name-value) of the (user): */}
       {/* => IMP = here we are using the (editMode):
       => so that when (user) click on the (edit-button):
-      => we will show the input-tag.here instead of the showing user (profile-value) related to this particular form-element:
-      => so with help of  (input-tag) user will able to change the (value) of that section of its(user-profile): */}
+      => we will show the input-tag.Instead of  showing the (profile-value) of user'
+      s particular profile-section on this particular form-element:
+      => so with help of  (input-tag) user will able to change the (value) of that particular-section of its (user-profile): */}
+
       <div className={styles.field}>
         <div className={styles.fieldLabel}>Name</div>
-        <div className={styles.fieldValue}>{auth.user?.name}</div>
+        {/* => IMP = we are using the condition-operator:
+      => so that we can show the input-tag.here acc to the (state) of form's (edit-button): 
+      =>if user in the edit-button mode:then we will shpw the input-tag here:
+      =>if user not in the edit-button mode.then we will show the (value) of (user-profile) particular-section:*/}
+        {editMode ? (
+          // here we will get the (data) from (user):
+          // related to this particular-section of (user-profile)
+          <input
+            type="text"
+            // here we are showing the current value of (name) state:
+            // with the help of (value) keyword:we are basically doing that The value of the input field is set to the current value of the name state.
+            value={name}
+            // and from here we will get the new-value for  (name) state:
+            // IMP= we will get that value with the help of (onChange) event-hanlder:
+            // whenever user enter anythings on this (input-tag):
+            // we will get that (value).from this input-tag with the help of  (onChange) event-handler:
+            // we have create arrow-function under this (event-hanlder).we are passing the event-hanlder to this function as a (argument).with name (e):
+            // under that argument we will have the (data) of input-tag:
+            // so fetching the data from (event-hanlder).under the arrow-function:
+            // we need to use the two-things of event-handler:
+            // first is (target) method:
+            // second is (value) function:
+            // through these two  things.we will able to get the (current-value) of the input-tag:which has been enter by the (user):
+            // IMP = and also under that (arrow-function).after getting the (user-value) from that input-tag:
+            // we will gave that value to the (name) state.with the help of state's (setName) callback function:
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        ) : (
+          <div className={styles.fieldValue}>{auth.user?.name}</div>
+        )}
       </div>
 
       {/* IMP = the third field-container is different from other field-containers:
@@ -169,9 +189,7 @@ const Settings = () => {
         => IMP = so we need to define the (style-value) of (two-classNames) in the  (one-className) object:
         => that'w why  we need to  use the (string-interpolation) method.because it will convert them in the (one-style) value:*/}
         {/* IMP = for adding the more values in the (string-interpolation).we use the (jquery) method: */}
-        <button className={`button ${styles.editBtn}`}>
-            Edit Profile
-        </button>
+        <button className={`button ${styles.editBtn}`}>Edit Profile</button>
       </div>
     </div>
   );
