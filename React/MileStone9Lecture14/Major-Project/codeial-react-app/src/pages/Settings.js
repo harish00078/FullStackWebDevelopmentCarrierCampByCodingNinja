@@ -4,6 +4,12 @@
 // to the (user) on which they can do some changes on it (profile-data):
 // (user) only able to do changes on the (name) and (password) section of its profile-data:
 
+// here we are importing the (useState) hook:
+// through which we will basically manage the (states) of this (component-elements);
+import { useState } from "react";
+
+
+
 // here we are importing our styles-file from styles-folder:
 // which we have  created for this (page):
 import styles from "../styles/settings.module.css";
@@ -15,6 +21,59 @@ import { useAuth } from "../hooks";
 
 // here we are creating the setting-component:
 const Settings = () => {
+
+  // =>here we are creating the multiple (states) with the help of (useState) hook.
+  // through which we will basically manage the (states) related to the (elements) of this setting-component:
+  // for-example:
+  // first is different states of the (form-button) or we can say different-states of the form's different-buttons:
+  // second is to manage the (states) related to the (data).which has been given by the (user) through the form's input-tags:
+
+  // IMP = here we are handling the (states) of the form's different buttons:
+  // => 1 = first we will manage the state of form's (edit-profile) button:
+  // we will gave the name to this state is (editMode):
+  // with the help of this (state).we will basically connect our (input-tags) of few-elements of the (form) with the (edit-profile) button:
+  // so that whenever user click on the (edit-pofile) button.we will show the (input-tag) to the (user) on the few-elements of the (form):
+  // which we wanna gave to the (user) for changing the current (profile-data) through those elements of the form:
+  // instead of showing them there (profile-data) values through those form elements:
+  // IMP = by default it will have (false) value:
+  // so that when user click on the (edit) button.its state get changed into (true):
+  // and all those elements which  have connected with this state of edit-button:
+  // get reflected on the (form):
+  const [editMode,setEditMode] = useState(false);
+
+  // => 2 = second we will manage the state of form's (save-button):
+  // in order to show or hide it based on whether user is in edit mode or not:
+  // and also when (user) click on this button:
+  // IMP = we will basically send the (form-data) to the (server):
+  // IMP = also block the (save-button) of  form:until (server) does not (satteled) the first-request of the (user) related to the (form) submission:
+  // IMP = by default it will have (false) value:
+  // so that when user click on the (save) button.its state get changed into (true):
+  // and with in that we will send the (form-data) of the (user) to the (server):
+  // and after that also block the (save-button) of the form:
+  const [savingForm, setSavingForm] = useState(false);
+
+
+  // IMP = here we are creating the (states) for handling the (data) of (form) (diff-elements):
+  // we are basically getting the input from the (user) related to the few-element of the (form) with the help of (input-tag):
+  // for having that data with us. we need to create the (states) for them.
+  // so that we can have the (data) of those input-tags.and gave data to the (server):
+  // when user click on the form's (save-button):
+  // => 3 = first we will create the state for form's (name-element) data:
+  const[name,setName] = useState('');
+  // => 4 = second we will create the state for form's (password-element) data:
+  const[password,setPassword] = useState('');
+  // => 5 = third we will create the state for  form's (confirmPassword-element) data:
+  const[confirmPassword,setConfirmPassword] = useState('');
+
+
+
+
+  
+
+
+
+
+
   // here we are using the (useAuth) custom-hook:
   // through which we will  access the (Auth-Context) of our application:
   // under that (context) we will have the (auth-data) related to the (user):
@@ -69,6 +128,10 @@ const Settings = () => {
       </div>
 
       {/* IMP = In second field-container we (repersents) the (name-value) of the (user): */}
+      {/* => IMP = here we are using the (editMode):
+      => so that when (user) click on the (edit-button):
+      => we will show the input-tag.here instead of the showing user (profile-value) related to this particular form-element:
+      => so with help of  (input-tag) user will able to change the (value) of that section of its(user-profile): */}
       <div className={styles.field}>
         <div className={styles.fieldLabel}>Name</div>
         <div className={styles.fieldValue}>{auth.user?.name}</div>
