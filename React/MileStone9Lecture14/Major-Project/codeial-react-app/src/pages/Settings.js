@@ -157,24 +157,40 @@ const Settings = () => {
         )}
       </div>
 
-      {/* IMP = the third field-container is different from other field-containers:
+      {/* IMP = same thing we need to do with the (password and confirmPassword-element) of form as well:that we did with the (name-element):
+      => we need to connect these (elements) with the (state) of form's (edit-button):
+      => IMP = we basically put these both elements in the (one-condition).where we connect them with the (state) of form's (edit-button):*/}
+
+      {/* IMP = we gonna do that with the help of (&&) ANd-operator.we gonna basically connect these both password-elements with the (state) of (edit-button).
+      => so that whenever (edit-button) state get (true):will show the these both (password-elements) and there input-boxes as well:
+      => IMP = we need to use the (fragment) (<> </>).so that we can add the two same  (password-elements) in (one-place):
+      = */}
+
+      {editMode && (
+        <>
+          {/* IMP = the third field-container is different from other field-containers:
       => because In this (field-container): we basically want the  (new-password) value  form the (users): 
       => if they want to change there (password) value:*/}
-      {/* IMP = so here In this container.
+          {/* IMP = so here In this container.
       => we did not have the (value-field):
       => instead of that we use the (input-tag).through which  (user) will provide the (new-value) for its (password):  */}
-      <div className={styles.field}>
-        <div className={styles.fieldLabel}>Password</div>
-        <input type="password" />
-      </div>
 
-      {/* IMP = In fourth field-container we will get the (confirmPassword-value) of the (user):
+          <div className={styles.field}>
+            <div className={styles.fieldLabel}>Password</div>
+            <input type="password" />
+          </div>
+
+          {/* IMP = In fourth field-container we will get the (confirmPassword-value) of the (user):
       => In the same way.we get the (value) for the (password):
       => we also need to get the (value) for (confirm-password) field.because  we are getting the (new-value) for the (password-field) from the (user): */}
-      <div className={styles.field}>
-        <div className={styles.fieldLabel}>confirm Password</div>
-        <input type="password" />
-      </div>
+
+          <div className={styles.field}>
+            <div className={styles.fieldLabel}>confirm Password</div>
+
+            <input type="password" />
+          </div>
+        </>
+      )}
 
       {/* In the last.we will have the (button-tag) or (button-container) we can say:
       => through which (user) can submit that(new-data) in its (auth-profile).
@@ -189,7 +205,36 @@ const Settings = () => {
         => IMP = so we need to define the (style-value) of (two-classNames) in the  (one-className) object:
         => that'w why  we need to  use the (string-interpolation) method.because it will convert them in the (one-style) value:*/}
         {/* IMP = for adding the more values in the (string-interpolation).we use the (jquery) method: */}
-        <button className={`button ${styles.editBtn}`}>Edit Profile</button>
+        {/* V.IMP => 1 = here we are connecting our (edit-profile) button with its (state):
+        => which we have created for it:
+        => we gonna do that with the help of (condition-operator): */}
+        {/* V.IMP => 2 = we need to take care of one thing:
+        => which is that.we need to show the two buttons for this form:
+        => so how and when we gonna show the which button.we need to place those button acc to that logic in the condition-operator.
+        => so what we gonna do for that is:
+        => when we are in the (true-state) of edit-button.we gonna show the (save-button).so that user can gave its (form-data) to the (server).which they had enter on the form:
+        => and when we are in the (false-state) of (edit-button).we gonna show the (edit-button) itself:
+        => so that by pressing it:user can go into the (true-state) of (edit-button).and in that state we have the another button.instead of edit-profile button:
+        => and that button is (save-button):
+        => IMP = we also need to use the (fragments) here.because we are using the two same kind of elements in one-place or condition*/}
+        {editMode ? (
+          <>
+          {/* IMP = we also need to add or write the condition for this button as well:
+          =IMP = so we can connect this button with its (state):
+          => we gonna do that with the help of (condition-operator):
+          => IMP = By managing this button's (state).we gonna (enable) and (disable) this button:
+          => because through this button.we are sending the (form-data) to the (server).which has been enter by the user in the form for  updating its profile-data:
+          => so we need to disable this button.when user click on it.
+          => and enable it again.util we did not get the satteled statement from the server.related to the first-request that has been send by the user through this button: */}
+            <button className={`button ${styles.editBtn}`}>{savingForm ? 'Saving..profile..' :'Save Profile'}</button>
+
+            {/* here we are adding the another button:
+            => through which we gonna back: */}
+
+          </>
+        ) : (
+          <button className={`button ${styles.editBtn}`}>Edit Profile</button>
+        )}
       </div>
     </div>
   );
