@@ -241,3 +241,12 @@ export const register = async (name,email,password,confirmPassword) =>{
     body:{ name, email, password, confirm_password: confirmPassword}
   })
 }
+// here we have created the (updated-profile) function:or (editProfile) function we are going to call it:
+// through which we will basically pass the (new-data) related to the (user-profile) to the (server):
+// and with the help of that new (user-profile) data server gonna change the (profile-data) of the (user) on its (database):
+export const editProfile = async (userId,name,password,confirmPassword) =>{
+  return customFetch(API_URLS.editUser(),{
+    method:'POST',
+    body:{id:userId,name,password,confirm_password:confirmPassword}
+  })
+}

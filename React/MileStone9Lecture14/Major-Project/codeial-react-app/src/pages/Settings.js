@@ -8,6 +8,11 @@
 // through which we will basically manage the (states) of this (component-elements);
 import { useState } from "react";
 
+// here we importing the (useToasts) library of (react-toast-notification) package:
+// through which we gonna show the notification on setting component page:
+// when (user's) profile-data (successfully) get (updated) on the server:
+import {useToasts} from 'react-toast-notifications';
+
 // here we are importing our styles-file from styles-folder:
 // which we have  created for this (page):
 import styles from "../styles/settings.module.css";
@@ -19,6 +24,19 @@ import { useAuth } from "../hooks";
 
 // here we are creating the setting-component:
 const Settings = () => {
+
+  // here we are using the (useAuth) custom-hook:
+  // through which we will  access the (Auth-Context) of our application:
+  // under that (context) we will have the (auth-data) related to the (user):
+  // and with the help of this (context).will (repersent) the (data) of (user) in this page or component:
+  // IMP = and also provide the (authority) to the (users).that they can do some changes some changes in there (auth-data):
+  // we only allowed (few-sections) to the (user) to do some changes on (auth-data) it:
+  // mainly those section are (user-name) and (password):
+  // => here we store (useAuth) custom-hook:
+  // In the (auth) variable.through which we will call the (useAuth) custom-hook in our application:
+  const auth = useAuth();
+
+
   // =>here we are creating the multiple (states) with the help of (useState) hook.
   // through which we will basically manage the (states) related to the (elements) of this setting-component:
   // for-example:
@@ -55,22 +73,74 @@ const Settings = () => {
   // so that we can have the (data) of those input-tags.and gave data to the (server):
   // when user click on the form's (save-button):
   // => 3 = first we will create the state for form's (name-element) data:
-  const [name, setName] = useState("");
+  // IMP = we also wanna show the already present(name) of the (user) on the input-element:
+  // so that user can see its already present name on the input-element:
+  // for doing that we simply need to gave the (value) of the (user-name) to the (initail-value) of the (user) state-hook:
+  // we gonna get that (name) from the (useAuth) custom-hook:we gonna gave that (name) to the (name)state-hook:with the  help of condition operator:
+  // so that we did not get the error in our application:
+  const [name, setName] = useState(auth.user?.name ? auth.user.name:"");
   // => 4 = second we will create the state for form's (password-element) data:
   const [password, setPassword] = useState("");
   // => 5 = third we will create the state for  form's (confirmPassword-element) data:
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // here we are using the (useAuth) custom-hook:
-  // through which we will  access the (Auth-Context) of our application:
-  // under that (context) we will have the (auth-data) related to the (user):
-  // and with the help of this (context).will (repersent) the (data) of (user) in this page or component:
-  // IMP = and also provide the (authority) to the (users).that they can do some changes some changes in there (auth-data):
-  // we only allowed (few-sections) to the (user) to do some changes on (auth-data) it:
-  // mainly those section are (user-name) and (password):
-  // => here we store (useAuth) custom-hook:
-  // In the (auth) variable.through which we will call the (useAuth) custom-hook in our application:
-  const auth = useAuth();
+
+  // here we are calling the (useToasts) library:
+  // through which we gonna use its (addToast) function:
+  // and provide the (notification) to the elements of this (component) with the help of that (addToast) function:
+  const {addToast} = useToasts();
+
+  
+  // IMP = here we creating the (updateProfle) function:
+  // through which we gonna pass the (new-data) of the (user-profile) to the (server):
+  // which has been given by the (users) it self:because they want to updated there profile-data:
+
+  const updateProfile = () => {
+    // IMP = under this function:first we need to set the value of our (savingForm) state to (true):
+    // because now our (save-button) is pressed and we are trying to save the data of (user-profile) in the (server):
+    // and did not want the (user) to click that button again.util it does not get the stattelement related to its (first-request) from the (server):
+    setSavingForm(true);
+
+
+    // here we create the variable (error) and by default it has the value (false):
+    // we gonna use this variable:to tell the (users) that where they have made the mistake while sending the data to the (server):
+    // with the help this variable we gonna triggered the notification which we have added in the  (check-points) of this function:
+    // and going to tell the (users) that where they have made the (mistake):
+    let error = true;
+
+    // IMP = know before passing the new-data of the (user-profile) to the (server):
+    // we need to check the (few) things and have the more (things) then the new-data for passing the new (user-profile) data to the (server):
+    
+    if(!name || !password || !confirmPassword){
+      addToast('please fill all the fields',{
+        appearance: 'error',
+      })
+      // here we are changing the value of the variable to (true):
+      // so that we can trigger the notification.to tell the user that where they have made the mistake:
+      error = true;
+    }
+
+
+    // we also need to check that password and confirmpassword is matches with each other:
+    if(password !== confirmPassword){
+       addToast('password and confirm password doest not match',{
+        appearance:'error'
+       });
+       error=true;
+    }
+
+
+
+
+    // IMP = when user the get the (response) from the (server) related to its (request):
+    // we are going to be change the value of  (savingForm) state:so that (user) can again user that (button):
+    setSavingForm(false);
+
+  };
+
+
+
+
 
   // 1 = we need to provide the (styles) to the (elements) of this page or component:
   // we can do that with the help of (className) method.and under that method we will provide the (style-object) to it:
@@ -177,7 +247,11 @@ const Settings = () => {
 
           <div className={styles.field}>
             <div className={styles.fieldLabel}>Password</div>
-            <input type="password" />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
           {/* IMP = In fourth field-container we will get the (confirmPassword-value) of the (user):
@@ -187,7 +261,7 @@ const Settings = () => {
           <div className={styles.field}>
             <div className={styles.fieldLabel}>confirm Password</div>
 
-            <input type="password" />
+            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
           </div>
         </>
       )}
@@ -219,21 +293,58 @@ const Settings = () => {
         => IMP = we also need to use the (fragments) here.because we are using the two same kind of elements in one-place or condition*/}
         {editMode ? (
           <>
-          {/* IMP = we also need to add or write the condition for this button as well:
+            {/* IMP = we also need to add or write the condition for this button as well:
           =IMP = so we can connect this button with its (state):
           => we gonna do that with the help of (condition-operator):
           => IMP = By managing this button's (state).we gonna (enable) and (disable) this button:
           => because through this button.we are sending the (form-data) to the (server).which has been enter by the user in the form for  updating its profile-data:
           => so we need to disable this button.when user click on it.
           => and enable it again.util we did not get the satteled statement from the server.related to the first-request that has been send by the user through this button: */}
-            <button className={`button ${styles.editBtn}`}>{savingForm ? 'Saving..profile..' :'Save Profile'}</button>
+            {/* IMP = with the help of this button.
+          => we gonna put this (new-data) on the (user-profile) of (user) which is in the (server):
+          => V.IMP = for doing that we need to use the (onClick) event-hanlder on this button:
+          => and to the (event-hanlder):we gonna pass the (function).through which we are basically handling the (data-updation) of the (user-profile)  on the (server):*/}
+          {/* IMP => we need to (disbaled) this (button).acc to the (value) of our (savingForm) state:
+          => for disabling this button.we need to use the (disabled) attribute.
+          => and under that attribute we are passing the (savingForm) state to it: */}
+            <button
+              className={`button ${styles.saveBtn}`}
+              onClick={updateProfile}
+              disabled={savingForm}
+            >
+              {savingForm ? "Saving..profile.." : "Save Profile"}
+            </button>
 
-            {/* here we are adding the another button:
-            => through which we gonna back: */}
-
+            {/* here we are adding the another button:the (back-button):
+            => through which user can go into the edit-profile button-state: */}
+            {/* IMP = for getting back into the edit-profile button state.with the help of this (go-back) button:
+            =>then we simply need to put the state-value of (editMode) state into  (false) with the help of this button:
+            => for changing the value of editmode state with the help of this go-back button.
+            // we need to use the (onClick) event-hanlder and with in the that event-hanlder we need use the function on this button.through which we gonna change that value of (editMode) state and gonna  gave back that changed to it. */}
+            <button
+              className={`button ${styles.editBtn}`}
+              onClick={() => {
+                setEditMode(false);
+              }}
+            >
+              Go Back
+            </button>
           </>
         ) : (
-          <button className={`button ${styles.editBtn}`}>Edit Profile</button>
+          // IMP = we are handling the (value) of our (editMode) state.with the help of this button:
+          // so for that we need to use the (onClick) event-handler on this button.under that button we use the arrow-function.and with in that function we will change the value of (editMode) state.and provide that value to it.by simply passing that change value to its function the (setEditMode) function or argument:
+          // IMP =  so that we ever user click on the button the (value) of (editmode) state get changed.
+          // and acc to the  (state) value of this(editMode).the elements of (setting-component) should work:
+          // acc to whatever the (logic) we have applied on them:related to the state value of (editMode) state:
+
+          <button
+            className={`button ${styles.editBtn}`}
+            onClick={() => {
+              setEditMode(true);
+            }}
+          >
+            Edit Profile
+          </button>
         )}
       </div>
     </div>

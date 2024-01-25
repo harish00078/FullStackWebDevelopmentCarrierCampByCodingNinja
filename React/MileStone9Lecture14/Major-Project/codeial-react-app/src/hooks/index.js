@@ -17,7 +17,7 @@ import { AuthContext } from "../providers/AuthProvider";
 // => 1 = here we are importing the (login) function from the (api) folder:
 // which is basically connected to the (server) and get the (user-auth) from the (server):
 // after (server) authenticate the (user-credentials):which has been send to the (Server) in the (request):
-// through this (login) function:\
+// through this (login) function:
 // IMp = we have to change the name of this (login) function:
 // which we are importing from the (api) folder:
 // because we have written the same name for the other (login) or (login) handing function:
@@ -25,6 +25,7 @@ import { AuthContext } from "../providers/AuthProvider";
 // by using it we can change the name of (login) fucntion:
 // when we are importing it from the (api) folder:
 // => 2 = here we are importing the (register) function:from the (api-folder):
+// => 3 = here we are importing the (editProfile):through which we gonna update the data of the (user-profile) on the (server):
 import { register, login as userLogin } from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
@@ -121,6 +122,35 @@ export const useProvideAuth = () => {
     setLoading(false);
 
   },[]);
+
+  // here we are creating the function:
+  // through which we gonna update the (user-profile) data which has been given by the (user) it self on the server:
+  // we also need to pass the (arguments) to this function.
+  // which basically gonna be  the (fields) of (user-profile).whom's data we want to update on the (server):
+  const updateUser = async (userId,name,password,confirmPassword) =>{
+
+    // IMP = under this function.we call the another function:
+    // through which which we are connected to the server:and passing the new (user-profile) data to the (server):so that (server) can update the user-data related to the  (user-profile) on its database:
+    // IMP = we also need to save the response of this another-function:so that's why we are calling this function under the variable which is named as (response):
+    // and we also need to call this function with the help of (await) method:so that our application did not get crash while calling this (updateUser) function:
+    const response = await updateUser(userId,name,password,confirmPassword);
+    console.log('edit-profile',response);
+    // after that when we get the (response) from the (server):related to this (request):
+    // => if  the response was (success):
+    if(response.success){
+      // then first we need to (set) the new-data of the (user) to the (context):
+      // because we have change the (name) of the (user) in its (user-profile):and we wanna show that (new-name) of the (user) on our application:
+      // for doing that we simply need to (provide) the (new-data) of the (user) to the (setUser) state:
+      setUser(response.data.user);
+
+
+    }
+
+
+
+  }
+
+
 
   // 3 => after that it aslo have a (login) function init:
   // through which we are handling the (login) functionlity in our application:
@@ -264,5 +294,6 @@ export const useProvideAuth = () => {
     logout,
     laoding,
     signup,
+    updateUser,
   };
 };
