@@ -142,13 +142,25 @@ export const useProvideAuth = () => {
       // because we have change the (name) of the (user) in its (user-profile):and we wanna show that (new-name) of the (user) on our application:
       // for doing that we simply need to (provide) the (new-data) of the (user) to the (setUser) state:
       setUser(response.data.user);
+      // IMP = and we also need to return the (success) message:To tell the (user) that its (request) submitted successfully:and we also need to complete this function:
+      // so that (user) new-profile-data also get reflected on our application:
+      return{
+        success:true,
+      }
+      // same thing we need to do with the (error):
+      // if we get the (error) from the (server) related to the (user) (request):
+      // then we need to return the (error-messsage) to the (user).which we get from the (server):
+    }else{
+      return{ 
+        success:false,
+        message:response.message,
+      };
+     
+    };
 
 
-    }
 
-
-
-  }
+  };
 
 
 

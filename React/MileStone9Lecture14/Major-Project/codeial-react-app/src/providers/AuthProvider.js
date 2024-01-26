@@ -22,7 +22,7 @@ const initailState = {
   // 5 - here we create the (Signup) key:which will also have a (arrow-function) in it:
   signup:() => {},
     // 5 - here we create the (updateUser) key:which will also have a (arrow-function) in it:
-    updateUser:() =>{},
+  updateUser:() =>{},
 };
 
 // for that:
