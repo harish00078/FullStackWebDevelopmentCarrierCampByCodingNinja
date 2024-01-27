@@ -168,7 +168,6 @@ const Settings = () => {
       confirmPassword
     );
 
-    console.log('setting-Component:user-profile',response);
     // IMP = if the response was successfull:
     // which we get from the (server):
     // related to the (user) resquest:
