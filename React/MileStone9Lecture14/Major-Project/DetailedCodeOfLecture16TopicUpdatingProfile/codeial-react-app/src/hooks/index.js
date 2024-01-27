@@ -6,9 +6,8 @@ import { useContext, useEffect, useState } from "react";
 // here we are importing the (library):
 // through which we will basically (decode) the (user-token):|
 // and get the (user) data from it:
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 // import jwt_decode from "jwt-decode";
-
 
 // here we are importing the (AuthContext):so that we can have the access of this (AuthContext) or (AuthState) of the (user):
 // In every component of our application:with the help of (useAuth) custom-hook function:
@@ -26,7 +25,7 @@ import { AuthContext } from "../providers/AuthProvider";
 // when we are importing it from the (api) folder:
 // => 2 = here we are importing the (register) function:from the (api-folder):
 // => 3 = here we are importing the (editProfile):through which we gonna update the data of the (user-profile) on the (server):
-import { register, login as userLogin } from "../api";
+import { editProfile, register, login as userLogin } from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
 // through which we will bascially ADD the (token-value) of the (user-auth) in our (localStorage):
@@ -34,7 +33,12 @@ import { register, login as userLogin } from "../api";
 // through which we will basically add the (token-value) in the lacalstorage:
 // 3 = we will also import the (removeItemFromLocalStorage) function:
 // through which we will basically (remove) the (token-value) form the (localStorage):
-import { setItemInLocalStorage, removeItemFromLocalStorage,LOCALSTORAGE_TOEKN_KEY, getItemFromLocalStorage } from "../utils";
+import {
+  setItemInLocalStorage,
+  removeItemFromLocalStorage,
+  LOCALSTORAGE_TOEKN_KEY,
+  getItemFromLocalStorage,
+} from "../utils";
 
 // 2 => here we create the second custom-hook named as (useAuth):with the help of this custom-hook:
 // IMP = we will be able to (access) the (Auth-state) of the (user) in  our application-components:
@@ -84,7 +88,7 @@ export const useProvideAuth = () => {
   // IMP = we are able to provide that (user-data) again to our application:
   // IMP = so we will do that with the help of (useEffect) hook.
   // And the (library) which we use to (decode) the (user-token):
-  useEffect(() =>{
+  useEffect(() => {
     // under this (useEffect) hook:
     // => first we  have to get the (user-token).from the (localstorage) of the (user-browser):
     // because we have store its (token).In the (localstorage) of its (browser):
@@ -96,7 +100,7 @@ export const useProvideAuth = () => {
 
     // after getting the (token) from the (user-browser's) localstorage:
     // IMP => 1 =  first we have to check that.If we get any token from the (localstorage):
-    if(usertoken){
+    if (usertoken) {
       // 2 = then we have get the (user-data) from that (token).by decoding it:
       // for (decoding) the (token).we have to use the (decoding-library):
       // which is named as (jwt-decode):here In this file we named it (jwt):
@@ -104,7 +108,7 @@ export const useProvideAuth = () => {
       // IMP = we did not have to do anything to get the (user-data) from (token) with the help of (library):
       // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
-      const user = jwtDecode(usertoken); 
+      const user = jwtDecode(usertoken);
       // const user = jwt_decode(usertoken);
 
       // 3 = after getting the (user) data from the (token):
@@ -112,57 +116,47 @@ export const useProvideAuth = () => {
       // so that every where in our app we can access that (user-data):
       // and show that user-data on our application:
       setUser(user);
-
-
     }
 
     // 4 = after giving the (user-data):To the (user) state-hook:
     // we have to gave the (false) value to the (setLoading) state-hook:
     // so that the (loading) state.get removed from our application's web-page:
     setLoading(false);
-
-  },[]);
+  }, []);
 
   // here we are creating the function:
   // through which we gonna update the (user-profile) data which has been given by the (user) it self on the server:
   // we also need to pass the (arguments) to this function.
   // which basically gonna be  the (fields) of (user-profile).whom's data we want to update on the (server):
-  const updateUser = async (userId,name,password,confirmPassword) =>{
-
-    // IMP = under this function.we call the another function:
+  const updateUser = async (userId, name, password, confirmPassword) => {
+    // IMP = under this function.we will call the another function:the (edit-profile):
     // through which which we are connected to the server:and passing the new (user-profile) data to the (server):so that (server) can update the user-data related to the  (user-profile) on its database:
     // IMP = we also need to save the response of this another-function:so that's why we are calling this function under the variable which is named as (response):
     // and we also need to call this function with the help of (await) method:so that our application did not get crash while calling this (updateUser) function:
-    const response = await updateUser(userId,name,password,confirmPassword);
-    console.log('edit-profile',response);
+    const response = await editProfile(userId, name, password, confirmPassword);
+    console.log("edit-profile", response);
     // after that when we get the (response) from the (server):related to this (request):
     // => if  the response was (success):
-    if(response.success){
+    if (response.success) {
       // then first we need to (set) the new-data of the (user) to the (context):
       // because we have change the (name) of the (user) in its (user-profile):and we wanna show that (new-name) of the (user) on our application:
       // for doing that we simply need to (provide) the (new-data) of the (user) to the (setUser) state:
       setUser(response.data.user);
       // IMP = and we also need to return the (success) message:To tell the (user) that its (request) submitted successfully:and we also need to complete this function:
       // so that (user) new-profile-data also get reflected on our application:
-      return{
-        success:true,
-      }
+      return {
+        success: true,
+      };
       // same thing we need to do with the (error):
       // if we get the (error) from the (server) related to the (user) (request):
       // then we need to return the (error-messsage) to the (user).which we get from the (server):
-    }else{
-      return{ 
-        success:false,
-        message:response.message,
+    } else {
+      return {
+        success: false,
+        message: response.message,
       };
-     
-    };
-
-
-
+    }
   };
-
-
 
   // 3 => after that it aslo have a (login) function init:
   // through which we are handling the (login) functionlity in our application:
@@ -244,35 +238,32 @@ export const useProvideAuth = () => {
   };
 
   // IMP = its also have a (Signup) functionality:
-  const signup = async (name,email,password,confirmPassword) =>{
+  const signup = async (name, email, password, confirmPassword) => {
     // we have save the response.which we get from the (server):
     // related to the (request) which this (function) has send to the (server):
     // IMP = for giving this function's data to the (server):
     // we need to call the (api) function.To whom we want to provide this data:
     // that (api) fucntion.basically gave that to the (server) with the help of (customFetch) function:
-    const response = await register(name,email,password,confirmPassword);
+    const response = await register(name, email, password, confirmPassword);
 
     // if (user) successfully get (registered) on the application:
     // then we will return the (success) key value to true:
     // TO tell the other function.where we use this fucntion:
     // that user has successfully get (registered) on the application:
-    if(response.success){
-      return{
-        success:true,
+    if (response.success) {
+      return {
+        success: true,
       };
       // if not get register.then we will return the (success) key value to (false):
       // and also return the (server-error) message:
       // with in the (message) key's value:
-    }else{
-      return{
-        success:false,
-        message:response.message,
-      }
+    } else {
+      return {
+        success: false,
+        message: response.message,
+      };
     }
-    
-
-  }
-  
+  };
 
   // 4 => it also have a (logout) functionality:
   // through which we are handling the (logout) functionlity in our application:
@@ -288,10 +279,6 @@ export const useProvideAuth = () => {
     // IMP = we have to pass the (key) argument.Through which we will pass the (unique-key) to this (fucntion):
     // so that with the help of that (key).we will able to (remove) the (token-value) from the (localstorage):
     removeItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
-
-
-
-
   };
 
   // 5 => the (sign-up) functionality will also be handle under this (function):

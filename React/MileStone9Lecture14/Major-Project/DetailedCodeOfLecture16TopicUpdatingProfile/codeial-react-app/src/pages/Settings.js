@@ -122,7 +122,7 @@ const Settings = () => {
     // we gonna use this variable:to tell the (users) that where they have made the mistake while sending the data to the (server):
     // with the help this variable we gonna triggered the notification which we have added in the  (check-points) of this function:
     // and going to tell the (users) that where they have made the (mistake):
-    let error = true;
+    let error = false;
 
     // IMP = know before passing the new-data of the (user-profile) to the (server):
     // we need to check the (few) things and have the more (things) then the new-data for passing the new (user-profile) data to the (server):
@@ -168,7 +168,7 @@ const Settings = () => {
       confirmPassword
     );
 
-    console.log('setting-page:user-profile',response);
+    console.log('setting-Component:user-profile',response);
     // IMP = if the response was successfull:
     // which we get from the (server):
     // related to the (user) resquest:
