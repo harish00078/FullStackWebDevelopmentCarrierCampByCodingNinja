@@ -12,7 +12,7 @@
 // third method is (Route):
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// here we are importing the (useAuth) custom-hook:
+// here we are importing the (useAuth) custom-hoo  k:
 // through this custom-hook. we can basically access the data of our (auth-context):
 import { useAuth } from "../hooks";
 

@@ -142,6 +142,15 @@ export const useProvideAuth = () => {
       // because we have change the (name) of the (user) in its (user-profile):and we wanna show that (new-name) of the (user) on our application:
       // for doing that we simply need to (provide) the (new-data) of the (user) to the (setUser) state:
       setUser(response.data.user);
+      // IMP = after providing the (new) data of the (user):To our (setUser) state:
+      // we need to get the new (token) of the (user) related to its (new-profile) data from the (response) which we get from the server:
+      // and we need to store that (new-token) in the (local-storage) of our (user-machine):
+      // so that when (user) refresh its application we will get its new(user-data) from that (token) and provide that (new-data) to our (application):
+      setItemInLocalStorage(
+        LOCALSTORAGE_TOEKN_KEY,
+        response.data.token ? response.data.token :null
+      );
+
       // IMP = and we also need to return the (success) message:To tell the (user) that its (request) submitted successfully:and we also need to complete this function:
       // so that (user) new-profile-data also get reflected on our application:
       return {

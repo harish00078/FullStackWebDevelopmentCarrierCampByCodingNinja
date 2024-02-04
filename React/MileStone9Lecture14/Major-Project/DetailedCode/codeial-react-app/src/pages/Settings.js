@@ -158,7 +158,7 @@ const Settings = () => {
     // then we can send the (resquest) to the (server) with the (user) data:
     // IMP = we can send the request to the (server) with the help of our (useAuth) custom-hook's (updateUser) function:
     // IMP =  we also need to use the (await) method on it:so that we did not get any (error):while sending the (request) to the (Server):
-    
+     
     const response = await auth.updateUser(
       // 1 =  here the (user-id) field:whose (value) we are getting from our (useAuth) custom-hook.which will have the (context) related to (user-data) in it:
       auth.user._id,
