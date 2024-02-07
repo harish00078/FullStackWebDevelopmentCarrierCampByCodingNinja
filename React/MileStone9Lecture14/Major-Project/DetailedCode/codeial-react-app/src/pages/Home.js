@@ -283,23 +283,23 @@ if(loading){
 // and gonna pass that object to our component with the help of (prop-types) package:
 // =====> we use it when we get the post from the (app) component: as a (props):
 // Home.proptype = {
-//   // 3 = IMP => under this (object) we gonna pass the (props).
-//   // which we wanna gave to this (component) as a (Key):
-//   // currently we are only passing the (posts) prop to this (home-component):
+  // 3 = IMP => under this (object) we gonna pass the (props).
+  // which we wanna gave to this (component) as a (Key):
+  // currently we are only passing the (posts) prop to this (home-component):
 
-//   // 4 = IMP => under this (posts) key we are going define the properties of the (prop-types) package:
-//   // so that our application does not get crash while fetcing the data from the (prop):
+  // 4 = IMP => under this (posts) key we are going define the properties of the (prop-types) package:
+  // so that our application does not get crash while fetcing the data from the (prop):
 
-//   // 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
-//   // under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
-//   //  which we gonna gave to this (prop) key:
-//   // V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
-//   // with the help of (prop-types) package:
+  // 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
+  // under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
+  //  which we gonna gave to this (prop) key:
+  // V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
+  // with the help of (prop-types) package:
 
-//   // 6 => we also need to define that if any-one using this home-component:
-//   // then they need to pass this (posts) prop to the component:
-//   // for doing that we gonna gave the (isrequired) property of the (prop-types) package:
-//   // To this posts-prop key:
+  // 6 => we also need to define that if any-one using this home-component:
+  // then they need to pass this (posts) prop to the component:
+  // for doing that we gonna gave the (isrequired) property of the (prop-types) package:
+  // To this posts-prop key:
 //   posts: PropTypes.array.isRequired,
 // };
 

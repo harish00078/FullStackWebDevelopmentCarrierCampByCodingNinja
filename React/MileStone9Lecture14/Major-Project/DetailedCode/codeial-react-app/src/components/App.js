@@ -10,7 +10,7 @@
 // then we need to use the (Switch) library.instead of (Routes) library:
 // second method is (Routes) or (switch):
 // third method is (Route):
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,  Navigate } from "react-router-dom";
 
 // here we are importing the (useAuth) custom-hoo  k:
 // through this custom-hook. we can basically access the data of our (auth-context):
@@ -26,8 +26,7 @@ import { useAuth } from "../hooks";
 // second we import the (Login) page:
 // third we import the (signup) page:
 // fourth we import the (setting) page:
-import { Home, Login, Signup,Settings} from "../pages";
-
+import { Home, Login, Signup, Settings } from "../pages";
 
 // here we import our (Navbar) component:
 // so that we can use or get it into our application:
@@ -37,6 +36,56 @@ import { Navbar } from "./";
 // we can simply use the (./) to import  our Loader-comonent:
 // because our (app) or (loader) component both present in the same folder:
 import { Loader } from "./";
+
+
+
+
+
+
+// V.IMP = here we are creating the (privateRoute) function or component we can say:
+// IMP =  we are basically creating the privateRoute(function-component) here:
+// with the help of this (Component):we can ristrict the (routes) of our application:
+// IMP = this function-component will get the two (props) in it:
+// 1 = first props is the (childer) prop:
+// IMP = the (children) props are basically the (Components) and (pages) which are related to our (PrivateRoutes):
+// because when we pass any (component) and (Pages) related to our application to the (privateRoute) component:they all become the (childrens) of our (privateRoute) component:
+// 2 = second props is the (rest) prop:the (rest) prop basically have the (props) which we are passing with in the (Route):
+// In simple words.it will have the (prop) which we have (pass) with in the (Route):
+// for example:if we are passing some kind of (data) prop to the (Route):
+// IMP = we are also using the (spread-operator) on it:so that we can get all (data) from the (rest) prop:
+
+function PrivateRoute({ children, ...rest }) {
+
+  // here we are calling the (useAuth) custom-hook:
+  const auth  = useAuth();
+
+  // IMP = With in the (PriavateRotue) component:we are basically returing or rendering the (Route):
+  // but here the (Route) will be little a bit different.from the usuall (Route):
+  // because here we will write some ristrictions on the (Route):which we get in the (privateRotue) component:
+  // IMP = with in (returning) the Route:
+  // 1 = first we will add its (data-props) with in it:which we are getting with in the (privateRoute) Component:
+  // (rest) is basically that (data-prop):
+  // we also use the (spread-operator) on it.so that we can get the (hole-data) from the (data-prop):
+  // 2 = second we will use the (render) prop on the (Route).
+  // IMP = In the (render) prop.we will basically create the (arrow-function):
+  // and with in the (arrow) fucntion.we gonna be add the (ristrictions) or (Conditions) on the (Route).
+  // and acc to those (ristriction) or (conditions) of the routes. we are going to show or render there (components) and (pages):
+
+  return (
+    <Route
+      {...rest}
+      render={() => {
+        // we will only be render the (component) and (page) of the (Route).if the (user) is (authenticated) or we can say already  have lagged-in into the application:
+        if (auth.user) {
+          return children;
+        }
+        // if its not the (auth) user:
+        // then we will shift the (user) to the (logIn) page or component automatically:
+        return <Navigate to="/login"/>
+      }}
+    />
+  );
+}
 
 const About = () => {
   return <h1>About</h1>;
@@ -54,7 +103,7 @@ function App() {
   // V.V.IMP = here we are using the (useAuth) custom-hook fucntion:
   // whhich we will basicallu have the data related to our (auth-context):
   const auth = useAuth();
-  console.log('auth-app',auth)
+  console.log("auth-app", auth);
 
   // =======> we use this code when we want to fetch the (posts).In the (app) component:
   // =======> and pass them to the (home) component as a (props):through its (route).In the app-component:
@@ -70,14 +119,14 @@ function App() {
   // To our (home-page) with the help of (props) method:
   // const [posts, setPosts] = useState([]);
 
-  // // here we are creating the another (State) loading:
-  // // through which we will show the (loading) spinner on our application-browser:
-  // // while we are fetching the (data) from the (server):
+  // here we are creating the another (State) loading:
+  // through which we will show the (loading) spinner on our application-browser:
+  // while we are fetching the (data) from the (server):
 
-  // // by default this loader will have the (true) value:
-  // // so that when ever our application get start or load:
-  // // it will start immediately.and continous running until we will get the (data) from the (server)
-  // // const [loading, setLoading] = useState(true);
+  // by default this loader will have the (true) value:
+  // so that when ever our application get start or load:
+  // it will start immediately.and continous running until we will get the (data) from the (server)
+  // const [loading, setLoading] = useState(true);
 
   // here we are using the (useEffect) hook:
   // To calling the (api_url) for the particular (component):
@@ -85,43 +134,43 @@ function App() {
   // so that our application did not get (crash).and successfully (get) or (fetch) the (data) from the (api) function:
 
   // useEffect(() => {
-  //   // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
-  //   // we can created the another (arrow-function) and on that (function) we will use the (async) method:
-  //   // and  In this function we will  (fetch) or get our  (data) from the (api) function:
+  // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
+  // we can created the another (arrow-function) and on that (function) we will use the (async) method:
+  // and  In this function we will  (fetch) or get our  (data) from the (api) function:
   //   const fetchPosts = async () => {
-  //     // here we will get the (data) from the (getPosts) function:
-  //     // and we will save it in the (response) variable:
-  //     // IMP = we are also using the (await) function on the (variable).
-  //     // so that we will successfully (fetch) our data from the (api) function:
+  // here we will get the (data) from the (getPosts) function:
+  // and we will save it in the (response) variable:
+  // IMP = we are also using the (await) function on the (variable).
+  // so that we will successfully (fetch) our data from the (api) function:
   //     const response = await getPosts();
   //     console.log("response", response);
 
-  //     // IMP => here we are giving our (posts) data to the (setPosts) function of the (useState) hook:
-  //     // so that our (posts) data will get repersented on the browser:
-  //     // IMP =>  through this (setPosts) function we will gave our data to the (posts) variable of (useState) hook:
-  //     // and with the help of that (post) variable.
-  //     /// we will gave our (posts) data to (post) component:
+  // IMP => here we are giving our (posts) data to the (setPosts) function of the (useState) hook:
+  // so that our (posts) data will get repersented on the browser:
+  // IMP =>  through this (setPosts) function we will gave our data to the (posts) variable of (useState) hook:
+  // and with the help of that (post) variable.
+  /// we will gave our (posts) data to (post) component:
 
-  //     // before giving the (post) data to the (setPosts) function:
-  //     // we need to check that we have the (data) in our (response) or (data-variable);
-  //     // so that we can avoid the (error) of the (undefined) data:
-  //     // IMP => we can do that by simply checking the (message-key) in the (data):
-  //     // if its (success).then it means we have the (data):
+  // before giving the (post) data to the (setPosts) function:
+  // we need to check that we have the (data) in our (response) or (data-variable);
+  // so that we can avoid the (error) of the (undefined) data:
+  // IMP => we can do that by simply checking the (message-key) in the (data):
+  // if its (success).then it means we have the (data):
   //     if (response.success) {
   //       setPosts(response.data.posts);
   //     }
 
-  //     // => and after we get the (data) from (server) successfully:
-  //     // then we need to put the (loader) default value into (false):
-  //     // setLoading(false);
+  // => and after we get the (data) from (server) successfully:
+  // then we need to put the (loader) default value into (false):
+  // setLoading(false);
   //   };
 
-  //   // now we just call the (fetchPosts) function:
-  //   // so that we can access (data) of its outside the (function):In the (useEffect) method:
+  // now we just call the (fetchPosts) function:
+  // so that we can access (data) of its outside the (function):In the (useEffect) method:
   //   fetchPosts();
 
-  //   // we are also using the (square) brackets on the (useEffect) method:
-  //   // so that can only run once:
+  // we are also using the (square) brackets on the (useEffect) method:
+  // so that can only run once:
   // }, []);
 
   // =====<
@@ -137,11 +186,9 @@ function App() {
   // so here we have to use the (laoding) state of (auth-context):
 
   if (auth.loading) {
-
     // here we are returning the (Loader) component in our (app) component:
 
     return <Loader />;
-    
   }
 
   return (
@@ -202,14 +249,14 @@ function App() {
       => so that Browser's (render) function.did to get confuse between the (route-paths):
       => if they were little-bit matches with each other: */}
 
-      {/* V.V.IMP =  if we are using the (Switch) library:
+          {/* V.V.IMP =  if we are using the (Switch) library:
       => instead of (Routes) library.then we also have to create the (Route) or (Routes) for the application:
       => acc to the (Switch) libaray: */}
-        {/* <Route exact path="/">
+          {/* <Route exact path="/">
             <Home />
           </Route> */}
 
-          <Route path="/" element={<Home  />} exact />
+          <Route path="/" element={<Home />} exact />
 
           {/* V.V.IMP = we use this route.
           => when we are (fetching) the (posts) from the (server).
@@ -224,9 +271,12 @@ function App() {
 
           <Route path="/register" element={<Signup />} exact />
 
-
-          <Route path="/settings" element={<Settings/>}/>
-
+          {/* <Route path="/settings" element={<Settings/>}/> */}
+          {/* here we are defining (settings-page):
+          => with the help of our (PrivateRoute) component:
+          => so that we can ristrict our (settings-page):
+            */}
+          <PrivateRoute exact path="/settings" element={<Settings />} />
 
           <Route path="/About" element={<About />} exact />
 
