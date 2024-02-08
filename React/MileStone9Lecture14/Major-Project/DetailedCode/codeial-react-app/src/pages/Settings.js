@@ -17,6 +17,7 @@ import { useToasts } from "react-toast-notifications";
 // which we have  created for this (page):
 import styles from "../styles/settings.module.css";
 
+
 // here we are importing the (useAuth) custom-hook:
 // through which we will  access the (Auth-Context) of our application:
 // under that (context) we will have the (auth-data) related to the (user):
