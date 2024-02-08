@@ -8,6 +8,10 @@ import styles from "../styles/login.module.css";
 // and that  package name is (useToast):
 import { useToasts } from "react-toast-notifications";
 
+// here we are importing the (Redirect) Method of (react-Router-dom) libarary:
+// through which we can redirect the (user) from (one-page) to the another-page of application:
+import {Redirect} from 'react-router-dom';
+
 
 
 // here we are importing the (useAuth) custom-hook:
@@ -134,6 +138,16 @@ const Login = () => {
     // if they are not successfully able to (login) into the applicaiton:
     setLoggingIn(false);
   };
+
+  // IMP = here we are (redirecting) the (users) directly to the (HOME-PAGE):
+  // when are successfully get (authenticated) in our application:
+  // for doing that we are using the (Redirect) method of (react-router-dom) library:
+  // and for checking that (user) is successfully get authenticated in application:we gonna be use the (useAuth) custom-hook:
+  // which will basically have the (context) related to (user) authentication:
+  if(auth.user){
+    return <Redirect to="/" />;
+  }
+
 
   // under the Login-page:we will create the (Form):
   // through which we will get the input from the user related to there user-id and password:

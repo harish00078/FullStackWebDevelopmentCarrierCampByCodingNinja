@@ -10,7 +10,12 @@
 // then we need to use the (Switch) library.instead of (Routes) library:
 // second method is (Routes) or (switch):
 // third method is (Route):
-import { BrowserRouter as Router, Routes, Route,  Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 // here we are importing the (useAuth) custom-hoo  k:
 // through this custom-hook. we can basically access the data of our (auth-context):
@@ -37,11 +42,6 @@ import { Navbar } from "./";
 // because our (app) or (loader) component both present in the same folder:
 import { Loader } from "./";
 
-
-
-
-
-
 // V.IMP = here we are creating the (privateRoute) function or component we can say:
 // IMP =  we are basically creating the privateRoute(function-component) here:
 // with the help of this (Component):we can ristrict the (routes) of our application:
@@ -55,17 +55,16 @@ import { Loader } from "./";
 // IMP = we are also using the (spread-operator) on it:so that we can get all (data) from the (rest) prop:
 
 function PrivateRoute({ children, ...rest }) {
-
   // here we are calling the (useAuth) custom-hook:
-  const auth  = useAuth();
+  const auth = useAuth();
 
   // IMP = With in the (PriavateRotue) component:we are basically returing or rendering the (Route):
   // but here the (Route) will be little a bit different.from the usuall (Route):
   // because here we will write some ristrictions on the (Route):which we get in the (privateRotue) component:
   // IMP = with in (returning) the Route:
-  // 1 = first we will add its (data-props) with in it:which we are getting with in the (privateRoute) Component:
-  // (rest) is basically that (data-prop):
-  // we also use the (spread-operator) on it.so that we can get the (hole-data) from the (data-prop):
+  // 1 = first we will add its (data),(path),(exact) and other (methods) prop with in it:which we are getting with in the (privateRoute) Component through the (rest) prop:
+  // (rest) is basically the (data),(path),(exact) and other (methods) prop  for (Route) which we are returing from the (privateRoute) component:
+  // we also use the (spread-operator) on it.so that we can get the everything from the (rest-prop):
   // 2 = second we will use the (render) prop on the (Route).
   // IMP = In the (render) prop.we will basically create the (arrow-function):
   // and with in the (arrow) fucntion.we gonna be add the (ristrictions) or (Conditions) on the (Route).
@@ -81,7 +80,7 @@ function PrivateRoute({ children, ...rest }) {
         }
         // if its not the (auth) user:
         // then we will shift the (user) to the (logIn) page or component automatically:
-        return <Navigate to="/login"/>
+        return <Redirect to="/login" />;
       }}
     />
   );
@@ -219,7 +218,7 @@ function App() {
         => IMP = then we need to use the (Switch) method or library:
         => under this (Routes) or (Switch) method.we basically create the multiple (routes) for the application: 
         => we are using the (Switch) method: */}
-        <Routes>
+        <Switch>
           {/* and  under that (Routes) method.we create the multiple (Route):
         => And we will gave that each Route to the Each page or component of our Application:*/}
 
@@ -252,11 +251,11 @@ function App() {
           {/* V.V.IMP =  if we are using the (Switch) library:
       => instead of (Routes) library.then we also have to create the (Route) or (Routes) for the application:
       => acc to the (Switch) libaray: */}
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Home />
-          </Route> */}
+          </Route>
 
-          <Route path="/" element={<Home />} exact />
+          {/* <Route path="/" element={<Home />} exact /> */}
 
           {/* V.V.IMP = we use this route.
           => when we are (fetching) the (posts) from the (server).
@@ -266,21 +265,34 @@ function App() {
 
           {/* same thing we need to do for the other pages and components:
         => which we have did in the (home) Route: */}
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          {/* <Route path="/login" element={<Login />} exact /> */}
 
-          <Route path="/login" element={<Login />} exact />
-
-          <Route path="/register" element={<Signup />} exact />
+          <Route exact path="/register">
+            <Signup />
+          </Route>
+          {/* <Route path="/register" element={<Signup />} exact /> */}
 
           {/* <Route path="/settings" element={<Settings/>}/> */}
           {/* here we are defining (settings-page):
           => with the help of our (PrivateRoute) component:
           => so that we can ristrict our (settings-page):
             */}
-          <PrivateRoute exact path="/settings" element={<Settings />} />
+          <PrivateRoute exact path="/settings">
+            <Settings />
+          </PrivateRoute>
+          {/* <PrivateRoute exact path="/settings" element={<Settings />} /> */}
+          <Route exact path="/about">
+            <About />
+          </Route>
+          {/* <Route path="/About" element={<About />} exact /> */}
 
-          <Route path="/About" element={<About />} exact />
-
-          <Route path="/user/wertewrkshylp" element={<UserInfo />} exact />
+          <Route exact path="/user/afdsdf">
+            <UserInfo />
+          </Route>
+          {/* <Route path="/user/wertewrksh" exact element={<UserInfo/>} /> */}
 
           {/* here we create the route at the end of all the routes:
           => with the help of  the error or 404 component:
@@ -290,8 +302,13 @@ function App() {
           => IMp = In the path function. we have to gave him the (*) start:
           => which will repersent that if user request for any random route request.then we will gave this route component:
           => because it will only  works.when all the other uper routes path does not get match with the user's route request: */}
-          <Route path="*" element={<Page404 />} exact />
-        </Routes>
+
+          {/* <Route path="*" element={<Page404 />} exact /> */}
+
+          <Route>
+            <Page404 />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

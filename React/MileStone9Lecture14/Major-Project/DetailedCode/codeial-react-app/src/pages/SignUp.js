@@ -19,7 +19,7 @@ import {useState} from 'react';
 // IMP = (useNavigate) method work in same way as (useHistory) method:
 // and it also get used same in our (application) as (useHistory) method:
 
-import { useNavigate} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
 // import the (useToasts) library from (react-toast-notifications) package:
 // through which  we will basically  provide the (notifications) to our application (Component-elements):
@@ -73,11 +73,11 @@ const Signup = () =>{
     // with in the (history) variable:
     // const history = useHistory();
     // here we call (useNavigate) method instead of (useHistory) method:
-    const navigate = useNavigate();
+    const history = useHistory();
     // here we console-log the (history) or history-library:
     // so that we can see the working process of this (library):
     // console.log('history',history);
-    console.log('navigate',navigate);
+    console.log('navigate',history);
 
 
     // => 1 = Here we are creating the Fucntion:
@@ -209,12 +209,12 @@ const Signup = () =>{
             // IMP = we also need to use the (push) function:
             // because browser-history only triggers the (page-route):
             // if it gets (pushed) or (added) in the (browser-history) stack:
-            // history.push('/login');
+            history.push('/login');
             // V.IMP =here we are using the (useNavigate) method instead of (useHistory) method:
             // because that method is compatible with our (applicaiton's) react-router-dom library:
             // IMP = with the (useNavigate) function.we did not have to use the (push) function:
             // it automatically push us to the (another) page:
-            navigate('/login');
+            // navigate('/login');
             // IMP => 12 = after that we also need to  (change) the state of our (signup) button:
             // so that another (users) can sign-up into our application:
             setSigningUp(false);
