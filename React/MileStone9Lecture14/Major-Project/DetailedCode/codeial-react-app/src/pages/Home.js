@@ -3,6 +3,10 @@
 // and provide that data to the (home-component) elements:
 import { useEffect, useState } from "react";
 
+// here we import the (LINK) library:
+import { Link } from "react-router-dom"; 
+
+
 // here we import the (prop-types) package:
 // IMP => with the help of this package.
 // we basically tell the (react) that the (prop) which we are passing to this component.
@@ -18,14 +22,11 @@ import styles from "../styles/home.module.css";
 // 2 =  we are also importing the (Loader) component:
 // so that we can show the (loader) on browser.
 // when our application fetching the (post-data) from the (server):
-import {Comment, Loader} from '../components';
+import { Comment, Loader } from "../components";
 
 // =>  here we are importing the functions.through which we are connecting to the (server):
 // and  getting the (data) for the (component):
 import { getPosts } from "../api";
-
-
-
 
 // we are creating the home page or component through  (Function) component type:
 // so for creating the (home) page we can use the (arrow) function:instead of using casual function:
@@ -48,7 +49,6 @@ import { getPosts } from "../api";
 // that' why we need to pass the (prop) as object to the (component):
 
 export const Home = () => {
-
   // here we are using the (useState) hook to manage our (posts).which get from the (server):
 
   // IMP = the initail value of (useState) hook will be a empty array:
@@ -60,70 +60,67 @@ export const Home = () => {
   // so we are passing the (posts) variable.which have our (posts) data:
   // To our (home-page) with the help of (props) method:
 
-  
-const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-// here we are creating the another (State) loading:
-// through which we will show the (loading) spinner on our application-browser:
-// while we are fetching the (data) from the (server):
+  // here we are creating the another (State) loading:
+  // through which we will show the (loading) spinner on our application-browser:
+  // while we are fetching the (data) from the (server):
 
-// by default this loader will have the (true) value:
-// so that when ever our application get start or load:
-// it will start immediately.and continous running until we will get the (data) from the (server)
-const [loading, setLoading] = useState(true);
+  // by default this loader will have the (true) value:
+  // so that when ever our application get start or load:
+  // it will start immediately.and continous running until we will get the (data) from the (server)
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
-  // we can created the another (arrow-function) and on that (function) we will use the (async) method:
-  // and  In this function we will  (fetch) or get our  (data) from the (api) function:
-  const fetchPosts = async () => {
-    // here we will get the (data) from the (getPosts) function:
-    // and we will save it in the (response) variable:
-    // IMP = we are also using the (await) function on the (variable).
-    // so that we will successfully (fetch) our data from the (api) function:
-    const response = await getPosts();
-    console.log("posts-response", response);
+  useEffect(() => {
+    // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
+    // we can created the another (arrow-function) and on that (function) we will use the (async) method:
+    // and  In this function we will  (fetch) or get our  (data) from the (api) function:
+    const fetchPosts = async () => {
+      // here we will get the (data) from the (getPosts) function:
+      // and we will save it in the (response) variable:
+      // IMP = we are also using the (await) function on the (variable).
+      // so that we will successfully (fetch) our data from the (api) function:
+      const response = await getPosts();
+      console.log("posts-response", response);
 
-    // IMP => here we are giving our (posts) data to the (setPosts) function of the (useState) hook:
-    // so that our (posts) data will get repersented on the browser:
-    // IMP =>  through this (setPosts) function we will gave our data to the (posts) variable of (useState) hook:
-    // and with the help of that (post) variable.
-    /// we will gave our (posts) data to (post) component:
+      // IMP => here we are giving our (posts) data to the (setPosts) function of the (useState) hook:
+      // so that our (posts) data will get repersented on the browser:
+      // IMP =>  through this (setPosts) function we will gave our data to the (posts) variable of (useState) hook:
+      // and with the help of that (post) variable.
+      /// we will gave our (posts) data to (post) component:
 
-    // before giving the (post) data to the (setPosts) function:
-    // we need to check that we have the (data) in our (response) or (data-variable);
-    // so that we can avoid the (error) of the (undefined) data:
-    // IMP => we can do that by simply checking the (message-key) in the (data):
-    // if its (success).then it means we have the (data):
-    if (response.success) {
-      setPosts(response.data.posts);
-    }
+      // before giving the (post) data to the (setPosts) function:
+      // we need to check that we have the (data) in our (response) or (data-variable);
+      // so that we can avoid the (error) of the (undefined) data:
+      // IMP => we can do that by simply checking the (message-key) in the (data):
+      // if its (success).then it means we have the (data):
+      if (response.success) {
+        setPosts(response.data.posts);
+      }
 
-    // => and after we get the (data) from (server) successfully:
-    // then we need to put the (loader) default value into (false):
-    setLoading(false);
-  };
+      // => and after we get the (data) from (server) successfully:
+      // then we need to put the (loader) default value into (false):
+      setLoading(false);
+    };
 
-  // now we just call the (fetchPosts) function:
-  // so that we can access (data) of its outside the (function):In the (useEffect) method:
-  fetchPosts();
+    // now we just call the (fetchPosts) function:
+    // so that we can access (data) of its outside the (function):In the (useEffect) method:
+    fetchPosts();
 
-  // we are also using the (square) brackets on the (useEffect) method:
-  // so that can only run once:
-}, []);
+    // we are also using the (square) brackets on the (useEffect) method:
+    // so that can only run once:
+  }, []);
 
-// here we are using the (Loader-component):
-// To show the Loading state on the browser:
-// util our application did not get the (posts-data) from the (server):
-// IMP = we do that with the help of our (laoding) state.which we are maintaining:
-// if our (loading) state is true:then we have to show the (Loader):
-// if its not.then it means that we have fetch the (post-data) from the (server):
-// then we have to set the (loading) state to (false):
-if(loading){
-  return <Loader/>
-}
-
-
+  // here we are using the (Loader-component):
+  // To show the Loading state on the browser:
+  // util our application did not get the (posts-data) from the (server):
+  // IMP = we do that with the help of our (laoding) state.which we are maintaining:
+  // if our (loading) state is true:then we have to show the (Loader):
+  // if its not.then it means that we have fetch the (post-data) from the (server):
+  // then we have to set the (loading) state to (false):
+  if (loading) {
+    return <Loader />;
+  }
 
   // under this arrow function.we will write the (html) for our (home-page):
   // and return it from this function.
@@ -203,7 +200,26 @@ if(loading){
                 alt="user-pic"
               />
               <div>
-                <span className={styles.postAuthor}>{post.user.name}</span>
+                {/* IMP => 1  = here we are showing the names of the (users):
+                => so we want that whenever a particular user.clicks on the name of the other users:
+                => then it will get directed to its (user-profile): */}
+                {/* IMP => 2 = so for doing that:
+                => we need to convert this user-name into the (LINK):so that whenever any user click on the name of other-user:
+                =>  then its will get redirected to the (user-profile) page of that (user):
+                => and can see the other information related to that particular-user:
+                */}
+                {/* V.IMP => 3 = for doing this we need to add the (LINK) tag on the (name-element):
+                => and with in the (to) method of this (link) tag.we are going to add the (path) of the (user-profile) component:
+                => IMP =  we will define the (path) with in the (currly-brackets):
+                => because we need to use the (string-interpolation) method on the (path):
+                => we did this because.with in the (path).we also need to add the (user-Id) of the (user) on which user's name we have clicked:
+                => so that we can show the (user-profile) of the particular (user).To the another user: */}
+                <Link
+                  to={`/user/${post.user._id}`}
+                  className={styles.postAuthor}
+                >
+                  {post.user.name}
+                </Link>
                 <span className={styles.postTime}>a minute ago</span>
               </div>
             </div>
@@ -245,23 +261,24 @@ if(loading){
                 // which we have created in the (component) folder:
                 // V.IMp => we also need to pass the (Comments) data.To our (Comment) component.
                 // so that we can gave data to our comment-component (elements).
-                //  and show them on under the every post of our application.on the browser:  
+                //  and show them on under the every post of our application.on the browser:
                 // IMP = we use (props)  method to pass the data of the every comment to our (Comment) component:
 
                 // V.IMP = we also need to provide the (unique) key or identity to the every comment:
                 // so that each comment can be separate from each other:
                 // we have to do this because we are fetching the comments with the help of map-function.
-                // so we need to provide them the unique identity: 
+                // so we need to provide them the unique identity:
                 // we can do that with the help of same method we use for our (posts) component:
                 // IMP = we need to use the (key) method:and under that key-method.
                 // we need to create the js-object.which will have the (string-interpolation) of (unique-key) for the every (comment):
                 // we will use the (unique) key of the (comment).which we are getting from the (server):when we are fetching them from the server:
                 // IMP = and this (unique-key) will also help us to (delete) the particular (Comment):
-                // because every comment has its own identity: 
-                <Comment comment={comment} key={`post-comment-${comment._id}`}/>
-
+                // because every comment has its own identity:
+                <Comment
+                  comment={comment}
+                  key={`post-comment-${comment._id}`}
+                />
               ))}
-          
             </div>
           </div>
         </div>
@@ -283,23 +300,23 @@ if(loading){
 // and gonna pass that object to our component with the help of (prop-types) package:
 // =====> we use it when we get the post from the (app) component: as a (props):
 // Home.proptype = {
-  // 3 = IMP => under this (object) we gonna pass the (props).
-  // which we wanna gave to this (component) as a (Key):
-  // currently we are only passing the (posts) prop to this (home-component):
+// 3 = IMP => under this (object) we gonna pass the (props).
+// which we wanna gave to this (component) as a (Key):
+// currently we are only passing the (posts) prop to this (home-component):
 
-  // 4 = IMP => under this (posts) key we are going define the properties of the (prop-types) package:
-  // so that our application does not get crash while fetcing the data from the (prop):
+// 4 = IMP => under this (posts) key we are going define the properties of the (prop-types) package:
+// so that our application does not get crash while fetcing the data from the (prop):
 
-  // 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
-  // under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
-  //  which we gonna gave to this (prop) key:
-  // V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
-  // with the help of (prop-types) package:
+// 5 = IMP => we are going to gave the prop-types properties to this (prop) posts-(key) as a (value);
+// under this value we gonna pass the prop-type package.and the (key) or (function) and (object) of the package with dot (.):
+//  which we gonna gave to this (prop) key:
+// V.IMP = In simple words we are basically defining the type of this (posts) prop-key:
+// with the help of (prop-types) package:
 
-  // 6 => we also need to define that if any-one using this home-component:
-  // then they need to pass this (posts) prop to the component:
-  // for doing that we gonna gave the (isrequired) property of the (prop-types) package:
-  // To this posts-prop key:
+// 6 => we also need to define that if any-one using this home-component:
+// then they need to pass this (posts) prop to the component:
+// for doing that we gonna gave the (isrequired) property of the (prop-types) package:
+// To this posts-prop key:
 //   posts: PropTypes.array.isRequired,
 // };
 

@@ -31,7 +31,8 @@ import { useAuth } from "../hooks";
 // second we import the (Login) page:
 // third we import the (signup) page:
 // fourth we import the (setting) page:
-import { Home, Login, Signup, Settings } from "../pages";
+// fifth we import the (UserProfile) page:
+import { Home, Login, Signup, Settings, UserProfile } from "../pages";
 
 // here we import our (Navbar) component:
 // so that we can use or get it into our application:
@@ -88,10 +89,6 @@ function PrivateRoute({ children, ...rest }) {
 
 const About = () => {
   return <h1>About</h1>;
-};
-
-const UserInfo = () => {
-  return <h1>UserInfo</h1>;
 };
 
 const Page404 = () => {
@@ -288,10 +285,11 @@ function App() {
             <About />
           </Route>
           {/* <Route path="/About" element={<About />} exact /> */}
-
-          <Route exact path="/user/afdsdf">
-            <UserInfo />
-          </Route>
+          {/* IMP = here we have created the (route) for viewing the (other-user) profile:
+          => through which we can see the other-users profile: */}
+          <PrivateRoute exact path="/user/:userId">
+            <UserProfile />
+          </PrivateRoute>
           {/* <Route path="/user/wertewrksh" exact element={<UserInfo/>} /> */}
 
           {/* here we create the route at the end of all the routes:

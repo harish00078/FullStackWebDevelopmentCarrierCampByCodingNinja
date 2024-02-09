@@ -14,7 +14,8 @@ import Login  from "./Login";
 import Signup from "./SignUp";
 // import the (setting) page:
 import Settings from "./Settings";
-
+// import the (UserProfile) page:
+import UserProfile from './UserProfile';
 // here we export the (home) page:
 // IMP 2 -> or we can export it as (object):
 // V.IMP 3 -> by doing this we can add the multiple (pages) our application in the one (object):
@@ -23,7 +24,7 @@ import Settings from "./Settings";
 // V.IMP = and  we did not use the (default) method on export. if we are importing the multiple (file) in the one export statement:
 
 // export the log-in-page with home-page:
-export { Home ,Login, Signup,Settings};
+export { Home ,Login, Signup,Settings,UserProfile};
 
 // IMP = we can also export the (pages) with the help of (asterisk):
 // with the help of this method we can easily (import) and (export) the (pages).
