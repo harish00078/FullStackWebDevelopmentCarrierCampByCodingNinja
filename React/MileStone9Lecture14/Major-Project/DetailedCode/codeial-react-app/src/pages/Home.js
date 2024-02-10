@@ -4,8 +4,7 @@
 import { useEffect, useState } from "react";
 
 // here we import the (LINK) library:
-import { Link } from "react-router-dom"; 
-
+import { Link } from "react-router-dom";
 
 // here we import the (prop-types) package:
 // IMP => with the help of this package.
@@ -214,8 +213,29 @@ export const Home = () => {
                 => because we need to use the (string-interpolation) method on the (path):
                 => we did this because.with in the (path).we also need to add the (user-Id) of the (user) on which user's name we have clicked:
                 => so that we can show the (user-profile) of the particular (user).To the another user: */}
+
+                {/* => first-way:To transfer-data from one-component to another-component:
+                V.V.IMP => 1 = instead of simply converting the (name-element) into (link):acc to our (user-profile) component's (route-path):
+                => V.IMP = we can also use this (link) for passing the (user-data) state to  (user-profile) component.or we can say to the (component) on which that (link) is connected to:
+                => we are doing this (because).we only have the (access) of our (application-data) in this (Component):
+                => so for having the (access) to application-data in the (another-component):
+                => we need to pass that (application-data) from (component) to (another-component):
+                => so for doing that we are getting the help from (Links) or (routes) of our application:*/}
+                {/* => how we can transfer the (application-data) with the help of  (links) or (routes) from one-component to another-component:
+                => IMP =  we can do that by creating a  object with in the (to) method of (link)tag:instead of simply passing the component (route) to this (to) method of (link) tag:
+                => IMP = with in the (object):
+                => 1 = first we will add the (path) related to our component-route:by using the (pathname) Key in the object:
+                => 2 = second we will create the (state) key).and with in that (state) key.we are going to  create the another-object:
+                -> and with in that object:we are going to create the another (key) name as (user):
+                -> and with in that (user) key.we are going to pass the (user-data):
+                -> On which (user's-name).we have clicked on:*/}
                 <Link
-                  to={`/user/${post.user._id}`}
+                  to={{
+                    pathname:`/user/${post.user._id}`,
+                    state:{
+                      user:post.user,
+                    }
+                  }}
                   className={styles.postAuthor}
                 >
                   {post.user.name}

@@ -19,7 +19,7 @@ import {useState} from 'react';
 // IMP = (useNavigate) method work in same way as (useHistory) method:
 // and it also get used same in our (application) as (useHistory) method:
 
-import { useHistory} from 'react-router-dom';
+import { useHistory, Redirect} from 'react-router-dom';
 
 // import the (useToasts) library from (react-toast-notifications) package:
 // through which  we will basically  provide the (notifications) to our application (Component-elements):
@@ -245,6 +245,11 @@ const Signup = () =>{
 
 
     };
+    // if user is already logged into our application:
+    // then we will shift the (user) to the (home-page):
+    if (auth.user) {
+        return <Redirect to="/" />;
+      }
 
     return(
         // here we are creating the (sign-up) form for our application:
