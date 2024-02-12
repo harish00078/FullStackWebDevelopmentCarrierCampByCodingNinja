@@ -9,7 +9,7 @@
 // which will we replace by the original-one:
 // 3 = we have also import the (function).which we have created on the (utils) folder's mian-file:
 // through which we are converting the (request) body-data. in the form of (x-www-form-urlencoded) request:
-import { API_URLS, getFormBody,LOCALSTORAGE_TOEKN_KEY } from "../utils";
+import { API_URLS, getFormBody, LOCALSTORAGE_TOEKN_KEY } from "../utils";
 
 // here we are creating  the (customFetch) function:
 // so that we did not have to write the (fetch) function.again and again for the every function which we will create to get the data from the APIs related to the particular compomemt element of our application:
@@ -166,7 +166,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 
     // if we have the error: when we are fetching the data from the (server):
   } catch (error) {
-    console.log("server-error",error);
+    console.log("server-error", error);
     // then we need to (return) that (error) message as well:
     return {
       message: error.message,
@@ -212,12 +212,11 @@ export const getPosts = (page = 2, limit = 20) => {
   });
 };
 
-
 // here we have created the (login) function:
 // through which we are sending the (user) credentials to the (server):
 
 export const login = (email, password) => {
-    // IMP:things we have define in the (return) statement of this function:
+  // IMP:things we have define in the (return) statement of this function:
   // 1 = first we need to define the particular (URl):related to our (component) function:
   // V.IMP = we also need to define the (url) with its (key) acc to its type:
   // like if its (function-type) or simple (string-type) (key-value) pair :
@@ -227,7 +226,7 @@ export const login = (email, password) => {
   // 2 = second we need to pass the (method) or (type) of this (request):
   // 3 = also have to pass the (body) object:if we have for the particular request:
   return customFetch(API_URLS.login(), {
-    method: 'POST',
+    method: "POST",
     body: { email, password },
   });
 };
@@ -235,18 +234,26 @@ export const login = (email, password) => {
 // here we have created the (sign-up) or (register) function:
 // through which we will basically pass the user (sign-up) form data to the (server):
 // and get the (response) related to that (request) from (server):
-export const register = async (name,email,password,confirmPassword) =>{
-  return customFetch(API_URLS.signup(),{
-    method:'POST' ,
-    body:{ name, email, password, confirm_password: confirmPassword}
-  })
-}
+export const register = async (name, email, password, confirmPassword) => {
+  return customFetch(API_URLS.signup(), {
+    method: "POST",
+    body: { name, email, password, confirm_password: confirmPassword },
+  });
+};
 // here we have created the (updated-profile) function:or (editProfile) function we are going to call it:
 // through which we will basically pass the (new-data) related to the (user-profile) to the (server):
 // and with the help of that new (user-profile) data server gonna change the (profile-data) of the (user) on its (database):
-export const editProfile = async (userId,name,password,confirmPassword) =>{
-  return customFetch(API_URLS.editUser(),{
-    method:'POST',
-    body:{id:userId,name,password,confirm_password:confirmPassword}
-  })
+export const editProfile = async (userId, name, password, confirmPassword) => {
+  return customFetch(API_URLS.editUser(), {
+    method: "POST",
+    body: { id: userId, name, password, confirm_password: confirmPassword },
+  });
+};
+
+// here we have created the (fetchUserProfile) function:
+// through which we gonna be get the (data) related to the particular (user-profile) from the (server) by passing  (user-id) to the (server):
+export const fetchUserProfile = (userId) => {
+  return customFetch((API_URLS.userInfo(userId)),{
+    method:'GET',
+  });
 }
