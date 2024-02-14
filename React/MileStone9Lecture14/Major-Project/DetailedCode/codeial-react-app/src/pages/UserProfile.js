@@ -11,11 +11,12 @@ import { useParams } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 
 // here we are importing the (loader) component:
-import {Loader} from '../components';
-
+import { Loader } from "../components";
 
 import { useEffect, useState } from "react";
 import styles from "../styles/settings.module.css";
+// here we are importing our (useAuth) custom-hook:
+import { useAuth } from "../hooks";
 import { fetchUserProfile } from "../api";
 import { useHistory } from "react-router-dom";
 
@@ -45,8 +46,8 @@ const UserProfile = () => {
   // we will redirect the current (user) to the (home-page) again:
   const history = useHistory();
 
-
-
+  // here we are  calling the (useAuth) custom-hook:
+  const auth = useAuth();
 
   // 2 = second after getting the (userid).
   // we need to pass that (userid) to the (server):
@@ -73,13 +74,12 @@ const UserProfile = () => {
       } else {
         // if we are not able to find out the other(user's) profile-data in the (server):
         // then we need to show the notification to the (user):
-        addToast(response.message,{
-          appearance:'error',
-
+        addToast(response.message, {
+          appearance: "error",
         });
         // and here we are using the (useHistory) hook:
         // so that we can redirect the current (user) to the (home-page).if we did not get the (data) related to the (user-profile) of the particular (user-id):
-        return history.push('/');
+        return history.push("/");
       }
 
       setLoading(false);
@@ -90,10 +90,9 @@ const UserProfile = () => {
     // for fetching the (user-profile) data from the (server):
     getUser();
 
-
     // we only want to run this (useEffect) hook:
     // whenever the (userId) get changed:
-  }, [userId,history,addToast]);
+  }, [userId, history, addToast]);
 
   // here we are calling the (useLocation) hook:
   // so that we can get the (prop) from it.which we have to pass to it.In the another component:
@@ -113,10 +112,47 @@ const UserProfile = () => {
 
   // const {user = {}} = location.state;
 
-  if(loading){
-    return <Loader/>
+  if (loading) {
+    return <Loader />;
   }
 
+  // IMP = here we have creating the (function):
+  // through which we gonna be find out that (user-profile).which we are currently (reviewing) or (checking) is related to any of our friends (user-id):
+  // and acc to the (state) or (value) of this function:we gonna be show the (buttons) of this component:
+
+  const checkIfUserIsFriend = () => {
+    // here we are using the (useAuth) custom-hook:
+    // which will  basically have the (user) state in it:
+    // from that (user-state).we need get the (friends) or (friends-array) which is related to the (user):
+    const friends = auth.user.friendships;
+    console.log(friends);
+
+    // with in our user's (friends-array) we have the (objects).where each-object related our (each-friends) profile-data:
+    // each-object which is related to our particular friend.will have the (to_user) section in it:
+    // and with in or that (to_user) section. will have the (user-id) which is related to our paritcular friend:
+    // IMP = so we need to (map) over on those (user-id's) which is related to our (friends):
+    // so that we can match those (user-id's).with the (user-id) of (user-profile) which we are currently (reviewing) or (Checking).
+    // so we can find out that this (user) is already or not a (friend) of our current (user):
+    // IMP = and acc to the (value) of this function.we gonna be the show the (buttons) which is related to this component:
+    const friendIds = friends.map((friend) => friend.to_user._id);
+    // IMP = after getting all (friends-ids):
+    // we need to match those (ids).with the (user-id) of (user-profile) which we are currently checking-out:
+    // IMP = how we can do that.we can simply do that by checking. if any of the (index-value) of our (friends-array) or (friend-user-ids) array which we created.matches with the (user-id) of (user-profile) which we are currently checking-out:
+    // then it means that current-user is a friend of our (user-profile) user:
+    // IMP = for matching the index-value of (friend-user-ids) or (friendIDs) array with the (user-id) of (user-profile).we need to use the (indexOf) method:
+    const index = friendIds.indexOf(userId);
+
+    // IMP = how we can check that.if (user-id) matches with the (index-value) of (friendsIds) array:
+    // we can simply check that.if (index-value) is not equal to the (-1) value:then its means that we have found the (user-id) with in the (friendIds) array:
+    // if that's the case then we need to return the (true) from this fucntion:so that we can trigger the (remove-friend) button of this component with the help of that:
+    if (index == !-1) {
+      return true;
+    }
+
+    // if its (-1):then its means that we did not have found the (user-id) of (user-profile) in the (friendIds) array:
+    // then we need to return the (false) from this function.so that we can trigger the (add-friend) button of this component with help of that:
+    return false;
+  };
 
   return (
     <div className={styles.settings}>
@@ -145,8 +181,14 @@ const UserProfile = () => {
         {/* IMP = how we gonna add the buttons in the user-profile component is:
         => if the (user) is already a friend.then we will show the (remove) button on the (user's-profile):
         => if its not the (friend):then we will show the (add-friend) button: */}
-        <button className={`button ${styles.saveBtn}`}>Add Friend</button>
-        <button className={`button ${styles.saveBtn}`}>Remove Friend</button>
+        {/* IMP = here we using the function:
+        => acc to the value of that function:
+        => we will trigger the buttons of this component: */}
+        {checkIfUserIsFriend() ? (
+          <button className={`button ${styles.saveBtn}`}>Remove Friend</button>
+        ) : (
+          <button className={`button ${styles.saveBtn}`}>Add Friend</button>
+        )}
       </div>
     </div>
   );
