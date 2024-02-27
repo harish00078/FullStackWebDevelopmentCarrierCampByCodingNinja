@@ -257,3 +257,11 @@ export const fetchUserProfile = (userId) => {
     method:'GET',
   });
 }
+
+// here we have created the (fetchUserFriends) function:
+// through which we gonna be get the (friendShip) section-data of the current-user:
+export const fetchUserFriends = () =>{
+  return customFetch(API_URLS.friends(userId),{
+    method:'GET',
+  })
+}

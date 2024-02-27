@@ -25,7 +25,7 @@ import { AuthContext } from "../providers/AuthProvider";
 // when we are importing it from the (api) folder:
 // => 2 = here we are importing the (register) function:from the (api-folder):
 // => 3 = here we are importing the (editProfile):through which we gonna update the data of the (user-profile) on the (server):
-import { editProfile, register, login as userLogin } from "../api";
+import { editProfile, fetchUserFriends, register, login as userLogin } from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
 // through which we will bascially ADD the (token-value) of the (user-auth) in our (localStorage):
@@ -89,39 +89,45 @@ export const useProvideAuth = () => {
   // IMP = so we will do that with the help of (useEffect) hook.
   // And the (library) which we use to (decode) the (user-token):
   useEffect(() => {
-    // under this (useEffect) hook:
-    // => first we  have to get the (user-token).from the (localstorage) of the (user-browser):
-    // because we have store its (token).In the (localstorage) of its (browser):
-    // so for getting the token from Its (localStorage).we need to use the (fucntion):
-    // which we have specificaly created to get the (user-token) from user (browser's-localstorage):
-    // IMP => we also have to store that (token) in the (variable):
-    // so that we can decode that token:
-    const usertoken = getItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
+    const getUser = async () => {
+      // under this (useEffect) hook:
+      // => first we  have to get the (user-token).from the (localstorage) of the (user-browser):
+      // because we have store its (token).In the (localstorage) of its (browser):
+      // so for getting the token from Its (localStorage).we need to use the (fucntion):
+      // which we have specificaly created to get the (user-token) from user (browser's-localstorage):
+      // IMP => we also have to store that (token) in the (variable):
+      // so that we can decode that token:
+      const usertoken = getItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
 
-    // after getting the (token) from the (user-browser's) localstorage:
-    // IMP => 1 =  first we have to check that.If we get any token from the (localstorage):
-    if (usertoken) {
-      // 2 = then we have get the (user-data) from that (token).by decoding it:
-      // for (decoding) the (token).we have to use the (decoding-library):
-      // which is named as (jwt-decode):here In this file we named it (jwt):
-      // we have to pass the (user-token) to this (library):so that it get (decode):
-      // IMP = we did not have to do anything to get the (user-data) from (token) with the help of (library):
-      // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
+      // after getting the (token) from the (user-browser's) localstorage:
+      // IMP => 1 =  first we have to check that.If we get any token from the (localstorage):
+      if (usertoken) {
+        // 2 = then we have get the (user-data) from that (token).by decoding it:
+        // for (decoding) the (token).we have to use the (decoding-library):
+        // which is named as (jwt-decode):here In this file we named it (jwt):
+        // we have to pass the (user-token) to this (library):so that it get (decode):
+        // IMP = we did not have to do anything to get the (user-data) from (token) with the help of (library):
+        // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
-      const user = jwtDecode(usertoken);
-      // const user = jwt_decode(usertoken);
+        const user = jwtDecode(usertoken);
+        // const user = jwt_decode(usertoken);
+        // V.V.IMP = when ever our application get referesh and we will get the (User-data) from the (token) which we have stored in the local-storage of the user's browser:
+        // with the help of that (user-data) or (user-id) which we have in the (user-data):
+        // we will call the (function) which we have created and the (user-id) to it: through which we gonna be get the (friendship) section of the (Current-user) from the server:
+        const response = await fetchUserFriends();
+        // 3 = after getting the (user) data from the (token):
+        // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
+        // so that every where in our app we can access that (user-data):
+        // and show that user-data on our application:
+        setUser(user);
+      }
 
-      // 3 = after getting the (user) data from the (token):
-      // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
-      // so that every where in our app we can access that (user-data):
-      // and show that user-data on our application:
-      setUser(user);
-    }
+      // 4 = after giving the (user-data):To the (user) state-hook:
+      // we have to gave the (false) value to the (setLoading) state-hook:
+      // so that the (loading) state.get removed from our application's web-page:
+      setLoading(false);
 
-    // 4 = after giving the (user-data):To the (user) state-hook:
-    // we have to gave the (false) value to the (setLoading) state-hook:
-    // so that the (loading) state.get removed from our application's web-page:
-    setLoading(false);
+    };
   }, []);
 
   // here we are creating the function:
@@ -148,7 +154,7 @@ export const useProvideAuth = () => {
       // so that when (user) refresh its application we will get its new(user-data) from that (token) and provide that (new-data) to our (application):
       setItemInLocalStorage(
         LOCALSTORAGE_TOEKN_KEY,
-        response.data.token ? response.data.token :null
+        response.data.token ? response.data.token : null
       );
 
       // IMP = and we also need to return the (success) message:To tell the (user) that its (request) submitted successfully:and we also need to complete this function:
