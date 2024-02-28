@@ -113,7 +113,7 @@ export const useProvideAuth = () => {
         // const user = jwt_decode(usertoken);
         // V.V.IMP = when ever our application get referesh and we will get the (User-data) from the (token) which we have stored in the local-storage of the user's browser:
         // with the help of that (user-data) or (user-id) which we have in the (user-data):
-        // we will call the (function) which we have created and the (user-id) to it: through which we gonna be get the (friendship) section of the (Current-user) from the server:
+        // we will call the (function) which we have created and pass the (user-id) to it: through which we gonna be get the (friendship) section of the (Current-user) from the server:
         const response = await fetchUserFriends();
         // 3 = after getting the (user) data from the (token):
         // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
