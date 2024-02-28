@@ -267,3 +267,11 @@ export const fetchUserFriends = () =>{
     method:'GET',
   })
 }
+
+// here we have created the (fetchUserFriends) function:
+// through which we gonna be add the (user) as our (friend) in the user-profile's (friends-ship) section-data:
+export const addFriend = (userId) =>{
+  return customFetch(API_URLS.createFriendship(userId),{
+    method:'POST',
+  })
+}

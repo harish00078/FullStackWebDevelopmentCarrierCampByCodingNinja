@@ -115,7 +115,7 @@ export const useProvideAuth = () => {
         // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
         const user = jwtDecode(usertoken);
-        
+
         // const user = jwt_decode(usertoken);
         // V.V.IMP = when ever our application get referesh here we will call the (function) through which we gonna be get the (friendship) section  from the server:
         const response = await fetchUserFriends();
@@ -130,19 +130,17 @@ export const useProvideAuth = () => {
           // then we gonna be pass that friends-data:To the friends-array:which we have created:
           friends = response.data.friends;
         }
-      
+
         // IMP = when we check the (Condition) related to the (friends-data):that we have the (friends-data) related to current-user or not:
         // then we have to gave that data to the (user) state:
         setUser({
           // first we gave the user-data:which we have (fetch) from the (token):
           // we will use the spread-operator on that  user-data.so that we can get everything from that token's user-data:
           ...user,
-          // and next we will proivde the (friends-data) related to the current-user. 
+          // and next we will proivde the (friends-data) related to the current-user.
           // we will provide the friends-array:which we have created.and with in which will have the friends-data and its just a empty-array:if we did not get any reponse from the server:related to the current-user's friends-data:
           friends,
         });
-
-
 
         // 3 = after getting the (user) data from the (token):
         // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
@@ -326,7 +324,33 @@ export const useProvideAuth = () => {
     removeItemFromLocalStorage(LOCALSTORAGE_TOEKN_KEY);
   };
 
-  // 5 => the (sign-up) functionality will also be handle under this (function):
+  // => V.IMP = here we create the function:through which we gonna be updated the friendship section-data of the  (user):
+  // when ever they try add the new-friend by clicking on the add-friend button:
+  // IMP = this function basically have the two things as a arguments in it:
+  // first is addFriend:addFriend is basically a boolean.it will basically have the (ture) or (False) value in it.
+  // when we are removing the (user) as friend then this argument will have the (false-value):
+  // and when we are adding the (user) as friend then this argument will have the (true-value):
+  // second is friend:friend is basically the (data) of the (user) which we are trying to add as Friend or remove as friend from our user-profile's friendship section-data:
+  const updateUserFriends = (addFriend, friend) => {
+    if(addFriend){
+      // if the (addFriend) argument is ture:then we have to add that (user) in our friends-array:
+      // after when we add the  (users) as our friends.through by adding them in our friends-array:
+      // IMP = we need to set the (user) state again:
+      // so that we can access our new friends-data in our user-profile:
+      setUser({
+        // first we pass the user-data it self to the (user) state:
+        ...user,
+        // second we gonna we pass the user's updated (friends-data):
+        // so for doing this:we gonna be create the (friends) key: and with in that (friends) key:we will create the (array):and with in that (array):
+        // first we gonna be pass old friends-data: and then second we gonna be the (new) friend-data.which they are just try to add as friend in there friends-data:
+        // we gonna be use the spread-operator on the (user's) old-friends data:so that we can get all the old-friends data of the user:
+        // and then we gonna be add there new-friend-data:In the friends-array section of the (user's) profile:
+        friends:[...user.friends,friend]
+      })
+
+
+    }
+  };
 
   // 6 => V.IMP = we also need to return all these things from this function:
   // because through this function.we are providing the these things to the another function or element:
