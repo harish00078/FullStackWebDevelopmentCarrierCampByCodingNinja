@@ -6,7 +6,7 @@
 
 // IMP = here we are importing the (useParams) hook from the (react-router-dom) library:
 // (useParams) =  The useParams hook is a powerful tool in React Router that allows you to access and extract dynamic parameters (also known as URL parameters or path variables) from the current URL path within your functional React components.
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 
 import { useToasts } from "react-toast-notifications";
 
@@ -18,7 +18,7 @@ import styles from "../styles/settings.module.css";
 // here we are importing our (useAuth) custom-hook:
 import { useAuth } from "../hooks";
 import { fetchUserProfile } from "../api";
-import { useHistory } from "react-router-dom";
+
 
 const UserProfile = () => {
   // here we are  maintaining the (user) state with the help of (useState) hook:
@@ -37,7 +37,7 @@ const UserProfile = () => {
   // and from that (route-object):we can get the (user-id):
   const { userId } = useParams();
 
-  console.log("userId-userProfile-component", userId);
+  console.log("userId-for-userProfile-component", userId);
 
   // here we are calling the (useToasts) library of (react-toast-notification) package:
   const { addToast } = useToasts();

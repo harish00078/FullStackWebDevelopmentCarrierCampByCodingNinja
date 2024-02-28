@@ -25,7 +25,12 @@ import { AuthContext } from "../providers/AuthProvider";
 // when we are importing it from the (api) folder:
 // => 2 = here we are importing the (register) function:from the (api-folder):
 // => 3 = here we are importing the (editProfile):through which we gonna update the data of the (user-profile) on the (server):
-import { editProfile, fetchUserFriends, register, login as userLogin } from "../api";
+import {
+  editProfile,
+  fetchUserFriends,
+  register,
+  login as userLogin,
+} from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
 // through which we will bascially ADD the (token-value) of the (user-auth) in our (localStorage):
@@ -110,24 +115,49 @@ export const useProvideAuth = () => {
         // because this (library) will automatically get the (user-data) from the (token):cause its (build) to that work:
 
         const user = jwtDecode(usertoken);
+        
         // const user = jwt_decode(usertoken);
-        // V.V.IMP = when ever our application get referesh and we will get the (User-data) from the (token) which we have stored in the local-storage of the user's browser:
-        // with the help of that (user-data) or (user-id) which we have in the (user-data):
-        // we will call the (function) which we have created and pass the (user-id) to it: through which we gonna be get the (friendship) section of the (Current-user) from the server:
+        // V.V.IMP = when ever our application get referesh here we will call the (function) through which we gonna be get the (friendship) section  from the server:
         const response = await fetchUserFriends();
+
+        // here we have create the empty (friends-array):if we did not get the friends-data from the (server) related to the currrent-user:
+        // IMP = then we gonna be directly pass this empty-array to the (user) state with the user-data:
+        let friends = [];
+
+        // if we successfully get the (freinds) data related to the (current-user) from the server:
+
+        if (response.success) {
+          // then we gonna be pass that friends-data:To the friends-array:which we have created:
+          friends = response.data.friends;
+        }
+      
+        // IMP = when we check the (Condition) related to the (friends-data):that we have the (friends-data) related to current-user or not:
+        // then we have to gave that data to the (user) state:
+        setUser({
+          // first we gave the user-data:which we have (fetch) from the (token):
+          // we will use the spread-operator on that  user-data.so that we can get everything from that token's user-data:
+          ...user,
+          // and next we will proivde the (friends-data) related to the current-user. 
+          // we will provide the friends-array:which we have created.and with in which will have the friends-data and its just a empty-array:if we did not get any reponse from the server:related to the current-user's friends-data:
+          friends,
+        });
+
+
+
         // 3 = after getting the (user) data from the (token):
         // we have to gave that (user-data) to the (user) state-hook in the (useProvideAuth) function:
         // so that every where in our app we can access that (user-data):
         // and show that user-data on our application:
-        setUser(user);
+        // setUser(user);
       }
 
       // 4 = after giving the (user-data):To the (user) state-hook:
       // we have to gave the (false) value to the (setLoading) state-hook:
       // so that the (loading) state.get removed from our application's web-page:
       setLoading(false);
-
     };
+    // call the getUser function of useEffect-hook:
+    getUser();
   }, []);
 
   // here we are creating the function:

@@ -261,9 +261,9 @@ export const fetchUserProfile = (userId) => {
 }
 
 // here we have created the (fetchUserFriends) function:
-// through which we gonna be get the (friendShip) section-data of the current-user:
+// through which we gonna be get the (friendShip) section-data:
 export const fetchUserFriends = () =>{
-  return customFetch(API_URLS.friends(userId),{
+  return customFetch(API_URLS.friends(),{
     method:'GET',
   })
 }
