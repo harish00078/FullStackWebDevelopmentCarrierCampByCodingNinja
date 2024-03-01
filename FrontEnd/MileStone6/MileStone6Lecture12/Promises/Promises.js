@@ -1,4 +1,4 @@
-// here we are learning about the (promises):
+// => 1 =  here we are learning about the (promises):
 // and learn about that how they with work in the (front-end):
 // and why we use them in front-end:
 
@@ -33,21 +33,16 @@ var promise = new Promise((resolve, reject) => {
   // V.IMP = here we are using the (setTimeout) method:
   // with the help of setTimeout method:we can execute the things after some-time in the javascript:
   // we are basically considering the (setTimeout) method as a (api) call:
-  setTimeout(()=>{
+  setTimeout(() => {
     // when we get the data from the (api):
     // we have to resolved that data:
     // IMP = we can also pass the parameters to the (resolve) and (reject) method:
     // if we get the (data) from the (api):we can pass that (api) data  to any of the  (promise) methods or arguments: acc to the type of data:so that we can handle that (data) with the help of promise-functions:and use it in our application:
     // resolve({message:'success'});
 
-    reject({message:'api is not responding'});
-
-  },3000);
-
-
-
+    reject({ message: "api is not responding" });
+  }, 3000);
 });
-
 
 // V.IMP = know for handling the response from the promise:
 // we have two functions:
@@ -55,20 +50,174 @@ var promise = new Promise((resolve, reject) => {
 // V.V.IMP = And Two functions are passed to that then() method. If the promise is resolved and a result is received, the first function iscalled. If the promise is rejected and an error is returned, the second function is called.
 // (It's optional as the catch() method is comparatively a better way to handle errors.)
 // IMP = if did not wanna use the catch function:we can use this method to handle the promise:
-promise.then((data) => {
+promise.then(
+  (data) => {
     // On Resolved
-    }, (error) => {
+  },
+  (error) => {
     // On Rejected
-    })
+  }
+);
 
 // => 2 = second is (catch) method:catch() is called to handle the errors, i.e., when a promise is rejected or when some error has occurred during the execution. catch() method takes one function as an argument, which is used to handle errors.
 
 // V.V.IMP = here we are passing the parameter or its data as a argument to the promise handler-functions:
 // so we can access that data in the promise-handler functions.and from there we can use that (data) in our application:
-promise.then((data)=>{
+promise
+  .then((data) => {
     console.log(data);
-}).catch((error)=>{
-    console.log('error',error);
-})
+  })
+  .catch((error) => {
+    console.log("error", error);
+  });
 
+// => 2 = Passing Parameters to resolve/reject:
+const promise = new Promise((resolve, reject) => {
+  const num = Math.floor(Math.random() * 100);
+  if (num % 2) resolve("odd");
+  else reject("even");
+});
+promise
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+// here we have example of it:
+function oddEven() {
+  return (promise = new Promise((resolve, reject) => {
+    const num = Math.floor(Math.random() * 100);
+    if (num % 2) resolve("odd");
+    else reject("even");
+  }));
+}
+oddEven()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
+// => 3 = Promise Methods:
+// There are some methods defined inside of the Promise API which helps us deal with a bulk of promises at once:
+// 1 = Promise.race()
+// 2 = Promise.all()
+// 3 = Promise.any()
+// 4 = Promise.allSettled()
+
+// => 1 = Promise.race():the Promise.race() method takes an (iterable) of promises as an input and returns a (single-promise) that resolves into the first-resolved or rejected-promise:
+// here we have example for it:
+const promise1 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 100);
+  });
+const promise2 = () =>
+  new Promise((resolve, reject) => {
+    resolve(2);
+  });
+const promise3 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    });
+  });
+
+// here we are using the (race) method to handle the all iterable-promises:
+Promise.race([promise1(), promise2(), promise3()])
+  .then((val) => {
+    console.log(val); // 2
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// => 2 = Promise.all(): the Promise.all() method takes an iterable of promises as an input,and returns a single-promise that resolves to an array of the results of the input promises.
+// this returned promise will resolve when all the input promises have resolved,or if the input iterable contains no promises.
+// It rejects immediately upon any of the input promises rejecting or non-promises throwing an error and will reject with this first rejection message or error:
+// here we have example of it:
+const promise4 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 100);
+  });
+const promise5 = () =>
+  new Promise((resolve, reject) => {
+    resolve(2);
+  });
+const promise6 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    });
+  });
+Promise.all([promise4(), promise5(), promise6()])
+  .then((val) => {
+    console.log(val); // [4,5,6]
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// => 3 = Promise.all() = the Promise.any() method takes an iterable of Promise objects and as soon as one of the promise in the iterable (fulfills) form, ruturns a single promise that resolves with the value from that promise.
+// if no promises in the iterable fulfill (if all of the given promises are rejected) ,then the returned promise is rejected with an (AggregateError):
+// a new subclass of (Error) that groups together individual errors:
+// => here we have example of it:
+const promise7 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 100);
+  });
+const promise8 = () =>
+  new Promise((resolve, reject) => {
+    reject(2);
+  });
+const promise9 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    });
+  });
+Promise.any([promise7(), promise8(), promise9()])
+  .then((val) => {
+    console.log(val); // 3
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+// => 4 = Promise.allSettled(): the Promise.allSettled() method returns a promise that resolves after all of the given promises have either fulfilled or rejected,with an array of objects that each describes the outcome of each promise:
+// here we have example for it:
+const promise10 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 100);
+  });
+const promise11 = () =>
+  new Promise((resolve, reject) => {
+    reject(2);
+  });
+const promise12 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    });
+  });
+Promise.allSettled([promise10(), promise11(), promise12()])
+  .then((val) => {
+    console.log(val); // 3
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+// Output:
+// [
+// { status: 'fulfilled', value: 1 },
+// { status: 'rejected', reason: 2 },
+// { status: 'fulfilled', value: 3 }
+// ]
