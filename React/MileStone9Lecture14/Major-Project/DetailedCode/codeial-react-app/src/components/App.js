@@ -290,7 +290,7 @@ function App() {
           <PrivateRoute exact path="/user/:userId">
             <UserProfile />
           </PrivateRoute>
-          {/* <Route path="/user/wertewrksh" exact element={<UserInfo/>} /> */}
+          {/* <Route path="/userz/wertewrksh" exact element={<UserInfo/>} /> */}
 
           {/* here we create the route at the end of all the routes:
           => with the help of  the error or 404 component:

@@ -119,7 +119,7 @@ export const useProvideAuth = () => {
         // const user = jwt_decode(usertoken);
         // V.V.IMP = when ever our application get referesh here we will call the (function) through which we gonna be get the (friendship) section  from the server:
         const response = await fetchUserFriends();
-
+        console.log('user-friends-data',response)
         // here we have create the empty (friends-array):if we did not get the friends-data from the (server) related to the currrent-user:
         // IMP = then we gonna be directly pass this empty-array to the (user) state with the user-data:
         let friends = [];
@@ -346,7 +346,9 @@ export const useProvideAuth = () => {
         // we gonna be use the spread-operator on the (user's) old-friends data:so that we can get all the old-friends data of the user:
         // and then we gonna be add there new-friend-data:In the friends-array section of the (user's) profile:
         friends:[...user.friends,friend]
-      })
+      });
+      // after updating the user-state.we need to return from this function:
+      return;
 
 
     }
@@ -363,5 +365,6 @@ export const useProvideAuth = () => {
     laoding,
     signup,
     updateUser,
+    updateUserFriends,
   };
 };

@@ -6,7 +6,7 @@
 
 // IMP = here we are importing the (useParams) hook from the (react-router-dom) library:
 // (useParams) =  The useParams hook is a powerful tool in React Router that allows you to access and extract dynamic parameters (also known as URL parameters or path variables) from the current URL path within your functional React components.
-import { useParams,useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import { useToasts } from "react-toast-notifications";
 
@@ -17,8 +17,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/settings.module.css";
 // here we are importing our (useAuth) custom-hook:
 import { useAuth } from "../hooks";
-import { fetchUserProfile } from "../api";
-
+import { addFriend, fetchUserProfile } from "../api";
 
 const UserProfile = () => {
   // here we are  maintaining the (user) state with the help of (useState) hook:
@@ -29,6 +28,9 @@ const UserProfile = () => {
   // we gonna be use this loader-element:when we are try to fetching the (user-profile) data from the (server) with the help of (api):
   // by default it will have the (true) value:so that when (user) get into this page:we will show him the (loader) until we did not get the (user-profile) data from the (server):
   const [loading, setLoading] = useState(true);
+
+  // here we create the state:through which we gonna be hanlde the state of two-function:which we have created for handling the logic related to adding and removing friend buttons:
+  const [requestInProgress, setRequestInProgress] = useState(false);
 
   // 1 = first we get the (user-id):
   // here we are calling the (useParams) hook:
@@ -153,6 +155,51 @@ const UserProfile = () => {
     // then we need to return the (false) from this function.so that we can trigger the (add-friend) button of this component with help of that:
     return false;
   };
+  // V.IMP = here we are creating the two-functions:
+  // through which we gonna be handle the (add) and (remove) button click on this component:
+  // here we have first function:through which we are going to handle the (remove-friend) button click:
+  const handleRemoveFriendClick = () => {};
+  // here we have second function:through which we are going to handle the (add-friend) button click:
+  const handleAddFriendClick = async () => {
+    // here we are changing the value of (requestInProgress) state:
+    // when user try to click the add-friend button:
+    setRequestInProgress(true);
+
+    // here we are calling the function:which we have created:through which we gonna be add the (user) as friend in the (database) of our (server):
+    // we need to pass the (userId) of the (user) to this function:so that (user) get stored in my profile's database as a friends:
+    // we will only store its userId in the friendship-section of my profile's database:
+    const response = await addFriend(userId);
+    // if we successfully add the user as my friend in the friendship-section of my user-profile's database:
+    console.log("new-friendshipdata", response);
+    if (response.success) {
+      // then we will store that new friendship-data in the (object):
+      // IMP = {friendship}: This is the destructuring pattern. It looks for a property named friendship within the response.data object.
+      const { friendship } = response.data;
+
+      // V.IMP = after getting the new data related to friendship-section of my user-profile:
+      // we need to provide this data to the (authProvider).so that we can access this new data related to my friendship-section in the hole application:
+      // for providing this data to the authProvider:we have to use the (useAuth) Custom-hook:
+      // and with in the useAuth Custom-hook.we will have the updateUserFriends function:through which we are able to provide this data to the authProvider:
+      // and authProvider will provide this data to the hole-application:
+      // IMP = this function basically have the two arguments in it:
+      // => 1 = first argument basically a boolean-value:which define that we are try to add or remove the user as a friend:
+      // => 2 = second argument is basically the data related to the user or friend:or we can say the new friend-ship data which we are getting from the server:
+      auth.updateUserFriends(true, friendship);
+
+      // after all of these we will add the notification:
+      addToast("Friend Added succesfully", {
+        appearance: "success",
+      });
+    } else {
+      addToast(response.message, {
+        appearance: "error",
+      });
+    }
+
+    // here we again change the value of (requestInProgess) state:
+    // when we done with (user) request related to the add-friend button click:
+    setRequestInProgress(false);
+  };
 
   return (
     <div className={styles.settings}>
@@ -185,9 +232,36 @@ const UserProfile = () => {
         => acc to the value of that function:
         => we will trigger the buttons of this component: */}
         {checkIfUserIsFriend() ? (
-          <button className={`button ${styles.saveBtn}`}>Remove Friend</button>
+          // IMP = here we are connecting the remove-friend button with the function through which we gonna be remove the particular (user) as our friend:
+          // which will get triggered:when user click on this remove-friend button:
+          // for adding the click on this button:we need to use the (onClick) eventHanlder on this button:
+          // IMP = we also need to disabled the button:when user click on it:
+          // so that they are not able to click it again:until there first request does not get satteled:
+          // for that we gonna be use the (disabled) method:and we need to provide the (state) to it:which we have created for the buttons:
+          // so that we are working the button request:then the buttons get disabled:
+          <button
+            className={`button ${styles.saveBtn}`}
+            on
+            onClick={handleRemoveFriendClick}
+            disabled={requestInProgress}
+          >
+            {requestInProgress ? "Removing Friend..." : "Remove Friend"}
+          </button>
         ) : (
-          <button className={`button ${styles.saveBtn}`}>Add Friend</button>
+          // IMP = here we are connecting the add-friend button with the function through which we gonna be add the particular (user) as our friend:
+          // which will get triggered:when user click on this add-friend button:
+          // for adding the click on this button:we need to use the (onClick) eventHanlder on this button:
+          // IMP = we also need to disabled the button:when user click on it:
+          // so that they are not able to click it again:until there first request does not get satteled:
+          // for that we gonna be use the (disabled) method:and we need to provide the (state) to it:which we have created for the buttons:
+          // so that we are working the button request:then the buttons get disabled:
+          <button
+            className={`button ${styles.saveBtn}`}
+            onClick={handleAddFriendClick}
+            disabled={requestInProgress}
+          >
+            {requestInProgress ? "Adding Friend..." : "Add Friend"}{" "}
+          </button>
         )}
       </div>
     </div>
