@@ -260,7 +260,7 @@ const UserProfile = () => {
             onClick={handleAddFriendClick}
             disabled={requestInProgress}
           >
-            {requestInProgress ? "Adding Friend..." : "Add Friend"}{" "}
+            {requestInProgress ? "Adding Friend..." : "Add Friend"}
           </button>
         )}
       </div>
