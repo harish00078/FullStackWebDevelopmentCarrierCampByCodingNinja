@@ -28,7 +28,7 @@ root.render(
         => third is the (placement):we also need to place the notifications.like where we want them to pop-up on the web-page:*/}
     <ToastProvider autoDismiss autoDismissTimeout={5000} placement="top-left">
       {/* here we are (using) or (wrapping) our hole application:
-      => under the (AuthProvider) function.which we have created or used to handle the (AuthContext) of the (user): */}
+      => under the (AuthProvider) function.which we have create or used to handle the (AuthContext) of the (user) in our application: */}
       <AuthProvider>
         <App />
       </AuthProvider>
