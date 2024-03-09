@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
   // and we are returning that (tag) from this (function):
   // 3 = V.IMP = this (tag).will also have a (default) value in it:
   // and that (value) will be (auth)object or (auth-state) object:
-  // V.V.IMP = through this (value-keyword).we are able to pass our (auth-state) to all the (childrens) or (children-components):
+  // V.V.IMP = through this (value-keyword).we are able to pass our (auth-state) to all the (childrens) or (children-components) of our application:
 
   return (
     <AuthContext.Provider value={auth}>
