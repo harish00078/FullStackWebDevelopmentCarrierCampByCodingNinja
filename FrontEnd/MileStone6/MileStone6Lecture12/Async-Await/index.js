@@ -19,7 +19,7 @@ Promise.resolve("hey we resolved").then((data) => {
 
 // => 2 = here we are using the (Async-Await) method:
 // here we will learn about that how we can use it with the promises:and how it will help us to write promises in more clearer-style:
-// IMP => 1 = we can put (async) function infront of any (function) with the help of (async) keyword:
+// IMP => 1 = we can put (async) function infront of any (function) which we have created with the help of (async) keyword:
 async function asyncTask(){
     return "resolved";
 }
