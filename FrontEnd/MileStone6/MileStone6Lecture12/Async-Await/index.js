@@ -27,7 +27,7 @@ Promise.resolve("hey we resolved")
 async function asyncTask() {
   return "resolved";
 }
-// V.IMP = if (async) function always return's the promise:then we can use the (promise) handler methods on the (async) function directly:
+// V.IMP = if (async) function always return's the promise:then we can use the (promise) handler- methods on the (async) function directly:To handle the promise:
 asyncTask()
   .then((data) => {
     console.log(data);
