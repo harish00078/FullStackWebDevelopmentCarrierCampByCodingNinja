@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/settings.module.css";
 // here we are importing our (useAuth) custom-hook:
 import { useAuth } from "../hooks";
-import { addFriend, fetchUserProfile } from "../api";
+import { addFriend, fetchUserProfile, removeFriend } from "../api";
 
 const UserProfile = () => {
   // here we are  maintaining the (user) state with the help of (useState) hook:
@@ -158,8 +158,37 @@ const UserProfile = () => {
   // V.IMP = here we are creating the two-functions:
   // through which we gonna be handle the (add) and (remove) button click on this component:
   // here we have first function:through which we are going to handle the (remove-friend) button click:
-  const handleRemoveFriendClick = () => {};
-  // here we have second function:through which we are going to handle the (add-friend) button click:
+  const handleRemoveFriendClick = async () => {
+    setRequestInProgress(true);
+    const response = await removeFriend(userId);
+    console.log("new-friendshipdata-RemoveFriend", response);
+
+    if (response.success) {
+      // if the response was successfull:it means that we have successfully delete this user as our friend from the server database:
+      // and then after that we have to find the same-user in the friends-section of our user-profile in the local storage:
+      // so that we can delete the same-user from there as well:and set the new user-state acc to that data in our application:
+      // IMP => 1 =  for doing this first we need to find the user-object in the friends section-data of current user's-profile:
+      // we can get the user-object from the friends-section:by using its userId:because we have the userId with us which we are getting from the url-params:
+      // for finding the user-object.we need to use the (filter) method:because friends-section is the array of multiple user-objects:and we only need to find the one user-object:acc to the userId of the user:
+      const friendship = auth.user.friends.filter((friend)=>friend.to_user._id === userId);
+
+      // we can also write the same thing in this way:
+      // const friendship = auth.user.friends.filter((friend) => {
+      //   friend.to_user._id === userId;
+      // });
+      auth.updateUserFriends(false,friendship);
+      addToast('Friend Removed Successfully',{
+        appearance:'success'
+      });
+
+
+    }else{
+      addToast(response.message,{
+        appearance:'error',
+      })
+    }
+    setRequestInProgress(false);
+  };
   const handleAddFriendClick = async () => {
     // here we are changing the value of (requestInProgress) state:
     // when user try to click the add-friend button:
@@ -170,7 +199,7 @@ const UserProfile = () => {
     // we will only store its userId in the friendship-section of my profile's database:
     const response = await addFriend(userId);
     // if we successfully add the user as my friend in the friendship-section of my user-profile's database:
-    console.log("new-friendshipdata", response);
+    console.log("new-friendshipdata-addFriend", response);
     if (response.success) {
       // then we will store that new friendship-data in the (object):
       // IMP = {friendship}: This is the destructuring pattern. It looks for a property named friendship within the response.data object.

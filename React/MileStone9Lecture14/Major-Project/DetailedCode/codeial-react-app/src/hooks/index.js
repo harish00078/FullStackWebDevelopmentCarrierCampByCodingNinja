@@ -352,6 +352,25 @@ export const useProvideAuth = () => {
 
 
     }
+    // if we get the (false) value in (addFriend) argument:
+    // then we gonna be remove the friend from the friends-section of  current user's profile:
+    // IMP = we are getting the (user) in the (friend) argument which we have to remove as friend from our friends section-data:
+    // IMP = we gonna do this by creating a new friends-array:
+    // and with in that friends-array:we gonna be add the friends whose userid's are not matching with the userid of the friend-argument-user:
+    // In this way we are able to remove the friend-object of the particular user in the friends section-data of current user's-profile or user-state:
+    // we gonna be use the (filter) method on friends section-data:To check that which user-id matches with the userid of friend-argument-user:
+    // because we have the array of friend-object in friends section-data:
+    // IMP = and also (filter) method will return the new-array:
+    const newFriends = user.friends.filter((f) => f.to_user._id !== friend.to_user._id);
+    // after that we gonna be set the new (user-state) with the (new-friends) array:
+    setUser({
+      ...user,
+      friends:newFriends,
+
+    })
+
+
+
   };
 
   // 6 => V.IMP = we also need to return all these things from this function:

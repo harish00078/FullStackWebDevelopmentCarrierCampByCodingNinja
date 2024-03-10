@@ -268,10 +268,17 @@ export const fetchUserFriends = () =>{
   })
 }
 
-// here we have created the (fetchUserFriends) function:
+// here we have created the (addFriend) function:
 // through which we gonna be add the (user) as our (friend) in the user-profile's (friends-ship) section-data:
 export const addFriend = (userId) =>{
   return customFetch(API_URLS.createFriendship(userId),{
+    method:'POST',
+  })
+}
+// here we have created the (removeFriend) function:
+// through which we gonna be remove the (user) as our (friend) from the user-profile's (friends-ship) section-data:
+export const removeFriend = (userId) =>{
+  return customFetch(API_URLS.removeFriend(userId),{
     method:'POST',
   })
 }
