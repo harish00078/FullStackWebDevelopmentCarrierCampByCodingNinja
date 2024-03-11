@@ -35,3 +35,18 @@ asyncTask()
   .catch((error) => {
     console.log(error);
   });
+
+// V.IMP = here we see that:how and why we can use the (await) method with in the (async) function:
+// here we have the function:which basically returns the (promise) that we have created with in it:
+function getData(){
+  return Promise.resolve('have some data');
+}
+// here we have the async-function:which basically also return the promise:
+async function abc(){
+  // IMP = here with in the (async) function:we are calling the another-function which is basically also returning us the (promsie):
+  // we are calling the function through (await) method:
+  const data = await getData();
+  console.log(data);
+}
+abc()
+console.log('1');
