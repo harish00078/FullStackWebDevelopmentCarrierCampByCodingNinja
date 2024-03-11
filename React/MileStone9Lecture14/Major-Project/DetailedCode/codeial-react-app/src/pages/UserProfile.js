@@ -176,7 +176,10 @@ const UserProfile = () => {
       // const friendship = auth.user.friends.filter((friend) => {
       //   friend.to_user._id === userId;
       // });
-      auth.updateUserFriends(false,friendship);
+      // IMP = filter method basically return us the (array);
+      // so we also need to define (index-value) of the array:
+      // so  we can acccess that array-value and use it in the (updateUserFriends) function:
+      auth.updateUserFriends(false,friendship[0]);
       addToast('Friend Removed Successfully',{
         appearance:'success'
       });
