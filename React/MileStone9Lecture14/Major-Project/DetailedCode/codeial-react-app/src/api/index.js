@@ -131,7 +131,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // because here we need to fetch the data from the different backend (api's) acc to our application components.
 
     const response = await fetch(url, config);
-
+    console.log('server-response',response);
     // after getting the (response) or (data) from the (server):
     // => first we need to convert it into the (json) format:
     // by calling the (json) method on the (response) variable. Which has all the (data) from the (server):
@@ -140,6 +140,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // V.IMP = here we are basically parsing the (data) into the format of (native-json):
     // V.IMP = The json() method is a built-in method in the Response interface in JavaScript. It is used to extract the JSON body content from the HTTP response. This method returns a Promise that resolves to the JSON representation of the response body.
     const data = await response.json();
+    console.log('server-data',data);
 
     // if we (successfully) get the (data) from the (server):
     // then we need to (return) it from this (customFetch) function:
