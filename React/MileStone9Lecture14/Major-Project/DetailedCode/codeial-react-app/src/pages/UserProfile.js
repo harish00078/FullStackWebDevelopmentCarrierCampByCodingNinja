@@ -147,7 +147,7 @@ const UserProfile = () => {
     // IMP = how we can check that.if (user-id) matches with the (index-value) of (friendsIds) array:
     // we can simply check that.if (index-value) is not equal to the (-1) value:then its means that we have found the (user-id) with in the (friendIds) array:
     // if that's the case then we need to return the (true) from this fucntion:so that we can trigger the (remove-friend) button of this component with the help of that:
-    if (index == !-1) {
+    if (index !== -1) {
       return true;
     }
 
