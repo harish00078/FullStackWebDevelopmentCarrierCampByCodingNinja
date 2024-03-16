@@ -167,7 +167,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // 3 = (new) message type or property:
     throw new Error(data.message || "Something went wrong");
 
-    // if we have the error: when we are fetching the data from the (server):
+    // if we have the error: while we are fetching the data from the (server):
   } catch (error) {
     console.log("server-error", error);
     // then we need to (return) that (error) message as well:

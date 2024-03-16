@@ -49,6 +49,8 @@ async function abc() {
   // V.V.IMP = Await statements make asynchronous calls behave exactly like synchronous calls:
   // V.IMP = here we gonna call that server with the help of its (API):
   const data = await getData();
+  // V.V.IMP = after getting the data we can direclty use it here as well in our application:
+  // we did not have to return the data from this function:we can use it here direclty as well in our application:
   console.log("with in aysnc-function:->", data);
   // after getting the data from the server:with the help of its (api):we gonna return that (data) from this (async) function:
   // so we can use the (data) in our application:
@@ -60,8 +62,7 @@ abc().then((data) => {
 });
 console.log("1");
 
-
-// V.IMP =>1 =  calling another promise with in the (async) function:without the help of (await) method:
+// V.V.IMP =>1 =  here we are handling the multiple-promises through the (simple) Function:
 const promise1 = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -74,9 +75,10 @@ const promise2 = () =>
       resolve("resolved 2!", 100);
     });
   });
+// V.IMP = In this way we can handle the mutliple promises:through the simple-fucntion:
 function asyncAwait() {
-  // V.IMP = if we did not call the promises:through the await-methods with in the async function:
-  // then we have to handle promises:through the (promise) handler methods:with in the async function:
+  // V.IMP = this way we can handle the multiple promises:through the simple-function:
+  // here we can see that be need to handle the promsies:with in the function:by using the handler-methods of the promsie:
   promise1()
     .then((result) => {
       console.log(result);
@@ -87,7 +89,8 @@ function asyncAwait() {
     });
 }
 asyncAwait();
-// V.IMP => 2 =  calling another promise with in the (async) function:with the help of (await) method:
+// V.V.IMP => 2 =  here we are handling the multiple-promises through the (async) Function and (await) method:
+
 const promise3 = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -108,12 +111,42 @@ async function asyncAwait1() {
   const result1 = await promise3();
   const result2 = await promise4();
   // => 1 =  we can use the promise (data) with in the async-fucntion as well:
+  // V.V.IMP = after getting the data we can direclty use it here as well in our application:
+  // we did not have to return the data from this function:we can use it here direclty as well in our application:
   console.log(result1);
   console.log(result2);
   // => 2 = or what we can do is after getting the data:we can return that data from this async function:and use it in our application from outside this function:
   return result1;
 }
 // here we are using that (data).In our application:and we are getting that data by using the of (promise-hanlder) method on the async-function: because it will also return us the promise:
-asyncAwait1().then((data)=>{
+asyncAwait1().then((data) => {
   console.log(data);
-})
+});
+
+// Error-Handling in Async-Await function:
+// V.V.IMP => 1 = Await statements make asynchronous calls behave exactly like synchronous calls. So we can use try-catch statements to catch errors in await statements:
+
+const promise5 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("resolved 1!", 100);                                                                                          
+    });
+  });
+const promise6 = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("rejected 2!", 100);
+    });
+  });
+async function asyncAwait() {
+  // V.V.IMP => 2 = This type of error handling doesn't work on synchronous functions which are calling the asynchronous tasks.
+  try {
+    const result1 = await promise5();
+    const result2 = await promise6();
+    console.log(result1);
+    console.log(result2);
+  } catch (e) {
+    console.log(e); // rejected 2!
+  }
+}
+asyncAwait();
