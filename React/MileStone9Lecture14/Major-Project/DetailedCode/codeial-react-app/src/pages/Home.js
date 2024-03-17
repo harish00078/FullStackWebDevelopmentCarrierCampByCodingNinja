@@ -262,7 +262,7 @@ export const Home = () => {
                     src="https://cdn-icons-png.flaticon.com/128/1380/1380338.png"
                     alt="comments-icon"
                   />
-                  <span>2</span>
+                  <span>{post.comments.length}</span>
                 </div>
               </div>
               <div className={styles.postCommentBox}>
@@ -310,7 +310,7 @@ export const Home = () => {
         ))}
       </div>
       {/* here we are showing the (FriendsList) component:
-      => only if we have any (user) logged-in into our application: */}
+      => only if we have any (user) logged-in into our application: */}i
       {auth.user && <FriendsList/> }
     </div>
   );
