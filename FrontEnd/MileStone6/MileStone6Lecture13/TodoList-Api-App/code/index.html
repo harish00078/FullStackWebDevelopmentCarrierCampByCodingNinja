@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List App</title>
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" title="text/css" />
+  </head>
+  <body>
+    <h1>Todo List App</h1>
+    <div id="container">
+      <input
+        placeholder="Add Task"
+        class="add-task"
+        id="add"
+        data-helloWord="asdfgasd"
+      />
+      <span id="total-tasks">
+        Total tasks:
+        <span id="tasks-counter"> 0 </span>
+      </span>
+      <ul id="list"></ul>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

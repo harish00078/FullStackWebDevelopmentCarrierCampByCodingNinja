@@ -1,4 +1,6 @@
 import styles from "../styles/home.module.css";
+// here we import the (LINK) library:
+import { Link } from "react-router-dom";
 import { useAuth } from "../hooks";
 const FriendList = () => {
   // we will get our friendslist from the (useAuth) custom-hook:
@@ -25,18 +27,29 @@ const FriendList = () => {
         => so that with the help of (link): when user clicks the link:
         => we can transfer the (user) to the (friends) user-profile: */}
         {friends &&
-          friends.map((friend) => <div key={`friend-${friend._id}`}>
-            {/* here we are passing the url of (user-profile) component:to this Link-tag:
+          friends.map((friend) => (
+            <div key={`friend-${friend._id}`}>
+              {/* here we are passing the url of (user-profile) component:to this Link-tag:
             => because (friend-id's) are similar to the (user-id's):basically the (friend) object or documents are made from the (user) object or documents:  */}
-            <Link className={styles.friendItem} to={`/user/${friend._id}`}>
-              {/* here we are showing the details of the (friends):
+              <Link className={styles.friendsItem} to={`/user/${friend._id}`}>
+                {/* here we are showing the details of the (friends):
               => like there (names) and (images):*/}
-              <div className={styles.friendImg}>
-                <img src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png" alt=""/>
-              </div>
-            </Link>
-          </div>)}
+                <div className={styles.friendsImg}>
+                  <img
+                    src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
+                    alt=""
+                  />
+                  <div className={styles.friendsName}>
+                    {friend.to_user.email}
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
       </div>
     </div>
   );
 };
+
+export default FriendList;
+

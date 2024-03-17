@@ -9,6 +9,8 @@ import Comment from "./Comment";
 
 // here we are importing the (loader-component) in our main-file of (Components):
 import Loader from "./Loader";
+// Import the FriendsList component:
+import FriendsList  from "./FriendList";
 
 
 
@@ -17,4 +19,4 @@ import Loader from "./Loader";
 // so we did not have write the export again and again for the particular component.which we want to export.
 // IMP = it also help system to do not check all the components one by one:
 // it can get them in one (go):
-export { App,Navbar,Comment, Loader };
+export { App,Navbar,Comment, Loader,FriendsList };

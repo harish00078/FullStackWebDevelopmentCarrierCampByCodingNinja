@@ -21,11 +21,12 @@ import styles from "../styles/home.module.css";
 // 2 =  we are also importing the (Loader) component:
 // so that we can show the (loader) on browser.
 // when our application fetching the (post-data) from the (server):
-import { Comment, Loader } from "../components";
+import { Comment, FriendsList, Loader } from "../components";
 
 // =>  here we are importing the functions.through which we are connecting to the (server):
 // and  getting the (data) for the (component):
 import { getPosts } from "../api";
+import { useAuth } from "../hooks";
 
 // we are creating the home page or component through  (Function) component type:
 // so for creating the (home) page we can use the (arrow) function:instead of using casual function:
@@ -69,6 +70,10 @@ export const Home = () => {
   // so that when ever our application get start or load:
   // it will start immediately.and continous running until we will get the (data) from the (server)
   const [loading, setLoading] = useState(true);
+
+  // here we are calling the (useAuth) custom-hook:
+  // through which we gonna be show the (Friendlist) component only if we have present any (user) in our (useAuth) custom-hook:
+  const auth = useAuth();
 
   useEffect(() => {
     // V.IMP = so instead of using the (async) function direclty on the (useEffect) method:
@@ -137,91 +142,91 @@ export const Home = () => {
   }
 
   return (
-    // IMP => here we are using the (css-module):with the help of creating (javascript) object in the (html) elements:
-    // and under that object we will define the particular value of the (css-element):
-    // which we wanna gave that to the particular element of the (html):
-    // IMP => after creating the (object) we need to connect that (object) with the (className) method of the react:
-    // V.IMP => so that react knows we are giving the (style) to our (html) elements through this (javascirpt-object):
-
-    <div className={styles.postsList}>
-      {/* post-wrapper is basically repersents the particular (post) */}
-      {/* after getting the (posts) prop.
+    <div className={styles.home}>
+      {/* // IMP => here we are using the (css-module):with the help of creating (javascript) object in the (html) elements: 
+      // and under that object we will define the particular value of the (css-element):To the (className) property:
+      // which we wanna gave that to the particular element of the (html): 
+      // IMP => after creating the (object) we need to connect that (object) with the (className) method of the react: 
+      // V.IMP => so that react knows we are giving the (style) to our (html) elements through this (javascirpt-object): */}
+      <div className={styles.postsList}>
+        {/* post-wrapper is basically repersents the particular (post) */}
+        {/* after getting the (posts) prop.
        => In our home-component:we need to use that (posts) props:
        => or we can say have to destruct that (posts) props:
       => so that we can use the (data) of that (posts) props:
         => In the (posts-component):which we have created or written in our (home-component): */}
-      {/* for using the (posts) prop or (data) in it:
+        {/* for using the (posts) prop or (data) in it:
        => we simple need to use the (map) function on the (posts) prop:
       => so that we can get the (data) of each-post one by one in our home-component: */}
-      {/* under that map function we will paste our (past-component) code:
+        {/* under that map function we will paste our (past-component) code:
         => so that we can pass the data of (posts) to the post-component elements:
        => we will pass  the (post) as a argument to the (map) function which we are running on the (posts) prop:
         => so that at one time we will only get one (posts) from the (posts) prop.
         => and gave that (post) data to our (post-component):  */}
-      {posts.map((post) => (
-        // IMP = after putting our (post-component):
-        //    under the map-function.which we are running on the (posts) prop:
-        //    It will have the (data) related to our (posts) in the (object) form:
-        //   V.IMP => so we need to gave the (keys) of that (object).
-        //   which will have the (data) or (value) related to our post-component's (html-elements):
-        //    so that we can show that (data) on our component's browser-page:
+        {posts.map((post) => (
+          // IMP = after putting our (post-component):
+          //    under the map-function.which we are running on the (posts) prop:
+          //    It will have the (data) related to our (posts) in the (object) form:
+          //   V.IMP => so we need to gave the (keys) of that (object).
+          //   which will have the (data) or (value) related to our post-component's (html-elements):
+          //    so that we can show that (data) on our component's browser-page:
 
-        // 1 =>  v.IMP = we also need to provide the (unique-key) or (identity) to the every-post:
-        // otherwise we will get the (error) from the (react):Warning: Each child in a list should have a unique "key" prop.
-        // because we are getting the every post from the (map) function:
-        // so we need to separate them from each other by providing the unique key or identity:
-        // IMP = we are going to gave them there (unique-ID).which we are getting with them from the server:
-        // when we are fetching them from the server:which has been given them through the (server):
+          // 1 =>  v.IMP = we also need to provide the (unique-key) or (identity) to the every-post:
+          // otherwise we will get the (error) from the (react):Warning: Each child in a list should have a unique "key" prop.
+          // because we are getting the every post from the (map) function:
+          // so we need to separate them from each other by providing the unique key or identity:
+          // IMP = we are going to gave them there (unique-ID).which we are getting with them from the server:
+          // when we are fetching them from the server:which has been given them through the (server):
 
-        // 2 => V.IMP => for the we need to use the (key) method:
-        // and under that (key) method. we will basically define the (object):
-        // which will have the (unique) identity for the every post:
-        // those we are getting with the (posts) from the (server):
+          // 2 => V.IMP => for the we need to use the (key) method:
+          // and under that (key) method. we will basically define the (object):
+          // which will have the (unique) identity for the every post:
+          // those we are getting with the (posts) from the (server):
 
-        // 3 => V.IMP => how we can do that:
-        // 1 - we will use the (key) method:
-        // 2 - and under that  (key) method.we will create the object:
-        // 3 - under that object we gonna use the (string-interpolation) method:
-        // 4 - To create a (key):and that will have a value of the (post) unique-key or identity:
-        // here (post) is our key.and that key will have a value of post's (unique-identity):
-        // 5 - IMP = for giving the value  of the (unique-identity) to the (post) key.
-        //  we are going to use the ($) dollar-sign.and under that we gonna put the (post-id) which we are getting from the (server) with the (posts):
-        // for giving that (id).we need to simply write the (post._id):the we are getting them from the (server):
+          // 3 => V.IMP => how we can do that:
+          // 1 - we will use the (key) method:
+          // 2 - and under that  (key) method.we will create the object:
+          // 3 - under that object we gonna use the (string-interpolation) method:
+          // 4 - To create a (key):and that will have a value of the (post) unique-key or identity:
+          // here (post) is our key.and that key will have a value of post's (unique-identity):
+          // 5 - IMP = for giving the value  of the (unique-identity) to the (post) key.
+          //  we are going to use the ($) dollar-sign.and under that we gonna put the (post-id) which we are getting from the (server) with the (posts):
+          // for giving that (id).we need to simply write the (post._id):the we are getting them from the (server):
 
-        // 4 = V.IMp = Note: learn more about them from the (notes-page):
-        // - The ($) character identifies a string-literal (" ") as an interpolated-string (` `).
+          // 4 = V.IMp = Note: learn more about them from the (notes-page):
+          // - The ($) character identifies a string-literal (" ") as an interpolated-string (` `).
 
-        <div className={styles.postWrapper} key={`post-${post._id}`}>
-          <div className={styles.postHeader}>
-            <div className={styles.postAvatar}>
-              <img
-                src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
-                alt="user-pic"
-              />
-              <div>
-                {/* IMP => 1  = here we are showing the names of the (users):
+          <div className={styles.postWrapper} key={`post-${post._id}`}>
+            <div className={styles.postHeader}>
+              <div className={styles.postAvatar}>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
+                  alt="user-pic"
+                />
+                <div>
+                  {/* IMP => 1  = here we are showing the names of the (users):
                 => so we want that whenever a particular user.clicks on the name of the other users:
                 => then it will get directed to its (user-profile): */}
-                {/* IMP => 2 = so for doing that:
+                  {/* IMP => 2 = so for doing that:
                 => we need to convert this user-name into the (LINK):so that whenever any user click on the name of other-user:
                 =>  then its will get redirected to the (user-profile) page of that (user):
                 => and can see the other information related to that particular-user:
                 */}
-                {/* V.IMP => 3 = for doing this we need to add the (LINK) tag on the (name-element):
+                  {/* V.IMP => 3 = for doing this we need to add the (LINK) tag on the (name-element):
                 => and with in the (to) method of this (link) tag.we are going to add the (path) of the (user-profile) component:
                 => IMP =  we will define the (path) with in the (currly-brackets):
                 => because we need to use the (string-interpolation) method on the (path):
                 => we did this because.with in the (path).we also need to add the (user-Id) of the (user) on which user's name we have clicked:
                 => so that we can show the (user-profile) of the particular (user).To the another user: */}
 
-                {/* => first-way:To transfer-data from one-component to another-component:
+                  {/* => first-way:To transfer-data from one-component to another-component:
                 V.V.IMP => 1 = instead of simply converting the (name-element) into (link):acc to our (user-profile) component's (route-path):
                 => V.IMP = we can also use this (link) for passing the (user-data) state to  (user-profile) component.or we can say to the (component) on which that (link) is connected to:
                 => we are doing this (because).we only have the (access) of our (application-data) in this (Component):
                 => so for having the (access) to application-data in the (another-component):
                 => we need to pass that (application-data) from (component) to (another-component):
                 => so for doing that we are getting the help from (Links) or (routes) of our application:*/}
-                {/* => how we can transfer the (application-data) with the help of  (links) or (routes) from one-component to another-component:
+                  {/* => how we can transfer the (application-data) with the help of  (links) or (routes) from one-component to another-component:
                 => IMP =  we can do that by creating a  object with in the (to) method of (link)tag:instead of simply passing the component (route) to this (to) method of (link) tag:
                 => IMP = with in the (object):
                 => 1 = first we will add the (path) related to our component-route:by using the (pathname) Key in the object:
@@ -229,80 +234,84 @@ export const Home = () => {
                 -> and with in that object:we are going to create the another (key) name as (user):
                 -> and with in that (user) key.we are going to pass the (user-data):
                 -> On which (user's-name).we have clicked on:*/}
-                <Link
-                  to={{
-                    pathname:`/user/${post.user._id}`,
-                    state:{
-                      user:post.user,
-                    }
-                  }}
-                  className={styles.postAuthor}
-                >
-                  {post.user.name}
-                </Link>
-                <span className={styles.postTime}>a minute ago</span>
+                  <Link
+                    to={{
+                      pathname: `/user/${post.user._id}`,
+                      state: {
+                        user: post.user,
+                      },
+                    }}
+                    className={styles.postAuthor}
+                  >
+                    {post.user.name}
+                  </Link>
+                  <span className={styles.postTime}>a minute ago</span>
+                </div>
               </div>
-            </div>
-            <div className={styles.postContent}>{post.content}</div>
-            <div className={styles.postActions}>
-              <div className={styles.postLike}>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/126/126473.png"
-                  alt="likes-icon"
-                />
-                <span>5</span>
+              <div className={styles.postContent}>{post.content}</div>
+              <div className={styles.postActions}>
+                <div className={styles.postLike}>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/126/126473.png"
+                    alt="likes-icon"
+                  />
+                  <span>5</span>
+                </div>
+                <div className={styles.postCommentsIcon}>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/1380/1380338.png"
+                    alt="comments-icon"
+                  />
+                  <span>2</span>
+                </div>
               </div>
-              <div className={styles.postCommentsIcon}>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/1380/1380338.png"
-                  alt="comments-icon"
-                />
-                <span>2</span>
+              <div className={styles.postCommentBox}>
+                <input placeholder="start typing a comment" />
               </div>
-            </div>
-            <div className={styles.postCommentBox}>
-              <input placeholder="start typing a comment" />
-            </div>
-            {/* here we are showing the comments.
+              {/* here we are showing the comments.
             => related to the (posts): */}
-            {/* V.IMp = so for doing that we are importing our (comments) component:
+              {/* V.IMp = so for doing that we are importing our (comments) component:
             => which we have created in our components-folder:
             => through which we will show our comments here.under the every (post) */}
-            <div className={styles.postCommentList}>
-              {/* IMP = so before getting the comment-component:
+              <div className={styles.postCommentList}>
+                {/* IMP = so before getting the comment-component:
               => we need to have the data related to the  comments: */}
-              {/* IMP = we will have our comments-data.
+                {/* IMP = we will have our comments-data.
               => under the (posts) prop.because every post have a comment in it:
               => so we will fetch our comments-data from the (posts) prop: */}
-              {/* we will run the map-function on the (post.comment) object.
+                {/* we will run the map-function on the (post.comment) object.
               => so that we can have every comment acc to our posts: */}
-              {post.comments.map((comment) => (
-                // Under it we will use our comment (comment)component:
-                // which we have created in the (component) folder:
-                // V.IMp => we also need to pass the (Comments) data.To our (Comment) component.
-                // so that we can gave data to our comment-component (elements).
-                //  and show them on under the every post of our application.on the browser:
-                // IMP = we use (props)  method to pass the data of the every comment to our (Comment) component:
+                {post.comments.map((comment) => (
+                  // Under it we will use our comment (comment)component:
+                  // which we have created in the (component) folder:
+                  // V.IMp => we also need to pass the (Comments) data.To our (Comment) component.
+                  // so that we can gave data to our comment-component (elements).
+                  //  and show them on under the every post of our application.on the browser:
+                  // IMP = we use (props)  method to pass the data of the every comment to our (Comment) component:
 
-                // V.IMP = we also need to provide the (unique) key or identity to the every comment:
-                // so that each comment can be separate from each other:
-                // we have to do this because we are fetching the comments with the help of map-function.
-                // so we need to provide them the unique identity:
-                // we can do that with the help of same method we use for our (posts) component:
-                // IMP = we need to use the (key) method:and under that key-method.
-                // we need to create the js-object.which will have the (string-interpolation) of (unique-key) for the every (comment):
-                // we will use the (unique) key of the (comment).which we are getting from the (server):when we are fetching them from the server:
-                // IMP = and this (unique-key) will also help us to (delete) the particular (Comment):
-                // because every comment has its own identity:
-                <Comment
-                  comment={comment}
-                  key={`post-comment-${comment._id}`}
-                />
-              ))}
+                  // V.IMP = we also need to provide the (unique) key or identity to the every comment:
+                  // so that each comment can be separate from each other:
+                  // we have to do this because we are fetching the comments with the help of map-function.
+                  // so we need to provide them the unique identity:
+                  // we can do that with the help of same method we use for our (posts) component:
+                  // IMP = we need to use the (key) method:and under that key-method.
+                  // we need to create the js-object.which will have the (string-interpolation) of (unique-key) for the every (comment):
+                  // we will use the (unique) key of the (comment).which we are getting from the (server):when we are fetching them from the server:
+                  // IMP = and this (unique-key) will also help us to (delete) the particular (Comment):
+                  // because every comment has its own identity:
+                  <Comment
+                    comment={comment}
+                    key={`post-comment-${comment._id}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      {/* here we are showing the (FriendsList) component:
+      => only if we have any (user) logged-in into our application: */}
+      {auth.user && <FriendsList/> }
     </div>
   );
 };
