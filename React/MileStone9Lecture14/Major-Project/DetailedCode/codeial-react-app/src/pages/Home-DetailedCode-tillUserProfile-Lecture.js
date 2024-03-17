@@ -310,8 +310,8 @@ export const Home = () => {
         ))}
       </div>
       {/* here we are showing the (FriendsList) component:
-      => only if we have any (user) logged-in into our application: */}i
-      {auth.user && <FriendsList/> }
+      => only if we have any (user) logged-in into our application: */}
+      i{auth.user && <FriendsList />}
     </div>
   );
 };

@@ -6,7 +6,7 @@
 
 // here we import the (home) page:
 // IMP 1 -> we can import our home-page as (object):
-import Home from "./Home";
+import Home from "./Home-StartFrom-SearchAndChat-Lecture";
 
 // import the Login page or component: 
 import Login  from "./Login";
