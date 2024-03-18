@@ -30,7 +30,7 @@ function addTask(task) {}
 
 function showNotification(text) {}
 
-// => 1 = here we create the function:through which we gonna be get the (value) of input element:this is a (event-handler) function:
+// => 1 = here we create the function:through which we will be get the (value) from input element:this is a (event-handler) function:
 
 function handleInputKeypress(){
 
