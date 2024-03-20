@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Comment, Loader, FriendsList } from '../components';
-import { getPosts } from '../api';
-import styles from '../styles/home.module.css';
-import { useAuth } from '../hooks';
+import { Comment, Loader, FriendsList } from "../components";
+import { getPosts } from "../api";
+import styles from "../styles/home.module.css";
+import { useAuth } from "../hooks";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
