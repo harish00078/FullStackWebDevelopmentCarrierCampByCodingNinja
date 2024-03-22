@@ -230,7 +230,7 @@ export const Home = () => {
                 => IMP =  we can do that by creating a  object with in the (to) method of (link)tag:instead of simply passing the component (route) to this (to) method of (link) tag:
                 => IMP = with in the (object):
                 => 1 = first we will add the (path) related to our component-route:by using the (pathname) Key in the object:
-                => 2 = second we will create the (state) key).and with in that (state) key.we are going to  create the another-object:
+                => 2 = second we will create the (state) object.
                 -> and with in that object:we are going to create the another (key) name as (user):
                 -> and with in that (user) key.we are going to pass the (user-data):
                 -> On which (user's-name).we have clicked on:*/}
