@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Comment, Loader, FriendsList } from "../components";
+import { Comment, Loader, FriendsList, CreatePost } from "../components";
 import { getPosts } from "../api";
 import styles from "../styles/home.module.css";
 import { useAuth } from "../hooks";
@@ -32,6 +32,8 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.postsList}>
+        {/* here we are calling the (createPost) component:In our (home) component */}
+        <CreatePost />
         {posts.map((post) => (
           <div className={styles.postWrapper} key={`post-${post._id}`}>
             <div className={styles.postHeader}>
