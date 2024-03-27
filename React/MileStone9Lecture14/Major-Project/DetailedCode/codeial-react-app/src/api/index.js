@@ -189,7 +189,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 // IMP = we can also gave the (value) to the (arguments) here.if we did not get them from the application (component) it self:
 
 // IMP => getPosts is  a (pull) API request:basically it means that we are getting the data from the (API):
-export const getPosts = (page = 2, limit = 20) => {
+export const getPosts = (page = 1, limit = 5) => {
   // under this function: we need to call the (API):from where we get the (posts) data.
   // Instead of directly calling the (API) in this (function): we will call our  (customFetch)  function. where we have written the (logic) related to our (API) calling:
   // so for  connecting it with the (customFetch) function:we need to return this (getPosts) function's data to the (customFetch) function:
@@ -281,5 +281,17 @@ export const addFriend = (userId) =>{
 export const removeFriend = (userId) =>{
   return customFetch(API_URLS.removeFriend(userId),{
     method:'POST',
+  })
+}
+// here we have created the (createPost) function:
+// through which we gonna be add the (created-post) of (user) in our application:or we can say in our application's (server-data):
+// IMP = this function will get the (content) of user's created-post as an argument:
+// V.IMP = and we will send that argument (content) or (content):To the server with in the (body) section of server's api-request:
+export const addPost = (content) =>{
+  return customFetch(API_URLS.createPost(),{
+    method:'POST',
+    body:{
+      content,
+    }
   })
 }

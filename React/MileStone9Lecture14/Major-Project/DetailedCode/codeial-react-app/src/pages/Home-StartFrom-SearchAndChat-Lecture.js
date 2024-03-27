@@ -57,7 +57,7 @@ const Home = () => {
                   <span className={styles.postTime}>a minute ago</span>
                 </div>
               </div>
-              <div className={styles.postContent}>{post.conent}</div>
+              <div className={styles.postContent}>{post.content}</div>
 
               <div className={styles.postActions}>
                 <div className={styles.postLike}>
@@ -65,7 +65,7 @@ const Home = () => {
                     src="https://cdn-icons-png.flaticon.com/128/126/126473.png"
                     alt="likes-icon"
                   />
-                  <span>5</span>
+                  <span>{post.likes.length}</span>
                 </div>
 
                 <div className={styles.postCommentsIcon}>

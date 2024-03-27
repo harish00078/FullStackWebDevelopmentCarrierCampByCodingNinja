@@ -1,6 +1,9 @@
 // here we are creating the (create-post) component:through which users will able to create posts on the application:
 import { useState } from "react";
 import styles from "../styles/home.module.css";
+// here we importing the (addPost) function:through which we are sending the (create-post) request to the (server) with  (post-content) of user's created-post:
+import { addPost } from "../api";
+import { useToasts } from "react-toast-notifications";
 
 const CreatePost = () => {
   // here we are managing the (text) state related to the particular (post):which we are basically getting from the (user):
@@ -8,9 +11,27 @@ const CreatePost = () => {
   // here we are managing the (state) of (add-Post) button:so that user will not able to click the add-post button randomly after clicking it once:
   const [addingPost, setAddingPost] = useState(false);
 
+  // here we are using the (addToast) method of (useToast) function:through which we gonna be respersents the notification to the (user):when its create-post request get's satteled by the server:
+  const { addToast } = useToasts();
+
   // here we have the function:through which we gonna be handle the click of add post button:
   // it is the event-handler function of (onClick) event:which we have gave to the add-post (button) it self:
-  const handleAddPostClick = () => {};
+  const handleAddPostClick = async () => {
+    setAddingPost(true);
+    const response = await addPost(post);
+    if (response.success) {
+      // if response was successfull:then we will first clear out the (post) content from the (textarea) tag:so that user will able to write the new-post content on the textarea-tag:
+      setPost("");
+      addToast("post created successfully", {
+        appearance: "success",
+      });
+    } else {
+      addToast(response.message,{
+        appearance:'error',
+      })
+    }
+    setAddingPost(false);
+  };
 
   return (
     <div className={styles.createPost}>
@@ -22,7 +43,7 @@ const CreatePost = () => {
             => that function will have the event as (argument) with in it:and with in that event will have the value related to (textarea) tag:
             => we have to pass that value to the (setPost) state:
             => for getting that value from the event:we have to use the (target) method and (value) function of (event): */}
-            {/* textarea tag will also get its default value from the (post) state: 
+      {/* textarea tag will also get its default value from the (post) state: 
             => for providing default value to the (textarea) tag through the (post) state:we gonna be use the (value) Keyword in it:*/}
       <textarea
         className={styles.addPost}
