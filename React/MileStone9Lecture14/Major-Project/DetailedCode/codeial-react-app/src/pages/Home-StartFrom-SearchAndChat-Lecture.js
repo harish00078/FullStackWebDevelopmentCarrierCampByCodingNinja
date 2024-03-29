@@ -23,7 +23,7 @@ const Home = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, []); 
 
   if (loading) {
     return <Loader />;

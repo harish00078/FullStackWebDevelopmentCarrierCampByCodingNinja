@@ -26,9 +26,9 @@ const CreatePost = () => {
         appearance: "success",
       });
     } else {
-      addToast(response.message,{
-        appearance:'error',
-      })
+      addToast(response.message, {
+        appearance: "error",
+      });
     }
     setAddingPost(false);
   };
