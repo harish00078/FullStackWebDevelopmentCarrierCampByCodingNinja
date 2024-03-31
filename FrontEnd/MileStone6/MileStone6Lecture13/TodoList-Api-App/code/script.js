@@ -19,12 +19,15 @@ function addTaskToDOM(task) {
   const li = document.createElement("li");
   // second we create the html structure for this list-tag:
   li.innerHTML = `
-  <li>
+
   <input type="checkbox" id="${task.id}" ${task.done ? 'checked':''}class="custom-checkbox">
   <label for="${task.id}">${task.text}</label>
-  <img src="bin.svg" class="delete" data-id="${task.id}">
-</li>
+  <img src="" class="fa-solid fa-trash" data-id="${task.id}">
+
   `;
+  // third we have to  append or add these(List-tags  ) into our (unordered-list) tag:
+  tasksList.append(li);
+
 }
 
 // renderList fucntion:through which we gonna be show the list of task in application:

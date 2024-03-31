@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List App</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+
+    <script
+      src="https://kit.fontawesome.com/7ec0ac3499.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link rel="stylesheet" href="styles.css" title="text/css" />
   </head>
   <body>
-    <h1>Todo List App</h1>
+    <h1>Todo List</h1>
     <div id="container">
       <input
         placeholder="Add Task"
@@ -26,9 +27,10 @@
       </span>
       <ul id="list">
         <!-- <li>
-          <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
-          <label for="task1"> Buy groceries</label>
-          <img src="bin.svg" class="delete" data-id="12">
+          <input type="checkbox" id="${task.id}" ${task.done ?
+          'checked':''}class="custom-checkbox">
+          <label for="${task.id}">${task.text}</label>
+          <img src="" class="fa-solid fa-trash" data-id="${task.id}" />
         </li> -->
       </ul>
     </div>
