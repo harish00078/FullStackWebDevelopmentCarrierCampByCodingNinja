@@ -20,14 +20,15 @@ function addTaskToDOM(task) {
   // second we create the html structure for this list-tag:
   li.innerHTML = `
 
-  <input type="checkbox" id="${task.id}" ${task.done ? 'checked':''}class="custom-checkbox">
+  <input type="checkbox" id="${task.id}" ${
+    task.done ? "checked" : ""
+  }class="custom-checkbox">
   <label for="${task.id}">${task.text}</label>
   <img src="" class="fa-solid fa-trash" data-id="${task.id}">
 
   `;
   // third we have to  append or add these(List-tags  ) into our (unordered-list) tag:
   tasksList.append(li);
-
 }
 
 // renderList fucntion:through which we gonna be show the list of task in application:
@@ -155,3 +156,19 @@ function handleInputKeypress(e) {
 // IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
 // we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
 addTaskInput.addEventListener("keydown", handleInputKeypress);
+
+// here we have event-handler function:for our event-delegation's (event-listener):
+function handleClickListener(e) {
+  const target = e.target;
+  console.log(target);
+  // how we gonna be find out the particular element through the click-event:
+  // we gonna be find them out with the help of there class-names:the class names which we have to given to our each element:
+  if(target.className === 'delete'){
+
+  }else if(target.className === 'custom-checkbox'){
+
+  }
+}
+
+// here we are doing the (event-delegation):
+document.addEventListener("click", handleClickListener);
