@@ -1,6 +1,6 @@
 // here we have created the (tasks) array:
 // In which we will stores the (tasks) as an object:
-const tasks = [];
+let tasks = [];
 // => 1 = here we get the tasks-list element which is (ul) element:through the (getElementById) function of (DOM):
 // IMP = for accessing the (tasks-list):we need to pass the (id) of (tasks-list) element:To this (getElementById) function of (DOM):
 const tasksList = document.getElementById("list");
@@ -21,10 +21,14 @@ function addTaskToDOM(task) {
   li.innerHTML = `
 
   <input type="checkbox" id="${task.id}" ${
-    task.done ? "checked" : ""
+    task.done ? 'checked' : ''
   }class="custom-checkbox">
   <label for="${task.id}">${task.text}</label>
-  <img src="" class="fa-solid fa-trash" data-id="${task.id}">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAY1BMVEX///8AAAD19fW8vLw7OzsyMjLp6enBwcFERERBQUG1tbUPDw92dnb7+/toaGhaWlpPT0/Y2NhjY2Pv7+9wcHDS0tLKysonJyeioqJJSUmCgoIVFRWTk5Ourq6cnJyKiooeHh4qxoeDAAADTUlEQVR4nO2c2ZqiMBCFAVnaJQ0BBHd8/6ccZ3Q0BUFDEhP763NuQx/+ToQsVFUQQBD0a8UXyuIe8JpkHyprnzSO8dhBne6qA3MKeJzKF4ZHl3xsOl8YuuxCjQ5024U7HcCdQ8CVDuAKgAAE4KcC7pcj2n8GYD1+Xf0RgN/j130DcEQANNVHAPJsNqYsF29cNGPXNYV4Xf7EcPKmpTqFjnWqJvHlrx1tK59AyOrXfvZVq+8JFj74wnChDOilA5/Omb0R9sOnvu/7fMDWD1+r/JR0fgA7Vb6g8QM44YBp44Nvo87nZZDVB/ifeJ04VT39jJNFDuX28BCCfpfWTfo+87RZmxnw6/btFNnhoYqu+56VwVeedXJ7y9eTdjRqqv4vixPtXuTn+zxUWn+TsvJuftbtQ3HbnVmluygTzJXX+lRkYV3axQuCUnTXGx+yKowtPydRLLrrfWqcuQOcARCAAPQIWFXVyGuMXZq8A/Iu3xY76TyT7Ypt3o1MY64AN7fpuhw0R7ep4izf7joCfBwUF7326HE8ffIHyJePC3odJZxNLGWj7AZQDF2IycI7Fe8vC1ZwAkiP2kk/rcUW2fG4E8D0S7yCPMniai/8kuxqAAhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgD8XsCJpcySOknzQLnx90CYhAQkNCUiEJm8hAcFaCKroxXYIiYNLWYyqo7CUR1bHvDeM1QPgIPtLR4Csu/XhdvAcVNtb/3XSwClnoVHNat4m5VECwY5l0s5XI9Gf7oLLWJqmI23RpWksfBbheQAEIAB/ACBZMiWSJZOJyGpCM9eCLJnOhrk9A/Oz6K5nXokWtotS0cJYmgk/xGNnNSeH0cJYmi7kZ7K0+iNMl6J3oulC/0urpTpoyZ+Jmbt39RK1LRYR5NRZt/ZfSpPxC2uDnJLdlsErrFfibbhs1uTbUl/9onAzahQWVkaZFz1bg5S4vlXYGXdiOkifLwzcsr5Z2HYLrj0tR3zRDYtMmJTHZOXA7sIYzzUVy0pgmGVl8rdX1WgNf9dvLwkxqfyDTN+v72GiJyWnFFUNnmSbkh18TSaMX99HV7GVxOr39aGN/vur6E01kGqVF+oftbRGkmlHYgoAAAAASUVORK5CYII="  
+  class="delete" data-id="${
+    task.id
+  }">
+
 
   `;
   // third we have to  append or add these(List-tags  ) into our (unordered-list) tag:
@@ -57,12 +61,10 @@ function toggleTask(taskId) {
   if (task.length > 0) {
     // our task should be at the (0) index of new task-array:
     const currentTask = task[0];
-    console.log("currentTask", currentTask);
 
     // after getting out the particular task or task-object:we have to change its (done) properties (value):or we can say its (toggle) properties (value):
     currentTask.done = !currentTask.done;
 
-    renderList();
     showNotification("Task toggled successfully");
     return;
   }
@@ -149,13 +151,7 @@ function handleInputKeypress(e) {
     addTask(task);
   }
 }
-// => 2 = IMP = for getting the value of input-element:we gonna be add the (eventListener) on it:
-// we gonna be add the (keyDown) event-listener on it:
-// IMP = so that whenever (user) press any key on the keyboard with in the input-element:we will get the (value) of that particular key:
-// here we are adding the (event-listener) on (input) element:
-// IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
-// we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
-addTaskInput.addEventListener("keydown", handleInputKeypress);
+
 
 // here we have event-handler function:for our event-delegation's (event-listener):
 function handleClickListener(e) {
@@ -163,12 +159,44 @@ function handleClickListener(e) {
   console.log(target);
   // how we gonna be find out the particular element through the click-event:
   // we gonna be find them out with the help of there class-names:the class names which we have to given to our each element:
-  if(target.className === 'delete'){
-
-  }else if(target.className === 'custom-checkbox'){
-
+  if (target.className === "delete") {
+    // if we get the delete class:then we have to fetch its (taskId):so we can delete the particular task by passing its (taskId) to the (delete-task) function:
+    // V.IMP = we have to use the (dataset) method:To access the (data-id) of particular element:if we are giving the (id) value to particular element through the (data-id) attribute:because of that every data value of our element.we can access through the  (dataset) method:
+    // after that method we also have to define the (attribute):whose value be want to access:like we want the data-value of (id): then we can use the (id):if wanna use the (data-value) of the (event) then we have to use the (event):
+    const taskId = target.dataset.id;
+    console.log("delete-task-Id:", taskId);
+    deleteTask(taskId);
+    return;
+  } else if (target.className === "custom-checkbox") {
+    // same thing we have to here as well:only difference is that here we did not have to use the (dataset) method:because checkbox element does not have the taskId in its (data-id) attribute:
+    const taskId = target.id;
+    toggleTask(taskId);
+    return;
   }
 }
 
+// => 2 = IMP = for getting the value of input-element:we gonna be add the (eventListener) on it:
+// we gonna be add the (keyDown) event-listener on it:
+// IMP = so that whenever (user) press any key on the keyboard with in the input-element:we will get the (value) of that particular key:
+// here we are adding the (event-listener) on (input) element:
+// IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
+// we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
+// addTaskInput.addEventListener("keydown", handleInputKeypress);
+
+// here we are doing the (event-delegation):
+// document.addEventListener("click", handleClickListener);
+
+function initializeApp(){
+  // => 2 = IMP = for getting the value of input-element:we gonna be add the (eventListener) on it:
+// we gonna be add the (keyDown) event-listener on it:
+// IMP = so that whenever (user) press any key on the keyboard with in the input-element:we will get the (value) of that particular key:
+// here we are adding the (event-listener) on (input) element:
+// IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
+// we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
+addTaskInput.addEventListener("keydown", handleInputKeypress);
+
 // here we are doing the (event-delegation):
 document.addEventListener("click", handleClickListener);
+}
+
+initializeApp();
