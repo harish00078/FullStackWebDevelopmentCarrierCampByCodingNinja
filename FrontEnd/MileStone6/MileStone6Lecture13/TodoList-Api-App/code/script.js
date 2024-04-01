@@ -11,6 +11,27 @@ const tasksCounter = document.getElementById("tasks-counter");
 
 console.log("its working hurry");
 
+function fetchTodos() {
+  // GET request:
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(function (response) {
+      console.log(response);
+      // (json) function:will also return us the another (promise):
+      const data = response.json();
+      console.log(data);
+      return data;
+    })
+    .then(function (data) {
+      tasks = data.slice(0, 10);
+      console.log("tasks-used-from-api", tasks);
+      renderList();
+      console.log("tasks-get-from-api", data);
+    })
+    .catch(function (error) {
+      console.log("error", error);
+    });
+}
+
 // addTaskToDOM function:through this function we gonna be add or pass all the tasks to the DOM:
 // IMP = through this function:we gonna be create the (lists) and pass the (tasks) or tasks-data one by one to them:
 // this function will get the task as an argument with  in it:
@@ -21,13 +42,11 @@ function addTaskToDOM(task) {
   li.innerHTML = `
 
   <input type="checkbox" id="${task.id}" ${
-    task.done ? 'checked' : ''
+    task.completed ? "checked" : ""
   }class="custom-checkbox">
-  <label for="${task.id}">${task.text}</label>
+  <label for="${task.id}">${task.title}</label>
   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAY1BMVEX///8AAAD19fW8vLw7OzsyMjLp6enBwcFERERBQUG1tbUPDw92dnb7+/toaGhaWlpPT0/Y2NhjY2Pv7+9wcHDS0tLKysonJyeioqJJSUmCgoIVFRWTk5Ourq6cnJyKiooeHh4qxoeDAAADTUlEQVR4nO2c2ZqiMBCFAVnaJQ0BBHd8/6ccZ3Q0BUFDEhP763NuQx/+ToQsVFUQQBD0a8UXyuIe8JpkHyprnzSO8dhBne6qA3MKeJzKF4ZHl3xsOl8YuuxCjQ5024U7HcCdQ8CVDuAKgAAE4KcC7pcj2n8GYD1+Xf0RgN/j130DcEQANNVHAPJsNqYsF29cNGPXNYV4Xf7EcPKmpTqFjnWqJvHlrx1tK59AyOrXfvZVq+8JFj74wnChDOilA5/Omb0R9sOnvu/7fMDWD1+r/JR0fgA7Vb6g8QM44YBp44Nvo87nZZDVB/ifeJ04VT39jJNFDuX28BCCfpfWTfo+87RZmxnw6/btFNnhoYqu+56VwVeedXJ7y9eTdjRqqv4vixPtXuTn+zxUWn+TsvJuftbtQ3HbnVmluygTzJXX+lRkYV3axQuCUnTXGx+yKowtPydRLLrrfWqcuQOcARCAAPQIWFXVyGuMXZq8A/Iu3xY76TyT7Ypt3o1MY64AN7fpuhw0R7ep4izf7joCfBwUF7326HE8ffIHyJePC3odJZxNLGWj7AZQDF2IycI7Fe8vC1ZwAkiP2kk/rcUW2fG4E8D0S7yCPMniai/8kuxqAAhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgD8XsCJpcySOknzQLnx90CYhAQkNCUiEJm8hAcFaCKroxXYIiYNLWYyqo7CUR1bHvDeM1QPgIPtLR4Csu/XhdvAcVNtb/3XSwClnoVHNat4m5VECwY5l0s5XI9Gf7oLLWJqmI23RpWksfBbheQAEIAB/ACBZMiWSJZOJyGpCM9eCLJnOhrk9A/Oz6K5nXokWtotS0cJYmgk/xGNnNSeH0cJYmi7kZ7K0+iNMl6J3oulC/0urpTpoyZ+Jmbt39RK1LRYR5NRZt/ZfSpPxC2uDnJLdlsErrFfibbhs1uTbUl/9onAzahQWVkaZFz1bg5S4vlXYGXdiOkifLwzcsr5Z2HYLrj0tR3zRDYtMmJTHZOXA7sIYzzUVy0pgmGVl8rdX1WgNf9dvLwkxqfyDTN+v72GiJyWnFFUNnmSbkh18TSaMX99HV7GVxOr39aGN/vur6E01kGqVF+oftbRGkmlHYgoAAAAASUVORK5CYII="  
-  class="delete" data-id="${
-    task.id
-  }">
+  class="delete" data-id="${task.id}">
 
 
   `;
@@ -54,7 +73,7 @@ function renderList() {
 function toggleTask(taskId) {
   // here we are finding out the (particular-task) from tasks-array:with the help of filter method:
   const task = tasks.filter(function (task) {
-    return task.id === taskId;
+    return task.id === Number(taskId);
   });
 
   // filter method will return us the new-array:if with in that array we have any task then it  means that we have found the particular task:
@@ -63,8 +82,8 @@ function toggleTask(taskId) {
     const currentTask = task[0];
 
     // after getting out the particular task or task-object:we have to change its (done) properties (value):or we can say its (toggle) properties (value):
-    currentTask.done = !currentTask.done;
-
+    currentTask.completed = !currentTask.completed;
+    // renderList();
     showNotification("Task toggled successfully");
     return;
   }
@@ -78,7 +97,7 @@ function deleteTask(taskId) {
   // which basically does not have the task with in it.that we have just filter out and delete from the older tasks-array:
   // IMP = this filter method basically gets the (callback) function as an argument:
   const newTasks = tasks.filter(function (task) {
-    return task.id !== taskId;
+    return task.id !== Number(taskId);
   });
 
   // IMP = and after filerting out the (older-task):we gonna be pass that new tasks-array to it:In this way we gonna be delete the particular task from tasks-array:
@@ -132,14 +151,16 @@ function handleInputKeypress(e) {
       // here we are using the key-value pair method:
       // text:text,
       // we can also define it in this way as well:because it is the some thing:
-      text,
+      title: text,
       // IMP = With In the (Id) key we gonna be provide the (current-date) to it:and that date gonna be become the (unique-id) for our each and particular task:
       // IMP = Date.now() is a static method that returns the number of milliseconds elapsed since a specific point in time.
       // we also have to convert it into the form of string:for doing that we gonna be use the (toString) method on it:
-      id: Date.now().toString(),
+      // id: Date.now().toString(),
+      id: Date.now(),
+
       // here we have (done) key:which basically repersents that  particular (task) is done or not:
       // by default it will have (false) value:because every newly created task gonna be undone by default:
-      done: false,
+      completed: false,
     };
     // once we have created the task with the help of user's text:
     // then after that we also have to clear out that text from the input element:
@@ -151,7 +172,6 @@ function handleInputKeypress(e) {
     addTask(task);
   }
 }
-
 
 // here we have event-handler function:for our event-delegation's (event-listener):
 function handleClickListener(e) {
@@ -186,17 +206,20 @@ function handleClickListener(e) {
 // here we are doing the (event-delegation):
 // document.addEventListener("click", handleClickListener);
 
-function initializeApp(){
-  // => 2 = IMP = for getting the value of input-element:we gonna be add the (eventListener) on it:
-// we gonna be add the (keyDown) event-listener on it:
-// IMP = so that whenever (user) press any key on the keyboard with in the input-element:we will get the (value) of that particular key:
-// here we are adding the (event-listener) on (input) element:
-// IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
-// we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
-addTaskInput.addEventListener("keydown", handleInputKeypress);
+function initializeApp() {
+  // here we are adding our (fetchTodos) function:with in our (initializeApp) function:so that whenever our initializeApp function gets trigger we are able to fetch the todos from (Api):through fetchTodos function:
+  fetchTodos();
 
-// here we are doing the (event-delegation):
-document.addEventListener("click", handleClickListener);
+  // => 2 = IMP = for getting the value of input-element:we gonna be add the (eventListener) on it:
+  // we gonna be add the (keyDown) event-listener on it:
+  // IMP = so that whenever (user) press any key on the keyboard with in the input-element:we will get the (value) of that particular key:
+  // here we are adding the (event-listener) on (input) element:
+  // IMP = for adding the event-listener on element:we gonna be use the (addEventListener) function of (DOM):
+  // we also need to provide the event-handler function to event-listener:through which we gonna be handle this event-listener:
+  addTaskInput.addEventListener("keydown", handleInputKeypress);
+
+  // here we are doing the (event-delegation):
+  document.addEventListener("click", handleClickListener);
 }
 
 initializeApp();
