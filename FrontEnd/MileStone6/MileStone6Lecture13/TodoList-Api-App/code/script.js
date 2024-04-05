@@ -11,25 +11,38 @@ const tasksCounter = document.getElementById("tasks-counter");
 
 console.log("its working hurry");
 
-function fetchTodos() {
+async function fetchTodos() {
+  // => 1 =  here we did the simple (fetch) request:
   // GET request:
-  fetch("https://jsonplaceholder.typicode.com/todos")
-    .then(function (response) {
-      console.log(response);
-      // (json) function:will also return us the another (promise):
-      const data = response.json();
-      console.log(data);
-      return data;
-    })
-    .then(function (data) {
-      tasks = data.slice(0, 10);
-      console.log("tasks-used-from-api", tasks);
-      renderList();
-      console.log("tasks-get-from-api", data);
-    })
-    .catch(function (error) {
-      console.log("error", error);
-    });
+  // fetch("https://jsonplaceholder.typicode.com/todos")
+  //   .then(function (response) {
+  //     console.log(response);
+  // (json) function:will also return us the another (promise):
+  //     const data = response.json();
+  //     console.log(data);
+  //     return data;
+  //   })
+  //   .then(function (data) {
+  //     tasks = data.slice(0, 10);
+  //     console.log("tasks-used-from-api", tasks);
+  //     renderList();
+  //     console.log("tasks-get-from-api", data);
+  //   })
+  //   .catch(function (error) {
+  //     console.log("error", error);
+  //   });
+  // => 2 = here we did the (fetch) request:with the help of (async-await) method:
+  // IMP = so when we are fetching data with the help of (async-await) method:then we did not have to use the (then) and (catch) method to handle the (promises):
+  // IMP = Instead of (then) and (catch) method:we can use the (try) can (catch) method on await requests:To basically avoid any kind of (error) in our application:while we are fetching data from the (api):
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await response.json();
+    tasks = data.slice(0, 10);
+    renderList();
+  } catch (error) {
+    showNotification(error);
+    console.log(error);
+  }
 }
 
 // addTaskToDOM function:through this function we gonna be add or pass all the tasks to the DOM:
@@ -109,6 +122,16 @@ function deleteTask(taskId) {
 // IMP = that's why this function will get the (task) object as argument in it:
 function addTask(task) {
   if (task) {
+    // V.IMP = here we putting our user's created task into the (server):we will use the different (api) here because the (api) we use to fetch the (tasks): it  does not have the factionality in it to store the user(created-task) into the (server):
+    fetch("", {
+    
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+
     // pushed the task into the tasks-array:
     tasks.push(task);
     // call the renderList function:which basically render all the tasks on the browser:
