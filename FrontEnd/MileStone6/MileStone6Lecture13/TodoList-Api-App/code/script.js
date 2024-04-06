@@ -123,14 +123,25 @@ function deleteTask(taskId) {
 function addTask(task) {
   if (task) {
     // V.IMP = here we putting our user's created task into the (server):we will use the different (api) here because the (api) we use to fetch the (tasks): it  does not have the factionality in it to store the user(created-task) into the (server):
-    fetch("", {
-    
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
+    // fetch("", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(task),
+    // })
+    //   .then(function (response) {
+    //     return response.json();
+    //   })
+    //   .then(function (data) {
+    //     console.log(data);
+    //     tasks.push(data);
+    //     renderList();
+    //     showNotification("Task added successfully");
+    //   })
+    //   .catch(function (error) {
+    //     console.log("error", error);
+    //   });
 
     // pushed the task into the tasks-array:
     tasks.push(task);
