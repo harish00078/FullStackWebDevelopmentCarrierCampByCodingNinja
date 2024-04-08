@@ -13,7 +13,6 @@
   const tasksCounter = document.getElementById("tasks-counter");
 
   console.log("its working hurry");
-  var a = 10;
   async function fetchTodos() {
     // => 1 =  here we did the simple (fetch) request:
     // GET request:
