@@ -1,8 +1,8 @@
-// here we will creating the  custom-hooks:
-// which we are using in our application:
+// here we will creating the  custom-hooks.which we are using in the (context-api's) of our application:
 
 import { useContext, useEffect, useState } from "react";
 
+// => 1 = AuthProvider custom-hooks:
 // here we are importing the (library):
 // through which we will basically (decode) the (user-token):|
 // and get the (user) data from it:
@@ -11,7 +11,9 @@ import { jwtDecode } from "jwt-decode";
 
 // here we are importing the (AuthContext):so that we can have the access of this (AuthContext) or (AuthState) of the (user):
 // In every component of our application:with the help of (useAuth) custom-hook function:
-import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext } from "../providers";
+// here we are importing the (PostsContext):
+import { PostsContext } from "../providers";
 
 // => 1 = here we are importing the (login) function from the (api) folder:
 // which is basically connected to the (server) and get the (user-auth) from the (server):
@@ -30,6 +32,7 @@ import {
   fetchUserFriends,
   register,
   login as userLogin,
+  getPosts,
 } from "../api";
 
 // 1 = here we import the (setItemInLocalStorage) function:
@@ -119,7 +122,7 @@ export const useProvideAuth = () => {
         // const user = jwt_decode(usertoken);
         // V.V.IMP = when ever our application get referesh here we will call the (function) through which we gonna be get the (friendship) section  from the server:
         const response = await fetchUserFriends();
-        console.log('user-friends-data',response)
+        console.log("user-friends-data", response);
         // here we have create the empty (friends-array):if we did not get the friends-data from the (server) related to the currrent-user:
         // IMP = then we gonna be directly pass this empty-array to the (user) state with the user-data:
         let friends = [];
@@ -332,7 +335,7 @@ export const useProvideAuth = () => {
   // and when we are adding the (user) as friend then this argument will have the (true-value):
   // second is friend:friend is basically the (data) of the (user) which we are trying to add as Friend or remove as friend from our user-profile's friendship section-data:
   const updateUserFriends = (addFriend, friend) => {
-    if(addFriend){
+    if (addFriend) {
       // if the (addFriend) argument is ture:then we have to add that (user) in our friends-array:
       // after when we add the  (users) as our friends.through by adding them in our friends-array:
       // IMP = we need to set the (user) state again:
@@ -345,12 +348,10 @@ export const useProvideAuth = () => {
         // first we gonna be pass old friends-data: and then second we gonna be the (new) friend-data.which they are just try to add as friend in there friends-data:
         // we gonna be use the spread-operator on the (user's) old-friends data:so that we can get all the old-friends data of the user:
         // and then we gonna be add there new-friend-data:In the friends-array section of the (user's) profile:
-        friends:[...user.friends,friend]
+        friends: [...user.friends, friend],
       });
       // after updating the user-state.we need to return from this function:
       return;
-
-
     }
     // if we get the (false) value in (addFriend) argument:
     // then we gonna be remove the friend from the friends-section of  current user's profile:
@@ -361,16 +362,14 @@ export const useProvideAuth = () => {
     // we gonna be use the (filter) method on friends section-data:To check that which user-id matches with the userid of friend-argument-user:
     // because we have the array of friend-object in friends section-data:
     // IMP = and also (filter) method will return the new-array:
-    const newFriends = user.friends.filter((f) => f.to_user._id !== friend.to_user._id);
+    const newFriends = user.friends.filter(
+      (f) => f.to_user._id !== friend.to_user._id
+    );
     // after that we gonna be set the new (user-state) with the (new-friends) array:
     setUser({
       ...user,
-      friends:newFriends,
-
-    })
-
-
-
+      friends: newFriends,
+    });
   };
 
   // 6 => V.IMP = we also need to return all these things from this function:
@@ -385,5 +384,37 @@ export const useProvideAuth = () => {
     signup,
     updateUser,
     updateUserFriends,
+  };
+};
+
+// => 1 = PostsProvider custom-hooks:
+export const usePosts = () => {
+  return useContext(PostsContext);
+};
+
+export const useProvidePosts = () => {
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await getPosts();
+
+      if (response.success) {
+        setPosts(response.data.posts);
+      }
+
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  const addPostToState =()=>{
+
+  }
+  return {
+    data: posts,
+    loading,
+    addPostToState,
   };
 };

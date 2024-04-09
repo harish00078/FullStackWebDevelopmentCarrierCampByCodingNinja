@@ -11,10 +11,9 @@ import { ToastProvider } from "react-toast-notifications";
 // V.Imp = here we are importing the (AuthProvider) function.
 // through which we are able to provide the (auth) of the (user).
 // To all the component of our application:
-import { AuthProvider } from "./providers/AuthProvider";
-
-// import { BrowserRouter as Router } from "react-router-dom";
-
+import { AuthProvider } from "./providers";
+// IMP = here we are importing the (postsProvider):
+import { PostsProvider } from "./providers";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -30,7 +29,9 @@ root.render(
       {/* here we are (using) or (wrapping) our hole application:
       => under the (AuthProvider) function.which we have create or used to handle the (AuthContext) of the (user) in our application: */}
       <AuthProvider>
-        <App />
+        <PostsProvider>
+          <App />
+        </PostsProvider>
       </AuthProvider>
     </ToastProvider>
     {/* </Router> */}
