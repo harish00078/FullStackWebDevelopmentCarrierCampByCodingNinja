@@ -41,12 +41,18 @@
       </ul>
     </div>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
     <!-- here we can see that the  use of modularizing our code:
     => for example if any other developer try to work on the same project:
   => and if it will create any  varibale and function which is same as my code:then this will do the (re-write) on my code:instead of creating and compling the (new-js) file of other developers: -->
     <!-- <script type="text/javascript">
       var a = 25;
     </script> -->
+    <script src="todoModule.js"></script>
+    <script type="text/javascript">
+      console.log(TodoListApp);
+      // here we are using the (initialize) function of (todoModule-js) file:into the another js-file: 
+      TodoListApp.initialize();
+    </script>
   </body>
 </html>
