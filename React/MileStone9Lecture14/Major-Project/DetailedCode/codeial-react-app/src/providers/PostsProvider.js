@@ -1,17 +1,19 @@
 import { createContext } from "react";
 
 import { useProvidePosts } from "../hooks";
+
 const initialState = {
   posts: [],
   loading: true,
-  addPostToState:()=>{},
+  addPostToState: () => {},
 };
 
 export const PostsContext = createContext(initialState);
 
-export const PostsProvider = ({ Children }) => {
+export const PostsProvider = ({ children }) => {
   const posts = useProvidePosts();
+
   return (
-    <PostsContext.Provider value={posts}>{Children}</PostsContext.Provider>
+    <PostsContext.Provider value={posts}>{children}</PostsContext.Provider>
   );
 };
