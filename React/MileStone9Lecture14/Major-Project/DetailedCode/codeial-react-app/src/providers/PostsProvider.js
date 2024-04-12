@@ -16,4 +16,4 @@ export const PostsProvider = ({ children }) => {
   return (
     <PostsContext.Provider value={posts}>{children}</PostsContext.Provider>
   );
-};
+};   
