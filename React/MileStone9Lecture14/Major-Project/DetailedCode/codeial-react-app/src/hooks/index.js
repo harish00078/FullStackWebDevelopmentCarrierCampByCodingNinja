@@ -409,8 +409,6 @@ export const useProvidePosts = () => {
     fetchPosts();
   }, []);
   // here we will get all posts of the user.with its newer post as well as an argument:with in this function:
-
-
   const addPostToState =(post)=>{
     // here we will create newPosts array:with in that array:we will basically gonna be pass all the posts which we are getting as argument with in this function:
     const newPosts = [post,...posts];
@@ -418,6 +416,8 @@ export const useProvidePosts = () => {
 
 
   }
+  // here we will create function:through which we gonna be add the newly created-comment by the (user) to its post:
+
   return {
     data: posts,
     loading,

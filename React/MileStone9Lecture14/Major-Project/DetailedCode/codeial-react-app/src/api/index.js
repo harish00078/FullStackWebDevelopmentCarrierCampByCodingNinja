@@ -131,7 +131,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // because here we need to fetch the data from the different backend (api's) acc to our application components.
 
     const response = await fetch(url, config);
-    console.log('server-response',response);
+    console.log("server-response", response);
     // after getting the (response) or (data) from the (server):
     // => first we need to convert it into the (json) format:
     // by calling the (json) method on the (response) variable. Which has all the (data) from the (server):
@@ -140,7 +140,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     // V.IMP = here we are basically parsing the (data) into the format of (native-json):
     // V.IMP = The json() method is a built-in method in the Response interface in JavaScript. It is used to extract the JSON body content from the HTTP response. This method returns a Promise that resolves to the JSON representation of the response body.
     const data = await response.json();
-    console.log('server-data',data);
+    console.log("server-data", data);
 
     // if we (successfully) get the (data) from the (server):
     // then we need to (return) it from this (customFetch) function:
@@ -256,42 +256,54 @@ export const editProfile = async (userId, name, password, confirmPassword) => {
 // here we have created the (fetchUserProfile) function:
 // through which we gonna be get the (data) related to the particular (user-profile) from the (server) by passing  (user-id) to the (server):
 export const fetchUserProfile = (userId) => {
-  return customFetch((API_URLS.userInfo(userId)),{
-    method:'GET',
+  return customFetch(API_URLS.userInfo(userId), {
+    method: "GET",
   });
-}
+};
 
 // here we have created the (fetchUserFriends) function:
 // through which we gonna be get the (friendShip) section-data:
-export const fetchUserFriends = () =>{
-  return customFetch(API_URLS.friends(),{
-    method:'GET',
-  })
-}
+export const fetchUserFriends = () => {
+  return customFetch(API_URLS.friends(), {
+    method: "GET",
+  });
+};
 
 // here we have created the (addFriend) function:
 // through which we gonna be add the (user) as our (friend) in the user-profile's (friends-ship) section-data:
-export const addFriend = (userId) =>{
-  return customFetch(API_URLS.createFriendship(userId),{
-    method:'POST',
-  })
-}
+export const addFriend = (userId) => {
+  return customFetch(API_URLS.createFriendship(userId), {
+    method: "POST",
+  });
+};
 // here we have created the (removeFriend) function:
 // through which we gonna be remove the (user) as our (friend) from the user-profile's (friends-ship) section-data:
-export const removeFriend = (userId) =>{
-  return customFetch(API_URLS.removeFriend(userId),{
-    method:'POST',
-  })
-}
+export const removeFriend = (userId) => {
+  return customFetch(API_URLS.removeFriend(userId), {
+    method: "POST",
+  });
+};
 // here we have created the (createPost) function:
 // through which we gonna be add the (created-post) of (user) in our application:or we can say in our application's (server-data):
 // IMP = this function will get the (content) of user's created-post as an argument:
 // V.IMP = and we will send that argument (content) or (content):To the server with in the (body) section of server's api-request:
-export const addPost = (content) =>{
-  return customFetch(API_URLS.createPost(),{
-    method:'POST',
-    body:{
+export const addPost = (content) => {
+  return customFetch(API_URLS.createPost(), {
+    method: "POST",
+    body: {
       content,
-    }
-  })
-}
+    },
+  });
+};
+
+// here we have created the (createComment) function:through which we gonna be add the new-comment of the particular post into the server-data:
+export const createComment = async (content, postId) => {
+  return;
+  customFetch(API_URLS.comment(), {
+    method: "POST",
+    body: {
+      post_id: postId,
+      content,
+    },
+  });
+};
