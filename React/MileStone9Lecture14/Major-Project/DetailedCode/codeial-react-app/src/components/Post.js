@@ -19,6 +19,7 @@ const Post = ({ post }) => {
       setCreatingComment(true);
 
       const response = await createComment(comment, post._id);
+      console.log('add comment response',response)
 
       if (response.success) {
         setComment('');
@@ -87,7 +88,7 @@ const Post = ({ post }) => {
 
       <div className={styles.postCommentsList}>
         {post.comments.map((comment) => (
-          <Comment comment={comment} />
+          <Comment comment={comment} key={`post-comment-${comment._id}`} />
         ))}
       </div>
     </div>

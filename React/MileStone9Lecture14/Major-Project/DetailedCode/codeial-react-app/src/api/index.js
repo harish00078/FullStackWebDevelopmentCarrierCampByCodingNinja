@@ -298,8 +298,7 @@ export const addPost = (content) => {
 
 // here we have created the (createComment) function:through which we gonna be add the new-comment of the particular post into the server-data:
 export const createComment = async (content, postId) => {
-  return;
-  customFetch(API_URLS.comment(), {
+  return customFetch(API_URLS.comment(), {
     method: "POST",
     body: {
       post_id: postId,

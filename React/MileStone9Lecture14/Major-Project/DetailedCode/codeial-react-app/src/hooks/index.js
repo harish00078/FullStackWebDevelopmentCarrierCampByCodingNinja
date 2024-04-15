@@ -398,7 +398,7 @@ export const useProvidePosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await getPosts();
-      console.log('postsProvider',response);
+      console.log("postsProvider", response);
       if (response.success) {
         setPosts(response.data.posts);
       }
@@ -409,18 +409,31 @@ export const useProvidePosts = () => {
     fetchPosts();
   }, []);
   // here we will get all posts of the user.with its newer post as well as an argument:with in this function:
-  const addPostToState =(post)=>{
+  const addPostToState = (post) => {
     // here we will create newPosts array:with in that array:we will basically gonna be pass all the posts which we are getting as argument with in this function:
-    const newPosts = [post,...posts];
+    const newPosts = [post, ...posts];
     setPosts(newPosts);
-
-
-  }
+  };
   // here we will create function:through which we gonna be add the newly created-comment by the (user) to its post:
+  const addComment = (comment, postId) => {
+    // find out the particular post:which matches with the new-comments (postsId):
+    const newPosts = posts.map((post) => {
+      // then we gonna be create the new-post with the help of that:
+      if (post._id == postId) {
+        // with in that new-post:we gonna be add details of that (post) which we have found:
+        // and also:we gonna be add its all (old-comments) with its (newer-comment) as well:
+        return { ...post, comments: [...post.comments, comment] };
+      }
+      // if not found the particular post in posts-array:then we simply gonna be return the old (posts):
+      return post;
+    });
+    setPosts(newPosts);
+  };
 
   return {
     data: posts,
     loading,
     addPostToState,
+    addComment,
   };
 };
