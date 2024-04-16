@@ -306,3 +306,12 @@ export const createComment = async (content, postId) => {
     },
   });
 };
+
+
+// here we have created the (toggleLike) function:through which we gonna be able to pass the togglelikes data related to our posts and comments into the server database:
+export const toggleLike = ( itemId,itemType) =>{
+  return customFetch(API_URLS.toggleLike(itemId,itemType),{
+    method:"POST",
+
+  })
+}
