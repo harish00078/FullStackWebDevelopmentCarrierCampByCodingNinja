@@ -19,8 +19,12 @@ import styles from "../styles/navbar.module.css";
 // through which we will provide the (user-auth) context to our (hole) application:
 // or here we can say to our application's (navbar) component:
 import { useAuth } from "../hooks";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [results, setResults] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
   // here we are using the (useAuth) custom-hook:
   // with the help of which we will provide the (user-auth) context to our hole application:
   const auth = useAuth();
@@ -45,6 +49,39 @@ const Navbar = () => {
             src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
           />
         </Link>
+      </div>
+      <div className={styles.searchContainer}>
+        <img
+          className={styles.searchIcon}
+          src="https://cdn-icons-png.flaticon.com/128/10469/10469570.png"
+          alt=""
+        />
+
+        <input
+          placeholder="Search Users"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        {results.length > 0 && (
+          <div className={styles.searchResults}>
+            <ul>
+              {results.map((user) => (
+                <li
+                  className={styles.searchResultsRow}
+                  key={`user-${user._id}`}
+                >
+                  <Link to={`/users/${user._id}`}>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
+                      alt=""
+                    />
+                    <span>{user.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       {/* this (div) have right part of our navbar */}
@@ -122,7 +159,6 @@ const Navbar = () => {
                   => V.IMP = how we can gonna do that:
                   => for that we will add the (onClick) event-handler in this (button):
                   => and under that (onclick) event-handler.will basically add the (logout) function of the (auth-context).with the help of (useAuth) custom-hook: */}
-
                   {/* <button onClick={auth.logout}>Log-Out</button> */}
                   Log-Out
                 </li>
