@@ -19,11 +19,27 @@ import styles from "../styles/navbar.module.css";
 // through which we will provide the (user-auth) context to our (hole) application:
 // or here we can say to our application's (navbar) component:
 import { useAuth } from "../hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { searchUsers } from "../api";
 
 const Navbar = () => {
   const [results, setResults] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await searchUsers(searchText);
+      if (response.success) {
+        // setSearchText('');
+        setResults(response.data.users);
+      }
+    };
+    if (searchText.length > 2) {
+      fetchUsers();
+    }else{
+      setResults([]);
+    }
+  }, [searchText]);
 
   // here we are using the (useAuth) custom-hook:
   // with the help of which we will provide the (user-auth) context to our hole application:
@@ -70,7 +86,7 @@ const Navbar = () => {
                   className={styles.searchResultsRow}
                   key={`user-${user._id}`}
                 >
-                  <Link to={`/users/${user._id}`}>
+                  <Link to={`/user/${user._id}`}>
                     <img
                       src="https://cdn-icons-png.flaticon.com/128/13135/13135440.png"
                       alt=""

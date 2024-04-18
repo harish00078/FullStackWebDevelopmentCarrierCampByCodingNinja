@@ -315,3 +315,11 @@ export const toggleLike = ( itemId,itemType) =>{
 
   })
 }
+
+// here we have created the (searchUsers) function:through which we are gonna be able to get the particular (users) from server:
+export const searchUsers = (searchText)=>{
+  return customFetch(API_URLS.searchUsers(searchText),{
+    method:'GET'
+  })
+}
+
