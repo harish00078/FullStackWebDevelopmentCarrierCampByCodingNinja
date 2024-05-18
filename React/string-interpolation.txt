@@ -10,3 +10,4 @@ console.log(myInfo("john", "doe", "India"));
 
 
 output: My name is john doe. India is my favorite country
+
