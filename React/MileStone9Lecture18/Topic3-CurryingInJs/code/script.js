@@ -26,8 +26,8 @@ function sum(x) {
 // 2 -> When sumXResult(4) is called, it returns a new function that takes one argument z. This returned function is assigned to sumYResult.
 // 3 -> When sumYResult(6) is called, the final function is invoked, and it returns the sum of 2, 4, and 6, which is 12.
 // 4 -> Finally, the result of sumZResult is printed to the console, which outputs 12
-const sumResult = sum(10);
-console.log('first function  result',sumResult);
+const sumXResult = sum(10);
+console.log('first function  result',sumXResult);
 const sumYResult = sumResult(20);
 console.log('second function  result',sumYResult)
 const sumZResult = sumYResult(40);
