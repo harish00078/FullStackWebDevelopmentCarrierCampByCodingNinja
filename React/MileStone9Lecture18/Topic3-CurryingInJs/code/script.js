@@ -28,7 +28,7 @@ function sum(x) {
 // 4 -> Finally, the result of sumZResult is printed to the console, which outputs 12
 const sumXResult = sum(10);
 console.log('first function  result',sumXResult);
-const sumYResult = sumResult(20);
+const sumYResult = sumXResult(20);
 console.log('second function  result',sumYResult)
 const sumZResult = sumYResult(40);
 console.log('third function result',sumZResult);
