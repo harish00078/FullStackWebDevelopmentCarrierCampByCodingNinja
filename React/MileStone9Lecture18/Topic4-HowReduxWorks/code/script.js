@@ -1,1 +1,1 @@
-// Learn about function types in js:
+// here Learn about two function types of js:
