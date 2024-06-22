@@ -28,7 +28,7 @@ console.log(
 // => Impure functions:An Impure function is a function that either modifies variables outside of its scope,mutates its input arguments,has I/O operations as well such as reading from or writing to a file or database,or has other side effects that are not purely computational.
 // IMP = In simple words it can basically be any function that is not pure.and we call that because it can access and manipulate values of other variables with in him:
 
-// these are also two types of impure functions:
+// we have two types of impure functions:
 // -> first are our own created impure functions:
 // -> second are built-in impure functions in js:
 
