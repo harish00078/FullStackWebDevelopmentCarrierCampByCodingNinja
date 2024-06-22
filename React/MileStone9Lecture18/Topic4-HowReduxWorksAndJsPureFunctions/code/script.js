@@ -45,7 +45,6 @@ function myMessage(value){
     return `${message} ${value}`
 }
 
-
 // here we are calling our own created impure functions:
 console.log(
     myMessage('harish')
