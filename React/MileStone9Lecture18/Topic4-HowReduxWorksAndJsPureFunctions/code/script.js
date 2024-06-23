@@ -2,6 +2,7 @@
 // 1. Pure functions:
 // 2. Impure functions:
 
+
 // => Pure Functions:A pure function is a function that always returns the same output as be give him the same input and has no side effects:
 // => we have two types of pure functions:
 // -> first are our own created pure functions:
