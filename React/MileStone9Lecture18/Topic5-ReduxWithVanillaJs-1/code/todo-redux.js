@@ -2,7 +2,6 @@
 
 // => 1 = after installing redux we have to import it in our js file:
 const redux = require('redux');  
-
 // => 2 = after importing the redux we have to create the (actions).acc to our application:
 // for this application we only need the two actions:
 // => here we are (defining) those actions.or we can say defining there types:
