@@ -10,7 +10,7 @@ const redux = require('redux');
 const ADD_TODO = 'Add TODO';
 const TOGGLE_TODO = 'Toggle TODO';
 // => here we are (creating) those actions:we can also call it (action creators) or (action creator functions).using which we are gonna create the  actions:
-// IMP = action creator functions.basically have two parameters in them:
+// IMP = action-creator-functions.basically have two parameters in them:
 // -> 1 = text or id:(text) or (id) related to the todo:
 // -> 2 = type:type of the todo:or we can say that the (action-type) of the todo:
 // -> first we create addTodo-action:
