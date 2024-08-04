@@ -6,7 +6,7 @@ const redux = require('redux');
 // for this application we only need the two actions:
 // => here we are (defining) those actions.or we can say defining there types:
 // -> add-todo:
-// -> toggle-todo:
+// -> toggle-todo: 
 const ADD_TODO = 'Add TODO';
 const TOGGLE_TODO = 'Toggle TODO';
 // => here we are (creating) those actions:we can also call it (action creators) or (action creator functions).using which we are gonna create the  actions:
