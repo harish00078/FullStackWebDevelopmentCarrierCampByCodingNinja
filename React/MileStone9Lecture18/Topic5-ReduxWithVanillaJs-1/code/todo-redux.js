@@ -1,8 +1,8 @@
 // here we gonna learn about that:how we can use the redux in vanilla js:
 
-// => 1 = after installing redux we have to import it in our js file:
+// => 1 = after installing redux we have to import it in our js or application ifile:
 const redux = require('redux');  
-// => 2 = after importing the redux we have to create the (actions).acc to our application:
+// => 2 = after importing the redux we need to (define) the (actions).acc to our application:
 // for this application we only need the two actions:
 // => here we are (defining) those actions.or we can say defining there types:
 // -> add-todo:
