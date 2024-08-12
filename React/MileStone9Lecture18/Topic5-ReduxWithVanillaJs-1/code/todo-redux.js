@@ -21,8 +21,10 @@ const TOGGLE_TODO = 'Toggle TODO';
 // IMP => action-creator-functions.mostly have two parameters in them:it can also have more than two parameters in them.this depend on the (action) object which we are creating:
 // -> 1 = text or id:(text) or (id) related to the todo:
 // -> 2 = type:type of the todo:or we can say that the (action-type) of the todo:
+
 // -> first we create addTodo-action:
 const addToDo = (text)=>({text:text,type:ADD_TODO});
+
 // ->  second we create toggleTodo-action:
 const toggleToDo = (id) =>({id:id,type:TOGGLE_TODO});
 
