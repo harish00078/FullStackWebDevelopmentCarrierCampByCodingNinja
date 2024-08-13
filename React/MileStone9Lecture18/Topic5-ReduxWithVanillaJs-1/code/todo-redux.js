@@ -5,7 +5,7 @@ const redux = require('redux');
 
 // => 2 = after importing the redux we need build the (actions-section).acc to our application:
 // => [actions] section:it has basically have divided into two parts:
-// -> first is to define the (actions):
+// -> first is to define the (actions or action-types):
 // -> second is to create the (actions):
 
 // => here we are defining the (actions):
