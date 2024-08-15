@@ -28,10 +28,17 @@ const addToDo = (text) => ({ text: text, type: ADD_TODO });
 // ->  second we create toggleTodo-action:
 const toggleToDo = (id) => ({ id: id, type: TOGGLE_TODO });
 
+// => 4 = [Initial state]: here we are defining the (initial state) of the application:because when we are creating the redux-architecture (store) for application we need to define the initial state with in it as well:
+const initialState = {
+  todo:[],
+}
+
+
 // => 3 = [Reducers-section]:reducers are used to change the state of the application on the store:they are basically the (pure-functions):
 // IMP = reducers basically have the (state) and (action) as an argument in them:and it will return the new state or the updated state:
+// V.IMP-NOTE = In reducers we have to define the (default) state:and that is gonna be our (initial-state):
 // => here we are defining the (reducer):by creating the (todoReducer) pure-function:
-function todoReducer(state, action) {
+function todoReducer(state=initialState, action) {
   // IMP = before performing any action on the state we need to check the action-type:for doing that we gonna be use the (switch-case) statement:
   switch (action.type) { 
     case ADD_TODO:
