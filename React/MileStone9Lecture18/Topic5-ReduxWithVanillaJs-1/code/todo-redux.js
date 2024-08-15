@@ -47,5 +47,4 @@ function todoReducer(state=initialState, action) {
       return state;
   }
 
-  // here we are creating the (default) state:
 }
