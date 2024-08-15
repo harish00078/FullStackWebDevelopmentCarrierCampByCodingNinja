@@ -33,7 +33,7 @@ const toggleToDo = (id) => ({ id: id, type: TOGGLE_TODO });
 // => here we are defining the (reducer):by creating the (todoReducer) pure-function:
 function todoReducer(state, action) {
   // IMP = before performing any action on the state we need to check the action-type:for doing that we gonna be use the (switch-case) statement:
-  switch (action.type) {
+  switch (action.type) { 
     case ADD_TODO:
     case TOGGLE_TODO:
     default:
