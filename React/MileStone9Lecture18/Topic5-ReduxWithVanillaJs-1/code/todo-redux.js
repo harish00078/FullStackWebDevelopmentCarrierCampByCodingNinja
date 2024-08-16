@@ -53,24 +53,26 @@ function todoReducer(state = initialState, action) {
           ...state.todos,
           {
             text: action.text,
-            completed:false,
+            completed: false,
           },
         ],
       };
     case TOGGLE_TODO:
-      return{
+      return {
         ...state,
         // IMP = here we are basically using the todos-array (index) as a (id) of that particular todo:
-        todos:todos.map((todo,index)=>{
-          if(index===action.id){
-            return{
-              ...todo,
-              completed:!todo.completed
-            }
+        todos: todos.map((todo, index) => {
+          if (index === action.id) {
+            // two ways to change the (completed) property of the todo:
+            // first-way:
+            // completed:!todo.completed
+            // second-way:
+            todo.completed = !todo.completed;
           }
+          // after changing the property of the particular-todo:we gonna have to return that todo:
           return todo;
-        })
-      }
+        }),
+      };
     default:
       return state;
   }
