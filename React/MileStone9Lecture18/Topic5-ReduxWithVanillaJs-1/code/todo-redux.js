@@ -63,7 +63,7 @@ function todoReducer(state = initialState, action) {
         // IMP = here we are basically using the todos-array (index) as a (id) of that particular todo:
         todos: todos.map((todo, index) => {
           if (index === action.id) {
-            // two ways to change the (completed) property of the todo:
+            // => here we have two ways to change the (completed) property of the todo:
             // first-way:
             // completed:!todo.completed
             // second-way:
