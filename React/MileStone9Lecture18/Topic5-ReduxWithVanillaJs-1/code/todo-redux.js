@@ -13,6 +13,7 @@ const redux = require("redux");
 // => here we are (defining) those actions.or we can say defining there types:
 // -> add-todo:
 // -> toggle-todo:
+
 const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
