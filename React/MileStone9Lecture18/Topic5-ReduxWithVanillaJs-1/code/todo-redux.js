@@ -58,6 +58,8 @@ function todoReducer(state = initialState, action) {
           },
         ],
       };
+
+    // IMP = if we have any action type that is (toggle-todo):
     case TOGGLE_TODO:
       return {
         ...state,
