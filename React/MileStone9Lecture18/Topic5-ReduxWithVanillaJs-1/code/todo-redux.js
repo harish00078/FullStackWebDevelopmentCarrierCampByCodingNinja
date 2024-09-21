@@ -1,10 +1,10 @@
-// here we gonna learn about that:how we can use the redux with vanilla-js:
+// here we gonna learn about that:how we can use the redux with vanilla or simple js:
 
 // => 1 = after installing redux we have to import it in our js or application file:
-// IMP = so for importing (redux). we use the (require) method:
+// IMP = so for importing (redux) in our js-file. we use the (require) method:
 const redux = require("redux");
 
-// => 2 =[Actions-section]= after importing the redux we need build the (actions-section).acc to our application:
+// => 2 =[Actions-section]= after importing the redux we need build the (actions) or (actions-section).acc to our application:
 // => [actions] section:it has basically have divided into two parts:
 // -> first is to define the (actions or action-types):
 // -> second is to create the (actions):
@@ -20,7 +20,8 @@ const TOGGLE_TODO = "Toggle TODO";
 
 // => here we are (creating) those actions:
 // IMP = we can create the (actions) using (action creators) or (action creator functions):
-// IMP => action-creator-functions.mostly have two parameters in them:it can also have more than two parameters in them.this depend on the (action) object which we are creating:
+// V.IMP = action-creator-functions have one arguments in them:and that is the payload property or parameter of our action-object:
+// IMP => action-object:mostly have two parameters in them:it can also have more than two parameters in them.this depend on the (action) object which we are creating:
 // -> 1 = text or id or index:(text) or (id) related to the todo:
 // -> 2 = type:type of the todo:or we can say that the (action-type) of the todo:
 
