@@ -36,7 +36,7 @@ const toggleToDo = (id) => ({ id: id, type: TOGGLE_TODO });
 const initialState = {
   todos: [],
 };
-
+ 
 // => 3 = [Reducers-section]:reducers are used to change the state of the application on the store:they are basically the (pure-functions):
 // IMP = reducers basically have the (current-state) and (action) as an argument in them:and it will return the new state or the updated state:
 // V.IMP-NOTE = In reducers we have to define the (default) state:and that is gonna be our (initial-state):
