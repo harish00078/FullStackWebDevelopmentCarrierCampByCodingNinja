@@ -5,7 +5,6 @@ console.log("Learn about redux with vanilla js");
 // IMP = so for importing (redux) in our js-file. we use the (require) method:
 const redux = require("redux");
 
-
 // => 2 =[Actions-section]= after importing the redux we need build the (actions) or (actions-section).acc to our application:
 // => [actions] section:it has basically have divided into two parts:
 // -> first is to define the (actions or action-types):
