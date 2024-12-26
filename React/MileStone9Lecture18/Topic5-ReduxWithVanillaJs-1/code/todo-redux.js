@@ -22,7 +22,6 @@ const TOGGLE_TODO = "Toggle TODO";
 // => here we are (creating) those actions:
 // IMP = we can create the (actions) using (action creators) or (action creator functions):
 // V.IMP = action-creator-functions have one or more arguments in them:
-
 // but here we are only getting one-parameter as an argument:which is our (Payload):and that is the payload property or parameter of our action-object as well:
 // IMP => action-object:mostly have two parameters in them:it can also have more than two parameters in them.this depend on the (action) object which we are creating:
 // -> 1 = text or id or index:(text) or (id) related to the todo:
