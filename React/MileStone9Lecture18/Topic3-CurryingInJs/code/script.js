@@ -22,7 +22,7 @@ function sum(x) {
 
 
 // and here we are using function:which we have created using the curring technique:
-// => Explanation on currying's working technique:-sum is a curried function that takes one argument x and returns another function that takes one argument y, which returns a third function that takes one argument z. The final function returns the sum of x, y, and z.
+// => Explanation on currying's working technique: sum is a curried function that takes one argument x and returns another function that takes one argument y, which returns a third function that takes one argument z: The final function returns the sum of x, y, and z:
 // 1 -> When sum(2) is called, it returns a new function that takes one argument y.This returned function is assigned to sumXResult.
 // 2 -> When sumXResult(4) is called, it returns a new function that takes one argument z. This returned function is assigned to sumYResult.
 // 3 -> When sumYResult(6) is called, the final function is invoked, and it returns the sum of 2, 4, and 6, which is 12.
