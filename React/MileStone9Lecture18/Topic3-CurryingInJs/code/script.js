@@ -9,7 +9,7 @@ console.log("Learn about currying in js");
 // and here we are using that function:
 // sum (10,20,30);
 
-// => 2 = here we see the js-fu nction which has multiple arguments in it:and we have created it with the help of curring method or technique:
+// => 2 = here we see the js-function which has multiple arguments in it:and we have created it with the help of curring method or technique:
 // Curring:Currying is defined as changing a function having multiple arguments into a sequence of functions with a single argument. When currying a function in JavaScript, closures are used to retain the values of previous arguments that have been passed to the curried function. This is because each time a new argument is passed, a new function is returned that has access to the previous arguments.
 function sum(x) {
     // V.IMP = here we know that.inner-function will have the access to the outer-function's parameter or argument-values.because of the closures in js:
