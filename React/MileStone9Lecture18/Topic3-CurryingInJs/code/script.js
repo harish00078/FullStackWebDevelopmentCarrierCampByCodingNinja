@@ -1,6 +1,6 @@
 console.log("Learn about currying in js");
 
-// => 1 = here we see the simple js-function which has muliple arguments with in it:
+// => 1 = here we see the simple js-function which has multiple arguments with in it:
 // => here we have created the function:which has three arguments with in it:
 // function sum(x,y,z){
 
