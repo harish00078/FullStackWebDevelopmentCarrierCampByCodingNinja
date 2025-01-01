@@ -19,7 +19,6 @@ const redux = require("redux");
 const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
-
 // => here we are (creating) those actions:
 // IMP = we can create the (actions) using (action creators) or (action creator functions):
 // V.IMP = action-creator-functions have one or more arguments in them:
