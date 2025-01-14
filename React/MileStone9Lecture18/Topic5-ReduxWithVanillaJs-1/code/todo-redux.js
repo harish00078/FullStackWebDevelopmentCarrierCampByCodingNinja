@@ -19,11 +19,14 @@ const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
 // -> 2 = here we are (creating) those actions:
-// IMP = we can create (actions) using (action creators) or (action-creator-functions):
+// Action is a plain JavaScript object:that has a (type) field and an optional (payload) field:the (type) field is a string that indicates the type of action being performed:the (payload) field is a value that we have to pass to the reducer to update the state:
+
+
+// IMP = so know we can create the  (actions) using (action creators) or (action-creator-functions):
 // V.IMP = [action-creator-functions]:action-creator-functions basically can have one or more arguments in them acc to the application:and they returns the (action-objects) to us:because in (redux) the actions are basically the js-objects:
 // V.IMP: action-creator-functions are basically the (pure-functions):
-// IMP-NOTE:here In this application: we are basically only gonna have the (one-argument) in them acc to our application:which is basically gonna be pass to us by our application-component:
-// and we did not have to pass the (action-type) as argument to the action-creator-function:because we are already defining the (action-type) in the action-creator-function or we can say in the  (action-object) directly :it may be differ acc to the application-type:like where we are using the (redux):
+// IMP-NOTE:here In this application: we are basically only gonna have the (one-argument) in our action-creator-function acc to our application:which is basically gonna be pass to us by our application-component:
+// V.IMP-NOTE: And we did not have to pass the (action-type) as argument to the action-creator-function:because we are already defining the (action-type) in the action-creator-function or we can say in the  (action-object) directly :it may be differ acc to the application-type:like where we are using the (redux):
 
 // IMP => [action-object]:here with in this application our action-objects gonna have two parameters in them:
 // it can also have more than two parameters in them.this depend on the (action) object which we are creating acc to the application:
