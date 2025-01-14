@@ -25,8 +25,8 @@ const TOGGLE_TODO = "Toggle TODO";
 // IMP-NOTE:here In this application: we are basically only gonna have the (one-argument) in them acc to our application:which is basically gonna be pass to us by our application-component:
 // and we did not have to pass the (action-type) as argument to the action-creator-function:because we are already defining the (action-type) in the action-creator-function or we can say in the  (action-object) directly :it may be differ acc to the application-type:like where we are using the (redux):
 
-// IMP => [action-object]:here with in this application's action-object: we gonna have two parameters in them:
-// it can also have more than two parameters in them.this depend on the (action) object which we are creating:
+// IMP => [action-object]:here with in this application our action-objects gonna have two parameters in them:
+// it can also have more than two parameters in them.this depend on the (action) object which we are creating acc to the application:
 // -> 1:(payload) = text or id or index:(text) or (id) related to the todo:
 // -> 2:(action-type) = type of the todo:or we can say that the (action-type) of the todo:
 
