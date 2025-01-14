@@ -63,7 +63,7 @@ const toggleToDo = (id) => ({
 // IMP-NOTE: The structure of action-objects can vary depending on the application's needs and may contain more than two-properties.
 
 
-// => 4 = [Initial state]: here we are defining the (initial state) of the application:because when we are creating the redux-architecture (store) for application we need to define the initial state with in it as well:
+// => 4 = [Initial state]: The initial state in Redux defines the starting data within the Redux store. This baseline is essential for predictable state management and debugging, providing a reference point before any updates. Set up when creating the store, it represents initial values for application data like empty lists or default form fields. This ensures consistency, simplifies reasoning about application behavior at startup, and aids testing by providing a known starting point.
 const initialState = {
   todos: [],
 };
