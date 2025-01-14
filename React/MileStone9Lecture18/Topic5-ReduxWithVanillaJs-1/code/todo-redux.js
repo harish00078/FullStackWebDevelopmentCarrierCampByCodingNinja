@@ -18,9 +18,10 @@ const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
 // -> 2 = here we are (creating) those actions:
-// IMP = we create the (actions) using (action creators) or (action creator functions):
-// V.IMP = [action-creator-functions]:action-creator-functions basically have one or more arguments in them:and they return the (action-object) to us:
-// V.IMP-NOTE: action-creator-functions are basically the (pure-functions):and we did not have to pass the (action-type) as argument to the action-creator-function:because we are already defining the (action-type) in the action-creator-function or we can say in the  (action-object) directly :it may be differ acc to the application-type:like where we are using the (redux):
+// IMP = we can create (actions) using (action creators) or (action-creator-functions):
+// V.IMP = [action-creator-functions]:action-creator-functions basically have one or more arguments in them acc to the application:and they returns the (action-objects) to us:because actions are basically the objects:
+// V.IMP: action-creator-functions are basically the (pure-functions):
+// IMP-NOTE:and we did not have to pass the (action-type) as argument to the action-creator-function:because we are already defining the (action-type) in the action-creator-function or we can say in the  (action-object) directly :it may be differ acc to the application-type:like where we are using the (redux):
 
 // IMP => [action-object]:here with in this application's action-object: we gonna have two parameters in them:
 // it can also have more than two parameters in them.this depend on the (action) object which we are creating:
