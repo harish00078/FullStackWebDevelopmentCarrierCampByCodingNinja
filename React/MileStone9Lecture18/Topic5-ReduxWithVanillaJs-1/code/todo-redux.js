@@ -10,10 +10,10 @@ const redux = require("redux");
 // -> first is to define the (actions or action-types):
 // -> second is to create the those (actions):
 
-// => here we are defining the (actions) or (action-types):for this application we only need the two actions:
+// -> 1 = here we are defining the (actions) or (action-types):for this application we only need the two actions:
 // -> add-todo:
 // -> toggle-todo:
-//
+// IMP-NOTE: for defining the (action-types) we use the (const) keyword: acc to its type we create the variables through (const) keyword:and with in those variables we define the (action-types) as a string:
 const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
