@@ -8,7 +8,7 @@ const redux = require("redux");
 // => 2 =[Actions-section]= after importing the redux we need to build the (actions) or (actions-section).acc to our application:
 // => [actions] section:it has basically have divided into two parts:
 // -> first is to define the (actions or action-types):
-// -> second is to create the (actions):
+// -> second is to create the those (actions):
 
 // => here we are defining the (actions) or (action-types):for this application we only need the two actions:
 // -> add-todo:
