@@ -33,23 +33,26 @@ const TOGGLE_TODO = "Toggle TODO";
 
 // Action Objects: Contain at least a type property and can include additional data (payload) based on the application requirements.
 
-// IMP-NOTE1:In this application, action creator functions will accept only one argument: 
+// -> 1 = IMP-NOTE:In this application, action creator functions will accept only one argument: 
 // the payload which is the text for the todo item or the ID of the todo item:and we get it from our application-components:because it passed as an argument from application-component for the action-creator-function:so that we can create the action-object:
-// IMP-NOTE2: The action type is directly defined with in the action creator function or we can say in (action-object):and it does not need to be passed as an argument to the action creator function:because it can be directly defined in the action-object:
-// IMP:this may depend on the application's requirements:and it may vary from application to application:here we are using the (redux) with (vanilla-js):
-// and because of that application 
+
+// -> 2 = IMP-NOTE: The action type is directly defined with in the action creator function or we can say in (action-object):and it does not need to be passed as an argument to the action creator function:because it can be directly defined in the action-object:
+// V.IMP:this may depend on the application's requirements:and it may vary from application to application: like here we are using the (redux) with (vanilla-js):
+// V.IMP: and because of that our application or its redux-architecture is very simple:and we are not creating or defining the (action-types) or action-creator-functions on different-files:they are in the same-file:so because of that we can directly use the (action-types) in the action-creator-functions:
+// V.IMP: but in the complex applications:we have to define the (action-types) in the separate-file:and then we have to import them as an (argument) in the action-creator-functions:and then we can use them in the action-creator-functions:
+// V.IMP: but here we are not doing that:so that's why we can directly using the (action-types) in the action-creator-functions:only think we have to pass as an argument in the action-creator-function is the (payload) or the (data) that we have to pass to the reducer:because we are getting from our application-components or from the another-file:
 
 
-// Action Creator for adding a todo item
+// Action Creator for adding a todo item:
 const addToDo = (text) => ({
   text: text,  // The payload, representing the todo text
-  type: 'ADD_TODO' // The action type, directly defined
+  type: ADD_TODO // The action type, directly defined by variable:we have store it in the variable:
 });
 
 // Action Creator for toggling a todo item
 const toggleToDo = (id) => ({
   id: id,  // The payload, representing the todo ID
-  type: 'TOGGLE_TODO' // The action type, directly defined
+  type: TOGGLE_TODO // The action type, directly defined by variable:we have store it in the variable:
 });
 
 // Action Objects in this application will have two properties:
