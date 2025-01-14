@@ -2,7 +2,7 @@ console.log("Learn To Use redux with vanilla js");
 // here we gonna learn about that:how we can use the redux with vanilla or simple js:
 
 // => 1 = after installing redux we have to import it in our js or application file:
-// IMP = so for importing (redux) in our js-file. we use the (require) method:same done with in our backend applications:
+// IMP = so for importing (redux) in our js-file. we use the (require) method:same thing we done with in our backend applications:
 const redux = require("redux");
 
 // => 2 =[Actions-section]= after importing the redux we need to build the (actions) or (actions-section).acc to our application:
