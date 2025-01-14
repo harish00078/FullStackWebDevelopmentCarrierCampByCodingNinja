@@ -10,6 +10,7 @@ const redux = require("redux");
 // -> first is to define the (actions or action-types):
 // -> second is to create the those (actions):
 
+
 // -> 1 = here we are defining the (actions) or (action-types):for this application we only need the two actions:
 // -> add-todo:
 // -> toggle-todo:
@@ -28,7 +29,9 @@ const TOGGLE_TODO = "Toggle TODO";
 // -> 1:(payload) = text or id or index:(text) or (id) related to the todo:
 // -> 2:(action-type) = type of the todo:or we can say that the (action-type) of the todo:
 
-// -> first we create addTodo-action:they are only gonna have the one argument in them:which is taking the (text) as an argument:we did not have to pass the (action-type) as an argument to the action-creator-function:because we are directly defining the (action-type) in the action-creator-function or we can say in the (action-object) directly:
+// -> first we create addTodo-action:it gonna only have the one argument/parameter acc to our application:
+// V.IMP: which has been pass to us by our application-component:which is gonna be the (text) of the todo:
+// IMP:we did not have to pass the (action-type) as an argument to the action-creator-function:because we are directly defining the (action-type) in the action-creator-function or we can say in the (action-object) directly:
 const addToDo = (text) => ({ text: text, type: ADD_TODO });
 
 // ->  second we create toggleTodo-action:same as above:they are only gonna have the one argument in them:which is taking the (id) as an argument:we did not have to pass the (action-type) as an argument to the action-creator-function:because we are directly defining the (action-type) in the action-creator-function or we can say in the (action-object) directly:
