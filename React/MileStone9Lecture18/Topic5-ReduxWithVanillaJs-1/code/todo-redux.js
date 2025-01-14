@@ -19,10 +19,13 @@ const ADD_TODO = "Add TODO";
 const TOGGLE_TODO = "Toggle TODO";
 
 // -> 2 = here we are (creating) those actions:
-// Action is a plain JavaScript object:that has a (type) field and an optional (payload) field:the (type) field is a string that indicates the type of action being performed:the (payload) field is a value that we have to pass to the reducer to update the state:
+// Action is a plain JavaScript-object:that has a (type) field and an optional (payload) field:we can have more than one field in the action-object:but the (type) field is required in the action-object:it basically depends on the application:
+// IMP: In this application: we are gonna have the two (fields) in the action-object:
+// -> 1 = the (payload) field: which is a (value) or (data) that we have to pass to the reducer to update the state:(payload) can be a text or id or index:
+// -> 2 = the (type) field: which is a string that indicates the type of action:we can pass it that string through the (variable) where we have stored the action-type as an string:
 
 
-// IMP = so know we can create the  (actions) using (action creators) or (action-creator-functions):
+// IMP = so know we can create the (actions) using (action creators) or (action-creator-functions):
 // V.IMP = [action-creator-functions]:action-creator-functions basically can have one or more arguments in them acc to the application:and they returns the (action-objects) to us:because in (redux) the actions are basically the js-objects:
 // V.IMP: action-creator-functions are basically the (pure-functions):
 // IMP-NOTE:here In this application: we are basically only gonna have the (one-argument) in our action-creator-function acc to our application:which is basically gonna be pass to us by our application-component:
