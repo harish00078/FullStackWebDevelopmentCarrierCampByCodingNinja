@@ -10,7 +10,8 @@ const redux = require("redux");
 // -> Learn About Action:
 // Action is a plain JavaScript-object:that can have any number of fields:it can have a (type) field and an optional (payload) field:we can have more than one field in the action-object:but the (type) field is required in the action-object because it is used to identify the type of action:it basically depends on the application:
 // IMP: In this application: we are gonna have the two (fields) in the action-object:
-// -> 1 = the (payload) field: which is a (value) or (data) that we have to pass to the reducer:acc to which we want to update the state:(payload) can be a text or id or index:
+// -> 1 = the (payload) field: which is a (value) or (data) that we have to pass to the reducer:acc to which we want to update the state:
+// IMP: the (payload) can be a (text) or (id) or (index):
 // -> 2 = the (type) field: which is a string that indicates the type of action:we can pass it that string through the (variable) where we have stored the action-type as an string:
 
 // -> Working On Action:
@@ -33,7 +34,7 @@ const TOGGLE_TODO = "Toggle TODO";
 
 // Action Objects: Contain at least a type property and can include additional data (payload) based on the application requirements.
 
-// -> 1 = IMP-NOTE:In this application, action creator functions will accept only one argument: 
+// -> 1 = IMP-NOTE:In this application, action-creator- functions will accept only one argument: 
 // the payload which is the text for the todo item or the ID of the todo item:and we get it from our application-components:because it passed as an argument from application-component for the action-creator-function:so that we can create the action-object:
 
 // -> 2 = IMP-NOTE: The action type is directly defined with in the action creator function or we can say in (action-object):and it does not need to be passed as an argument to the action creator function:because it can be directly defined in the action-object:
@@ -43,13 +44,13 @@ const TOGGLE_TODO = "Toggle TODO";
 // V.IMP: but here we are not doing that:so that's why we can directly using the (action-types) in the action-creator-functions:only think we have to pass as an argument in the action-creator-function is the (payload) or the (data) that we have to pass to the reducer:because we are getting from our application-components or from the another-file:
 
 
-// Action Creator for adding a todo item:
+// Action-Creator-Function to create (action-object) for the adding a new-todo item on state or application:
 const addToDo = (text) => ({
   text: text,  // The payload, representing the todo text
   type: ADD_TODO // The action type, directly defined by variable:we have store it in the variable:
 });
 
-// Action Creator for toggling a todo item
+// Action-Creator-Function to create (action-object) for toggling or updating-date of a todo item on state or application:
 const toggleToDo = (id) => ({
   id: id,  // The payload, representing the todo ID
   type: TOGGLE_TODO // The action type, directly defined by variable:we have store it in the variable:
@@ -57,9 +58,9 @@ const toggleToDo = (id) => ({
 
 // Action Objects in this application will have two properties:
 // 1. Payload: e.g., text or id, relevant to the todo.
-// 2. Action Type: e.g., the type of the todo action.
+// 2. Action-Type: e.g., the type of the todo-action.
 
-// IMP-NOTE: The structure of action objects can vary depending on the application's needs and may contain more than two properties.
+// IMP-NOTE: The structure of action-objects can vary depending on the application's needs and may contain more than two-properties.
 
 
 // => 4 = [Initial state]: here we are defining the (initial state) of the application:because when we are creating the redux-architecture (store) for application we need to define the initial state with in it as well:
