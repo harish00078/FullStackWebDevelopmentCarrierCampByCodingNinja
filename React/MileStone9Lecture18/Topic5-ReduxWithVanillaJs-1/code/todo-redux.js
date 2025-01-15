@@ -47,13 +47,13 @@ const TOGGLE_TODO = "Toggle TODO";
 // Action-Creator-Function to create (action-object) for the adding a new-todo item on state or application:
 const addToDo = (text) => ({
   text: text,  // The payload, representing the todo text
-  type: ADD_TODO // The action type, directly defined by variable:we have store it in the variable:
+  type: ADD_TODO // The action type, directly defined by variable:we have store it in the variable with in same-file:
 });
 
 // Action-Creator-Function to create (action-object) for toggling or updating-date of a todo item on state or application:
 const toggleToDo = (id) => ({
   id: id,  // The payload, representing the todo ID
-  type: TOGGLE_TODO // The action type, directly defined by variable:we have store it in the variable:
+  type: TOGGLE_TODO // The action type, directly defined by variable:we have store it in the variable with in same-file:
 });
 
 // Action Objects in this application will have two properties:
@@ -63,7 +63,7 @@ const toggleToDo = (id) => ({
 // IMP-NOTE: The structure of action-objects can vary depending on the application's needs and may contain more than two-properties.
 
 
-// => 4 = [Initial state]: The initial state in Redux defines the starting data within the Redux store. This baseline is essential for predictable state management and debugging, providing a reference point before any updates. Set up when creating the store, it represents initial values for application data like empty lists or default form fields. This ensures consistency, simplifies reasoning about application behavior at startup, and aids testing by providing a known starting point.
+// => 4 = [Initial state]: The initial state in Redux defines  the starting data within the Redux store. This baseline is essential for predictable state management and debugging, providing a reference point before any updates. Set up when creating the store, it represents initial values for application data like empty lists or default form fields. This ensures consistency, simplifies reasoning about application behavior at startup, and aids testing by providing a known starting point.
 const initialState = {
   todos: [],
 };
