@@ -63,7 +63,8 @@ const toggleToDo = (id) => ({
 // IMP-NOTE: The structure of action-objects can vary depending on the application's needs and may contain more than two-properties.
 
 
-// => 4 = [Initial state]: The initial state in Redux is the starting data for the app, helping keep things consistent and easy to debug. It gives default values, like empty lists or default form fields, making sure the app behaves predictably when it starts. Usually, it's an object that shows how the app's data is organized and helps in testing by providing a clear starting point.
+// => 4 = [Initial state]: The initial state in Redux is the starting data for the app, helping keep things consistent and easy to debug. It gives default values, like empty lists or default form fields, making sure the app behaves predictably when it starts. Usually, it's an object that shows how the app's data is organized and helps in testing by providing a clear starting point:
+// IMP-NOTE:In simple words it help us to define the initial structure of data for our application:through this we can also represent the initial state of data of our application to the (user) or to the (developer):that how they have to interact with the application:
 // IMP-NOTE: In this application, the initial state is an empty array, representing an empty list of todos.
 const initialState = {
   todos: [],
