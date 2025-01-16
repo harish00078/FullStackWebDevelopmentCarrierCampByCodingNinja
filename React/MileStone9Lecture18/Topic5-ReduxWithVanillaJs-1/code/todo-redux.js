@@ -64,7 +64,7 @@ const toggleToDo = (id) => ({
 
 
 // => 4 = [Initial state]: the initial-state refers to the (default-state) of your application when it is first loaded: This state provides a starting point for your application and is used to populate the (Redux-store) with (data) before any (actions) are (dispatched):This approach ensures that your Redux-store starts with a defined- structure and default-data, which is crucial or necessary for building predictable and maintainable applications:
-// IMP-NOTE:In simple words it help us to define the initial structure of data for our application:through this we can also represent the initial state of data of our application to the (user) or to the (developer):that how they have to interact with the application:
+// IMP-NOTE:In simple words it help us to define the initial structure of data for our application:through this we can also represent the initial state of data of our application to the (user) or to the (developer):so that they know how they have to interact with the application:
 // IMP-NOTE: In this application, the initial state is an empty array, representing an empty list of todos.
 const initialState = {
   todos: [],
