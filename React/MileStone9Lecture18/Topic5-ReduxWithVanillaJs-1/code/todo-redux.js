@@ -65,7 +65,7 @@ const toggleToDo = (id) => ({
 
 // => 4 = [Initial state]: The initial state in Redux defines  the starting data with in the Redux store. This baseline is essential for predictable state management and debugging, providing a reference point before any updates. Set up when creating the store, it represents initial values for application data like empty lists or default form fields. This ensures consistency, simplifies reasoning about application behavior at startup, and aids testing by providing a known starting point:
 // IMP-NOTE: The initial state is typically defined as an object with properties that match the application's data structure. It can be a simple object or a complex object with nested properties, depending on the application's needs:
-// V.V.IMP: In simple words initial-state is the default-state of the application:which is used to initialize the state of the application:and it is used to define the structure of the state of the application:
+// V.V.IMP-Note: In simple words initial-state is the default-state of the application:which is used to initialize the state of the application:and it is used to define the structure of the state of the application:
 const initialState = {
   todos: [],
 };
