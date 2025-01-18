@@ -75,8 +75,8 @@ const initialState = {
 
 // => 3 = [Reducers-section]:reducers are used to change the state of the application on the store:they are basically the (pure-functions):
 // IMP-NOTE:the (reducer) is a pure function that takes the (current-state) and (action) as an argument:and it returns the new state or the updated state:
-// IMP = reducers basically have the (current-state) and (action) as an argument in them:and it will return the new state or the updated state:
-// V.IMP-NOTE = In reducers we have to define the (default) state or we can say the (current-state) for our application:and that is gonna be our (initial-state):
+
+// V.IMP-NOTE = In reducers we have to define the (default) state or we can say the (current-state) for our application:and that is gonna be our (initial-state):because when
 // => here we are defining the (reducer):by creating the (todoReducer) pure-function:
 function todoReducer(state = initialState, action) {
   // IMP = before performing any action on the state:first we need to check the action-type:for doing that we gonna be use the (switch-case) statement-method:
