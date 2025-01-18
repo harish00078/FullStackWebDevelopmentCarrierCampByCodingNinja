@@ -69,7 +69,7 @@ const initialState = {
 };
 
 // => 3 = [Reducers-section]:reducers are used to change the state of the application on the store:they are basically the (pure-functions):
-// IMP-NOTE:the (reducer) is a pure function that takes the (current-state) and (action) as an argument:and it returns the new state or the updated state:
+// V.IMP-NOTE:the (reducer) is a pure function that takes the (current-state) and (action) as an argument:and it returns the new state or the updated state:
 
 // V.IMP-NOTE = In reducers we have to define the (default) state or we can say the (current-state) for our application:and that is gonna be our (initial-state):
 // V.IMP-NOTE:because When the application first loads, the store is initialized with an initial state because, at that point, there is no existing data in the store. The initial state provides a predefined structure and default data, ensuring the application has a consistent starting point. This setup helps the store maintain the necessary data structure and ensures that components have a base state to work with. Once the store is updated with new data or state changes, components retrieve the updated state from the store and render it on the UI, reflecting the latest information to the user.
