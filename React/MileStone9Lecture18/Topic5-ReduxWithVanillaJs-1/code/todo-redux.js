@@ -118,6 +118,7 @@ function todoReducer(state = initialState, action) {
           return todo;
         }),
       };
+      // Switch-case method:also have default-case:which is used to handle the default or unknown action-type:
     default:
       return state;
   }
