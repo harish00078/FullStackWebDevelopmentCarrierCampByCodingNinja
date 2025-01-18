@@ -79,7 +79,7 @@ const initialState = {
 // => here we are defining the (reducer):by creating the (todoReducer) pure-function:
 function todoReducer(state = initialState, action) {
   // IMP = before performing any action on the state:first we need to check the action-type:for doing that we gonna be use the (switch-case) statement-method:
-  // IMP-NOTE:Because it allows us to handle multiple cases or conditions in a single statement or :and it also helps us to avoid the (if-else) statements:and it also helps us to write more readable and maintainable code:
+  // IMP-NOTE:Because it allows us to handle multiple cases or conditions in a single-statement or we can say in a single-parameter:and it also helps us to avoid the (if-else) statements:and it also helps us to write more readable and maintainable code:
   switch (action.type) {
     // IMP = if we have any action type that is (add-todo) or (toggle-todo):
     // V.IMP = then we will return a new object which will become our new application state:it will contain the old state of the application which we have spread in it: with the help of the spread operator:
