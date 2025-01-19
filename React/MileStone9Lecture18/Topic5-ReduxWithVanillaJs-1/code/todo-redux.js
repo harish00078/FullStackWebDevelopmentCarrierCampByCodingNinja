@@ -85,10 +85,10 @@ function todoReducer(state = initialState, action) {
     case ADD_TODO:
       // IMP = here we are returning the new-state:
       return {
-        
+        // IMP:First we need to spread the old-state or current-state:with the help of the spread operator:because we are going to create the new-state for our application:
         ...state,
-        // here we are basically updating the (todos) property of the (state) object:
-        // IMP = we are basically adding the new-todo with old-todos:in the todos-property of the state-object:
+        // IMP: then we will basically gonna be update the (todos) property of the (state) object:acc to our action-type:
+        // IMP = where in which:here we are are basically adding the new-todo with old-todos:In the todos-property of the state-object:
         todos: [
           ...state.todos,
           {
