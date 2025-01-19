@@ -113,7 +113,7 @@ function todoReducer(state = initialState, action) {
             // second-way:
             todo.completed = !todo.completed;
           }
-          // after changing the property of the particular-todo:we gonna have to return that todo:
+          // after changing the property of the particular-todo:we gonna have to return that todo:with in the (todos) array:
           return todo;
         }),
       };
