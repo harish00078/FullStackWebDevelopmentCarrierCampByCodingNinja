@@ -81,7 +81,7 @@ function todoReducer(state = initialState, action) {
   switch (action.type) {
     // IMP = if we have any action type that is (add-todo) or (toggle-todo):
     // V.V.IMP-1 = then we will return a new-object which will become our new-application state:it will contain the old-state of the application which we have spread in it: with the help of the spread operator:
-    // V.V.IMP-2 = and we will also add or update the specific property of the current state within the new object or new state:which is related to the action type:
+    // V.V.IMP-2 = and after that we will also add or update the specific property of the current-state with in the new-object or new-state:which is related to the action-type or action which we have performed on the state or application:
     case ADD_TODO:
       // IMP = here we are returning the new-state:
       return {
