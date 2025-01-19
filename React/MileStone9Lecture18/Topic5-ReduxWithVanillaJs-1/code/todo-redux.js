@@ -85,9 +85,10 @@ function todoReducer(state = initialState, action) {
     case ADD_TODO:
       // IMP = here we are returning the new-state:
       return {
+        
+        ...state,
         // here we are basically updating the (todos) property of the (state) object:
         // IMP = we are basically adding the new-todo with old-todos:in the todos-property of the state-object:
-        ...state,
         todos: [
           ...state.todos,
           {
