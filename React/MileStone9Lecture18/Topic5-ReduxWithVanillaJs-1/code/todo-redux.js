@@ -80,7 +80,7 @@ function todoReducer(state = initialState, action) {
   // IMP-NOTE:Because it allows us to handle multiple cases or conditions in a single-statement or we can say in a single-parameter:and it also helps us to avoid the (if-else) statements:and it also helps us to write more readable and maintainable code:
   switch (action.type) {
     // IMP = if we have any action type that is (add-todo) or (toggle-todo):
-    // V.IMP = then we will return a new object which will become our new application state:it will contain the old state of the application which we have spread in it: with the help of the spread operator:
+    // V.V.IMP = then we will return a new object which will become our new application state:it will contain the old state of the application which we have spread in it: with the help of the spread operator:
     // V.IMP = and we will also add or update the specific property of the current state within the new object or new state:which is related to the action type:
     case ADD_TODO:
       // IMP = here we are returning the new-state:
