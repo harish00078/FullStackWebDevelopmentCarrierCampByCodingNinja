@@ -126,3 +126,10 @@ function todoReducer(state = initialState, action) {
 
 // => 4 = [Creating-Store] section:
 // IMP: For creating (store): we need to use the (createStore) method of the (redux) library:
+// V.IMP:know that the (createStore) method is a function that takes a (reducer) as an argument which we have created first:and it returns a (store) object to us:
+const store = redux.createStore(todoReducer);
+
+// V.IMP:know here In this application:we did not have the (component):because here we are using the (redux) with the plain or vanilla-js:
+// so how we gonna interact with this application and create (dispatcher) and (selector) function:To interact with the application:
+
+//
