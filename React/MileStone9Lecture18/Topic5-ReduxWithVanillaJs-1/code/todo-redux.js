@@ -122,3 +122,7 @@ function todoReducer(state = initialState, action) {
       return state;
   }
 }
+
+
+// => 4 = [Creating-Store] section:
+// IMP: For creating (store): we need to use the (createStore) method of the (redux) library:
