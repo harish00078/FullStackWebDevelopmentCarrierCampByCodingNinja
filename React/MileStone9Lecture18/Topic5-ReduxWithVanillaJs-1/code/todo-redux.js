@@ -130,6 +130,6 @@ function todoReducer(state = initialState, action) {
 const store = redux.createStore(todoReducer);
 
 // V.IMP:know here In this application:we did not have the (component):because here we are using the (redux) with the plain or vanilla-js:
-// so how we gonna interact with this application and create (dispatcher) and (selector) function:To interact with the application:
+// so how we gonna interact with this application and create (dispatcher) and (selector) function:using those we basically interact with the redux or redux-application:
 
-//
+// 
