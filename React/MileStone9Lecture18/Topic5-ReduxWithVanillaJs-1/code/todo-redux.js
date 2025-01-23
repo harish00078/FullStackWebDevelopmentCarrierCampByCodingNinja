@@ -129,9 +129,13 @@ function todoReducer(state = initialState, action) {
 // V.IMP:know that the (createStore) method is a function that takes a (reducer) as an argument which we have created first:and it returns a (store) object to us:
 const store = redux.createStore(todoReducer);
 
-// V.IMP:know here In this application:we did not have the (component):because here we are using the (redux) with the plain or vanilla-js:
-// -> so how we gonna interact with this application or application's (redux-architecture) 
-// -> and also how we gonna create the (dispatcher) and (selector) function using which our application or application-components can basically interact with the redux or redux-architecture of the application:
+// V.IMP-NOTE:we are using Redux with plain JavaScript, meaning we won't have traditional React components interacting with the Redux store. Instead of components, we will use [specific filename or description of the file] as the main entry point for our application logic. To interact with the Redux store, we will define dispatcher functions within this file to trigger actions and create selector functions to extract specific parts of the Redux state as needed. While the terminal can be used for various purposes, for interactive development, consider using the Node.js REPL or a browser's developer console to test and interact with your Redux application:
 
-// V.IMP-NOTE:So instead of components:here we are gonna be use this (js-file) as our (components) 
-// -> And for (selector) or (dispatcher) function:we are gonna be use the (terminal):through which we are gonna interact with the application's redux-architecture:
+// V.IMP: The store object returned by the createStore method has the following methods:
+// 1. getState: Returns the current state of the store.
+// 2. dispatch: Dispatches an action to the store, triggering a state change.
+// 3. subscribe: Subscribes a callback function to the store's changes.
+
+// => 5 = [Handling-Actions] section:
+// IMP: here we are using the (dispatch) method of the store object:to perform any action on the store: 
+store.dispatch(addToDo('harish'));
