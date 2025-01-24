@@ -145,5 +145,7 @@ const store = redux.createStore(todoReducer);
 
 
 // => IMP:know that we are gonna use the (dispatch) method of the store-object to perform any action on the store:so that we can update the state of the application:
+// -> IMP:the dispatch-method basically takes the (action-object) as an argument:and it performs the action on the store:and it updates the state of the application:
+store.dispatch()
 
 
