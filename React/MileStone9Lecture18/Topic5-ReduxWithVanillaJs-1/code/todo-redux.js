@@ -141,7 +141,7 @@ const store = redux.createStore(todoReducer);
 // 2. dispatch: Dispatches an action to the store, triggering a state change.
 // 3. subscribe: Subscribes a callback function to the store's changes.
 // 4. replaceReducer: Replaces the reducer currently used by the store.
-// 5. Symbol(observable): Returns an observable that can be used with libraries like RxJS.
+
 
 
 // => IMP:know that we are gonna use the (dispatch) method of the store-object to perform any action on the store:so that we can update the state of the application:
