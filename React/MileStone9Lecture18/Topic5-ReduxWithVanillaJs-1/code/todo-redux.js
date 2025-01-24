@@ -132,7 +132,7 @@ const store = redux.createStore(todoReducer);
 
 // V.IMP-NOTE:we are using Redux with plain JavaScript, meaning we won't have traditional React components interacting with the Redux store. Instead of components, we will use [specific-filename or description of the file] as the main entry point for our application logic:
 // V.IMP-NOTE:For that here we are gonna use this (same-file) as our (component):
-// To interact with the Redux store, we will define dispatcher functions within this file to trigger actions and create selector functions to extract specific parts of the Redux state as needed. While the terminal can be used for various purposes, for interactive development, consider using the Node.js REPL or a browser's developer console to test and interact with your Redux application:
+// V.IMP-NOTE:To interact with the Redux store, we will define dispatcher-functions within this file to trigger actions and create selector-functions to extract specific parts of the Redux state as needed. While the terminal can be used for various purposes, for interactive-development, consider using the Node.js REPL or a browser's developer console to test and interact with your Redux application:
 
 // V.IMP: The store-object returned by the createStore method has the following methods:
 // 1. getState: Returns the current state of the store.
