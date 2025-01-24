@@ -127,7 +127,7 @@ function todoReducer(state = initialState, action) {
 // => 4 = [Creating-Store] section:
 // IMP: For creating (store): we need to use the (createStore) method of the (redux) library:
 // V.IMP:know that the (createStore) method is a function that takes a (reducer) as an argument which we have created first:and it returns a (store) object to us:
-// V.IMP: which we can use to interact with the store:like we can use the (dispatch) method of the store to perform any action on the store:
+// V.IMP: which we can use to interact with the store:like we can use the (dispatch) method of the store or store-object to perform any action on the store:
 const store = redux.createStore(todoReducer);
 
 // V.IMP-NOTE:we are using Redux with plain JavaScript, meaning we won't have traditional React components interacting with the Redux store. Instead of components, we will use [specific filename or description of the file] as the main entry point for our application logic:
