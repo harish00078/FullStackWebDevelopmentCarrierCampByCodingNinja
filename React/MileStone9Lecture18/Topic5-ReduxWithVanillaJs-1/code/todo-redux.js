@@ -134,7 +134,8 @@ const store = redux.createStore(todoReducer);
 // V.IMP-NOTE:For that here we are gonna use this (same-file) as our (component):
 // V.IMP-NOTE:To interact with the Redux store, we will define dispatcher-functions within this file to trigger actions and create selector-functions to extract specific parts of the Redux state as needed. While the terminal can be used for various purposes, for interactive-development, consider using the Node.js REPL or a browser's developer console to test and interact with your Redux application:
 
-// V.IMP: The store-object returned by the createStore method has the following methods:
+// -> IMP:Know how we gonna create the (dispatcher-functions) and (selector-functions) in the same-file:
+// -> IMP:As we have learned,that The store-object returned by the createStore method has the following methods:
 // 1. getState: Returns the current state of the store.
 // 2. dispatch: Dispatches an action to the store, triggering a state change.
 // 3. subscribe: Subscribes a callback function to the store's changes.
