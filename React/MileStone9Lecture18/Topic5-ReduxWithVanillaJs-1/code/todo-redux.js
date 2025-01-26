@@ -147,7 +147,7 @@ const store = redux.createStore(todoReducer);
 
 // => IMP:know that we are gonna use the (dispatch) method of the store-object to perform any action on the store:so that we can update the state of the application:
 // -> IMP-1:the dispatch-method basically takes the (action-object) as an argument:and it performs the action on the store:and updates the state of the application:
-// -> IMP-2:we also have to pass some-thing to the (action-object) as an argument:which is the (payload) or the (data) that we have to pass to the reducer:It depend on that what kind of action we are performing on the state:
+// -> IMP-2:we also have to pass some-thing to the (action-object) as an argument:which is the (payload) or the (data) that we have to pass to the reducer to update the state:It depend on that what kind of action we are performing on the state:
 store.dispatch(addToDo("Learn Redux"));
 
 
