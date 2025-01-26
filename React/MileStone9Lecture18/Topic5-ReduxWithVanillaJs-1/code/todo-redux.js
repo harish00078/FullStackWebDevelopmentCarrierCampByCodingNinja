@@ -137,7 +137,7 @@ const store = redux.createStore(todoReducer);
 
 
 // -> IMP:Know how we gonna create the (dispatcher-functions) and (selector-functions) in the same-file:
-// -> IMP:As we have learned,that The store-object returned by the createStore-method has the following methods in it:which help us in interacting with the store:
+// -> IMP:We are gonna do that:as we have learned,that The store-object returned by the createStore-method has the following methods in it:which help us in interacting with the store:
 // 1. getState: Returns the current state of the store.
 // 2. dispatch: Dispatches an action to the store, triggering a state change.
 // 3. subscribe: Subscribes a callback function to the store's changes.
