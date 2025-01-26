@@ -131,8 +131,9 @@ function todoReducer(state = initialState, action) {
 const store = redux.createStore(todoReducer);
 
 // V.IMP-NOTE:we are using Redux with plain JavaScript, meaning we won't have traditional React components interacting with the Redux store. Instead of components, we will use [specific-filename or description of the file] as the main entry point for our application logic:
-// V.IMP-NOTE:For that here we are gonna use this (same-file) as our (component):
+// V.IMP-NOTE:For that here we are gonna use this (same-file) as our (component):where we have basically created our (redux-architecture):
 // V.IMP-NOTE:To interact with the Redux store, we will define dispatcher-functions within this file to trigger actions and create selector-functions to extract specific parts of the Redux state as needed. While the terminal can be used for various purposes, for interactive-development, consider using the Node.js REPL or a browser's developer console to test and interact with your Redux application:
+// REPL:REPL stands for Read Evaluate Print Loop, and it is a programming language environment (basically a console window) that takes single expression as user input and returns the result back to the console after execution
 
 
 // -> IMP:Know how we gonna create the (dispatcher-functions) and (selector-functions) in the same-file:
