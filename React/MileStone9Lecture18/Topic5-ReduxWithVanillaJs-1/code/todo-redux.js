@@ -144,10 +144,18 @@ const store = redux.createStore(todoReducer);
 // 4. replaceReducer: Replaces the reducer currently used by the store.
 
 
-
+// -> Dispatcher-function or api:acc to redux-architecture:
 // => IMP:know that we are gonna use the (dispatch) method of the store-object:basically works as a (dispatcher-function) in our application:To perform any action on the store:so that we can update the state of the application:
 // -> IMP-1:the dispatch-method basically takes the (action-object) as an argument:and it performs the action on the store:and updates the state of the application:
 // -> IMP-2:we also have to pass some-thing to the (action-object) as an argument:which is the (payload) or the (data) that we have to pass to the reducer to update the state:It depend on that what kind of action we are performing on the state:
-store.dispatch(addToDo("Learn Redux"));
+// -> 1: using addTodo(action-creator-function) to add a new-todo item to the state:
+store.dispatch(addToDo("Learn Redux")); 
+store.dispatch(addToDo("Learn React"));
+// -> 2: using toggleToDo(action-creator-function) to toggle the completed status of a todo item:
+store.dispatch(toggleToDo(0));
 
+
+// -> Selector-function or api:acc to redux-architecture:
+// -> IMP:know that we can also use the (getState) method of the store-object:to get the current-state of the application:
+console.log(store.getState());
 
