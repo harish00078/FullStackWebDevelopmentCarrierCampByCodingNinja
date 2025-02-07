@@ -6,19 +6,19 @@
 // V.IMP-NOTE:One Important thing here we have is that we have to (export) these all:so that we can use or connect them with the other section of the redux-architecture:because here we not implementing the hole redux-architecture:with in the one-file:
 
 // -> Defining Actions:
-const ADD_TODO = "ADD Todo";
-const TOGGLE_TODO = "TOGGLE Todo";
+export const ADD_TODO = "ADD Todo";
+export const TOGGLE_TODO = "TOGGLE Todo";
 
 // -> Creating Actions:using (action-creator-functions):
 // Actions are basically the plain-js objects:so these (action-creator-functions) are used to create the (action-objects):
 // -> Add-Todo:action-creator-function:
-const addTodo = (text) => ({
+export const addTodo = (text) => ({
   //   text: text,
   text,
   type: ADD_TODO,
 });
 // -> Toggle-Todo:action-creator-function:
-const toggleTodo = (index) => ({
+export const toggleTodo = (index) => ({
   index,
   type: TOGGLE_TODO,
 });
