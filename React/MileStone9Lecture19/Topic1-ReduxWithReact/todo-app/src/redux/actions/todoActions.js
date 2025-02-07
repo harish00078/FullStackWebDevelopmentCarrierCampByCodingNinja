@@ -15,3 +15,8 @@ const addTodo = (text) => ({
   text,
   type: ADD_TODO,
 });
+// -> Toggle-Todo:action-creator-function:
+const toggleTodo = (id) => ({
+  id,
+  type: TOGGLE_TODO,
+});
