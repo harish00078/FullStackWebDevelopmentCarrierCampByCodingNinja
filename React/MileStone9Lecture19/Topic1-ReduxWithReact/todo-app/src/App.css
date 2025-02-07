@@ -5,13 +5,23 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  transition: transform 0.3s ease;
 }
 
-h1{
+.App-logo:hover {
+  transform: scale(1.1);
+}
+
+h1 {
   text-align: center;
   margin: 48px;
   font-weight: bold;
   color: blue;
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: darkblue;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,6 +43,11 @@ h1{
 
 .App-link {
   color: #61dafb;
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: #21a1f1;
 }
 
 @keyframes App-logo-spin {
