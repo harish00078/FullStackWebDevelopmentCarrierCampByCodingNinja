@@ -3,6 +3,8 @@
 // -> first is to define the (actions or action-types):by storing the (action-types) in the (const) variable:
 // -> second is to create the those (actions):using (action-creator-functions):
 
+// V.IMP-NOTE:One Important thing here we have is that we have to (export) these all:so that we can use or connect them with the other section of the redux-architecture:because here we not implementing the hole redux-architecture:with in the one-file:
+
 // -> Defining Actions:
 const ADD_TODO = "ADD Todo";
 const TOGGLE_TODO = "TOGGLE Todo";
