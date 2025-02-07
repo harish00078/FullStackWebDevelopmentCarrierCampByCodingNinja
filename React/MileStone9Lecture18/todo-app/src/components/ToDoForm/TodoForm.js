@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./TodoForm.css";
-function TodoForm() {
+function TodoForm(onCreateTodo) {
   const [todoText, setTodoText] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,13 +11,13 @@ function TodoForm() {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <input
-        type="text"
-        className="form-control mb-3"
-        value={todoText}
-        onChange={(e) => setTodoText(e.target.value)}
+          type="text"
+          className="form-control mb-3"
+          value={todoText}
+          onChange={(e) => setTodoText(e.target.value)}
         />
         <button className="btn btn-success float-end" type="submit">
-            Create Todo
+          Create Todo
         </button>
       </form>
     </div>
