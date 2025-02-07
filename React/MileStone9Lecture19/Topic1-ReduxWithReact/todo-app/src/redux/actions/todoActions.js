@@ -6,3 +6,7 @@
 // -> Defining Actions:
 const ADD_TODO = "ADD Todo";
 const TOGGLE_TODO = "TOGGLE Todo";
+
+// -> Creating Actions:using (action-creator-functions):
+// Actions are basically the plain-js objects:so these (action-creator-functions) are used to create the (action-objects):
+// -> Add Todo:action-creator-function:
