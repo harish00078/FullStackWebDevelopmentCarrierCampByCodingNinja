@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
-
+  console.log(todos);
   const createTodo = (text) => {
     setTodos([...todos, { id: todos.length + 1, text, completed: false}]);
   };
