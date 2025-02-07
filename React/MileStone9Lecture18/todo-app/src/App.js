@@ -9,6 +9,11 @@ function App() {
     setTodos([...todos, { id: todos.length + 1, text, completed: false }]);
   };
   // toggleTodo Function:
+  const toggleTodo = (index)=>{
+    const list = [...todos];
+    list[index].completed = !list[index].completed;
+    setTodos(list);
+  }
 
   return (
     <div>
