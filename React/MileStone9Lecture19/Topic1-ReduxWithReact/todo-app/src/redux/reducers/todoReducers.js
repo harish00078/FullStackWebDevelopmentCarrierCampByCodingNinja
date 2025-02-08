@@ -4,5 +4,5 @@
 // -> Second:is the (action) which we have perform on the Current-state and get the new or updated state from it:
 
 function todoReducer(state,action){
-    
+    // here we gonna update the state:acc to the action-type 
 }
