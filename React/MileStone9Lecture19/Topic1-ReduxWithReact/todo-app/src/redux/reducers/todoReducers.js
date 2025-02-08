@@ -5,6 +5,6 @@
 
 function todoReducer(state,action){
     // here we gonna be update the state:acc to the action-type:
-    // for checking actions or action-types and updating our state acc to them: we are going to use the (switch) statement:
+    // for checking actions or action-types and updating our state acc to them: we are going to use the (switch and case) statement method:
 
 }
