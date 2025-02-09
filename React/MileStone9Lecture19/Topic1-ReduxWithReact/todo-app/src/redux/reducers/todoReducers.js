@@ -1,5 +1,5 @@
 // Importing the Actions or Action-Creator-Functions:which we have created by our selfs:
-import {ADD_TODO,TOGGLE_TODO} from "../actions/todoActions"
+import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 
 // Creating Reducers:For (todo) section of our application:
 // -> As we have learned that:Reducers are the (pure) functions:which basically takes (two-arguments) with in them:
@@ -9,23 +9,33 @@ import {ADD_TODO,TOGGLE_TODO} from "../actions/todoActions"
 // IMP:But first we need the (initial-state) for our application:
 // -> Defining Initial-State:
 const initialState = {
-    todos:[],
-}
-function todoReducer(state = initialState, action){
-    // here we gonna be update the state:acc to the action-type:
-    // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
+  todos: [],
+};
+function todoReducer(state = initialState, action) {
+  // here we gonna be update the state:acc to the action-type:
+  // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
 
-    switch(action.type){
-         // -> first we check the action-type:with the help of (case) method of (switch and case) statement:
-         case ADD_TODO:
-            // and then we (return) the updated state there:
-            return{
-
-            }
-        // rather than action-types:if we did not get or have any action-type:then we will return the (default) state or we can say the (Current) state of the application:
-        // IMP:we gonna be able to do that with the help of (default) keyword or method of the (switch and case) statement:
-        default:
-            return state;
-    }
-
+  switch (action.type) {
+    // -> first we check the action-type:with the help of (case) method of (switch and case) statement:
+    case ADD_TODO:
+      // and then we (return) the updated state here:
+      return {
+        // first we have the older-state:
+        ...state,
+        // here we have the older-state (section) which we have to update:
+        todos: [
+          // first we spread its older-values or data:
+          ...state.todos,
+          // IMP:then here we add the new-data:which we have to add:
+          {
+            text: action.text,
+            completed: false,
+          },
+        ],
+      };
+    // rather than action-types:if we did not get or have any action-type:then we will return the (default) state or we can say the (Current) state of the application:
+    // IMP:we gonna be able to do that with the help of (default) keyword or method of the (switch and case) statement:
+    default:
+      return state;
+  }
 }
