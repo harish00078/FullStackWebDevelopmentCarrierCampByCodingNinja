@@ -16,7 +16,10 @@ function todoReducer(state = initialState, action) {
   // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
 
   switch (action.type) {
+
     // -> first we check the action-type:with the help of (case) method of (switch and case) statement:
+
+    // -> 1 = ADD_TODO:action-type:
     case ADD_TODO:
       // and then we (return) the updated state here:
       return {
@@ -33,6 +36,19 @@ function todoReducer(state = initialState, action) {
           },
         ],
       };
+
+      // -> 2 = TOGGLE_TODO:action-type:
+      case TOGGLE_TODO:
+        return{
+            ...state,
+            todos:state.todos.map((todo,index)=>{
+                // before toggling-todo:we have to find out that todo:
+                // we are gonna be able to do that with help of (index-number):which we are getting from the (action):
+
+                if(index)
+            })
+        }
+
     // rather than action-types:if we did not get or have any action-type:then we will return the (default) state or we can say the (Current) state of the application:
     // IMP:we gonna be able to do that with the help of (default) keyword or method of the (switch and case) statement:
     default:
