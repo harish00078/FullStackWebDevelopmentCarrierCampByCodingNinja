@@ -13,6 +13,10 @@ function todoReducer(state,action){
     switch(action.type){
          // -> first we check the action-type:with the help of (case) method of (switch and case) statement:
          case ADD_TODO:
+            // and then we (return) the updated state there:
+            return{
+
+            }
         // rather than action-types:if we did not get or have any action-type:then we will return the (default) state or we can say the (Current) state of the application:
        
     }
