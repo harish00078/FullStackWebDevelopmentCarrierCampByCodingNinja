@@ -6,7 +6,12 @@ import {ADD_TODO,TOGGLE_TODO} from "../actions/todoActions"
 // -> First:is (current-state) of the application:
 // -> Second:is the (action) which we have to perform on the Current-state and get the new or updated state from it:
 
-function todoReducer(state = [], action){
+// IMP:But first we need the (initial-state) for our application:
+// -> Defining Initial-State:
+const initialState = {
+    todos:[],
+}
+function todoReducer(state = initialState, action){
     // here we gonna be update the state:acc to the action-type:
     // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
 
