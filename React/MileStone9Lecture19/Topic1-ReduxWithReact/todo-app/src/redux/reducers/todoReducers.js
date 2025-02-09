@@ -11,7 +11,9 @@ import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 const initialState = {
   todos: [],
 };
-function todoReducer(state = initialState, action) {
+
+// IMP:we also have to export it as actions:so that we can use or attach it with our (store):
+export function todoReducer(state = initialState, action) {
   // here we gonna be update the state:acc to the action-type:
   // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
 
