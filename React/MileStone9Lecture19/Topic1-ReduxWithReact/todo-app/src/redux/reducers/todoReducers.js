@@ -45,7 +45,11 @@ function todoReducer(state = initialState, action) {
                 // before toggling-todo:we have to find out that todo:
                 // we are gonna be able to do that with help of (index-number):which we are getting from the (action):
 
-                if(index)
+                if(index ===action.index){
+                    todo.completed = !todo.completed
+                }
+                // we also have to return that updated (todo) from this (map) or (loop) function:so that we are able to access it in our (todos) object and stop the (map-function) execution:
+                return todo;
             })
         }
 
