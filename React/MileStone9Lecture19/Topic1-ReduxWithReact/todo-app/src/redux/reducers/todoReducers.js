@@ -41,6 +41,7 @@ function todoReducer(state = initialState, action) {
       case TOGGLE_TODO:
         return{
             ...state,
+            // Map-function:Calls a defined callback function on each element of an array, and returns an array that contains the results.
             todos:state.todos.map((todo,index)=>{
                 // before toggling-todo:we have to find out that todo:
                 // we are gonna be able to do that with help of (index-number):which we are getting from the (action):
