@@ -1,7 +1,7 @@
 // Importing the Actions or Action-Creator-Functions:which we have created by our selfs:
 import {ADD_TODO,TOGGLE_TODO} from "../actions/todoActions"
 
-// Creating Reducers:For (todo) for application:
+// Creating Reducers:For (todo) section of our application:
 // -> As we have learned that:Reducers are the (pure) functions:which basically takes (two-arguments) with in them:
 // -> First:is (current-state) of the application:
 // -> Second:is the (action) which we have to perform on the Current-state and get the new or updated state from it:
