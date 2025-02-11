@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Provider } from "react-redux";
 import TodoForm from "./components/ToDoForm/TodoForm";
 import TodoList from "./components/ToDoList/TodoList";
-
+// Importing the (store):
+import store from './redux/store';
 import "./App.css";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
 
       {/* Here we using the first-way to create and use store:
       => we gonna be pass the store to the react-redux libraries (Provider-component):with the help of (store-prop): */}
-      <Provider store={}>
+      <Provider store={store}>
         <TodoForm onCreateTodo={createTodo} />
         <TodoList todos={todos} onToggle={toggleTodo} />
       </Provider>
