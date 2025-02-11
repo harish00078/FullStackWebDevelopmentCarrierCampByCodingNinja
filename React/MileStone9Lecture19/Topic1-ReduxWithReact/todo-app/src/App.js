@@ -29,8 +29,9 @@ function App() {
       -> 1-way: create store in the form of (global-redux-store):and then we can use it with the specific or all the components of the application:with the help of (react-redux) libraries (provider-component):
       -> 2-way: create store in the form of (component-redux-store):we call it component-store.because here we create and use the (specific-store) for the (specific-component):and provide that specific-store to the specific-component:with the help of (provider-component) as well:by passing the specific-store to the store-prop */}
 
-      {/* Here we using the first-way to create and use store: */}
-      <Provider>
+      {/* Here we using the first-way to create and use store:
+      => we gonna be pass the store to the react-redux libraries (Provider-component):with the help of (store-prop): */}
+      <Provider store={}>
         <TodoForm onCreateTodo={createTodo} />
         <TodoList todos={todos} onToggle={toggleTodo} />
       </Provider>
