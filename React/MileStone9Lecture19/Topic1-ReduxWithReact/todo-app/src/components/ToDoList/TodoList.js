@@ -1,4 +1,5 @@
 
+import { useSelector } from "react-redux";
 import "./TodoList.css";
 
 // In this File: we are basically representing the data or todo-data on the application:
@@ -33,6 +34,11 @@ import "./TodoList.css";
 // -> It allows us to retrieve specific-sections of the state instead of the entire store.
 // -> Additionally, it ensures automatic updates, meaning whenever the selected-part of the state-changes, the component re-renders automatically to reflect the latest-data.
 
+// working or usage of useSelector-hook:
+// -> Import it from the react-redux library:
+import { useSelector } from "react-redux";
+// -> then use it to get the (store) or (state):which has been provide to us by the (provided-component) of the (react-redux) library as well:
+// -> use
 
 function ToDoList({todos, onToggle}) {
   return (
