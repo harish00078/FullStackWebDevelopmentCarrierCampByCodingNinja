@@ -1,48 +1,70 @@
+/* Main container */
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 li {
-  text-align: left;
-  width: 50%;
-  margin-top: 6px;
+  background: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
-  transition: background-color 0.3s ease;
+  align-items: center;
+  font-size: 16px;
 }
 
-li:hover {
-  background-color: #f0f0f0;
+/* Last item border removal */
+li:last-child {
+  border-bottom: none;
 }
 
-.container {
-  margin: 56px !important;
+/* Todo content */
+.content {
+  flex: 1;
+  text-align: left;
+  padding-right: 10px;
 }
 
+/* Status indicators */
 .completed {
-  background-color: green;
-  padding: 0 6px;
-  height: fit-content;
-  margin: auto 0;
-  border-radius: 4px;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.completed:hover {
-  background-color: darkgreen;
+  color: green;
+  font-weight: bold;
 }
 
 .pending {
-  background-color: red;
-  padding: 0 6px;
-  height: fit-content;
-  margin: auto 0;
-  border-radius: 4px;
-  color: white;
-  transition: background-color 0.3s ease;
+  color: red;
+  font-weight: bold;
 }
 
-.pending:hover {
-  background-color: darkred;
+/* Toggle button */
+.btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.content {
-  width: 25%;
+/* Warning button (Toggle) */
+.btn-warning {
+  background: #ffc107;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background: #e0a800;
 }

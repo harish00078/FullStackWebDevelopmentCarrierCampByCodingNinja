@@ -1,60 +1,105 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  transition: transform 0.3s ease;
-}
-
-.App-logo:hover {
-  transform: scale(1.1);
-}
-
-h1 {
-  text-align: center;
-  margin: 48px;
-  font-weight: bold;
-  color: blue;
-  transition: color 0.3s ease;
-}
-
-h1:hover {
-  color: darkblue;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main container */
+div {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  width: 400px;
+}
+
+/* Title */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Improved Form Styling */
+form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  background: #28a745;
   color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
-  transition: color 0.3s ease;
+button:hover {
+  background: #218838;
 }
 
-.App-link:hover {
-  color: #21a1f1;
+/* Todo List */
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Completed tasks */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Improved Button Styles */
+.toggle-btn {
+  background: #ffc107;
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle-btn:hover {
+  background: #e0a800;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
 }

@@ -1,38 +1,52 @@
+/* Form container */
 .container {
-  margin: 56px !important;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
 }
 
-.todo-form {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.todo-input {
+/* Input field */
+.form-control {
+  width: 100%;
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 300px;
-  transition: border-color 0.3s ease;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s;
 }
 
-.todo-input:focus {
-  border-color: #61dafb;
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
 }
 
-.todo-button {
-  padding: 10px;
-  font-size: 1rem;
+/* Button styling */
+.btn {
+  padding: 10px 15px;
   border: none;
-  background-color: #61dafb;
-  color: white;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  margin-left: 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
 }
 
-.todo-button:hover {
-  background-color: #21a1f1;
+/* Success button (Create Todo) */
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+/* Float-end for button */
+.float-end {
+  display: block;
+  margin-left: auto;
 }
