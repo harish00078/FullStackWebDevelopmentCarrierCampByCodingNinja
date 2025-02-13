@@ -23,9 +23,15 @@ import "./TodoList.css";
 //   );
 // }
 
-// second:here we are representing that data with the help of (library):we are using the (redux) and (react-redux) library to do that:
-// for getting data with in the component through the library or its (store) basically where we have the (data):we have custom-hooks:which has been provided to us by the (library) as well:so that we can access its data:
-//
+// Second: Here, we are managing and representing data using the Redux and React-Redux libraries.
+
+// IMP: To retrieve data within a component, we utilize the Redux store, which holds the application's state.
+// IMP: The React-Redux library provides built-in custom hooks that allow us to access and interact with the store efficiently.
+
+// Key-Point: Accessing Data with useSelector
+// -> The useSelector hook, provided by React-Redux, enables components to access the Redux store without needing to import the store directly in each component.
+// -> It allows us to retrieve specific sections of the state instead of the entire store.
+// -> Additionally, it ensures automatic updates, meaning whenever the selected part of the state changes, the component re-renders automatically to reflect the latest data.
 
 
 function ToDoList({todos, onToggle}) {
