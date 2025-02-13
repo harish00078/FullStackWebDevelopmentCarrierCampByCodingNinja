@@ -1,7 +1,10 @@
 
 import "./TodoList.css";
 
-// IMP:know here we are getting the (todos):from the (app-component):we are not using any kind of (library) to maintain (todos) here:
+// In this File: we are basically representing the data or todo-data on the application:
+
+// First:we got the data from the app-component:which we do when be build the simple application:without the help of any library:
+
 // function ToDoList({todos, onToggle}) {
 //   return (
 //     <div className="container">
@@ -20,7 +23,7 @@ import "./TodoList.css";
 //   );
 // }
 
-// IMP:here we are gonna use the (library) to maintain the (todos):
+// 
 
 function ToDoList({todos, onToggle}) {
   return (
