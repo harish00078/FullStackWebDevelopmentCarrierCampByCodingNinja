@@ -9,7 +9,10 @@ import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 // IMP:But first we need the (initial-state) for our application:
 // -> Defining Initial-State:
 const initialState = {
-  todos: [],
+  todos: [
+    { text: "Meeting at 9", completed: true },
+    { text: "Lunch at 2", completed: false },
+  ],
 };
 
 // IMP:we also have to export it as actions:so that we can use or attach it with our (store):
@@ -18,7 +21,6 @@ export function todoReducer(state = initialState, action) {
   // IMP: for checking actions or action-types and returning our updated state acc to them: we are going to use the (switch and case) statement-method:
 
   switch (action.type) {
-
     // -> first we check the action-type:with the help of (case) method of (switch and case) statement:
 
     // -> 1 = ADD_TODO:action-type:
@@ -39,22 +41,22 @@ export function todoReducer(state = initialState, action) {
         ],
       };
 
-      // -> 2 = TOGGLE_TODO:action-type:
-      case TOGGLE_TODO:
-        return{
-            ...state,
-            // Map-function:Calls a defined callback function on each element of an array, and returns an array that contains the results.
-            todos:state.todos.map((todo,index)=>{
-                // before toggling-todo:we have to find out that todo:
-                // we are gonna be able to do that with help of (index-number):which we are getting from the (action):
+    // -> 2 = TOGGLE_TODO:action-type:
+    case TOGGLE_TODO:
+      return {
+        ...state,
+        // Map-function:Calls a defined callback function on each element of an array, and returns an array that contains the results.
+        todos: state.todos.map((todo, index) => {
+          // before toggling-todo:we have to find out that todo:
+          // we are gonna be able to do that with help of (index-number):which we are getting from the (action):
 
-                if(index ===action.index){
-                    todo.completed = !todo.completed
-                }
-                // we also have to return that updated (todo) from this (map) or (loop) function:so that we are able to access it in our (todos) object and stop the (map-function) execution:
-                return todo;
-            })
-        }
+          if (index === action.index) {
+            todo.completed = !todo.completed;
+          }
+          // we also have to return that updated (todo) from this (map) or (loop) function:so that we are able to access it in our (todos) object and stop the (map-function) execution:
+          return todo;
+        }),
+      };
 
     // rather than action-types:if we did not get or have any action-type:then we will return the (default) state or we can say the (Current) state of the application:
     // IMP:we gonna be able to do that with the help of (default) keyword or method of the (switch and case) statement:
