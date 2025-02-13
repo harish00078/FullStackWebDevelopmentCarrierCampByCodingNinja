@@ -1,5 +1,6 @@
 // first: we import the (redux):with the help of (ES6) syntax:
-import redux from "redux";
+// IMP-NOTE:we can import redux directly with in the (react) components:we have to import it as or with the (*) keyword:which means in the react that we are importing everything related to this library:
+import * as redux from "redux";
 
 // second: we have to import the (reducer):through which we are gonna be able to create or manage our store:
 import { todoReducer } from "./reducers/todoReducers";

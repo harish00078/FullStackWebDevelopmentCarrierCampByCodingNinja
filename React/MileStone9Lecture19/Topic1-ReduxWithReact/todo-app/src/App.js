@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import TodoForm from "./components/ToDoForm/TodoForm";
 import TodoList from "./components/ToDoList/TodoList";
 // Importing the (store):
-import store from './redux/store';
+import {store} from './redux/store';
 import "./App.css";
 
 function App() {
