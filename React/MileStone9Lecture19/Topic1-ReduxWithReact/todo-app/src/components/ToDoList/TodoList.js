@@ -39,7 +39,7 @@ import "./TodoList.css";
 import { useSelector } from "react-redux";
 // -> then use it to get the (store) or (state):which has been provide to us by the (provided-component) of the (react-redux) library as well:
 // -> useSelector-hook takes a function or selector-function as an argument.
-// -> The function receives the entire Redux-store-state and returns the specific part of the state you need or which we basically define with in the function:
+// -> The function-receives the entire Redux-store-state and returns the specific part of the state you need or which we basically define with in the function:
 
 function ToDoList({todos, onToggle}) {
   return (
