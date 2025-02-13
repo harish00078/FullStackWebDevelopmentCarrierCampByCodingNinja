@@ -24,7 +24,8 @@ import "./TodoList.css";
 // }
 
 // second:here we are representing that data with the help of (library):we are using the (redux) and (react-redux) library to do that:
-// for getting data with in the component through the library or its (store) basically where we have the (data):we have custom-hooks:which has been provided to us by the (library) as well:
+// for getting data with in the component through the library or its (store) basically where we have the (data):we have custom-hooks:which has been provided to us by the (library) as well:so that we can access its data:
+//
 
 
 function ToDoList({todos, onToggle}) {
