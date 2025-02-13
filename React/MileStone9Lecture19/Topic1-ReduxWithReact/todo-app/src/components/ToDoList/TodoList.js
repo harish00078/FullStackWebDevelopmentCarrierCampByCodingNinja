@@ -31,7 +31,7 @@ import "./TodoList.css";
 // Key-Point: Accessing Data with useSelector
 // -> The useSelector hook, provided by React-Redux, enables components to access the Redux store without needing to import the store directly in each component.
 // -> It allows us to retrieve specific-sections of the state instead of the entire store.
-// -> Additionally, it ensures automatic updates, meaning whenever the selected-part of the state-changes, the component re-renders automatically to reflect the latest data.
+// -> Additionally, it ensures automatic updates, meaning whenever the selected-part of the state-changes, the component re-renders automatically to reflect the latest-data.
 
 
 function ToDoList({todos, onToggle}) {
