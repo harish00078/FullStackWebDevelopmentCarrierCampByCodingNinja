@@ -9,6 +9,7 @@ import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 // IMP:But first we need the (initial-state) for our application:
 // -> Defining Initial-State:
 const initialState = {
+  // IMP:we have also provided some initial-values to the initial-state of the (redux-store):
   todos: [
     { text: "Meeting at 9", completed: true },
     { text: "Lunch at 2", completed: false },
