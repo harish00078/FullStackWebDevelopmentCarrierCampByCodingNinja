@@ -3,7 +3,7 @@ import "./TodoList.css";
 
 // In this File: we are basically representing the data or todo-data on the application:
 
-// First:we got the data from the app-component:which we do when be build the simple application:without the help of any library:
+// First:we represents that data with the help of  app-component:which we do when be build the simple application:without the help of any library:
 
 // function ToDoList({todos, onToggle}) {
 //   return (
@@ -23,7 +23,9 @@ import "./TodoList.css";
 //   );
 // }
 
-// 
+// second:here we are representing that data with the help of (library):we are using the (redux) and (react-redux) library to do that:
+// for getting data with in the component through the library or its (store) basically where we have the (data):we have custom-hooks:which has been provided to us by the (library) as well:
+
 
 function ToDoList({todos, onToggle}) {
   return (
