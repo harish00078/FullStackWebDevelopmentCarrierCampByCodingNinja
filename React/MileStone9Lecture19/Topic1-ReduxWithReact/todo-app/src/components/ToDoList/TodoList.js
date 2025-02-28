@@ -46,6 +46,9 @@ function ToDoList({todos, onToggle}) {
   return ( 
     <div className="container">
     <ul>
+      {/* IMP-NOTE:
+      -> 1: Use () when you only have one statement (it returns automatically).
+      -> 2: Use {} when you have multiple lines (you must use return) */}
       {todos.map((todo,index) => (
         <li key={todo.id}>
           <span className="content">{todo.text}</span>
