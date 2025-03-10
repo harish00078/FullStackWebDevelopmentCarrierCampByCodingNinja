@@ -30,7 +30,8 @@ function App() {
       -> 2-way: create store in the form of (component-redux-store):we call it component-store.because here we create and use the (specific-store) for the (specific-component):and provide that specific-store to the specific-component:with the help of (provider-component) as well:by passing the specific-store to the store-prop */}
 
       {/* Here we using the first-way to create and use store:
-      => we gonna be pass the store to the react-redux libraries (Provider-component):with the help of (store-prop): */}
+      => we gonna be pass the store to the components:with the help of react-redux libraries (Provider-component):
+      ->IMP:And component basically takes (store) as (prop):through which we are able to pass our redux-store to the component:*/}
       <Provider store={store}>
         <TodoForm onCreateTodo={createTodo} />
         <TodoList todos={todos} onToggle={toggleTodo} />
