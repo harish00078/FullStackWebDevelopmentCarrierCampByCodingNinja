@@ -72,7 +72,7 @@ import "./TodoList.css";
 // 4. Example: To-Do List Component
 // ==========================================
 
-function ToDoList({ todos, onToggle }) {
+function ToDoList({ onToggle }) {
   // ------------------------------------------
   // 3. Using the useSelector Hook
   // ------------------------------------------
@@ -80,11 +80,14 @@ function ToDoList({ todos, onToggle }) {
   // -> The useSelector hook is used to access specific data from the Redux store.
   // -> The function inside useSelector receives the entire Redux state and returns only the required portion.
   // 📌 Important Note:
-// - We can store the retrieved data in a variable.
-// - This allows easy access to the data within the elements of our component.
+  // - We can store the retrieved data in a variable.
+  // - This allows easy access to the data within the elements of our component.
 
-
-  const 
+  // V.IMP-NOTE:
+  // We have learned that if a function consists of a single expression, we do not need to use curly brackets {} or the return statement. Instead, we can use parentheses () to return the value implicitly.
+  
+  // Also, a single-line function does not necessarily mean that the function must be written on a single line in the VS Code file. It refers to a function that consists of a single expression or thing:
+  const todos = useSelector((state) => state.todos);
 
   return (
     <div className="container">
