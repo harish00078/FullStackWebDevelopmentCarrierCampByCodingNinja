@@ -32,49 +32,54 @@
 // - We manage and represent application data using Redux and React-Redux libraries.
 
 // 2. Understanding the Redux Store:
-// - The Redux-store holds the global-state of the application.
+// - The Redux store holds the global state of the application.
 // - In simple terms, the store represents the state.
-// - The React-Redux-library provides built-in hooks and components to interact with the store-efficiently.
+// - The React-Redux library provides built-in hooks and components to efficiently interact with the store.
 
 // ==========================================
-// 3. Accessing Data with the useSelector-Hook
+// 3. Accessing Data with the useSelector Hook
 // ==========================================
 
-// -> V.IMP: The useSelector-hook from React-Redux library allows components to access the Redux-store or state efficiently.which has been provided to us by the (provided-component) of the (react-redux) library:
-// -> It eliminates the need to manually-import the Redux store into each component.
-// -> V.IMP:we can also only retrieve the particular specific-section or part of the state rather than the entire-store with the help of (useSelector-hook):
-// -> V.IMP:It also Ensures automatic updates—whenever the selected-state-changes, the component re-renders automatically.
+// -> V.IMP: The useSelector hook from the React-Redux library allows components to access the Redux store efficiently.
+// -> The store is provided by the <Provider> component from React-Redux, eliminating the need to manually import the store into each component.
+// -> V.IMP: The useSelector hook enables us to retrieve only a specific section of the state rather than the entire store, improving performance.
+// -> V.IMP: It ensures automatic updates—whenever the selected state changes, the component re-renders to reflect the latest data.
 
 // ------------------------------------------
-//  1. Usage of useSelector Hook
+// 1. Usage of useSelector Hook
 // ------------------------------------------
 
 // Step 1: Import useSelector from react-redux:
 import { useSelector } from "react-redux";
 
-// Import the (CSS):
+// Step 2: Import the required CSS file
 import "./TodoList.css";
 
-
-// Step 2: Use useSelector to access the store or (state) provided by the <Provider> component:
+// Step 3: Use useSelector to access the store (state) provided by the <Provider> component:
 
 // ------------------------------------------
-// 2. How we use useSelector-Hook
+// 2. How to Use the useSelector Hook
 // ------------------------------------------
 
-// => How we use the (useSelector-hook):To get the specific part of the data from the store or state:
-// -> In simple-words: The function inside useSelector-hook receives or access the entire Redux-state and returns only the required portion.
+// -> The useSelector hook is used to access specific data from the Redux store.
+// -> The function inside useSelector receives the entire Redux state and returns only the required portion.
+
+const todos = useSelector((state) => state.todos);
+
+// ------------------------------------------
+// 3. Explanation:
+// ------------------------------------------
+
 // 1. [The useSelector Hook]:
 // - The useSelector hook takes a callback function as an argument.
-// - This callback function receives the Redux store (state) as its parameter or argument.
-// 2. [Accessing Specific State]:
-// - Using the state parameter or argument, we can extract or get a specific section of the Redux store.
-// - This allows components to retrieve only the necessary data based on their requirements:
+// - This callback function receives the Redux store (state) as its parameter.
 
-const todos = 
+// 2. [Accessing Specific State]:
+// - Using the state parameter, we can extract a specific section of the Redux store.
+// - This allows components to retrieve only the necessary data based on their requirements.
 
 // ==========================================
-// 3. Example: To-Do List Component
+// 4. Example: To-Do List Component
 // ==========================================
 
 function ToDoList({ todos, onToggle }) {
@@ -102,6 +107,7 @@ export default ToDoList;
 // ==========================================
 // Important Notes:
 // ==========================================
-// ✅ Use parentheses () when you only have one statement (it returns automatically).
-// ✅ Use curly braces {} when you have multiple lines (you must use return)  .
+// ✅ Use parentheses () when you have a single statement (it returns automatically).
+// ✅ Use curly braces {} when you have multiple lines (you must use return).
+
 
