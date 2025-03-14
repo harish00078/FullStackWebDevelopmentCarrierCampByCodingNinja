@@ -49,7 +49,7 @@
 //  1. Usage of useSelector Hook
 // ------------------------------------------
 
-// Step 1: Import useSelector from react-redux
+// Step 1: Import useSelector from react-redux:
 import { useSelector } from "react-redux";
 
 // Import the (CSS):
