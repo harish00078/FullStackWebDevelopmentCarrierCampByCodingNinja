@@ -79,6 +79,10 @@ function ToDoList({ todos, onToggle }) {
 
   // -> The useSelector hook is used to access specific data from the Redux store.
   // -> The function inside useSelector receives the entire Redux state and returns only the required portion.
+  // 📌 Important Note:
+// - We can store the retrieved data in a variable.
+// - This allows easy access to the data within the elements of our component.
+
 
   const 
 
