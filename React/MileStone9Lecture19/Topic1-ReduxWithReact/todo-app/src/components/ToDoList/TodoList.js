@@ -1,5 +1,5 @@
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import "./TodoList.css";
 
 // In this File: we are basically representing the data or todo-data on the application:
@@ -34,16 +34,16 @@ import "./TodoList.css";
 // 2. Understanding the Redux Store:
 // - The Redux-store holds the global-state of the application.
 // - In simple terms, the store represents the state.
-// - The React-Redux library provides built-in hooks and components to interact with the store-efficiently.
+// - The React-Redux-library provides built-in hooks and components to interact with the store-efficiently.
 
 // ==========================================
 // 3. Accessing Data with the useSelector-Hook
 // ==========================================
 
-// -> V.IMP: The useSelector-hook from React-Redux library allows components to access the Redux-store efficiently.which has been provided to us by the (provided-component) of the (react-redux) library:
-// -> It eliminates the need to manually import the Redux store into each component.
-// -> Retrieves only a specific section of the state rather than the entire store.
-// -> Ensures automatic updates—whenever the selected state changes, the component re-renders automatically.
+// -> V.IMP: The useSelector-hook from React-Redux library allows components to access the Redux-store or state efficiently.which has been provided to us by the (provided-component) of the (react-redux) library:
+// -> It eliminates the need to manually-import the Redux store into each component.
+// -> V.IMP:we can also only retrieve the particular specific-section or part of the state rather than the entire-store with the help of (useSelector-hook):
+// -> V.IMP:It also Ensures automatic updates—whenever the selected-state-changes, the component re-renders automatically.
 
 // ------------------------------------------
 // Usage of useSelector Hook
@@ -53,7 +53,7 @@ import "./TodoList.css";
 import { useSelector } from "react-redux";
 
 // Step 2: Use useSelector to access the store provided by the <Provider> component.
-const selectedData = useSelector((state) => state.specificPart);
+const
 // - The function inside useSelector receives the entire Redux state and returns only the required portion.
 
 // ==========================================
