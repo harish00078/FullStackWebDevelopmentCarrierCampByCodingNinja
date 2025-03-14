@@ -59,7 +59,7 @@ import "./TodoList.css";
 // Step 2: Use useSelector to access the store or (state) provided by the <Provider> component:
 
 // ------------------------------------------
-// 2. How we use useSelector Hook
+// 2. How we use useSelector-Hook
 // ------------------------------------------
 
 // => How we use the (useSelector-hook):To get the specific part of the data from the store or state:
