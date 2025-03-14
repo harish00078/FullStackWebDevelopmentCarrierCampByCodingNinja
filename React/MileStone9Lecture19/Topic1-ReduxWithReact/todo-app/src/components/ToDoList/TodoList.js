@@ -1,6 +1,6 @@
 
 // import { useSelector } from "react-redux";
-import "./TodoList.css";
+// import "./TodoList.css";
 
 // In this File: we are basically representing the data or todo-data on the application:
 
@@ -51,6 +51,10 @@ import "./TodoList.css";
 
 // Step 1: Import useSelector from react-redux
 import { useSelector } from "react-redux";
+
+// Import the (CSS):
+import "./TodoList.css";
+
 
 // Step 2: Use useSelector to access the store or (state) provided by the <Provider> component:
 
