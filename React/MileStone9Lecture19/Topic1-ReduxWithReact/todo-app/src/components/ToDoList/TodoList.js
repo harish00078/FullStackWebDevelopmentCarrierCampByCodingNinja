@@ -1,4 +1,3 @@
-
 // import { useSelector } from "react-redux";
 // import "./TodoList.css";
 
@@ -58,16 +57,7 @@ import "./TodoList.css";
 // Step 3: Use useSelector to access the store (state) provided by the <Provider> component:
 
 // ------------------------------------------
-// 2. How to Use the useSelector Hook
-// ------------------------------------------
-
-// -> The useSelector hook is used to access specific data from the Redux store.
-// -> The function inside useSelector receives the entire Redux state and returns only the required portion.
-
-const todos = useSelector((state) => state.todos);
-
-// ------------------------------------------
-// 3. Explanation:
+// 2. Explanation:How To Use The useSelector-hook
 // ------------------------------------------
 
 // 1. [The useSelector Hook]:
@@ -83,14 +73,23 @@ const todos = useSelector((state) => state.todos);
 // ==========================================
 
 function ToDoList({ todos, onToggle }) {
-  return ( 
+  // ------------------------------------------
+  // 3. Using the useSelector Hook
+  // ------------------------------------------
+
+  // -> The useSelector hook is used to access specific data from the Redux store.
+  // -> The function inside useSelector receives the entire Redux state and returns only the required portion.
+
+  const 
+
+  return (
     <div className="container">
       <ul>
         {todos.map((todo, index) => (
           <li key={todo.id}>
             <span className="content">{todo.text}</span>
-            <span className={todo.completed ? 'completed' : 'pending'}>
-              {todo.completed ? 'Completed' : 'Pending'}
+            <span className={todo.completed ? "completed" : "pending"}>
+              {todo.completed ? "Completed" : "Pending"}
             </span>
             <button className="btn btn-warning" onClick={() => onToggle(index)}>
               Toggle
@@ -109,5 +108,3 @@ export default ToDoList;
 // ==========================================
 // ✅ Use parentheses () when you have a single statement (it returns automatically).
 // ✅ Use curly braces {} when you have multiple lines (you must use return).
-
-
