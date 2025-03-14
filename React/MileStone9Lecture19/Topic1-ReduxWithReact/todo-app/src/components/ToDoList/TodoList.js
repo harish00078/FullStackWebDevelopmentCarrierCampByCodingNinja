@@ -32,15 +32,15 @@ import "./TodoList.css";
 // - We manage and represent application data using Redux and React-Redux libraries.
 
 // 2. Understanding the Redux Store:
-// - The Redux store holds the global state of the application.
+// - The Redux-store holds the global-state of the application.
 // - In simple terms, the store represents the state.
-// - The React-Redux library provides built-in hooks and components to interact with the store efficiently.
+// - The React-Redux library provides built-in hooks and components to interact with the store-efficiently.
 
 // ==========================================
-// 3. Accessing Data with the useSelector Hook
+// 3. Accessing Data with the useSelector-Hook
 // ==========================================
 
-// -> The useSelector hook from React-Redux allows components to access the Redux store efficiently.
+// -> V.IMP: The useSelector-hook from React-Redux library allows components to access the Redux-store efficiently.which has been provided to us by the (provided-component) of the (react-redux) library:
 // -> It eliminates the need to manually import the Redux store into each component.
 // -> Retrieves only a specific section of the state rather than the entire store.
 // -> Ensures automatic updates—whenever the selected state changes, the component re-renders automatically.
