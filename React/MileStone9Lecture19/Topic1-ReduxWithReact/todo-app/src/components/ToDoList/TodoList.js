@@ -52,9 +52,23 @@ import "./TodoList.css";
 // Step 1: Import useSelector from react-redux
 import { useSelector } from "react-redux";
 
-// Step 2: Use useSelector to access the store provided by the <Provider> component.
+// Step 2: Use useSelector to access the store or (state) provided by the <Provider> component:
+
+// ------------------------------------------
+// How we use useSelector Hook
+// ------------------------------------------
+
+// => How we use the (useSelector-hook):To get the specific part of the data from the store or state:
+// -> In simple-words: The function inside useSelector-hook receives or access the entire Redux-state and returns only the required portion.
+// 1. [The useSelector Hook]:
+// - The useSelector hook takes a callback function as an argument.
+// - This callback function receives the Redux store (state) as its parameter or argument.
+
+// 2. Accessing Specific State:
+// - Using the state parameter or argument, we can extract or get a specific section of the Redux store.
+// - This allows components to retrieve only the necessary data based on their requirements:
+
 const
-// - The function inside useSelector receives the entire Redux state and returns only the required portion.
 
 // ==========================================
 // 4. Example: To-Do List Component
