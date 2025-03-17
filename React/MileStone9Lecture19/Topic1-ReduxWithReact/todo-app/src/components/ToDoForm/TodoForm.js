@@ -53,7 +53,9 @@ function ToDoForm() {
     // To do this, we use an action creator function, which helps generate an action object.
     // The action object is then dispatched to the store's reducer function,which helps update the store's state.
 
-    dispatch();
+    // IMP:passing the (todo) to the (addTodo):from the (useState-hook):
+    dispatch(addTodo(todoText));
+
   };
 
   return (
@@ -63,6 +65,7 @@ function ToDoForm() {
           type="text"
           className="form-control mb-3"
           value={todoText}
+          // here we passing the todo-data to our useState-hook:
           onChange={(e) => setTodoText(e.target.value)}
         />
         <button className="btn btn-success float-end" type="submit">
