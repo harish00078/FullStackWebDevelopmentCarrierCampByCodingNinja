@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TodoForm.css";
 
-// Here we are handling data in simple-way:with the help of (prop) method:
+// Here we are handling-data in simple-way:with the help of (prop) method:
 
 // function ToDoForm({ onCreateTodo }) {
 //   const [todoText, setTodoText] = useState("");
@@ -31,7 +31,7 @@ import "./TodoForm.css";
 // export default ToDoForm;
 
 
-// Here we are handling the help of state-management-library:which is the redux-library:
+// Here we are handling-data with the help of state-management-library:which is the redux-library:
 function ToDoForm({ onCreateTodo }) {
   const [todoText, setTodoText] = useState("");
 
