@@ -35,12 +35,17 @@ import "./TodoForm.css";
 
 
 // Here we are handling-data with the help of state-management-library:which is the redux-library:
-function ToDoForm({ onCreateTodo }) {
+function ToDoForm() {
   const [todoText, setTodoText] = useState("");
+  // Here we are using useDispatch-hook:which basically return us the (dispatch-function) of the (store):when we (call) or (use) it:
+  // IMP:through which we are able to dispatch (action) and (payload) to the (store):
+  // V.IMP:so for using that (dispatch) function of store:we can store it into the variable:from where we can easily access it:
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreateTodo(todoText);
+    // onCreateTodo(todoText);
+
     setTodoText("");
   };
 
