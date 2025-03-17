@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./TodoForm.css";
 
-
 // Here we are handling-data in simple-way:with the help of (prop) method:
 
 // function ToDoForm({ onCreateTodo }) {
@@ -17,7 +16,7 @@ import "./TodoForm.css";
 
 //   return (
 //     <div className="container">
-      
+
 //     <form onSubmit={handleSubmit}>
 //       <input
 //         type="text"
@@ -33,7 +32,6 @@ import "./TodoForm.css";
 
 // export default ToDoForm;
 
-
 // Here we are handling-data with the help of state-management-library:which is the redux-library:
 function ToDoForm() {
   const [todoText, setTodoText] = useState("");
@@ -45,22 +43,28 @@ function ToDoForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // onCreateTodo(todoText);
-
     setTodoText("");
+    // Here we are using the dispatch function from the useDispatch hook:
+    // IMPORTANT: We need to dispatch the newly created todo to the Redux store.
+    // To do this, we use an action creator function, which helps generate an action object.
+    // The action object is then dispatched to the store's reducer function,which helps update the store's state.
+
+    dispatch();
   };
 
   return (
     <div className="container">
-      
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="form-control mb-3"
-        value={todoText}
-        onChange={(e) => setTodoText(e.target.value)}
-      />
-      <button className="btn btn-success float-end" type="submit">Create Todo</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="form-control mb-3"
+          value={todoText}
+          onChange={(e) => setTodoText(e.target.value)}
+        />
+        <button className="btn btn-success float-end" type="submit">
+          Create Todo
+        </button>
+      </form>
     </div>
   );
 }
