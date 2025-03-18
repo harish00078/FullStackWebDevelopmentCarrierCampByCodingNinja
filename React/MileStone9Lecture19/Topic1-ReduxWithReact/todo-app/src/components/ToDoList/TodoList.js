@@ -47,9 +47,12 @@
 // ------------------------------------------
 // 1. Usage of useSelector Hook
 // ------------------------------------------
+// Step 1: Import useSelector and useDispatch is from react-redux:
+import { useSelector,useDispatch } from "react-redux";
 
-// Step 1: Import useSelector from react-redux:
-import { useSelector } from "react-redux";
+// Importing the (action-creator-function):through which we are gonna be able to update our state:
+// Here we importing the (toggleTodo) action-creator-function:through which we are gonna be able to update the toggle-button state of our todo on the store:
+import { toggleTodo } from "../../redux/actions/todoActions";
 
 // Step 2: Import the required CSS file
 import "./TodoList.css";
@@ -88,6 +91,10 @@ function ToDoList({ onToggle }) {
   
   // Also, a single-line function does not necessarily mean that the function must be written on a single line in the VS Code file. It refers to a function that consists of a single expression or thing:
   const todos = useSelector((state) => state.todos);
+
+
+  // => Using (useDispatch-hook):which return us the (dispatch) method:with the help 
+
 
   return (
     <div className="container">
