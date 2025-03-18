@@ -113,8 +113,15 @@ function ToDoList({ onToggle }) {
             </span>
             {/* Multiple-ways:To Handle button-click:
             -> 1:simple-way:Is that we can pass the callback function to (onClick) event:handle it through that callback-function:
-            -> 2:other-way:Is that we can create the callback-function with in the (onClick) event:and with in that callback we can handle the our button-click: */}
-            <button className="btn btn-warning" onClick={handleToggle(index)}>
+            -> 2:other-way:Is that we can create the callback-function with in the (onClick) event:and with in that callback we can handle  our button-click: */}
+
+            {/* First-way: */}
+            {/* <button className="btn btn-warning" onClick={handleToggle(index)}>
+              Toggle
+            </button> */}
+            
+            {/* Second-way: */}
+            <button className="btn btn-warning" onClick={()=>{dispatch(toggleTodo(index))}}>
               Toggle
             </button>
           </li>
