@@ -96,17 +96,18 @@ function ToDoList({ onToggle }) {
   // => Using (useDispatch-hook):which return us the (dispatch) method:with the help of that we pass our (action) with (value) to the (reducer) to update our (store-state):
   const dispatch = useDispatch();
 
-  const handleToggle = (index)=>{
+  // const handleToggle = (index)=>{
    
-    dispatch(toggleTodo(index));
-  }
+  //   dispatch(toggleTodo(index));
+  // }
 
 
   return (
     <div className="container">
       <ul>
+        {/* In React: map() method automatically assigns index based on the position of the item in the array */}
         {todos.map((todo, index) => (
-          <li key={todo.id}>
+          <li key={todo.id || index}>
             <span className="content">{todo.text}</span>
             <span className={todo.completed ? "completed" : "pending"}>
               {todo.completed ? "Completed" : "Pending"}
@@ -119,7 +120,7 @@ function ToDoList({ onToggle }) {
             {/* <button className="btn btn-warning" onClick={handleToggle(index)}>
               Toggle
             </button> */}
-            
+
             {/* Second-way: */}
             <button className="btn btn-warning" onClick={()=>{dispatch(toggleTodo(index))}}>
               Toggle
