@@ -93,7 +93,8 @@ function ToDoList({ onToggle }) {
   const todos = useSelector((state) => state.todos);
 
 
-  // => Using (useDispatch-hook):which return us the (dispatch) method:with the help 
+  // => Using (useDispatch-hook):which return us the (dispatch) method:with the help of that we pass our (action) with (value) to the (reducer) to update our (store-state):
+  
 
 
   return (
