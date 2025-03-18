@@ -96,8 +96,8 @@ function ToDoList({ onToggle }) {
   // => Using (useDispatch-hook):which return us the (dispatch) method:with the help of that we pass our (action) with (value) to the (reducer) to update our (store-state):
   const dispatch = useDispatch();
 
-  const handleToggle = (e)=>{
-    const index = e.target.value;
+  const handleToggle = (index)=>{
+   
     dispatch(toggleTodo(index));
   }
 
@@ -111,7 +111,10 @@ function ToDoList({ onToggle }) {
             <span className={todo.completed ? "completed" : "pending"}>
               {todo.completed ? "Completed" : "Pending"}
             </span>
-            <button className="btn btn-warning" onClick={handleToggle()}>
+            {/* Multiple-ways:To Handle button-click:
+            -> 1:simple-way:Is that we can pass the callback function to (onClick) event:handle it through that callback-function:
+            -> 2:other-way:Is that we can create the callback-function with in the (onClick) event:and with in that callback we can handle the our button-click: */}
+            <button className="btn btn-warning" onClick={handleToggle(index)}>
               Toggle
             </button>
           </li>
