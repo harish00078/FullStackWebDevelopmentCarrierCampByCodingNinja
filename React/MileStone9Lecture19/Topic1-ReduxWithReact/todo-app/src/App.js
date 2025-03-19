@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 // Importing the (provider):
 import { Provider } from "react-redux";
 import TodoForm from "./components/ToDoForm/TodoForm";
@@ -39,9 +39,31 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="" element={<Home />}></Route>
+            <Route path="todo">
+              element={
+                <Fragment>
+                  <NavBar />
+                  <h1>ToDos</h1>
+                  <TodoForm/>
+                  <TodoList/>
+                </Fragment>
+              }
+            </Route>
+            <Route path="notes">
+              element={
+                <Fragment>
+                  <NavBar />
+                  <h1>Notes</h1>
+                  <NoteForm/>
+                  <NoteList/>
+                </Fragment>
+              }
+            </Route>
+
+
           </Routes>
-          <TodoForm onCreateTodo={createTodo} />
-          <TodoList todos={todos} onToggle={toggleTodo} />
+          {/* <TodoForm onCreateTodo={createTodo} />
+          <TodoList todos={todos} onToggle={toggleTodo} /> */}
         </BrowserRouter>
       </Provider>
     </div>
