@@ -38,29 +38,32 @@ function App() {
         {/* Using the (BrowserRouter) component of (react-router) for creating the routing in our application: */}
         <BrowserRouter>
           <Routes>
+            {/* Understanding <Fragment>:
+            => 1: <Fragment> is a React component that allows you to group multiple elements without adding an unnecessary wrapper element (like <div>).
+            => 2: This is useful when returning multiple components inside a single element prop of <Route>. */}
             <Route path="" element={<Home />}></Route>
             <Route path="todo">
-              element={
+              element=
+              {
                 <Fragment>
                   <NavBar />
                   <h1>ToDos</h1>
-                  <TodoForm/>
-                  <TodoList/>
+                  <TodoForm />
+                  <TodoList />
                 </Fragment>
               }
             </Route>
             <Route path="notes">
-              element={
+              element=
+              {
                 <Fragment>
                   <NavBar />
                   <h1>Notes</h1>
-                  <NoteForm/>
-                  <NoteList/>
+                  <NoteForm />
+                  <NoteList />
                 </Fragment>
               }
             </Route>
-
-
           </Routes>
           {/* <TodoForm onCreateTodo={createTodo} />
           <TodoList todos={todos} onToggle={toggleTodo} /> */}
