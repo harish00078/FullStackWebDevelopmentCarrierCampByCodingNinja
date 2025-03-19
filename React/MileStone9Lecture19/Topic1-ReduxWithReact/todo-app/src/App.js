@@ -5,6 +5,10 @@ import TodoForm from "./components/ToDoForm/TodoForm";
 import TodoList from "./components/ToDoList/TodoList";
 // Importing the (store):
 import {store} from './redux/store';
+// Import (routing-components) from (React-router-dom) library for creating routing in our application:
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+
+
 import "./App.css";
 
 function App() {
@@ -33,8 +37,11 @@ function App() {
       => we gonna be pass the store to the components:with the help of react-redux libraries (Provider-component):
       ->IMP:And component basically takes (store) as (prop):through which we are able to pass our redux-store to the component:*/}
       <Provider store={store}>
+        {/* Using the (BrowserRouter) component of (react-router) for creating the routing in our application: */}
+        <BrowserRouter>
         <TodoForm onCreateTodo={createTodo} />
         <TodoList todos={todos} onToggle={toggleTodo} />
+        </BrowserRouter>
       </Provider>
     </div>
   );
