@@ -14,6 +14,7 @@ import TodoForm from "./components/ToDoForm/TodoForm";
 import TodoList from "./components/ToDoList/TodoList";
 import Home from "./components/Home/Home";
 import NavBar from './components/NavBar/NavBar';
+import NoteForm from "./components/NoteForm/NoteForm";
 
 // => Style:
 import "./App.css";
