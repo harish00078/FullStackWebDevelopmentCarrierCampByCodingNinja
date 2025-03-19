@@ -1,7 +1,7 @@
 // => Libraries:
 import { Fragment, useState } from "react";
 // Import (routing-components) from (React-router-dom) library for creating routing in our application:
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter , Switch, Route } from "react-router-dom";
 
 // => Redux:
 // Importing the (provider):
@@ -15,6 +15,7 @@ import TodoList from "./components/ToDoList/TodoList";
 import Home from "./components/Home/Home";
 import NavBar from './components/NavBar/NavBar';
 import NoteForm from "./components/NoteForm/NoteForm";
+import NoteList from "./components/NoteList/NoteList";
 
 // => Style:
 import "./App.css";
@@ -46,16 +47,17 @@ function App() {
       <Provider store={store}>
         {/* Using the (BrowserRouter) component of (react-router) for creating the routing in our application: */}
         <BrowserRouter>
-          <Routes>
+          <Switch>
             {/* Understanding <Fragment>:
             => 1: <Fragment> is a React component that allows you to group multiple elements without adding an unnecessary wrapper element (like <div>).
             => 2: This is useful when returning multiple components inside a single element prop of <Route>. */}
             <Route path="" element={<Home />}></Route>
+           
             <Route path="todo">
               element=
               {
                 <Fragment>
-                  <NavBar />
+                  <NavBar/>
                   <h1>ToDos</h1>
                   <TodoForm />
                   <TodoList />
@@ -66,14 +68,14 @@ function App() {
               element=
               {
                 <Fragment>
-                  <NavBar />
+                  <NavBar/>
                   <h1>Notes</h1>
                   <NoteForm />
                   <NoteList />
                 </Fragment>
               }
             </Route>
-          </Routes>
+          </Switch>
           {/* <TodoForm onCreateTodo={createTodo} />
           <TodoList todos={todos} onToggle={toggleTodo} /> */}
         </BrowserRouter>
