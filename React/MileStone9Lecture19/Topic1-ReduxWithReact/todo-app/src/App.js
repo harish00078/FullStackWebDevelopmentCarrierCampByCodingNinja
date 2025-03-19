@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-      <h1>To Do App</h1>
+     
       {/* IMP-NOTE:we have two ways of creating and using (redux-store):
       // V.IMP:The Provider component takes a (store-prop), which is the Redux store that you want to provide to your application:
       // V.IMP: the use of multiple stores is not recommended:
