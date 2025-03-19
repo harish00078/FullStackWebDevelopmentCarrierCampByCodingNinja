@@ -1,13 +1,20 @@
+// => Libraries:
 import { Fragment, useState } from "react";
-// Importing the (provider):
-import { Provider } from "react-redux";
-import TodoForm from "./components/ToDoForm/TodoForm";
-import TodoList from "./components/ToDoList/TodoList";
-// Importing the (store):
-import { store } from "./redux/store";
 // Import (routing-components) from (React-router-dom) library for creating routing in our application:
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// => Redux:
+// Importing the (provider):
+import { Provider } from "react-redux";
+// Importing the (store):
+import { store } from "./redux/store";
+
+// => Components:
+import TodoForm from "./components/ToDoForm/TodoForm";
+import TodoList from "./components/ToDoList/TodoList";
+import Home from "./components/Home/Home";
+
+// => Style:
 import "./App.css";
 
 function App() {
