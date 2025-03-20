@@ -43,6 +43,7 @@ export function noteReducer(state = initialState, action) {
     //   state.notes.splice(action.index, 1);
     //   return{
     //     ...state,
+    //   -> And here we are passing the updated notes array of the state:To the new-state:
     //     notes:state.notes
     //   }
     default:
