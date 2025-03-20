@@ -25,6 +25,7 @@ export function noteReducer(state = initialState, action) {
         ],
       };
       case DELETE_NOTE:
+        
         return{
             ...state,
            // Important: The filter method creates a new array containing only the elements that pass a specific condition (or check) related to a particular note, as defined by the function
