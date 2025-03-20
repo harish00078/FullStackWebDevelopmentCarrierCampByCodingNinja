@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export function noteReducer(state = initialState, action) {
-  // -> Using the Switch-case statement:
+  // -> Using the Switch-case statement:To check types of actions and return updated state accordingly:
   switch (action.type) {
     case ADD_NOTE:
       return {
