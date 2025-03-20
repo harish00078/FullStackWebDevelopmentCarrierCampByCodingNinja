@@ -1,4 +1,4 @@
-// Defining Action For Notes:
+// Defining Action For Notes-Section:
 const ADD_NOTE='Add Note';
 const DELETE_NOTE='Delete Note';
 
