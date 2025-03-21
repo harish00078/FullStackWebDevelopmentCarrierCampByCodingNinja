@@ -25,7 +25,7 @@ import { noteReducer } from "./reducers/noteReducers";
 // -> IMP: Values are the respective reducers that manage those parts of the state.
 
 // IMP: After combining multiple reducers using combineReducers, we need to store the resulting root or head reducer in a variable. This allows us to pass it to the createStore method when creating the Redux store.
-const rootReducer = combineReducers({
+const headReducer = combineReducers({
     todos: todoReducer,
     notes: noteReducer,
 })
@@ -35,5 +35,5 @@ const rootReducer = combineReducers({
 
 // third: here we create the store:
 // and we also have to export the store:so that we can interact or use it with in our application:
-export const store = redux.createStore(rootReducer);
+export const store = redux.createStore(headReducer);
 
