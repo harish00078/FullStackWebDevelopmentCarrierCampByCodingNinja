@@ -33,12 +33,16 @@ import { noteReducer } from "./reducers/noteReducers";
 // })
 
 // IMP: After combining multiple reducers using combineReducers, we need to store the resulting root or head reducer in a variable. This allows us to pass it to the createStore method when creating the Redux store.
-
+// -> Appropriate-Way of Naming the Combined-Reducer:
 const headReducer = combineReducers({
     todoReducer: todoReducer,
     noteReducer: noteReducer,
 });
-
+// -> we can also write them down in this way:
+// const headReducer = combineReducers({
+//      todoReducer,
+//      noteReducer,
+// });
 
 
 // third: here we create the store:
