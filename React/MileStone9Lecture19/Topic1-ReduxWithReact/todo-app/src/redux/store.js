@@ -11,7 +11,6 @@ import { todoReducer } from "./reducers/todoReducers";
 // => NoteReducer:
 import { noteReducer } from "./reducers/noteReducers";
 
-
 // => Handling Multiple Reducers in Redux
 // To manage multiple reducers efficiently, we use the combineReducers method provided by the Redux library.
 
@@ -27,19 +26,21 @@ import { noteReducer } from "./reducers/noteReducers";
 // V.IMP NOTE: When using combineReducers, we should name the keys in the object according to the state sections they represent. This ensures a clear structure and better understanding of the state.
 // -> We will use the same names for the keys as we have given to the reducers.
 // -> IMP: If we name the keys based on how the state is accessed in components, it may lead to confusion.like if we use the (todos) name for the (key) in the (combineReducers) method:then we have to use the same name in the (useSelector) hook to access the state in the components:
-
-
+// For-example:
+// const headReducer = combineReducers({
+//     todos: todoReducer,
+//     notes: noteReducer,
+// })
 
 // IMP: After combining multiple reducers using combineReducers, we need to store the resulting root or head reducer in a variable. This allows us to pass it to the createStore method when creating the Redux store.
-const headReducer = combineReducers({
-    todos: todoReducer,
-    notes: noteReducer,
-})
 
+const headReducer = combineReducers({
+    todoReducer: todoReducer,
+    noteReducer: noteReducer,
+});
 
 
 
 // third: here we create the store:
 // and we also have to export the store:so that we can interact or use it with in our application:
 export const store = redux.createStore(headReducer);
-
