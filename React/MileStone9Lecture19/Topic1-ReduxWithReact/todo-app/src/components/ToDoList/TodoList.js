@@ -75,7 +75,7 @@ import "./TodoList.css";
 // 4. Example: To-Do List Component
 // ==========================================
 
-function ToDoList({ onToggle }) {
+function ToDoList() {
   // ------------------------------------------
   // 3. Using the useSelector Hook
   // ------------------------------------------
