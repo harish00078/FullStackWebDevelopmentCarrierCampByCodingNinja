@@ -24,6 +24,11 @@ import { noteReducer } from "./reducers/noteReducers";
 // -> IMP: Keys represent different sections or parts of the state.
 // -> IMP: Values are the respective reducers that manage those parts of the state.
 
+// V.IMP NOTE: When using combineReducers, we should name the keys in the object according to the state sections they represent. This ensures a clear structure and better understanding of the state.
+// -> We will use the same names for the keys as we have given to the reducers.
+// -> IMP: If we name the keys based on how the state is accessed in components, it may lead to confusion.like if we use the (todos) name for the (key) in the (combineReducers) method:then we have to use the same name in the (useSelector) hook to access the state in the components:
+
+
 
 // IMP: After combining multiple reducers using combineReducers, we need to store the resulting root or head reducer in a variable. This allows us to pass it to the createStore method when creating the Redux store.
 const headReducer = combineReducers({
