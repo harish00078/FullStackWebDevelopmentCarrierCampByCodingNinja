@@ -48,7 +48,7 @@
 // 1. Usage of useSelector Hook
 // ------------------------------------------
 // Step 1: Import useSelector and useDispatch is from react-redux:
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // Importing the (action-creator-function):through which we are gonna be able to update our state:
 // Here we importing the (toggleTodo) action-creator-function:through which we are gonna be able to update the toggle-button state of our todo on the store:
@@ -88,25 +88,28 @@ function ToDoList() {
 
   // V.IMP-NOTE:
   // We have learned that if a function consists of a single expression, we do not need to use curly brackets {} or the return statement. Instead, we can use parentheses () to return the value implicitly.
-  
+
   // Also, a single-line function does not necessarily mean that the function must be written on a single line in the VS Code file. It refers to a function that consists of a single expression or thing:
-  const todos = useSelector((state) => state.todos);
+  const todoReducer = useSelector((state) => state.todoReducer);
+
+  
+  // IMP NOTE: Instead of selecting the entire todoReducer from the store state (which is provided by the wrapper component), we can directly select the todos from todoReducer within the callback function of the useSelector hook.
+  // const todos = useSelector((state) => state.todoReducer.todos);
 
 
   // => Using (useDispatch-hook):which return us the (dispatch) method:with the help of that we pass our (action) with (value) to the (reducer) to update our (store-state):
   const dispatch = useDispatch();
 
   // const handleToggle = (index)=>{
-   
+
   //   dispatch(toggleTodo(index));
   // }
-
 
   return (
     <div className="container">
       <ul>
         {/* In React: map() method automatically assigns index based on the position of the item in the array */}
-        {todos.map((todo, index) => (
+        {todoReducer.todos.map((todo, index) => (
           <li key={todo.id || index}>
             <span className="content">{todo.text}</span>
             <span className={todo.completed ? "completed" : "pending"}>
@@ -122,7 +125,12 @@ function ToDoList() {
             </button> */}
 
             {/* Second-way: */}
-            <button className="btn btn-warning" onClick={()=>{dispatch(toggleTodo(index))}}>
+            <button
+              className="btn btn-warning"
+              onClick={() => {
+                dispatch(toggleTodo(index));
+              }}
+            >
               Toggle
             </button>
           </li>
