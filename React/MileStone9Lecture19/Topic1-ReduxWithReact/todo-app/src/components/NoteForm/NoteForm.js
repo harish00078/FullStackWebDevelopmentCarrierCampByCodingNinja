@@ -10,8 +10,13 @@ import { addNote } from "../../redux/actions/noteActions";
 
 
 
-function NoteForm({ onCreateNote }) {
-  const [NoteText, setNoteText] = useState("");
+// function NoteForm({ onCreateNote }) {
+
+// IMP:Here we are not gonna be using the (onCreateNote) prop:Because we are gonna be using the (useDispatch-hook) to dispatch the actions to the store:
+
+function NoteForm() {
+
+  const [noteText, setNoteText] = useState("");
   // Here we are calling the (useDispatch-hook):It basically return us the (dispatch-function) of the (store):through which we are able to dispatch the actions to the store:
   // => Here we are storing that (dispatch-function) into the variable:from where we can easily access it:
   const dispatch = useDispatch();
@@ -19,7 +24,7 @@ function NoteForm({ onCreateNote }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // onCreateNote(NoteText);
-    dispatch(addNote(NoteText));
+    dispatch(addNote(noteText));
     setNoteText("");
   };
 
@@ -29,7 +34,7 @@ function NoteForm({ onCreateNote }) {
         <textarea
           type="text"
           className="form-control mb-3"
-          value={NoteText}
+          value={noteText}
           onChange={(e) => setNoteText(e.target.value)}
         />
         <button className="btn btn-success float-end" type="submit">
