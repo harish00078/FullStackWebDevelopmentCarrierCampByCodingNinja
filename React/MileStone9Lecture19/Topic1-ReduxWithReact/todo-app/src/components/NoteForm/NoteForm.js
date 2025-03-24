@@ -12,10 +12,14 @@ import { addNote } from "../../redux/actions/noteActions";
 
 function NoteForm({ onCreateNote }) {
   const [NoteText, setNoteText] = useState("");
+  // Here we are calling the (useDispatch-hook):It basically return us the (dispatch-function) of the (store):through which we are able to dispatch the actions to the store:
+  // => Here we are storing that (dispatch-function) into the variable:from where we can easily access it:
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreateNote(NoteText);
+    // onCreateNote(NoteText);
+    dispatch(addNote(NoteText));
     setNoteText("");
   };
 
