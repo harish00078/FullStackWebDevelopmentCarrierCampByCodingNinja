@@ -1,6 +1,15 @@
 import { useState } from "react";
 import "./NoteForm.css";
 
+// IMP:Here we are Importing the (useDispatch-hook) from the react-redux:Because we are gonna be able to dispatch or pass the actions to the store through this hook:
+import { useDispatch } from "react-redux";
+
+// Importing the (Action-Creator-Function):through which we are gonna be able to create or dispatch the actions to the store:For updating the state:
+// => NoteActions:Here we are only importing the (addNote) action-creator-function:Because through this component we are only gonna be able to add or create the notes:
+import { addNote } from "../../redux/actions/noteActions";
+
+
+
 function NoteForm({ onCreateNote }) {
   const [NoteText, setNoteText] = useState("");
 
