@@ -25,11 +25,12 @@ export function noteReducer(state = initialState, action) {
         ],
       };
     case DELETE_NOTE:
-      return {
-        ...state,
-        // Important: The filter method creates a new array containing only the elements that pass a specific condition (or check) related to a particular note, as defined by the function
-        notes: state.notes.filter((note, index) => index !== action.index),
-      };
+      // return {
+      //   ...state,
+      //   Important: The filter method creates a new array containing only the elements that pass a specific condition (or check) related to a particular note, as defined by the function:
+      //   notes: state.notes.filter((note, index) => index !== action.index),
+      // };
+
     // Another way of Implementing the delete-note:
     // case DELETE_NOTE:
     //   here we are basically filtering the notes array and returning the notes array without the note that we want to delete:
@@ -40,12 +41,12 @@ export function noteReducer(state = initialState, action) {
     //   -> 2: the number of elements to remove:
     //   -> 3: the elements to add to the array, beginning at the start index:
     //   -> here we are using the splice method to remove the note that we want to delete:
-    //   state.notes.splice(action.index, 1);
-    //   return{
-    //     ...state,
-    //   -> And here we are passing the updated notes array of the state:To the new-state:
-    //     notes:state.notes
-    //   }
+      state.notes.splice(action.index, 1);
+      return{
+        ...state,
+      // -> And here we are passing the updated notes array of the state:To the new-state:
+        notes:[...state.notes]
+      }
     default:
       return state;
   }
