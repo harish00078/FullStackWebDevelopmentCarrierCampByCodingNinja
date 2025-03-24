@@ -1,11 +1,17 @@
 import "./NoteList.css";
+// Importing the (useSelector) hook:from the react-redux library:
+import { useSelector } from "react-redux";
 
 function NoteList() {
-    const notes = [
-        {text: "Finish React project",createdOn: new Date() },
-        {  text: "Review Redux concepts" ,createdOn: new Date()},
-        {  text: "Prepare for coding interview",createdOn: new Date() }
-    ];
+    // const notes = [
+    //     {text: "Finish React project",createdOn: new Date() },
+    //     {  text: "Review Redux concepts" ,createdOn: new Date()},
+    //     {  text: "Prepare for coding interview",createdOn: new Date() }
+    // ];
+
+    // 2. [Accessing the State]:Using the useSelector Hook
+    // -> The useSelector hook allows components to access the Redux store or state.
+    // -> It takes a function as an argument that returns the state value from the store.
 
     return (
         <div className="container">
