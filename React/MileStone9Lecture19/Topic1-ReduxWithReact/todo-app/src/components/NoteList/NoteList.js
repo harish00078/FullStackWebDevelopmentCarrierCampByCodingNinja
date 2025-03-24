@@ -12,6 +12,8 @@ function NoteList() {
     // 2. [Accessing the State]:Using the useSelector Hook
     // -> The useSelector hook allows components to access the Redux store or state.
     // -> It takes a function as an argument that returns the state value from the store.
+    // -> The function receives the entire Redux state as a parameter.
+    // -> The state parameter can be destructured to access specific sections or part of the state.
 
     return (
         <div className="container">
