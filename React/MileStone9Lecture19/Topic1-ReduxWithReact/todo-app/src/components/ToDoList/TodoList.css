@@ -1,44 +1,44 @@
-/* Main container */
+/* To-Do List Styles */
 .container {
   background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* List styling */
+.container:hover {
+  transform: scale(1.02);
+}
+
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 li {
-  background: #fff;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  background: #f8f9fa;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Last item border removal */
-li:last-child {
-  border-bottom: none;
+li:hover {
+  transform: scale(1.03);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Todo content */
 .content {
-  flex: 1;
-  text-align: left;
-  padding-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
-/* Status indicators */
 .completed {
   color: green;
   font-weight: bold;
@@ -49,22 +49,18 @@ li:last-child {
   font-weight: bold;
 }
 
-/* Toggle button */
-.btn {
-  padding: 6px 10px;
+button {
+  background: linear-gradient(45deg, #ffc107, #ff9800);
+  color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Warning button (Toggle) */
-.btn-warning {
-  background: #ffc107;
-  color: #333;
-}
-
-.btn-warning:hover {
-  background: #e0a800;
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(255, 152, 0, 0.3);
 }
