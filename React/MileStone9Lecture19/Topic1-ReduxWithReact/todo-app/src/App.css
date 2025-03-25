@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  background: linear-gradient(135deg, #7acaba, #c3cfe2);
   margin: 0;
   padding: 0;
   display: flex;
@@ -28,7 +28,7 @@ body {
 
 /* Buttons */
 button {
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  background: linear-gradient(45deg, #7398d7, #6ca5eb);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -40,7 +40,7 @@ button {
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0px 10px 20px rgba(255, 75, 43, 0.3);
+  box-shadow: 0px 10px 20px rgba(43, 255, 234, 0.3);
 }
 
 /* To-Do & Notes Section */
