@@ -1,4 +1,4 @@
-// IMP:while we are migrating the reducers and actions:
+// IMP:while we are migrating the reducers and actions:from redux to redux-toolkit:
 // -> we did not have to import the (actions) from the actions-file into the reducer-file:
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
@@ -14,7 +14,7 @@ const initialState = {
 
 
 
-// IMP:we also have to remove the (reducer):while we are migrating the reducers and actions:
+// IMP:we also have to remove the (reducer):while we are migrating the reducers and actions:from redux to redux-toolkit:
 // export function todoReducer(state = initialState, action) {
 //   switch (action.type) {
 //     case ADD_TODO:
