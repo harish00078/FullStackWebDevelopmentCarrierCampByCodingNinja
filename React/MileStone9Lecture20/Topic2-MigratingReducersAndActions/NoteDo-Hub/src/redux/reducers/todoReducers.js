@@ -16,10 +16,10 @@ const initialState = {
   ],
 };
 
-// IMP:Creating Reducer Using Redux-Toolkit:
-// -> For Creating the (reducer) using redux-toolkit:we have to use the (createSlice) function of redux-toolkit:
-// -> The createSlice function in Redux Toolkit defines a specific section of the application's state, similar to how we defined state in regular Redux reducers:but it does that in more efficient or simpler way:
-// -> IMP: It does that by simply combining both reducers and actions into a single configuration for a particular feature or section and slice or part of the application or application-state:
+// IMP:Creating Reducer and Actions Using Redux-Toolkit:
+// -> For Creating the (reducer) and actions using redux-toolkit:we have to use the (createSlice) function of redux-toolkit:
+// -> The createSlice function in Redux Toolkit defines a application's state for the specific-section of the application, similar to how we defined state in regular Redux-reducers:but it does that in more efficient or simpler way:
+// -> IMP: It does that by simply combining both reducers and actions into a single-configuration for a particular section or part of the application or application-state:
 
 // => How We Gonna Do That:
 // -> First-Step:
@@ -31,10 +31,8 @@ const initialState = {
 
 // How we configure the (createSlice) function:
 // -> First-Step:It takes the (object) as an argument:
-// -> Second-Step:Know with in that object:we basically configure the reducer:
-// -> 1-name:It is the name of the slice as property:
-// -> 2-initialState:It is the initial state of the slice:
-// -> 3-reducers:It is the reducers of the slice:
+// -> Second-Step:Know with in that object:we basically configure the reducer and actions:
+
 
 
 const todoSlice = createSlice({
