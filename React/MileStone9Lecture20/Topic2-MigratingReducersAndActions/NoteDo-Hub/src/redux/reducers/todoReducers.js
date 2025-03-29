@@ -14,6 +14,9 @@ const initialState = {
 };
 
 // IMP:Creating Reducer Using Redux-Toolkit:
+// -> For Creating the (reducer) using redux-toolkit:we have to use the (createSlice) function of redux-toolkit:
+
+
 
 
 
