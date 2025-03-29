@@ -27,7 +27,7 @@ const initialState = {
 
 // -> Second-Step:
 // -> we have to call or invoke the (createSlice) function:and store the result in a constant or variable:so that we can use it in our application by exporting it:
-// IMP: we gonna name it as per our application feature or section and slice or part of the application:for which we are creating the reducer:we also gonna use the (Slice) word in the name of the reducer:
+// IMP: we gonna name it as per our application feature or section and slice or part of the application:for which we are creating the reducer:we also gonna use the (Slice) word in the name of the reducer in the end:
 
 const todoSlice = createSlice();
 
