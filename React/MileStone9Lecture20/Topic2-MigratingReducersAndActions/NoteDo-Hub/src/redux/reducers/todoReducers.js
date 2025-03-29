@@ -4,7 +4,7 @@
 // -> we did not have to import the (actions) from the actions-file into the reducer-file:
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
-import { createSlice } from "@reduxjs/toolkit";
+
 
 const initialState = {
   todos: [
