@@ -9,7 +9,12 @@ const initialState = {
     { text: "Lunch at 2", completed: false },
   ],
 };
+// IMP:Creating Reducer Using Redux-Toolkit:
 
+
+
+
+// IMP:we also have to remove the (reducer):while we are migrating the reducers and actions:
 // export function todoReducer(state = initialState, action) {
 //   switch (action.type) {
 //     case ADD_TODO:
