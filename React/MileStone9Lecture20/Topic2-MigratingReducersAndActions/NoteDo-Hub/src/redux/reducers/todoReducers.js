@@ -10,35 +10,35 @@ const initialState = {
   ],
 };
 
-export function todoReducer(state = initialState, action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return {
-        ...state,
+// export function todoReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case ADD_TODO:
+//       return {
+//         ...state,
 
-        todos: [
-          ...state.todos,
+//         todos: [
+//           ...state.todos,
 
-          {
-            text: action.text,
-            completed: false,
-          },
-        ],
-      };
-    case TOGGLE_TODO:
-      return {
-        ...state,
+//           {
+//             text: action.text,
+//             completed: false,
+//           },
+//         ],
+//       };
+//     case TOGGLE_TODO:
+//       return {
+//         ...state,
 
-        todos: state.todos.map((todo, index) => {
-          if (index === action.index) {
-            todo.completed = !todo.completed;
-          }
+//         todos: state.todos.map((todo, index) => {
+//           if (index === action.index) {
+//             todo.completed = !todo.completed;
+//           }
 
-          return todo;
-        }),
-      };
+//           return todo;
+//         }),
+//       };
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
