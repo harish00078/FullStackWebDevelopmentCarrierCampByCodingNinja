@@ -31,7 +31,7 @@ const initialState = {
 
 // How we configure the (createSlice) function:
 // -> First-Step:It takes the (object) as an argument:
-// -> Second-Step:Know with in that object:we basically configure the reducer and actions:
+// -> Second-Step:Know with in that object:we basically configure our reducer and actions:
 
 
 
