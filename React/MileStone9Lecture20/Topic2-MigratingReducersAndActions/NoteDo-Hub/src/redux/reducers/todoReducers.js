@@ -19,6 +19,7 @@ const initialState = {
 // IMP:Creating Reducer and Actions Using Redux-Toolkit:
 // -> For Creating the (reducer) and actions using redux-toolkit:we have to use the (createSlice) function of redux-toolkit:
 // -> The createSlice function in Redux Toolkit defines a application's state for the specific-section of the application, similar to how we defined state in regular Redux-reducers:but it does that in more efficient or simpler way:
+// V.IMP:createSlice helps us to do (State-management) for a specific section of our application within a single-file by combining state, actions, and reducers in one place.through more appropriate and efficient way:
 // -> IMP: It does that by simply combining both reducers and actions into a single-configuration for a particular section or part of the application or application-state:
 
 // => How We Gonna Do That:
@@ -26,7 +27,7 @@ const initialState = {
 // -> We have to import the (createSlice) function from the redux-toolkit:
 
 // -> Second-Step:
-// -> we have to call or invoke the (createSlice) function:and store the result in a constant or variable:so that we can use it in our application by exporting it:
+// -> we have to call or invoke the (createSlice) function:and store its result in a constant or variable:so that we can use it in our application by exporting it:because with in it we are gonna create the reducer and actions:
 // V.IMP: we gonna name it as per our application section or part for which we are creating the reducer and actions:we also gonna use the (Slice) word in the name of the reducer in the end:
 
 // How we configure the (createSlice) function:
