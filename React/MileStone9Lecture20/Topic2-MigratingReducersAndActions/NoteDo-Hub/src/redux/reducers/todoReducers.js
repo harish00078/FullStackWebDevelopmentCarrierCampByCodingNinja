@@ -5,6 +5,9 @@
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 
+// IMP: we have to import the (createSlice) function from the redux-toolkit:
+import{createSlice} from '@reduxjs/toolkit';
+
 
 const initialState = {
   todos: [
@@ -24,11 +27,9 @@ const initialState = {
 
 // -> Second-Step:
 // -> we have to call or invoke the (createSlice) function:and store the result in a constant or variable:so that we can use it in our application by exporting it:
-// IMP: we gonna name it as per our application feature or section and slice or part of the application:for which we are creating the reducer:
+// IMP: we gonna name it as per our application feature or section and slice or part of the application:for which we are creating the reducer:we also gonna use the (Slice) word in the name of the reducer:
 
-
-
-
+const todoSlice = createSlice();
 
 
 
