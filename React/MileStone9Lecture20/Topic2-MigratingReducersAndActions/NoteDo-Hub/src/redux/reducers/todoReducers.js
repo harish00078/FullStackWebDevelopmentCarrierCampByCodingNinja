@@ -15,7 +15,14 @@ const initialState = {
 
 // IMP:Creating Reducer Using Redux-Toolkit:
 // -> For Creating the (reducer) using redux-toolkit:we have to use the (createSlice) function of redux-toolkit:
-// The createSlice function in Redux Toolkit defines a specific section of the application's state. It simplifies state management by combining reducers and actions for a particular feature or slice of the application:
+// The createSlice-function in Redux Toolkit defines a specific section of the application's state. It simplifies state management by combining reducers and actions for a particular feature or section and slice or part of the application:
+
+
+
+
+
+
+
 
 
 
