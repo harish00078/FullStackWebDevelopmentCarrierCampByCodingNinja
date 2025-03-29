@@ -1,5 +1,5 @@
 // IMP:while we are migrating the reducers and actions:
-// -> we did not have to import the (actions) from the actions file into the reducer-file:
+// -> we did not have to import the (actions) from the actions-file into the reducer-file:
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 
