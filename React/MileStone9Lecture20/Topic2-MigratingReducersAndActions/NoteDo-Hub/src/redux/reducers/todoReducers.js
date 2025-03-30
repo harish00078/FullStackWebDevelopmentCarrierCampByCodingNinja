@@ -28,7 +28,7 @@ const initialState = {
 
 // -> Second-Step:
 // -> we have to call or invoke the (createSlice) function:and store its result in a constant or variable:so that we can use it in our application by exporting it:because with in it we are gonna create the reducer and actions:
-// V.IMP: we gonna name it as per our application section or part for which we are creating the reducer and actions:we also gonna use the (Slice) word in the name of the reducer in the end:
+// V.IMP: we gonna name the variable  as per our application section or part for which we are creating the reducer and actions:we also gonna use the (Slice) word in the name at the end:
 
 // How we configure the (createSlice) function:
 // -> First-Step:It takes the (object) as an argument:
