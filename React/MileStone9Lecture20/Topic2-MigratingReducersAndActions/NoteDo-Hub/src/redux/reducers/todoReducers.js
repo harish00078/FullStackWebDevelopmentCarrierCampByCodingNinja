@@ -46,14 +46,19 @@ const todoSlice = createSlice({
   // IMP: The [third property] of the object is the `reducers`:
   // -> The `reducers` property is used to define the reducer functions that update the state of a slice (a section of the application).
 
-  // V.IMP: Before defining reducers, we need to create the `reducers` object within which we basically define the reducer functions.
+  // V.IMP: Before defining reducers, we need to create the `reducers` object with in which we basically gonna define the reducer-functions.
 
   reducers: {
-    // [V.IMP]: The keys of the `reducers` object (inside `createSlice`) represent action names.
-    // -> Redux Toolkit automatically creates action types and action creator functions based on these keys.
+    // IMP-NOTE:we create the reducer-functions as key-value pairs:because we are creating them inside the reducers-object:
+    // [V.IMP]: The keys of the `reducers` object (inside `createSlice`) represent [action-names] which gonna be get combined with the (name) property of the createSlice-function (object) as a (suffix) to form the (action-types):
+    // V.IMP-NOTE:So we gonna name our reducer-functions (key) as per our (action-names):same way we did in the (redux):
+    // -> Redux Toolkit automatically creates action-types and action creator functions based on these keys.
     // -> The values are the actual reducer functions that define how the state should update.
+
     // IMP: The [first reducer function]:
-    // -> This reducer function is used to add a new todo item to the list.
+    // -> This reducer function is used to add a new todo item to the list:
+
+
   },
 });
 
