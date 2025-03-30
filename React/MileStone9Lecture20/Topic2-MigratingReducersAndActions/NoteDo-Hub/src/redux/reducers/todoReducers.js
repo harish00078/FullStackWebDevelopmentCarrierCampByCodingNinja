@@ -46,8 +46,7 @@ const todoSlice = createSlice({
   // IMP: The [third property] of the object is the `reducers`:
   // -> The `reducers` property is used to define the reducer functions that update the state of a slice (a section of the application).
 
-  // V.IMP: Before defining reducers, we need to create the `reducers` object,
-  // within which we define reducer functions.
+  // V.IMP: Before defining reducers, we need to create the `reducers` object within which we basically define the reducer functions.
 
   reducers: {
     // [V.IMP]: The keys of the `reducers` object (inside `createSlice`) represent action names.
