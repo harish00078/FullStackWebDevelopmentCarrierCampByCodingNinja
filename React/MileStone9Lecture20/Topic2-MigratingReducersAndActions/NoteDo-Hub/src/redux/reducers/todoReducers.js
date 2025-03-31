@@ -49,10 +49,12 @@ const todoSlice = createSlice({
   // V.IMP: reducers or reducers-property is an object:with in which we gonna define the reducer-functions:
 
   reducers: {
-    
+
     // IMP-NOTE:we create the reducer-functions as key-value pairs:because we are creating them inside the reducers-object:
-    // [V.IMP]: The keys of the `reducers` object represent [action-names]:like which action we are performing through this reducer-function:
+    // [V.IMP]: The keys in the reducers object represent action-names (like 'add', 'toggle', etc).
+    // Each key connects to a (reducer-function) as their (value):and that (reducer-function) basically handles and performs that specific-action:on the (state) of the application to update the (state):
     // [V.IMP]: which gonna be get combined with the (name) property of the createSlice-function (object) as a (suffix) to form the (action-types) automatically by the redux-toolkit:
+
     // [V.IMP]:later these (keys) or (action-names) also gonna be used as the (action-creator-functions) names automatically by the redux-toolkit:
     // -> Redux Toolkit automatically creates action-types and action-creator-functions based on these (keys) or (action-names):
 
@@ -62,12 +64,19 @@ const todoSlice = createSlice({
     // -> IMP: [action-type] = will be:(todo/add):With in action-type we gonna use the (name) property of the createSlice-function (object) as a (prefix) and the (key) as a (suffix) to form the (action-type):and between both we gonna use the (/) slash-operator to form the (action-type):
     // -> [Slash-operator] = slash (/) is a naming convention in Redux to create a (space) between (names) for action-types:so that they did not conflict with each other and with other slices action-types:it is created by the (createSlice-function) automatically:
 
-    // -> IMP: [action-creator-function] = will be:(todo.add):With in action-creator-function we gonna use the (name) property of the createSlice-function (object) as a (prefix) and the (key) as a (suffix) to form the (action-creator-function):and between both we gonna use the (.) dot-operator to form the (action-creator-function):
+    // -> IMP: [action-creator-function] = will be:(todo.add):With in action-creator-function we gonna use the (name) property of the createSlice-function (object) as a (prefix) and the (key) as a (suffix) to form the (action-creator-function):and between both we gonna use the (.) dot-operator to form or access the (action-creator-function):
     // -> The dot (.) operator is used for object property access in JavaScript.
     // -> [createSlice().actions] = is an (object) where each (action-creator-function) is stored as a (property):it is created by the (createSlice-function) automatically:The (action-creator-functions) have the same names as the keys of the (reducer-functions):
     // V.IMP:that's why we are using the (.) dot-operator to access the (action-creator-function) with the same name as the (key):
 
-    add: (state, action) => {},
+  
+
+    add: (state, action) => {
+      
+    },
+
+
+
   },
 });
 
