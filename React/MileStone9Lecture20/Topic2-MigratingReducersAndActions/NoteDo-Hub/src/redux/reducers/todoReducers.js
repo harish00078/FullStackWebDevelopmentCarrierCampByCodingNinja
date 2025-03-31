@@ -77,8 +77,13 @@ const todoSlice = createSlice({
       // -> It is the only property we have with in the action-creator-functions of redux-toolkit:
       // Example:if we have a action-creator-function as (todo.add):then the (payload) or (Data) of the action-argument will be stored in the (action.payload) property:
       // And this how we gonna access the (payload) or (Data) of the action-argument:
-      // IMP: [action.payload.text] = is the (text) of the action:
-      // IMP: [action.payload.completed] = is the (completed) of the action:
+      // IMP-NOTE: we did not have to (define) the (payload) or (Data) of the action-argument:we just have to (access) it:so for that we simply gonna pass or use the (payload) argument:with in which we are basically have the (Data) of the action-argument:
+      // IMP: [action.payload] = is the (text) of the action:we did not have to (define) that we just have to (access) it:
+      // IMP: [action.payload] = is the (completed) of the action:we did not have to (define) that we just have to (access) it:
+      state.todos.push({
+        text:action.payload,
+        completed:false,
+      })
       
       
     },
