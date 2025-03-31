@@ -85,6 +85,14 @@ const todoSlice = createSlice({
       
       
     },
+    toggle:(state,action)=>{
+      state.todos.map((todo,index)=>{
+        if(index===action.payload){
+          todo.completed=!todo.completed
+        }
+        return todo;
+      })
+    }
 
 
 
