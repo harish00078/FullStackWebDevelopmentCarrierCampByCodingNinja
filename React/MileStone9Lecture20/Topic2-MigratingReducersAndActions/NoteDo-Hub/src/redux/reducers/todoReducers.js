@@ -72,14 +72,12 @@ const todoSlice = createSlice({
   
 
     add: (state, action) => {
-      // IMP: [state] = is the (current-state) of the application:
-      // V.IMP-NOTE: [action.payload] = is the (payload) of the action:In (redux-toolkit) for accessing the (payload) or (Data) of the action-argument we have to use the (payload) property:which we have pass to us through the (action-creator-function) in the (dispatch-function):
-      // -> It is the only property we have with in the action-creator-functions of redux-toolkit:
-      // Example:if we have a action-creator-function as (todo.add):then the (payload) or (Data) of the action-argument will be stored in the (action.payload) property:
-      // And this how we gonna access the (payload) or (Data) of the action-argument:
-      // IMP-NOTE: we did not have to (define) the (payload) or (Data) of the action-argument:we just have to (access) it:so for that we simply gonna pass or use the (payload) argument:with in which we are basically have the (Data) of the action-argument:
-      // IMP: [action.payload] = is the (text) of the action:we did not have to (define) that we just have to (access) it:
-      // IMP: [action.payload] = is the (completed) of the action:we did not have to (define) that we just have to (access) it:
+      // => state parameter represents the current state of the application
+      // => action.payload contains the data which has been passed to the action-creator-function:
+      // -> In Redux-Toolkit, payload is the standard-property for passing or accessing the data:
+      // -> For example, when calling todo.add(text), the text becomes action.payload or payload:
+      // -> We don't need to define the payload structure - Redux Toolkit handles that by it self automatically:we simply have to use or access the (payload) property of the action-argument or object:
+      // -> and that action.payload or payload will contain the todo (text-string) data:
       state.todos.push({
         text:action.payload,
         completed:false,
