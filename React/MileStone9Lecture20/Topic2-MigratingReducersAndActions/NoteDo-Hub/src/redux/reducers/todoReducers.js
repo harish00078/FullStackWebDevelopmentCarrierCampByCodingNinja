@@ -51,7 +51,7 @@ const todoSlice = createSlice({
   reducers: {
 
     // IMP-NOTE:we create the reducer-functions as key-value pairs:because we are creating them inside the reducers-object:
-    // [V.IMP]: The keys in the reducers object represent action-names (like 'add', 'toggle', etc).
+    // [V.IMP]: The keys in the reducers object represent action-names or reducer-names(like 'add', 'toggle', etc).
     // Each key connects to a (reducer-function) as their (value):and that (reducer-function) basically handles and performs that specific-action:on the (state) of the application to update the (state):
     // [V.IMP]: which gonna be get combined with the (name) property of the createSlice-function (object) as a (suffix) to form the (action-types) automatically by the redux-toolkit:
 
