@@ -1,5 +1,5 @@
 // Import Actions:
-// import { ADD_NOTE, DELETE_NOTE } from "../actions/noteActions";
+import { ADD_NOTE, DELETE_NOTE } from "../actions/noteActions";
 
 // Defining Initial-State:
 const initialState = {
