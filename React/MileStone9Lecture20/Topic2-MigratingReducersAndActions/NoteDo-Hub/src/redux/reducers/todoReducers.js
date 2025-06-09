@@ -1,9 +1,10 @@
 // IMP:while we are migrating the reducers and actions:from redux to redux-toolkit:
 
-// [First-Part]:
-// -> we did not have to import the (actions) from the actions-file into the reducer-file:
+// [First-Part]:Importing the Action Types:when we are simply working with the (redux) architecture:
+// we need to import the action types into the reducer file so that the reducer can identify which action was dispatched by the user and update the state accordingly. These action types are usually defined in a separate file to keep the code organized and consistent between the action creators and reducers.
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
+
 
 // IMP: we have to import the (createSlice) function from the redux-toolkit:through which we gonna create the reducer and actions:
 import { createSlice } from "@reduxjs/toolkit";
@@ -102,8 +103,8 @@ const todoSlice = createSlice({
 
 
 
-// [Second-Part]:
-// IMP:we also have to remove the (reducer):while we are migrating the reducers and actions:from redux to redux-toolkit:
+// [Second-Part]:We also have to remove the (reducer) of (redux-architecture): while we are migrating from redux to redux-toolkit:because the reducer of redux-architecture does not work with the (redux-toolkit) architecture:
+
 // export function todoReducer(state = initialState, action) {
 //   switch (action.type) {
 //     case ADD_TODO:
