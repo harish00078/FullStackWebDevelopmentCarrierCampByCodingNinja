@@ -1,7 +1,7 @@
 // IMP:while we are migrating the reducers and actions:from redux to redux-toolkit:
 
-// [First-Part]:Importing the Action Types:when we are simply working with the (redux) architecture:
-// we need to import the action types into the reducer file so that the reducer can identify which action was dispatched by the user and update the state accordingly. These action types are usually defined in a separate file to keep the code organized and consistent between the action creators and reducers.
+// [First-Part]:Remove the Importing of Action-Types from the actions-folder:
+// we have import the action types into the reducer file so that the reducer can identify which action was dispatched by the user and update the state accordingly. These action types are usually defined in a separate file to keep the code organized and consistent between the action creators and reducers:
 
 // import { ADD_TODO, TOGGLE_TODO } from "../actions/todoActions";
 
